@@ -34,3 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+dvelasquez_motion_venv
+dvelasquez_motion_venv/*
