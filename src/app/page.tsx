@@ -1,3 +1,5 @@
+import { client } from "@/utils/sanity/client"
+
 
 export default function Home() {
   return (
