@@ -14,6 +14,11 @@ const pageTitle = {
       name: 'text',
       type: 'string',
       title: 'text'
+    },
+    {
+      name: 'subText',
+      type: 'string',
+      title: 'Sub Text'
     }
   ]
 }
