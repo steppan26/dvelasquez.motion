@@ -11,7 +11,15 @@
 
 import { NextStudio } from 'next-sanity/studio'
 import config from '../../../../sanity.config'
+import Head from 'next/head'
 
 export default function StudioPage() {
-  return <NextStudio config={config} />
+  return (
+    <>
+      <Head>
+        <title>Admin.Velasquez</title>
+      </Head>
+      <NextStudio config={config} />
+    </>
+  )
 }

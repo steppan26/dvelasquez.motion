@@ -2,6 +2,7 @@ import { ITheme, darkTheme, lightTheme } from "@/Assets"
 import Head from "next/head"
 import { useMemo, useState } from "react"
 import { ThemeProvider, createGlobalStyle } from "styled-components"
+import favicon from '@/Assets/favicon.png'
 
 
 type ColorScheme = 'light' | 'dark'
@@ -15,7 +16,7 @@ export const Theming:React.FC<any> = ({ children }) => {
     <>
     <Head>
       <title>D.Velasquez</title>
-      {/* <link rel='icon' href={} /> */}
+      <link rel='icon' href={favicon.src} />
     </Head>
     <ThemeProvider theme={currentTheme}>
       <GlobalStyle />
