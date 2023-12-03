@@ -1,14 +1,14 @@
-import type { SchemaTypeDefinition } from "sanity"
+import { SchemaTypeDefinition } from "sanity"
 
-const pageTitle = {
-  name: 'pageTitle',
+const pageTitle: SchemaTypeDefinition = {
   type: 'document',
+  name: 'pageTitle',
   title: 'Page Title',
   fields: [
     {
       name: 'component_name',
       type: 'string',
-      title: 'Component Name'
+      title: 'Admin Name'
     },
     {
       name: 'text',

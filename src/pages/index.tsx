@@ -1,4 +1,5 @@
 import { client } from "@/Utils/sanity/client"
+import { getNavData } from "@/Utils/sanity/commands"
 import { PageTitle } from '@/Utils/sanity/types'
 
 interface Props {
@@ -19,10 +20,13 @@ export default function Home(props: Props) {
 }
 
 export const getStaticProps = async () => {
-  const pageTitle = await client.fetch<PageTitle>(`*[_type == "pageTitle"]`)
-
+  const [navbarData, pageTitle] = await Promise.all([
+    getNavData(),
+    client.fetch<PageTitle>(`*[_type == "pageTitle"]`)
+  ])
   return({
     props: {
+      navbarData,
       pageTitle
     },
     revalidate: 5

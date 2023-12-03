@@ -41,7 +41,14 @@ const GlobalStyle = createGlobalStyle<{}>`
     --font-text-family: roboto, sans-serif;
     --font-text-font-weight: 300;
     --font-text-color: var(--clr-text-main);
+
+    background-color: var(--clr-bg-main);
   }
+
+  body {
+    background-color: var(--clr-bg-main);
+  }
+
   a {
     position: relative;
     appearance: none;
@@ -80,6 +87,7 @@ const GlobalStyle = createGlobalStyle<{}>`
     font-family: var(--font-title-family);
     font-weight: var(--font-title-font-weight);
     line-height: 50px;
+    background-color: transparent;
   }
 
 `

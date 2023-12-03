@@ -15,10 +15,10 @@ interface IThemeBase {
 }
 
 export const lightTheme: ITheme = {
-  textPrimary: '',
-  textSecondary: '',
-  backgroundPrimary: '',
-  backgroundSecondary: '',
+  textPrimary: '#081218',
+  textSecondary: '#e40a5a',
+  backgroundPrimary: '#fdfdf5',
+  backgroundSecondary: '#e40a5a',
   btnPrimaryText: '',
   btnPrimaryBg: '',
   btnSecondaryText: '',
