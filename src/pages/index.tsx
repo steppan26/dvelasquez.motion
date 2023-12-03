@@ -1,5 +1,5 @@
-import { client } from "@/utils/sanity/client"
-import { PageTitle } from '@/utils/sanity/types'
+import { client } from "@/Utils/sanity/client"
+import { PageTitle } from '@/Utils/sanity/types'
 
 interface Props {
   pageTitle: PageTitle[]
