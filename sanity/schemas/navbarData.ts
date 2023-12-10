@@ -1,15 +1,10 @@
-import type { SchemaTypeDefinition } from "sanity"
+import { defineType } from "sanity"
 
-const navbarData: SchemaTypeDefinition = {
-  name: 'navbarData',
+const navbarData = defineType({
+  name: 'navbar_data',
   type: 'document',
   title: 'Navigation Data',
   fields: [
-    {
-      name: 'component_name',
-      type: 'string',
-      title: 'Admin Name'
-    },
     {
       name: 'headerText',
       type: 'string',
@@ -22,16 +17,23 @@ const navbarData: SchemaTypeDefinition = {
     },
     {
       name: 'logo',
-      type: 'image',
+      type: 'reference',
       title: 'logo',
+      to: [{ type: 'accessibleImage' }]
     },
     {
-      name: 'logoAlt',
-      type: 'string',
-      title: 'logo alt',
-    },
-
+      name: 'nav_links',
+      type: 'array',
+      title: 'Navigation Links',
+      of: [
+        {
+          type: 'reference',
+          to: { type: 'nav_link' }
+        }
+      ],
+      validation: Rule => Rule.max(5)
+    }
   ]
-}
+})
 
 export default navbarData

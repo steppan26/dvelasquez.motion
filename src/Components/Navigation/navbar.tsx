@@ -4,7 +4,6 @@ import Image from "next/image"
 import styled from "styled-components"
 
 export const Navbar:React.FC<{navbarData: NavbarInterface}> = ({ navbarData }) => {
-
   if(!!navbarData)
     return(
       <Nav backgroundColor={navbarData.backgroundColor}>

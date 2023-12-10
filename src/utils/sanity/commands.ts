@@ -5,7 +5,7 @@ export const getNavData = async () => await client.fetch<NavbarInterface>(`*[_ty
   headerText,
   backgroundColor,
   "logo": {
-    "imageUrl": logo.asset->url,
-    "alt": logoAlt
+    "imageUrl": logo.image.asset->url,
+    "alt": logo.alt
   }
 }`)

@@ -1,6 +1,6 @@
-import { SchemaTypeDefinition } from "sanity"
+import { SchemaTypeDefinition, defineType } from "sanity"
 
-const pageTitle: SchemaTypeDefinition = {
+const pageTitle = defineType({
   type: 'document',
   name: 'pageTitle',
   title: 'Page Title',
@@ -21,6 +21,6 @@ const pageTitle: SchemaTypeDefinition = {
       title: 'Sub Text'
     }
   ]
-}
+})
 
 export default pageTitle
