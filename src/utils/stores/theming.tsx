@@ -17,6 +17,7 @@ export const Theming:React.FC<any> = ({ children }) => {
     <Head>
       <title>D.Velasquez</title>
       <link rel='icon' href={favicon.src} />
+      <link rel="stylesheet" href="https://use.typekit.net/ojg6bke.css" />
     </Head>
     <ThemeProvider theme={currentTheme}>
       <GlobalStyle />
@@ -35,10 +36,9 @@ const GlobalStyle = createGlobalStyle<{}>`
     --clr-bg-main: ${p => (p.theme as ITheme).backgroundPrimary};
     --clr-bg-secondary: ${p => (p.theme as ITheme).backgroundSecondary};
 
-    --font-title-family: arial, sans-serif;
+    --font-family: 'neusa-next-std-wide', 'Neusa Next Std' ,arial, sans-serif;
     --font-title-font-weight: 600;
     --font-title-color: var(--clr-text-main);
-    --font-text-family: roboto, sans-serif;
     --font-text-font-weight: 300;
     --font-text-color: var(--clr-text-main);
 
@@ -47,6 +47,9 @@ const GlobalStyle = createGlobalStyle<{}>`
 
   body {
     background-color: var(--clr-bg-main);
+    font-family: var(--font-text-family);
+    font-weight: var(--font-text-font-weight);
+
   }
 
   a {
@@ -84,9 +87,8 @@ const GlobalStyle = createGlobalStyle<{}>`
   h4,
   h5,
   h6 {
-    font-family: var(--font-title-family);
+    font-family: var(--font-family);
     font-weight: var(--font-title-font-weight);
-    line-height: 50px;
     background-color: transparent;
   }
 

@@ -1,3 +1,4 @@
+import { Landing } from "@/Containers"
 import { client } from "@/Utils/sanity/client"
 import { getNavData } from "@/Utils/sanity/commands"
 import { PageTitle } from '@/Utils/sanity/types'
@@ -11,10 +12,7 @@ export default function Home(props: Props) {
 
   return (
     <>
-    <h1 className="fw-thin text-danger text-center mt-4">
-      {pageHeader.text}
-      <small className='text-body-secondary ms-2 fs-3 fw-light'>{pageHeader.subText}</small>
-      </h1>
+    <Landing />
     </>
   )
 }

@@ -2,6 +2,7 @@ export interface ITheme extends IThemeBase {}
 
 interface IThemeBase {
   textPrimary: string
+  textHeader: string
   textSecondary: string
   backgroundPrimary: string
   backgroundSecondary: string
@@ -17,8 +18,9 @@ interface IThemeBase {
 export const lightTheme: ITheme = {
   textPrimary: '#081218',
   textSecondary: '#e40a5a',
+  textHeader: '#370031',
   backgroundPrimary: '#fdfdf5',
-  backgroundSecondary: '#e40a5a',
+  backgroundSecondary: '#CE0852',
   btnPrimaryText: '',
   btnPrimaryBg: '',
   btnSecondaryText: '',
@@ -31,6 +33,7 @@ export const lightTheme: ITheme = {
 export const darkTheme: ITheme = {
   textPrimary: '',
   textSecondary: '',
+  textHeader: '',
   backgroundPrimary: '',
   backgroundSecondary: '',
   btnPrimaryText: '',
