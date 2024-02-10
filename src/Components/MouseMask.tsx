@@ -1,5 +1,5 @@
 import { useMousePosition } from "@/Utils/hooks"
-import { animated, useSpring } from "@react-spring/web"
+import { UseSpringProps, animated, useSpring } from "@react-spring/web"
 import { motion } from "framer-motion"
 import { CSSProperties, RefObject, useEffect, useMemo, useRef, useState } from "react"
 import styled from "styled-components"
@@ -12,9 +12,16 @@ interface Props {
 export const MouseMask:React.FC<Props> = ({ children, containerRef }) => {
   const maskRef = useRef<HTMLDivElement>(null)
   const sceneRef = useRef<HTMLDivElement>(null)
-  const [transform, setTransform] = useState<CSSProperties['transform']>()
   const mousePosition = useMousePosition()
-  const [style, set] = useSpring(() => ({ x: 0, y: 0 }));
+  const [style, set] = useSpring(() => ({
+    x: 0,
+    y: 0,
+    config: {
+      damping: 10,
+      mass: 1.5,
+      velocity: 20,
+    }
+  }))
 
   const maskPosition = useMemo(() => {
     const element = sceneRef.current
@@ -28,8 +35,6 @@ export const MouseMask:React.FC<Props> = ({ children, containerRef }) => {
     }
   }, [mousePosition])
 
-  useEffect(() => console.info("X", style), [style])
-
   useEffect(() => {
     set({ x: maskPosition?.x, y: maskPosition?.y })
   }, [maskPosition, set])
@@ -37,11 +42,9 @@ export const MouseMask:React.FC<Props> = ({ children, containerRef }) => {
   return(
     <Scene ref={sceneRef}>
       <Mask
-      className="oval shape"
+      className="circle shape"
       ref={maskRef}
       style={style}
-      // animate={{ left: maskPosition?.x, top: maskPosition?.y }}
-      // transition={{ type: "spring", stiffness: 400, damping: 200 }}
       />
       {children}
     </Scene>
@@ -70,12 +73,13 @@ const Mask = styled(animated.div)`
       left: 50%;
       top: 50%;
       transform: translateY(-50%) translateX(-50%);
+      box-shadow: 0 0 0 200vw var(--clr-background);
     }
   }
 
-  &.oval {
-    width: 70vw;
-    height: 70vh;
+  &.circle {
+    height: 110dvh;
+    width: 110dvh;
 
     &::after {
       left: 50%;
@@ -83,6 +87,22 @@ const Mask = styled(animated.div)`
       border-radius: 80%;
       width: 100%;
       height: 100%;
+      box-shadow: 0 0 0 200vw var(--clr-background);
+      backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
+  }
+
+  &.diamond {
+    width: 80vh;
+    height: 80vh;
+
+    &::after {
+      left: 50%;
+      top: 50%;
+      width: 100%;
+      height: 100%;
+      transform: translateY(-50%) translateX(-50%) rotate(45deg);
       box-shadow: 0 0 0 200vw var(--clr-background);
       backface-visibility: hidden;
         -webkit-backface-visibility: hidden;

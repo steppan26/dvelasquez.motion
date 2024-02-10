@@ -36,7 +36,7 @@ const GlobalStyle = createGlobalStyle<{}>`
     --clr-bg-main: ${p => (p.theme as ITheme).backgroundPrimary};
     --clr-bg-secondary: ${p => (p.theme as ITheme).backgroundSecondary};
 
-    --font-family: 'neusa-next-std-wide', 'Neusa Next Std' ,arial, sans-serif;
+    --font-family: 'neusa-next-std', 'neusa-next-std-wide', sans-serif;
     --font-title-font-weight: 600;
     --font-title-color: var(--clr-text-main);
     --font-text-font-weight: 300;
