@@ -13,6 +13,7 @@ module.exports = {
     ]
   },
   reactStrictMode: false,
+  compiler: { styledComponents: {"ssr": true} },
   webpack: config => {
     config.watchOptions = {
       poll: 1000,
