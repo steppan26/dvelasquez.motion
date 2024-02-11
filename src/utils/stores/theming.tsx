@@ -81,6 +81,12 @@ const GlobalStyle = createGlobalStyle<{}>`
       border-radius: var(--border-radius) !important;
     }
   }
+
+  * {
+    font-family: var(--font-family);
+    font-weight: var(--font-text-font-weight);
+  }
+
   h1,
   h2,
   h3,

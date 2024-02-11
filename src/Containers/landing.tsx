@@ -4,11 +4,9 @@ import { PrimaryTitle } from "@/Components/styledComponents"
 import { MouseMask } from "@/Components"
 
 export const Landing:React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null)
-
   return(
-    <Container ref={containerRef} >
-      <MouseMask containerRef={containerRef}>
+    <Container>
+      <MouseMask>
         <TextWrapper>
           <PrimaryTitle>Art Direction</PrimaryTitle>
           <PrimaryTitle>Brand Design</PrimaryTitle>

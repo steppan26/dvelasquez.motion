@@ -16,16 +16,13 @@ export const Navbar:React.FC<{navbarData: NavbarInterface}> = ({ navbarData }) =
 }
 
 const Nav = styled.nav<{backgroundColor: string}>`
-  position: sticky;
+  z-index: 999;
+  position: fixed;
     top: 0;
-  display: grid;
-    grid-template-columns: 300px 1fr;
-    grid-gap: 3rem;
-    align-content: center;
-    justify-items: start;
+  display: flex;
+    justify-content: space-between;
+    align-content: flex-start;
   width: 100dvw;
-  height: 120px;
-  background-color: ${p => p.backgroundColor || 'var(--clr-bg-secondary)'};
 `
 
 const HeaderText = styled(TitlePrimary)`

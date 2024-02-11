@@ -6,10 +6,9 @@ import styled from "styled-components"
 
 interface Props {
   children?: React.ReactNode
-  containerRef: RefObject<HTMLElement>
 }
 
-export const MouseMask:React.FC<Props> = ({ children, containerRef }) => {
+export const MouseMask:React.FC<Props> = ({ children }) => {
   const maskRef = useRef<HTMLDivElement>(null)
   const sceneRef = useRef<HTMLDivElement>(null)
   const mousePosition = useMousePosition()
