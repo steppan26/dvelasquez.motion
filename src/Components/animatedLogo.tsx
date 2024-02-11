@@ -5,14 +5,6 @@ export const AnimatedLogo:React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
-  // useEffect(() => {
-  //   if(typeof window == 'undefined') return
-
-  //   const timeout = setTimeout(() => playVideo(), 400)
-  //   return () => clearTimeout(timeout)
-  // }, [])
-
-
   const handleVideoHover = () => {
     if (!isPlaying && !!videoRef.current) {
       playVideo()
