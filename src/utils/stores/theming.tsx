@@ -1,8 +1,8 @@
-import { ITheme, darkTheme, lightTheme } from "@/Assets"
 import Head from "next/head"
 import { useMemo, useState } from "react"
 import { ThemeProvider, createGlobalStyle } from "styled-components"
-import favicon from '@/Assets/favicon.png'
+import favicon from '../../Assets/favicon.png'
+import { type ITheme, darkTheme, lightTheme } from "../../Assets"
 
 
 type ColorScheme = 'light' | 'dark'

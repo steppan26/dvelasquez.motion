@@ -1,8 +1,7 @@
-import { useMousePosition } from "@/Utils/hooks"
-import { UseSpringProps, animated, useSpring } from "@react-spring/web"
-import { motion } from "framer-motion"
-import { CSSProperties, RefObject, useEffect, useMemo, useRef, useState } from "react"
 import styled from "styled-components"
+import { useEffect, useMemo, useRef } from "react"
+import { useMousePosition } from "../Utils/hooks"
+import { animated, useSpring } from "@react-spring/web"
 
 interface Props {
   children?: React.ReactNode

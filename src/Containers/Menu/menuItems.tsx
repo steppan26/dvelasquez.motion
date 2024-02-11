@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import { UseTrailProps, animated, useTrail } from "react-spring"
 import styled from "styled-components"
 

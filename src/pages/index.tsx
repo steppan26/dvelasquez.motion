@@ -1,7 +1,7 @@
-import { Landing } from "@/Containers"
-import { client } from "@/Utils/sanity/client"
-import { getNavData } from "@/Utils/sanity/commands"
-import { PageTitle } from '@/Utils/sanity/types'
+import { Landing } from "../Containers"
+import { client } from "../Utils/sanity/client"
+import { getNavData } from "../Utils/sanity/commands"
+import { PageTitle } from '../Utils/sanity/types'
 
 interface Props {
   pageTitle: PageTitle[]

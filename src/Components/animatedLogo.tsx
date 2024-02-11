@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 export const AnimatedLogo:React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false)

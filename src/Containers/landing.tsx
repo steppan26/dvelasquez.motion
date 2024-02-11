@@ -1,7 +1,6 @@
-import { useRef } from "react"
 import styled from "styled-components"
-import { PrimaryTitle } from "@/Components/styledComponents"
-import { MouseMask } from "@/Components"
+import { MouseMask } from "../Components"
+import { PrimaryTitle } from "../Components/styledComponents"
 
 export const Landing:React.FC = () => {
   return(

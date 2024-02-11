@@ -1,4 +1,4 @@
-import { client } from "@/Utils/sanity/client"
+import { client } from "./client"
 import { NavbarInterface } from "./types"
 
 export const getNavData = async () => await client.fetch<NavbarInterface>(`*[_type == 'navbarData'][0]{
