@@ -1,9 +1,15 @@
 import styled from "styled-components"
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const AnimatedLogo:React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const timeout = setTimeout(() => playVideo(), 2000)
+
+    return () => clearTimeout(timeout)
+  }, [])
 
   const handleVideoHover = () => {
     if (!isPlaying && !!videoRef.current) {
@@ -14,6 +20,7 @@ export const AnimatedLogo:React.FC = () => {
   const playVideo = () => {
     if(!videoRef.current) return
 
+    console.info('playing video')
     setIsPlaying(true)
     videoRef.current.currentTime = 0
     videoRef.current.play()
@@ -31,6 +38,7 @@ export const AnimatedLogo:React.FC = () => {
         onMouseEnter={handleVideoHover}
         onMouseLeave={handleVideoExit}
         autoPlay
+        muted
         style={{ display: 'block', width: '100%' }}
       >
         <source src="/Logo-Animation-Brush.webm" type="video/webm" />
