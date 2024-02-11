@@ -1,4 +1,4 @@
-import { DocumentListInput, StructureBuilder } from "sanity/desk";
+import { StructureBuilder } from "sanity/desk";
 
 export const singletonTypes = new Set(["site_settings", "navbar_data", "other_documents"])
 
