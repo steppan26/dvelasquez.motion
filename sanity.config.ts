@@ -3,7 +3,7 @@ import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 import {apiVersion, dataset, projectId} from './sanity/env'
 import { schemaTypes } from './sanity/schemas'
-// import { singletonTypes, structure } from './src/Utils/sanity/deskStructure'
+// import { singletonTypes, structure } from './src/utils/sanity/deskStructure'
 
 export const singletonActions = new Set(["publish", "discardChanges", "restore"])
 

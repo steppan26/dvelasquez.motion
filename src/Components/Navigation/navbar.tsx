@@ -1,6 +1,6 @@
 import Image from "next/image"
 import styled from "styled-components"
-import type { NavbarInterface } from "../../Utils/sanity/types"
+import type { NavbarInterface } from "../../utils/sanity/types"
 import { TitlePrimary } from "../../Assets/UIComponents"
 
 export const Navbar:React.FC<{navbarData: NavbarInterface}> = ({ navbarData }) => {

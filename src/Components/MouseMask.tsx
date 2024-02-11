@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { useEffect, useMemo, useRef } from "react"
-import { useMousePosition } from "../Utils/hooks"
+import { useMousePosition } from "../utils/hooks"
 import { animated, useSpring } from "@react-spring/web"
 
 interface Props {
