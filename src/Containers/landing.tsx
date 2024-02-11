@@ -1,15 +1,16 @@
 import styled from "styled-components"
 import { MouseMask } from "../Components"
 import { PrimaryTitle } from "../Components/styledComponents"
+import { Sizes } from "../Assets"
 
 export const Landing:React.FC = () => {
   return(
     <Container>
       <MouseMask>
         <TextWrapper>
-          <PrimaryTitle>Art Direction</PrimaryTitle>
-          <PrimaryTitle>Brand Design</PrimaryTitle>
-          <PrimaryTitle>Motion Design</PrimaryTitle>
+          <span>Art Direction</span>
+          <span>Brand Design</span>
+          <span>Motion Design</span>
         </TextWrapper>
       </MouseMask>
     </Container>
@@ -28,7 +29,7 @@ const Container = styled.article`
   overflow: hidden;
 `
 
-const TextWrapper = styled.div`
+const TextWrapper = styled(PrimaryTitle)`
   cursor: default;
   z-index: 9;
   position: absolute;
@@ -41,4 +42,8 @@ const TextWrapper = styled.div`
   width: 100%;
   height: 100%;
   padding: 0 40px;
+
+  @media (max-width: ${Sizes.small}) {
+    font-size: 2.5rem;
+  }
 `

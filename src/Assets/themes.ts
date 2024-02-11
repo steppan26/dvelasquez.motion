@@ -44,3 +44,9 @@ export const darkTheme: ITheme = {
   grey: '',
   black: '',
 }
+
+export const Sizes = {
+  medium: '900px',
+  small: '650px',
+  xs: '400px'
+}

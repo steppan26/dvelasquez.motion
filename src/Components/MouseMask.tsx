@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { useEffect, useMemo, useRef } from "react"
 import { useMousePosition } from "../utils/hooks"
 import { animated, useSpring } from "@react-spring/web"
+import { Sizes } from "../Assets"
 
 interface Props {
   children?: React.ReactNode
@@ -40,7 +41,7 @@ export const MouseMask:React.FC<Props> = ({ children }) => {
   return(
     <Scene ref={sceneRef}>
       <Mask
-      className="circle shape"
+      className="diamond shape"
       ref={maskRef}
       style={style}
       />
@@ -105,6 +106,10 @@ const Mask = styled(animated.div)`
       backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
     }
+  }
+
+  @media (max-width: ${Sizes.small}) {
+    display: none;
   }
 `
 
