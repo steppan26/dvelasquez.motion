@@ -41,7 +41,7 @@ export const MouseMask:React.FC<Props> = ({ children }) => {
   return(
     <Scene ref={sceneRef}>
       <Mask
-      className="diamond shape"
+      className="circle shape"
       ref={maskRef}
       style={style}
       />
@@ -74,6 +74,10 @@ const Mask = styled(animated.div)`
       transform: translateY(-50%) translateX(-50%);
       box-shadow: 0 0 0 200vw var(--clr-background);
     }
+
+    @media (max-width: ${Sizes.small}) {
+      position: relative;
+    }
   }
 
   &.circle {
@@ -89,6 +93,11 @@ const Mask = styled(animated.div)`
       box-shadow: 0 0 0 200vw var(--clr-background);
       backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
+    }
+
+    @media (max-width: ${Sizes.small}) {
+      height: 80dvw;
+      width: 80dvw;
     }
   }
 
@@ -106,10 +115,11 @@ const Mask = styled(animated.div)`
       backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
     }
-  }
 
-  @media (max-width: ${Sizes.small}) {
-    display: none;
+    @media (max-width: ${Sizes.small}) {
+      width: 80vw;
+      height: 80vw;
+    }
   }
 `
 
@@ -126,4 +136,12 @@ const Scene = styled.div`
   height: 100%;
   width: 100%;
   background-color: var(--clr-shape);
+
+  @media (max-width: ${Sizes.small}) {
+    display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    padding-top: 3rem;
+  }
 `

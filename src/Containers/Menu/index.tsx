@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components"
 import { MenuItems } from "./menuItems";
 import { ToggleButton } from "./toggleButton";
+import { Sizes } from "../../Assets";
 
 export const Menu:React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -25,4 +26,10 @@ const Nav = styled.nav`
     justify-content: center;
     align-items: center;
     gap: 10px;
+
+  @media (max-width: ${Sizes.small}) {
+    top: 1rem;
+    right: 1rem;
+    gap: 5px;
+  }
 `

@@ -1,5 +1,6 @@
 import { UseTrailProps, animated, useTrail } from "react-spring"
 import styled from "styled-components"
+import { Sizes } from "../../Assets"
 
 interface MenuItem {
   text: string
@@ -80,4 +81,8 @@ const MenuContainer = styled.div`
   width: max-content;
   margin-right: 1rem;
   padding-inline: 2rem 0.5rem;
+
+  @media (max-width: ${Sizes.small}) {
+    margin-right: 0.5rem;
+  }
 `

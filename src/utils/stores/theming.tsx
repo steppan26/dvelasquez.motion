@@ -2,7 +2,7 @@ import Head from "next/head"
 import { useMemo, useState } from "react"
 import { ThemeProvider, createGlobalStyle } from "styled-components"
 import favicon from '../../Assets/favicon.png'
-import { type ITheme, darkTheme, lightTheme } from "../../Assets"
+import { type ITheme, darkTheme, lightTheme, Sizes } from "../../Assets"
 
 
 type ColorScheme = 'light' | 'dark'
@@ -43,6 +43,10 @@ const GlobalStyle = createGlobalStyle<{}>`
     --font-text-color: var(--clr-text-main);
 
     background-color: var(--clr-bg-main);
+
+    @media (max-width: ${Sizes.small}) {
+      font-size: 14px;
+    }
   }
 
   body {

@@ -59,17 +59,19 @@ export const AnimatedLogo:React.FC = () => {
 }
 
 const Wrapper = styled.div`
+  --logo-size: 135px;
+
   z-index: 999;
   position: fixed;
     top: 2rem;
     left: 1.75rem;
   padding-block: 1rem;
-  width: 135px;
+  width: var(--logo-size);
 `
 
 const AnimatedGif = styled.div`
-  width: 135px;
-  height: 48px;
+  width: var(--logo-size);
+  height: calc(var(--logo-size) * 0,35555556);
   background-image: url("/Logo Animation Brush.gif");
   background-size: contain;
   background-position: center;

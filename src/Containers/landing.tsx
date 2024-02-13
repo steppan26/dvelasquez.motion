@@ -1,17 +1,29 @@
 import styled from "styled-components"
-import { MouseMask } from "../Components"
+import { BouncingArrow, MouseMask } from "../Components"
 import { PrimaryTitle } from "../Components/styledComponents"
 import { Sizes } from "../Assets"
+import { useIsMobileView } from "../utils/hooks"
+import { LandingMobile } from "."
+import { useEffect, useState } from "react"
+import Image from "next/image"
+import { useSpring } from "react-spring"
 
 export const Landing:React.FC = () => {
+  const { isMobileView } = useIsMobileView()
+
+  if(isMobileView) return <LandingMobile />
+
   return(
     <Container>
       <MouseMask>
-        <TextWrapper>
-          <span>Art Direction</span>
-          <span>Brand Design</span>
-          <span>Motion Design</span>
-        </TextWrapper>
+          <Container>
+          <TextWrapper>
+            <span>Art Direction</span>
+            <span>Brand Design</span>
+            <span>Motion Design</span>
+          </TextWrapper>
+          <BouncingArrow />
+        </Container>
       </MouseMask>
     </Container>
   )
