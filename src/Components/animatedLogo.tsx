@@ -1,14 +1,20 @@
 import styled from "styled-components"
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { supportsHEVCAlpha } from "../Utils/helpers";
 
 export const AnimatedLogo:React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
+  const wrapperRef = useRef<HTMLDivElement>(null)
+  const [displayVideo, setDisplayVideo] = useState(true)
 
   useEffect(() => {
-    const timeout = setTimeout(() => playVideo(), 2000)
+    if(typeof window == 'undefined' || !wrapperRef.current) return
 
-    return () => clearTimeout(timeout)
+    if(supportsHEVCAlpha()) {
+      setDisplayVideo(false)
+    }
   }, [])
 
   const handleVideoHover = () => {
@@ -20,7 +26,6 @@ export const AnimatedLogo:React.FC = () => {
   const playVideo = () => {
     if(!videoRef.current) return
 
-    console.info('playing video')
     setIsPlaying(true)
     videoRef.current.currentTime = 0
     videoRef.current.play()
@@ -31,18 +36,24 @@ export const AnimatedLogo:React.FC = () => {
   }
 
   return(
-    <Wrapper>
-      <video
-        ref={videoRef}
-        id="animationVideo"
-        onMouseEnter={handleVideoHover}
-        onMouseLeave={handleVideoExit}
-        autoPlay
-        muted
-        style={{ display: 'block', width: '100%' }}
-      >
-        <source src="/Logo-Animation-Brush.webm" type="video/webm" />
-      </video>
+    <Wrapper ref={wrapperRef}>
+      {displayVideo
+      ? <video
+          ref={videoRef}
+          id="animationVideo"
+          onMouseEnter={handleVideoHover}
+          onMouseLeave={handleVideoExit}
+          autoPlay
+          muted
+          playsInline
+          disablePictureInPicture
+          preload="auto"
+          style={{ display: 'block', width: '100%' }}
+        >
+          <source src="/logo_animation_brush.webm" type="video/webm" />
+        </video>
+      : <AnimatedGif />
+      }
     </Wrapper>
   )
 }
@@ -50,11 +61,18 @@ export const AnimatedLogo:React.FC = () => {
 const Wrapper = styled.div`
   z-index: 999;
   position: fixed;
-    top: 3rem;
+    top: 2rem;
     left: 1.75rem;
+  padding-block: 1rem;
   width: 135px;
+`
 
-  video {
-    mix-blend-mode: multiply;
-  }
+const AnimatedGif = styled.div`
+  width: 135px;
+  height: 48px;
+  background-image: url("/Logo Animation Brush.gif");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation-iteration-count: 1;
 `
