@@ -13,19 +13,27 @@ export const Landing:React.FC = () => {
   return(
     <Container>
       <MouseMask>
-          <Container>
+          <Wrapper>
           <TextWrapper>
             <span>Art Direction</span>
             <span>Brand Design</span>
             <span>Motion Design</span>
           </TextWrapper>
           <BouncingArrow />
-        </Container>
+        </Wrapper>
       </MouseMask>
     </Container>
   )
 }
 
+const Wrapper = styled.div`
+  position: relative;
+  z-index: 6;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+  height: 100%;
+`
 
 
 const Container = styled.article`
@@ -40,7 +48,7 @@ const Container = styled.article`
 
 const TextWrapper = styled(PrimaryTitle)`
   cursor: default;
-  z-index: 9;
+  z-index: 20;
   position: absolute;
   display: flex;
     flex-direction: column;

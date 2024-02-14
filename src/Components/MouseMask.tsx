@@ -41,7 +41,7 @@ export const MouseMask:React.FC<Props> = ({ children }) => {
   return(
     <Scene ref={sceneRef}>
       <Mask
-      className="circle shape"
+      className="diamond shape"
       ref={maskRef}
       style={style}
       />
@@ -57,12 +57,13 @@ const Mask = styled(animated.div)`
   left: 0px;
   top: 0px;
   z-index: 8;
+  pointer-events: none;
 
   transform-style: preserve-3d;
   backface-visibility: hidden;
 
   &.shape {
-    z-index: 10;
+    z-index: 8;
     position: absolute;
     margin: 0 auto;
 
@@ -130,9 +131,8 @@ const Scene = styled.div`
   transform: translate3d(0px, 0px, 0px) rotate(0.0001deg);
   transform-style: preserve-3d;
   backface-visibility: hidden;
-  pointer-events: none;
   overflow: hidden;
-  z-index: 10;
+  z-index: 8;
   height: 100%;
   width: 100%;
   background-color: var(--clr-shape);

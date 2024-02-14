@@ -1,36 +1,41 @@
-import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
 
+const TOP = -50
+
+const BOB = {
+  from: { y: TOP - 18 },
+  to: { y: TOP },
+  config: {
+    mass: 2,
+    tension: 400,
+    friction: 15,
+    velocity: 0.2,
+    restVelocity: 0.4,
+  },
+}
 export const BouncingArrow:React.FC = () => {
-  const [isAnimating, setAnimation] = useState(false)
   const arrowRef = useRef<HTMLImageElement>(null)
 
-  useEffect(() => {
-    if(typeof window == 'undefined') return
 
-    window
-  }, [])
+  const [style, set] = useSpring(() => (BOB))
 
-  // Define the spring animation
-  const [style, set] = useSpring(() => ({
-    y: isAnimating ? 100 : 0,
-    loop: { reverse: true },
-    from: { y: 0 },
-    config: { tension: 200, friction: 20 },
-    // onRest: () => setDoubleDip(!doubleDip) // Toggle double dip effect
-  }))
-
-  const toggleAnimation = () => {
-    set({y: 100})
-    setAnimation(true)
-    setTimeout(() => {
-      set({y: 0})
-      setAnimation(false)
-    }, 500)
+  const makeBounce = (e?: any) => {
+    console.info('bounce bitch')
+    set(BOB)
   }
 
+  useEffect(() => {
+    if(typeof window == 'undefined' || !arrowRef.current) return
+
+    makeBounce()
+    const interval = setInterval(makeBounce, 3000)
+
+    return () => {
+      clearInterval(interval)
+    }
+  }, [])
 
   return(
     <>
@@ -38,10 +43,10 @@ export const BouncingArrow:React.FC = () => {
       ref={arrowRef}
       src="/arrow.svg"
       alt="arrow"
-      width={50}
-      height={100}
+      width={40}
+      height={50}
       style={style}
-      onMouseEnter={toggleAnimation}
+      onClick={makeBounce}
       />
     </>
   )
@@ -49,5 +54,7 @@ export const BouncingArrow:React.FC = () => {
 
 
 const Arrow = styled(animated.img)`
+  cursor: s-resize;
+  z-index: 10;
   align-self: end;
 `
