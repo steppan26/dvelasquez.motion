@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import { supportsHEVCAlpha } from "../Utils/helpers";
+import { supportsHEVCAlpha } from "../utils/helpers";
+
 
 export const AnimatedLogo:React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false)
