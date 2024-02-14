@@ -1,6 +1,7 @@
 import { UseTrailProps, animated, useTrail } from "react-spring"
 import styled from "styled-components"
 import { Sizes } from "../../Assets"
+import { useEffect } from "react"
 
 interface MenuItem {
   text: string
@@ -41,8 +42,8 @@ export const MenuItems:React.FC<Props> = ({ isOpen }) => {
   }
   const menuObjects = useTrail(menuData.length, {
     config,
-    from: { x: 350 },
-    to: { x: isOpen ? 0 : 350 },
+    from: { x: 350, opacity: 0 },
+    to: { x: isOpen ? 0 : 350, opacity: isOpen ? 1 : 0 },
     stagger: 260,
   }).reverse()
 
