@@ -10,20 +10,20 @@ interface MenuItem {
 
 const menuData: MenuItem[] = [
   {
-    text: "Menu 1",
+    text: "Home",
+    href: "/"
+  },
+  {
+    text: "Works",
+    href: "/works"
+  },
+  {
+    text: "About",
     href: "/about"
   },
   {
-    text: "Menu 2",
-    href: "/about"
-  },
-  {
-    text: "Menu 3",
-    href: "/about"
-  },
-  {
-    text: "Menu 4",
-    href: "/about"
+    text: "Contact",
+    href: "/contact"
   },
 ]
 
@@ -50,7 +50,7 @@ export const MenuItems:React.FC<Props> = ({ isOpen }) => {
   return(
     <MenuContainer>
       {menuObjects.map((props, index) => (
-        <Menu key={index} style={props}>
+        <Menu key={index} style={props} className={index === 0 ? 'active' : ''} >
           <p>{menuData[index].text}</p>
         </Menu>
       ))}
@@ -64,6 +64,12 @@ const Menu = styled(animated.div)`
   p {
     margin-block: 0;
     transition: cubic-bezier(0.18, 0.89, 0.32, 1.28) 800ms transform;
+  }
+
+  &.active {
+    color: ${p => p.theme.backgroundSecondary};
+    text-decoration: underline;
+    filter: brightness(1.2);
   }
 
   &:hover {
