@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { MouseEventHandler, useEffect, useRef } from "react";
 import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
 
@@ -22,7 +22,6 @@ export const BouncingArrow:React.FC = () => {
   const [style, set] = useSpring(() => (BOB))
 
   const makeBounce = (e?: any) => {
-    console.info('bounce bitch')
     set(BOB)
   }
 
@@ -37,6 +36,11 @@ export const BouncingArrow:React.FC = () => {
     }
   }, [])
 
+  const handleClick: MouseEventHandler = (e) => {
+    const main = document.querySelector('#mainContainer') as HTMLElement
+    main.scrollBy({ top: window.innerHeight, behavior: 'smooth' })
+  }
+
   return(
     <>
     <Arrow
@@ -46,7 +50,7 @@ export const BouncingArrow:React.FC = () => {
       width={40}
       height={50}
       style={style}
-      onClick={makeBounce}
+      onClick={handleClick}
       />
     </>
   )
