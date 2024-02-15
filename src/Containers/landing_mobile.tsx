@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { MouseMask } from "../Components"
+import { BouncingArrow, MouseMask } from "../Components"
 import { PrimaryTitle } from "../Components/styledComponents"
 import { Sizes } from "../Assets"
 
@@ -11,6 +11,7 @@ export const LandingMobile:React.FC = () => {
         <span>Brand Design</span>
         <span>Motion Design</span>
       </TextWrapper>
+      <BouncingArrow />
     </Container>
   )
 }
