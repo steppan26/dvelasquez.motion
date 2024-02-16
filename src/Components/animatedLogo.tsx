@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { useEffect, useRef, useState } from "react";
 //@ts-ignore
 import { supportsHEVCAlpha } from "../utils/helpers";
+import { Sizes } from "../Assets";
 
 
 export const AnimatedLogo:React.FC = () => {
@@ -70,12 +71,17 @@ const Wrapper = styled.div`
   width: max-content;
   padding-block: 1rem;
   width: var(--logo-size);
+
+  @media (max-width: ${Sizes.small}){
+    --logo-size: 90px;
+
+    top: 1rem;
+  }
 `
 
 const AnimatedGif = styled.div`
   width: var(--logo-size);
-  height: calc(var(--logo-size) * 0,35555556);
-  height: 50px;
+  height: calc(var(--logo-size) * 0.35555556);
   background-image: url("/Logo Animation Brush.gif");
   background-size: contain;
   background-position: center;
