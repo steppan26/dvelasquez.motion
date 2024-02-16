@@ -25,6 +25,8 @@ export const ShowReelSection:React.FC = () => {
 }
 
 const Container = styled.article`
+  display: flex;
+    flex-direction: column;
   max-width: 100vw;
   height: max-content;
     min-height: 100dvh;

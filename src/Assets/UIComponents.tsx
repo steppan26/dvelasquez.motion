@@ -9,7 +9,7 @@ export const TitlePrimary = styled.h2``
 
 export const TitleSecondary = styled.h4`
   text-align: left;
-  font-size: 74px;
+  font-size: 4.6rem;
   font-style: italic;
   font-weight: 400;
 
