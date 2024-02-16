@@ -1,12 +1,13 @@
 import Image from "next/image"
 import styled from "styled-components"
 import { Sizes } from "../Assets"
+import LogoImage from '/public/Logo_Animation_full.gif'
 
 export const Footer:React.FC = () => {
   return(
     <Container>
       <Logo
-      src="/public/Logo Animation text.gif"
+      src={LogoImage.src}
       alt="Main Logo"
       width={300}
       height={185}
@@ -44,7 +45,6 @@ const Container = styled.footer`
 const Logo = styled(Image)`
   height: 200px;
   width: 355px;
-  border: 1px solid grey;
 `
 
 const TextWrapper = styled.div`
