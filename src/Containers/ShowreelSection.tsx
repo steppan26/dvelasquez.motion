@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { TitleSecondary } from "../Assets/UIComponents"
-import { CTAButton, ShowReel } from "../Components"
+import { BouncingArrow, CTAButton, ShowReel } from "../Components"
 import { Sizes } from "../Assets"
 
 export const ShowReelSection:React.FC = () => {
@@ -14,16 +14,22 @@ export const ShowReelSection:React.FC = () => {
         <CTAButton />
       </InfoSection>
       <ShowReel />
+      <ProjectsEntice>
+        <ProjectsText>Handpicked projects</ProjectsText>
+        <div>
+          <BouncingArrow />
+        </div>
+      </ProjectsEntice>
     </Container>
   )
 }
 
 const Container = styled.article`
   max-width: 100vw;
+  height: max-content;
+    min-height: 100dvh;
   margin-top: 15dvh;
-  padding-top: 15dvh;
-  min-height: 100dvh;
-  padding-inline: 10%;
+  padding: 15dvh 10% 7dvh;
 
   @media (max-width: ${Sizes.small}) {
     display: flex;
@@ -41,7 +47,7 @@ const Container = styled.article`
 
 
 const Text = styled.p`
-  font-size: 1.93rem;
+  font-size: 1.75rem;
 
   span {
     color: ${p => p.theme.textSecondary};
@@ -55,15 +61,40 @@ const Text = styled.p`
 
 const InfoSection = styled.div`
   display: grid;
-    grid-template-columns: 58% 42%;
+    grid-template-columns: 55% 45%;
     grid-template-rows: 1fr;
     align-content: end;
   margin-top: 5dvh;
+  padding-left: 2.5rem;
 
   @media (max-width: ${Sizes.small}) {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-gap: 2rem;
     margin-top: 2dvh;
+    padding-left: 0;
+  }
+`
+
+const ProjectsText = styled(TitleSecondary)`
+  font-size: 1.6rem;
+`
+
+const ProjectsEntice = styled.div`
+  position: relative;
+  display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+
+  &>div {
+    position: absolute;
+    right: 0;
+    transform-origin: center center;
+    transform: rotate(-90deg) translateY(100%);
+
+    img {
+      cursor: e-resize;
+    }
   }
 `

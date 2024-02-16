@@ -49,7 +49,7 @@ export const BouncingArrow:React.FC = () => {
       ref={arrowRef}
       src="/arrow.svg"
       alt="arrow"
-      width={40}
+      width={15}
       height={50}
       style={style}
       onClick={handleClick}

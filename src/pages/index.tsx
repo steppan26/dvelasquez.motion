@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Landing, ShowReelSection } from "../Containers"
+import { Footer, Landing, ShowReelSection } from "../Containers"
 
 export default function Home() {
 
@@ -7,7 +7,7 @@ export default function Home() {
     <Main id='mainContainer'>
       <Landing />
       <ShowReelSection />
-      {/* <DummyContainer color="#2f75cb66">HELLO AGAIN</DummyContainer> */}
+      <Footer />
     </Main>
   )
 }
