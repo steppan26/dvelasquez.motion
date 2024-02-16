@@ -1,8 +1,9 @@
 import styled from "styled-components"
 import { useEffect, useMemo, useRef } from "react"
-import { useMousePosition } from "../utils/hooks"
 import { animated, useSpring } from "@react-spring/web"
 import { Sizes } from "../Assets"
+// @ts-ignore
+import { useMousePosition } from "../utils/hooks"
 
 interface Props {
   children?: React.ReactNode
