@@ -42,6 +42,8 @@ const GlobalStyle = createGlobalStyle<{}>`
     --font-text-font-weight: 300;
     --font-text-color: var(--clr-text-main);
 
+    --border-radius: 4px;
+
     background-color: var(--clr-bg-main);
 
     @media (max-width: ${Sizes.small}) {
