@@ -44,6 +44,8 @@ const GlobalStyle = createGlobalStyle<{}>`
 
     --border-radius: 4px;
 
+    --transition: ease;
+
     background-color: var(--clr-bg-main);
 
     @media (max-width: ${Sizes.small}) {

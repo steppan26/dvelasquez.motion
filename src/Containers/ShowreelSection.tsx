@@ -1,34 +1,44 @@
 import styled from "styled-components"
 import { TitleSecondary } from "../Assets/UIComponents"
-import { CTAButton } from "../Components"
+import { CTAButton, ShowReel } from "../Components"
+import { Sizes } from "../Assets"
 
 export const ShowReelSection:React.FC = () => {
   return (
     <Container>
-      <Title>Unique Design for Unique Ideas</Title>
+      <TitleSecondary>Unique Design for Unique Ideas</TitleSecondary>
       <InfoSection>
         <Text>
           Through <span>brand expression</span> and <span>visual storytelling</span> I can help daring <span>organisations</span>, ambitious <span>startups</span> and <span>creative individuals</span> craft their story, communicate their ideas and build their tribe.
         </Text>
         <CTAButton />
       </InfoSection>
+      <ShowReel />
     </Container>
   )
 }
 
 const Container = styled.article`
+  max-width: 100vw;
   margin-top: 15dvh;
   padding-top: 15dvh;
   min-height: 100dvh;
   padding-inline: 10%;
+
+  @media (max-width: ${Sizes.small}) {
+    display: flex;
+      flex-direction: column;
+      align-items: center;
+    padding-top: unset;
+    margin-top: 5dvh;
+
+    &>h4 {
+      max-width: 90%;
+      margin-inline: auto;
+    }
+  }
 `
 
-const Title = styled(TitleSecondary)`
-  text-align: left;
-  font-size: 74px;
-  font-style: italic;
-  font-weight: 400;
-`
 
 const Text = styled.p`
   font-size: 1.93rem;
@@ -37,6 +47,10 @@ const Text = styled.p`
     color: ${p => p.theme.textSecondary};
   }
 
+  @media (max-width: ${Sizes.small}) {
+    font-size: 1.3rem;
+    text-align: center;
+  }
 `
 
 const InfoSection = styled.div`
@@ -45,4 +59,11 @@ const InfoSection = styled.div`
     grid-template-rows: 1fr;
     align-content: end;
   margin-top: 5dvh;
+
+  @media (max-width: ${Sizes.small}) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-gap: 2rem;
+    margin-top: 2dvh;
+  }
 `

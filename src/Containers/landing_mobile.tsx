@@ -6,17 +6,17 @@ import { Sizes } from "../Assets"
 export const LandingMobile:React.FC = () => {
   return(
     <Container>
-      <TextWrapper>
-        <span>Art Direction</span>
-        <span>Brand Design</span>
-        <span>Motion Design</span>
-      </TextWrapper>
-      <BouncingArrow />
+      <ContentWrapper>
+        <TextWrapper>
+          <span>Art Direction</span>
+          <span>Brand Design</span>
+          <span>Motion Design</span>
+        </TextWrapper>
+        <BouncingArrow />
+      </ContentWrapper>
     </Container>
   )
 }
-
-
 
 const Container = styled.article`
   position: relative;
@@ -27,23 +27,34 @@ const Container = styled.article`
   height: 100dvh;
   overflow: hidden;
   padding-top: 7dvh;
+
+  @media (max-width: ${Sizes.small}) {
+    height: max-content;
+  }
 `
 
 const TextWrapper = styled(PrimaryTitle)`
   cursor: default;
-  z-index: 9;
-  position: absolute;
+  z-index: 8;
   display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  z-index: 20;
-  z-index: 8;
+  font-size: 32px;
+  line-height: 52px;
+  width: 100%;
+`
+
+
+const ContentWrapper = styled.div`
+  position: relative;
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   width: 90dvw;
   height: 90dvw;
   padding: 0 40px;
-  font-size: 32px;
-  line-height: 52px;
-  background-color: ${p => p.theme.backgroundSecondary};
   border-radius: 50%;
+  background-color: ${p => p.theme.backgroundSecondary};
 `
