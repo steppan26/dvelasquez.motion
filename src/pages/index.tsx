@@ -19,9 +19,12 @@ const Main = styled.main`
   scroll-snap-type: y mandatory;
   height: 100dvh;
   overflow: auto;
+  transition: scroll-behavior 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 
   &>* {
     scroll-snap-align: start;
+    scroll-snap-stop: always;
+    scroll-behavior: smooth;
   }
 `
 
