@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { UseTrailProps, animated, useTrail } from "react-spring"
 import styled from "styled-components"
+import { Sizes } from "../../Assets"
 
 interface Props {
   isOpen: boolean
@@ -63,12 +64,18 @@ const DiamondsWrapper = styled.div`
   align-items: center;
   gap: 10px;
   padding-block: 1rem;
+
+  @media (max-width: ${Sizes.small}) {
+    gap: 8px;
+  }
 `
 
 const Diamond = styled(animated.span)`
+  --diamond-size: 8px;
+
   position: relative;
-  width: 8px;
-  height: 8px;
+  width: var(--diamond-size);
+  height: var(--diamond-size);
   animation-duration: 0.8s;
   animation-iteration-count: infinite;
   animation-delay: 0.4s;
@@ -82,5 +89,9 @@ const Diamond = styled(animated.span)`
     transform: rotate(45deg);
     border-radius: 1px;
     background-color: ${p => p.theme.textPrimary};
+  }
+
+  @media (max-width: ${Sizes.small}) {
+    --diamond-size: 5px;
   }
 `

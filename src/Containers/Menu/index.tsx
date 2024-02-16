@@ -29,7 +29,7 @@ const Nav = styled.nav`
 
   @media (max-width: ${Sizes.small}) {
     top: 1rem;
-    right: 1rem;
+    right: 2.5rem;
     gap: 5px;
   }
 `

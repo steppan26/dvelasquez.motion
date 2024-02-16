@@ -37,6 +37,7 @@ const Container = styled.article`
       align-items: center;
     padding-top: unset;
     margin-top: 5dvh;
+    min-height: unset;
 
     &>h4 {
       max-width: 90%;
@@ -96,5 +97,9 @@ const ProjectsEntice = styled.div`
     img {
       cursor: e-resize;
     }
+  }
+
+  @media (max-width: ${Sizes.small}) {
+    display: none;
   }
 `

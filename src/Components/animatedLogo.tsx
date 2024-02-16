@@ -66,6 +66,8 @@ const Wrapper = styled.div`
   position: fixed;
     top: 2rem;
     left: 1.75rem;
+  height: max-content;
+  width: max-content;
   padding-block: 1rem;
   width: var(--logo-size);
 `
@@ -73,6 +75,7 @@ const Wrapper = styled.div`
 const AnimatedGif = styled.div`
   width: var(--logo-size);
   height: calc(var(--logo-size) * 0,35555556);
+  height: 50px;
   background-image: url("/Logo Animation Brush.gif");
   background-size: contain;
   background-position: center;

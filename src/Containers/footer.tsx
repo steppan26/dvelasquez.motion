@@ -1,5 +1,6 @@
 import Image from "next/image"
 import styled from "styled-components"
+import { Sizes } from "../Assets"
 
 export const Footer:React.FC = () => {
   return(
@@ -34,11 +35,16 @@ const Container = styled.footer`
   padding: 7dvh 5vw;
   width: 100%;
   background-color: var(--clr-bg-secondary);
+
+  @media (max-width: ${Sizes.small}) {
+    flex-direction: column;
+  }
 `
 
 const Logo = styled(Image)`
   height: 200px;
   width: 355px;
+  border: 1px solid grey;
 `
 
 const TextWrapper = styled.div`
@@ -47,6 +53,10 @@ const TextWrapper = styled.div`
     justify-content: flex-start;
     align-items: flex-start;
     gap: 0.5rem;
+
+  @media (max-width: ${Sizes.small}) {
+    display: none;
+  }
 `
 
 const Text = styled.p`
