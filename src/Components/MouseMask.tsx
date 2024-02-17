@@ -12,7 +12,7 @@ interface Props {
 export const MouseMask:React.FC<Props> = ({ children }) => {
   const maskRef = useRef<HTMLDivElement>(null)
   const sceneRef = useRef<HTMLDivElement>(null)
-  const mousePosition = useMousePosition()
+  const mousePosition = useMousePosition(sceneRef.current)
   const [style, set] = useSpring(() => ({
     x: 0,
     y: 0,
@@ -23,11 +23,28 @@ export const MouseMask:React.FC<Props> = ({ children }) => {
     }
   }))
 
+  useEffect(() => {
+    if(typeof window == 'undefined') return
+
+    window.addEventListener('resetMask', resetMaskPosition)
+
+    return () => window.removeEventListener('resetMask', resetMaskPosition)
+  }, [])
+
+  const resetMaskPosition = (e?: Event) => {
+    if(!sceneRef.current || !maskRef.current) return
+
+    const sceneCenterX = sceneRef.current.clientWidth / 2
+    const sceneCenterY = sceneRef.current.clientHeight / 2
+    const maskWidth = maskRef.current.clientWidth / 2
+    const maskHeight = maskRef.current.clientHeight / 2
+    set({ y: sceneCenterY - maskHeight, x: sceneCenterX - maskWidth })
+  }
+
   const maskPosition = useMemo(() => {
     const element = sceneRef.current
     const maskElement = maskRef.current
-    if(maskElement) {
-      // @ts-ignore
+    if(maskElement && element) {
       const elementRect = element.getBoundingClientRect();
       let newX = mousePosition.x - elementRect.left - (maskElement.clientWidth / 2);
       let newY = mousePosition.y - elementRect.top - (maskElement.clientHeight / 2);
@@ -104,8 +121,8 @@ const Mask = styled(animated.div)`
   }
 
   &.diamond {
-    width: 80vh;
-    height: 80vh;
+    width: 73vh;
+    height: 73vh;
 
     &::after {
       left: 50%;
@@ -129,6 +146,7 @@ const Scene = styled.div`
   --clr-background: ${p => p.theme.backgroundPrimary};
   --clr-shape: ${p => p.theme.backgroundSecondary};
 
+  position: relative;
   transform: translate3d(0px, 0px, 0px) rotate(0.0001deg);
   transform-style: preserve-3d;
   backface-visibility: hidden;

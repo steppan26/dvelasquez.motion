@@ -47,18 +47,18 @@ const Container = styled.article`
 `
 
 const TextWrapper = styled(PrimaryTitle)`
+  z-index: 8;
   cursor: default;
-  z-index: 20;
   position: absolute;
   display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  z-index: 20;
-  z-index: 8;
   width: 100%;
   height: 100%;
   padding: 0 40px;
+  font-size: 4.9rem;
+  line-height: 8rem;
 
   @media (max-width: ${Sizes.small}) {
     font-size: 2.5rem;

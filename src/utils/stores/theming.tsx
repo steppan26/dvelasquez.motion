@@ -25,7 +25,6 @@ export const Theming:React.FC<any> = ({ children }) => {
     const fontSize = screenWidth * 0.01111111
     const clampedSize = Math.max(Math.min(fontSize, 18), 8)
     const root = document.documentElement
-    console.info("A", clampedSize)
     root.style.setProperty('--font-size', clampedSize + 'px')
   }
 

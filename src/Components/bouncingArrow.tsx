@@ -1,7 +1,7 @@
-import { MouseEventHandler, useEffect, useRef } from "react";
+import { MouseEventHandler, useEffect } from "react";
 import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
-import { Sizes } from "../Assets";
+import { Arrow, Sizes } from "../Assets";
 import { useIsMobileView } from "../utils/hooks";
 
 export const BouncingArrow:React.FC = () => {
@@ -18,9 +18,6 @@ export const BouncingArrow:React.FC = () => {
       restVelocity: 0.4,
     },
   }
-  const arrowRef = useRef<HTMLImageElement>(null)
-
-
   const [style, set] = useSpring(() => (BOB))
 
   const makeBounce = (e?: any) => {
@@ -28,46 +25,37 @@ export const BouncingArrow:React.FC = () => {
   }
 
   useEffect(() => {
-    if(typeof window == 'undefined' || !arrowRef.current) return
+    if(typeof window == 'undefined') return
 
     makeBounce()
     const interval = setInterval(makeBounce, 3000)
 
-    return () => {
-      clearInterval(interval)
-    }
+    return () => clearInterval(interval)
   }, [])
 
   const handleClick: MouseEventHandler = (e) => {
     const main = document.querySelector('#mainContainer') as HTMLElement
     main.scrollBy({ top: window.innerHeight, behavior: 'smooth' })
+    window.dispatchEvent(new CustomEvent('resetMask'))
   }
 
   return(
-    <>
-    <Arrow
-      ref={arrowRef}
-      src="/arrow.svg"
-      alt="arrow"
-      width={15}
-      height={50}
-      style={style}
-      onClick={handleClick}
-      />
-    </>
+    <ArrowWrapper style={style} onClick={handleClick}>
+      <Arrow />
+    </ArrowWrapper>
   )
 }
 
-
-const Arrow = styled(animated.img)`
+const ArrowWrapper = styled(animated.div)`
   cursor: s-resize;
   z-index: 10;
   align-self: end;
+  margin-bottom: 5rem;
 
   @media (max-width: ${Sizes.small}) {
+    align-self: unset;
     position: absolute;
       bottom: 3rem;
-    align-self: unset;
     height: 30px;
   }
 `

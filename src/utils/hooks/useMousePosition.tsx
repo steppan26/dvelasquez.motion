@@ -5,18 +5,20 @@ interface MousePosition {
   y: number
 }
 
-export const useMousePosition = () => {
+export const useMousePosition = (customElement?: Element | null) => {
   const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0})
 
-  const updateMousePosition = (e: MouseEvent) => {
+  const updateMousePosition = (e?: any) => {
     setMousePosition({ x: e.clientX, y: e.clientY })
   }
 
   useEffect(() => {
-    window.addEventListener("mousemove", updateMousePosition)
+    const area = customElement ?? window
 
-    return () => window.removeEventListener("mousemove", updateMousePosition)
-  }, [])
+    area.addEventListener("mousemove", updateMousePosition)
+
+    return () => area.removeEventListener("mousemove", updateMousePosition)
+  }, [customElement])
 
   return mousePosition
 }

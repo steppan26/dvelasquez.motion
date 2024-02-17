@@ -1,9 +1,26 @@
 import styled from "styled-components"
 import { Sizes } from "../Assets"
+import { useEffect, useRef } from "react"
 
 export const ShowReel:React.FC = () => {
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if(typeof window == 'undefined' || !containerRef.current) return
+
+    const observer = new IntersectionObserver(resetMask, {
+      root: document.querySelector('#mainContainer'),
+      threshold: 0.1
+    })
+    observer.observe(containerRef.current)
+  }, [])
+
+  const resetMask = () => {
+    window.dispatchEvent(new CustomEvent('resetMask'))
+  }
+
   return(
-    <Container>
+    <Container ref={containerRef}>
       <Text>
         Showreel
       </Text>
