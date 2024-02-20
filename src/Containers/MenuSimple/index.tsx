@@ -1,18 +1,32 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styled from "styled-components"
 import { MenuItems } from "./menuItems";
 import { ToggleButton } from "./toggleButton";
 import { Sizes } from "../../Assets";
-import { AnimatedLogo } from "../../Components";
+import { AnimatedIcon } from "../../Components";
 
 export const MenuSimple:React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const timeout = useRef<NodeJS.Timeout>()
+
+  const handleMouseLeave = () => {
+    if(!!timeout.current){
+      clearTimeout(timeout.current)
+    }
+
+    const timeoutX = setTimeout(() => setIsOpen(false), 1500)
+    timeout.current = timeoutX
+  }
+
+  const handleMouseEnter = () => {
+    clearTimeout(timeout.current)
+  }
 
 
   return(
     <Nav>
-      <AnimatedLogo />
-      <MenuWrapper onMouseLeave={() => setIsOpen(false)}>
+      <AnimatedIcon />
+      <MenuWrapper onMouseLeave={handleMouseLeave} onMouseEnter={handleMouseEnter}>
         <MenuItems isOpen={isOpen} />
         <ToggleButton isOpen={isOpen} setIsOpen={setIsOpen} />
       </MenuWrapper>

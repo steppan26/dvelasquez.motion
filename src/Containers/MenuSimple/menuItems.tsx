@@ -62,13 +62,18 @@ const Menu = styled(animated.div)`
   line-height: 2.4375rem;
 
   p {
+    font-weight: 400;
     margin-block: 0;
     transition: cubic-bezier(0.18, 0.89, 0.32, 1.28) 800ms transform;
   }
 
   &.active {
-    color: ${p => p.theme.backgroundPrimary};
+    /* color: ${p => p.theme.backgroundPrimary}; */
     text-decoration: underline;
+
+    p {
+      font-weight: 600;
+    }
   }
 
   &:hover {

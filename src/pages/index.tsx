@@ -1,18 +1,22 @@
 import styled from "styled-components"
-import { Footer, Landing, ShowReelSection } from "../Containers"
+import { Footer, Landing, Navbar, ShowReelSection } from "../Containers"
 
 export default function Home() {
 
   return (
     <Main id='mainContainer'>
       <Landing />
-      <ShowReelSection />
+      <div>
+        <Navbar />
+        <ShowReelSection />
+      </div>
       <Footer />
     </Main>
   )
 }
 
 const Main = styled.main`
+  position: relative;
   display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
