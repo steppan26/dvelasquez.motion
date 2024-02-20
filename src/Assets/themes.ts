@@ -19,7 +19,7 @@ export const lightTheme: ITheme = {
   textPrimary: '#370031',
   textSecondary: '#e40a5a',
   textHeader: '#370031',
-  backgroundPrimary: '#f3f4D9',
+  backgroundPrimary: '#F3E4D9',
   backgroundSecondary: '#CE0852',
   btnPrimaryText: '#fff',
   btnPrimaryBg: '#7A9B76',

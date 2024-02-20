@@ -24,7 +24,7 @@ export const ShowReel:React.FC = () => {
       <Text>
         Showreel
       </Text>
-      <Video></Video>
+      <Video />
     </Container>
   )
 }
@@ -36,7 +36,7 @@ const Container = styled.div`
     justify-content: flex-end;
     align-items: flex-end;
   width: clamp(650px, 80%, 1240px);
-  height: 540px;
+  height: 500px;
   margin-block: 4dvh;
 
   @media (max-width: ${Sizes.small}) {
@@ -44,21 +44,29 @@ const Container = styled.div`
   }
 `
 
-const Video = styled.div`
+const Video = styled.video`
   flex: 1 1 100%;
+  width: clamp(650px, 80%, 1240px);
   height: 100%;
   background-color: var(--clr-bg-secondary);
+  background-image: url('/public/showreel_static.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
   transition: var(--transition) 120ms all;
   border-radius: var(--border-radius);
+
 `
 
 const Text = styled.h3`
   position: absolute;
     bottom: 0;
     left: 0;
-  font-size: 70px;
-  font-weight: 300;
-  font-style: italic;
+  font-family: var(--font-family);
+    font-size: 80px;
+    font-weight: 200;
+    font-style: italic;
+  color: ${p => p.theme.btnPrimaryBg};
   transform: rotate(-90deg);
     transform-origin: left bottom;
 `

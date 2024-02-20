@@ -47,10 +47,13 @@ export const BouncingArrow:React.FC = () => {
 }
 
 const ArrowWrapper = styled(animated.div)`
+  position: relative;
   cursor: s-resize;
   z-index: 10;
   align-self: end;
   margin-bottom: 5rem;
+  height: 3.125rem;
+  width: 1.25rem;
 
   @media (max-width: ${Sizes.small}) {
     align-self: unset;

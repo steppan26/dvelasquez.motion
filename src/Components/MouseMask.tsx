@@ -121,8 +121,8 @@ const Mask = styled(animated.div)`
   }
 
   &.diamond {
-    width: 73vh;
-    height: 73vh;
+    width: 44.7vw;
+    height: 44.7vw;
 
     &::after {
       left: 50%;

@@ -62,7 +62,7 @@ const DiamondsWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: clamp(5px, 0.502762vw, 10px);
   padding-block: 1rem;
 
   @media (max-width: ${Sizes.small}) {
@@ -71,7 +71,7 @@ const DiamondsWrapper = styled.div`
 `
 
 const Diamond = styled(animated.span)`
-  --diamond-size: 8px;
+  --diamond-size: 0.57vw;
 
   position: relative;
   width: var(--diamond-size);

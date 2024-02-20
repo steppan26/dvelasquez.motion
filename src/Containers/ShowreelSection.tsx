@@ -25,13 +25,14 @@ export const ShowReelSection:React.FC = () => {
 }
 
 const Container = styled.article`
+  scroll-snap-stop: s ;
   display: flex;
     flex-direction: column;
   max-width: 100vw;
   height: max-content;
     min-height: 100dvh;
   margin-top: 15dvh;
-  padding: 15dvh 10% 7dvh;
+  padding: 15dvh 12.615741vw 7dvh;
 
   @media (max-width: ${Sizes.small}) {
     display: flex;

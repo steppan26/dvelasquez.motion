@@ -1,7 +1,6 @@
 import { UseTrailProps, animated, useTrail } from "react-spring"
 import styled from "styled-components"
 import { Sizes } from "../../Assets"
-import { useEffect } from "react"
 
 interface MenuItem {
   text: string
@@ -59,7 +58,8 @@ export const MenuItems:React.FC<Props> = ({ isOpen }) => {
 }
 
 const Menu = styled(animated.div)`
-  font-size: 1rem;
+  font-size: 1.3125rem;
+  line-height: 2.4375rem;
 
   p {
     margin-block: 0;
@@ -67,9 +67,8 @@ const Menu = styled(animated.div)`
   }
 
   &.active {
-    color: ${p => p.theme.backgroundSecondary};
+    color: ${p => p.theme.backgroundPrimary};
     text-decoration: underline;
-    filter: brightness(1.2);
   }
 
   &:hover {
@@ -83,10 +82,10 @@ const Menu = styled(animated.div)`
 const MenuContainer = styled.div`
   display: flex;
     justify-content: flex-end;
-    gap: 2rem;
+    gap: 2.5rem;
   overflow: hidden;
   width: max-content;
-  margin-right: 1rem;
+  margin-right: 2.5rem;
   padding-inline: 2rem 0.5rem;
 
   @media (max-width: ${Sizes.small}) {

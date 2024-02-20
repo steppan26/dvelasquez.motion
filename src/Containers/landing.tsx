@@ -3,7 +3,7 @@ import { BouncingArrow, MouseMask } from "../Components"
 import { PrimaryTitle } from "../Components/styledComponents"
 import { Sizes } from "../Assets"
 import { useIsMobileView } from "../utils/hooks"
-import { LandingMobile } from "."
+import { LandingMobile, MenuSimple } from "."
 
 export const Landing:React.FC = () => {
   const { isMobileView } = useIsMobileView()
@@ -11,7 +11,9 @@ export const Landing:React.FC = () => {
   if(isMobileView) return <LandingMobile />
 
   return(
+    <>
     <Container>
+      <MenuSimple />
       <MouseMask>
           <Wrapper>
           <TextWrapper>
@@ -23,6 +25,7 @@ export const Landing:React.FC = () => {
         </Wrapper>
       </MouseMask>
     </Container>
+    </>
   )
 }
 
@@ -56,9 +59,13 @@ const TextWrapper = styled(PrimaryTitle)`
     align-items: center;
   width: 100%;
   height: 100%;
-  padding: 0 40px;
-  font-size: 4.9rem;
-  line-height: 8rem;
+  color: ${p => p.theme.textPrimary};
+
+  span {
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+  }
 
   @media (max-width: ${Sizes.small}) {
     font-size: 2.5rem;

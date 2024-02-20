@@ -61,15 +61,11 @@ export const AnimatedLogo:React.FC = () => {
 }
 
 const Wrapper = styled.div`
-  --logo-size: 135px;
+  --logo-size: 11vw;
 
   z-index: 999;
-  position: fixed;
-    top: 2rem;
-    left: 1.75rem;
   height: max-content;
   width: max-content;
-  padding-block: 1rem;
   width: var(--logo-size);
 
   @media (max-width: ${Sizes.small}){
