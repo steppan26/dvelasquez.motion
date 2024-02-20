@@ -27,11 +27,11 @@ const reducer = (state: GlobalContextState, actions: GlobalActions) => {
       return {
         ...state,
         theme: state.theme === "dark" ? "light" : "dark",
-      };
+      }
     default:
-      return state;
+      return state
   }
-};
+}
 
 export function GlobalProvider({
   children,
@@ -54,7 +54,7 @@ export function GlobalProvider({
         type: "toggleTheme",
       });
     return () => {isMounted = false}
-  }, []);
+  });
 
   return (
     <GlobalContext.Provider value={{ globalState, setGlobalState }}>

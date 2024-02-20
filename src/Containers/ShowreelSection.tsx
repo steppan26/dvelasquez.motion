@@ -5,8 +5,9 @@ import { Sizes } from "../Assets"
 
 export const ShowReelSection:React.FC = () => {
   return (
+    <>
+
     <Container id="showReelSection">
-      <MainTitle>Unique Design for Unique Ideas</MainTitle>
       <InfoSection>
         <Text>
           Through <span>brand expression</span> and <span>visual storytelling</span> I can help daring <span>organisations</span>, ambitious <span>startups</span> and <span>creative individuals</span> craft their story, communicate their ideas and build their tribe.
@@ -21,18 +22,20 @@ export const ShowReelSection:React.FC = () => {
         </div>
       </ProjectsEntice>
     </Container>
+    </>
   )
 }
 
+
+
 const Container = styled.article`
-  scroll-snap-stop: s ;
+  scroll-snap-stop: end;
   display: flex;
     flex-direction: column;
   max-width: 100vw;
+  padding: var(--padding-main);
   height: max-content;
     min-height: 100dvh;
-  margin-top: 7.042254dvh;
-  padding: 0 12.615741vw 7dvh;
 
   @media (max-width: ${Sizes.small}) {
     display: flex;
@@ -47,10 +50,6 @@ const Container = styled.article`
       margin-inline: auto;
     }
   }
-`
-
-const MainTitle = styled(TitleSecondary)`
-  letter-spacing: -2px;
 `
 
 

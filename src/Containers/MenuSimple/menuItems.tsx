@@ -1,6 +1,7 @@
 import { UseTrailProps, animated, useTrail } from "react-spring"
 import styled from "styled-components"
 import { Sizes } from "../../Assets"
+import { useMemo } from "react"
 
 interface MenuItem {
   text: string
@@ -30,25 +31,30 @@ interface Props {
   isOpen: boolean
 }
 
+const TRAVEL_DISTANCE = 300
+
 export const MenuItems:React.FC<Props> = ({ isOpen }) => {
   const config: UseTrailProps['config'] = {
     mass: 2,
-    tension: 380,
+    tension: 300,
     friction: 39.7,
     precision: 0.2,
     restVelocity: 0.4,
     velocity: 0.2,
   }
+
   const menuObjects = useTrail(menuData.length, {
     config,
-    from: { x: 350, opacity: 0 },
-    to: { x: isOpen ? 0 : 350, opacity: isOpen ? 1 : 0 },
+    from: { x: TRAVEL_DISTANCE, opacity: 0 },
+    to: { x: isOpen ? 0 : TRAVEL_DISTANCE, opacity: isOpen ? 1 : 0 },
     stagger: 260,
-  }).reverse()
+  })
+
+  const menuItems = useMemo(() => (isOpen ? menuObjects : menuObjects.reverse()), [isOpen, menuObjects])
 
   return(
     <MenuContainer>
-      {menuObjects.map((props, index) => (
+      {menuItems.map((props, index) => (
         <Menu key={index} style={props} className={index === 0 ? 'active' : ''} >
           <p>{menuData[index].text}</p>
         </Menu>

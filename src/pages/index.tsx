@@ -1,21 +1,25 @@
 import styled from "styled-components"
 import { Footer, Landing, Navbar, ShowReelSection } from "../Containers"
+import { TitleSecondary } from "../Assets/UIComponents"
 
 export default function Home() {
 
   return (
     <Main id='mainContainer'>
       <Landing />
-      <div>
+      <Container>
         <Navbar />
-        <ShowReelSection />
-      </div>
+        <MainTitle>Unique Design for Unique Ideas</MainTitle>
+      </Container>
+      <ShowReelSection />
       <Footer />
     </Main>
   )
 }
 
 const Main = styled.main`
+  --padding-main: 0 12.615741vw 7dvh;
+
   position: relative;
   display: grid;
     grid-template-columns: 1fr;
@@ -32,6 +36,14 @@ const Main = styled.main`
   }
 `
 
+const Container = styled.div`
+  height: max-content;
+  /* max-height: 100dvh; */
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  overflow: auto;
+`
+
 const DummyContainer = styled.div<{color?: string}>`
   display: flex;
     justify-content: center;
@@ -40,4 +52,11 @@ const DummyContainer = styled.div<{color?: string}>`
   background-color: ${p => p.color ?? p.theme.backgroundPrimary};
   outline: 3px double #7d7d7d9d;
   font-size: 5rem;
+`
+
+const MainTitle = styled(TitleSecondary)`
+  scroll-snap-stop: start;
+  margin-top: 7.042254dvh;
+  padding: var(--padding-main);
+  letter-spacing: -2px;
 `
