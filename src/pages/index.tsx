@@ -38,10 +38,8 @@ const Main = styled.main`
 
 const Container = styled.div`
   height: max-content;
-  /* max-height: 100dvh; */
   scroll-snap-align: start;
   scroll-snap-stop: always;
-  overflow: auto;
 `
 
 const DummyContainer = styled.div<{color?: string}>`
@@ -59,4 +57,5 @@ const MainTitle = styled(TitleSecondary)`
   margin-top: 7.042254dvh;
   padding: var(--padding-main);
   letter-spacing: -2px;
+  margin-top: calc(var(--nav-height) + 7.042254dvh);
 `

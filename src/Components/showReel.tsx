@@ -1,10 +1,25 @@
 import styled from "styled-components"
 import { Sizes } from "../Assets"
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export const ShowReel:React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
   const [hasBeenClicked, setHasBeenClicked] = useState(false)
+
+  useEffect(() => {
+    if(typeof window == 'undefined' || !containerRef.current) return
+
+    const observer = new IntersectionObserver(resetMask, {
+      root: document.querySelector('#mainContainer'),
+      threshold: 0.1
+    })
+    observer.observe(containerRef.current)
+  }, [])
+
+  const resetMask = () => {
+    window.dispatchEvent(new CustomEvent('resetMask'))
+  }
 
   const handleVideoClick = () => {
     if(!hasBeenClicked && videoRef.current) {
@@ -15,7 +30,7 @@ export const ShowReel:React.FC = () => {
   }
 
   return(
-    <Container>
+    <Container ref={containerRef}>
       <Text>
         Showreel
       </Text>

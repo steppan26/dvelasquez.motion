@@ -40,7 +40,7 @@ const Nav = styled.nav`
     justify-content: space-between;
     align-items: center;
   width: 100vw;
-  height: 8.802817dvh;
+  height: var(--nav-height);
   background-color: ${p => p.theme.backgroundPrimary}f0;
   padding-inline: 53px;
   /* padding-top: 2rem; */

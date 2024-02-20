@@ -5,9 +5,8 @@ export const Arrow:React.FC = () => {
     <Image
         src="/arrow.svg"
         alt="arrow"
-        layout='fill'
-        // width={15}
-        // height={50}
+        width={15}
+        height={50}
         />
   )
 }
