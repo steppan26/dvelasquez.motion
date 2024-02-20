@@ -1,30 +1,37 @@
 import styled from "styled-components"
 import { Sizes } from "../Assets"
-import { useEffect, useRef } from "react"
+import { useRef, useState } from "react"
 
 export const ShowReel:React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [hasBeenClicked, setHasBeenClicked] = useState(false)
 
-  useEffect(() => {
-    if(typeof window == 'undefined' || !containerRef.current) return
-
-    const observer = new IntersectionObserver(resetMask, {
-      root: document.querySelector('#mainContainer'),
-      threshold: 0.1
-    })
-    observer.observe(containerRef.current)
-  }, [])
-
-  const resetMask = () => {
-    window.dispatchEvent(new CustomEvent('resetMask'))
+  const handleVideoClick = () => {
+    if(!hasBeenClicked && videoRef.current) {
+      videoRef.current.currentTime = 0
+      videoRef.current?.play()
+      setTimeout(() => setHasBeenClicked(true), 100)
+    }
   }
 
   return(
-    <Container ref={containerRef}>
+    <Container>
       <Text>
         Showreel
       </Text>
-      <Video />
+      <Video
+      ref={videoRef}
+      autoPlay
+      muted={!hasBeenClicked}
+      controls={hasBeenClicked}
+      onClick={handleVideoClick}
+      controlsList="nodownload"
+      poster="/showreel_static.png"
+      preload="metadata"
+
+      >
+        <source src="/showreel.mp4" type="video/mp4" />
+      </Video>
     </Container>
   )
 }
@@ -48,11 +55,11 @@ const Video = styled.video`
   flex: 1 1 100%;
   width: clamp(650px, 80%, 1240px);
   height: 100%;
-  background-color: var(--clr-bg-secondary);
-  background-image: url('/public/showreel_static.png');
+  /* background-color: var(--clr-bg-secondary);
+  background-image: url('/showreel_static.png');
     background-size: contain;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
   transition: var(--transition) 120ms all;
   border-radius: var(--border-radius);
 
