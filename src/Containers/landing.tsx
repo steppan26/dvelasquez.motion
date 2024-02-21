@@ -3,7 +3,7 @@ import { BouncingArrow, MouseMask } from "../Components"
 import { PrimaryTitle } from "../Components/styledComponents"
 import { Sizes } from "../Assets"
 import { useIsMobileView } from "../utils/hooks"
-import { LandingMobile, MenuSimple } from "."
+import { LandingMobile, Navbar } from "."
 
 export const Landing:React.FC = () => {
   const { isMobileView } = useIsMobileView()
@@ -13,7 +13,7 @@ export const Landing:React.FC = () => {
   return(
     <>
     <Container>
-      <MenuSimple />
+      <Navbar isLanding />
       <MouseMask>
           <Wrapper>
           <TextWrapper>
@@ -60,6 +60,9 @@ const TextWrapper = styled(PrimaryTitle)`
   width: 100%;
   height: 100%;
   color: ${p => p.theme.textPrimary};
+  font-size: 4.375rem;
+  line-height: 6.75rem;
+  font-weight: 300;
 
   span {
     font-size: inherit;

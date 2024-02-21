@@ -29,7 +29,8 @@ export const ShowReelSection:React.FC = () => {
 
 
 const Container = styled.article`
-  scroll-snap-stop: end;
+  /* scroll-snap-stop: always; */
+  /* scroll-snap-align: end; */
   display: flex;
     flex-direction: column;
   max-width: 100vw;
@@ -51,7 +52,6 @@ const Container = styled.article`
     }
   }
 `
-
 
 const Text = styled.p`
   font-size: 1.75rem;

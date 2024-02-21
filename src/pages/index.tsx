@@ -42,16 +42,6 @@ const Container = styled.div`
   scroll-snap-stop: always;
 `
 
-const DummyContainer = styled.div<{color?: string}>`
-  display: flex;
-    justify-content: center;
-    align-items: center;
-  height: 100dvh;
-  background-color: ${p => p.color ?? p.theme.backgroundPrimary};
-  outline: 3px double #7d7d7d9d;
-  font-size: 5rem;
-`
-
 const MainTitle = styled(TitleSecondary)`
   scroll-snap-stop: start;
   margin-top: 7.042254dvh;

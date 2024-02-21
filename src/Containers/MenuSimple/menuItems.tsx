@@ -64,7 +64,7 @@ export const MenuItems:React.FC<Props> = ({ isOpen }) => {
 }
 
 const Menu = styled(animated.div)`
-  font-size: 1.3125rem;
+  font-size: 1.25rem;
   line-height: 2.4375rem;
 
   p {
@@ -74,18 +74,13 @@ const Menu = styled(animated.div)`
   }
 
   &.active {
-    /* color: ${p => p.theme.backgroundPrimary}; */
     text-decoration: underline;
 
-    p {
-      font-weight: 600;
-    }
+    p { font-weight: 600; }
   }
 
   &:hover {
-    p {
-      transform: scale(1.07);
-    }
+    p { transform: scale(1.07); }
   }
 `
 

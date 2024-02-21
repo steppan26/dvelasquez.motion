@@ -71,7 +71,7 @@ const DiamondsWrapper = styled.div`
 `
 
 const Diamond = styled(animated.span)`
-  --diamond-size: 0.57vw;
+  --diamond-size: 0.416667vw;
 
   position: relative;
   width: var(--diamond-size);
