@@ -47,7 +47,14 @@ const Nav = styled.nav<{islanding?: boolean}>`
   height: var(--nav-height);
   background-color: ${p => !p.islanding && p.theme.backgroundPrimary + 'f0'};
   padding: 1rem 53px 0;
-  box-shadow: 0 6px 10px 0 ${p => p.islanding ? 'transparent' : p.theme.textPrimary + '10'};
+  /* box-shadow: 0 6px 10px 0 ${p => p.islanding ? 'transparent' : p.theme.textPrimary + '10'}; */
+
+  .active {
+    color: ${p => p.islanding ? 'inherit' : p.theme.backgroundSecondary};
+    text-decoration: underline;
+
+    p { font-weight: ${p => p.islanding ? 600 : 400}; }
+  }
 `
 
 const MenuWrapper = styled.div`
