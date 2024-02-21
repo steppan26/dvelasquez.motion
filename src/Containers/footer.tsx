@@ -37,6 +37,7 @@ const Container = styled.footer`
   padding: 3.125dvh 3.472222vw;
   width: 100%;
   background-color: var(--clr-bg-secondary);
+  box-shadow: inset 0px 4px 20px ${p => p.theme.textPrimary}4c;
 
   @media (max-width: ${Sizes.small}) {
     flex-direction: column;

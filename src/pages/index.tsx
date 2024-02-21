@@ -40,6 +40,16 @@ const Container = styled.div`
   height: max-content;
   scroll-snap-align: start;
   scroll-snap-stop: always;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: -50px;
+    transform: rotate(45deg) translate(-60px, -60px);
+    background-color: var(--clr-bg-secondary);
+  }
 `
 
 const MainTitle = styled(TitleSecondary)`
