@@ -26,7 +26,7 @@ export const Navbar:React.FC<Props> = ({ isLanding }) => {
   // }
 
   return(
-    <Nav ref={navRef} isLanding={isLanding}>
+    <Nav ref={navRef} islanding={isLanding}>
       { isLanding ? <AnimatedIcon /> : <AnimatedLogo /> }
       <MenuWrapper onMouseLeave={() => setIsOpen(false)}>
         <MenuItems isOpen={isOpen} />
@@ -36,18 +36,18 @@ export const Navbar:React.FC<Props> = ({ isLanding }) => {
   )
 }
 
-const Nav = styled.nav<{isLanding?: boolean}>`
+const Nav = styled.nav<{islanding?: boolean}>`
   z-index: 999;
-  position: ${p => p.isLanding ? 'absolute' : 'sticky'};
+  position: ${p => p.islanding ? 'absolute' : 'sticky'};
     top: 0;
   display: flex;
     justify-content: space-between;
     align-items: center;
   width: 100vw;
   height: var(--nav-height);
-  background-color: ${p => !p.isLanding && p.theme.backgroundPrimary + 'f0'};
+  background-color: ${p => !p.islanding && p.theme.backgroundPrimary + 'f0'};
   padding: 1rem 53px 0;
-  box-shadow: 0 6px 10px 0 ${p => p.isLanding ? 'transparent' : p.theme.textPrimary + '10'};
+  box-shadow: 0 6px 10px 0 ${p => p.islanding ? 'transparent' : p.theme.textPrimary + '10'};
 `
 
 const MenuWrapper = styled.div`

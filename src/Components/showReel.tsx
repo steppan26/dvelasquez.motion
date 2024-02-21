@@ -58,7 +58,8 @@ const Container = styled.div`
     justify-content: flex-end;
     align-items: flex-end;
   width: clamp(650px, 80%, 1240px);
-  height: 500px;
+  width: calc(100% - var(--inner-padding));
+  height: auto;
   margin-block: 4dvh;
 
   @media (max-width: ${Sizes.small}) {
@@ -70,11 +71,6 @@ const Video = styled.video`
   flex: 1 1 100%;
   width: clamp(650px, 80%, 1240px);
   height: 100%;
-  /* background-color: var(--clr-bg-secondary);
-  background-image: url('/showreel_static.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat; */
   transition: var(--transition) 120ms all;
   border-radius: var(--border-radius);
 

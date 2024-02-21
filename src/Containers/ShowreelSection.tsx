@@ -29,12 +29,14 @@ export const ShowReelSection:React.FC = () => {
 
 
 const Container = styled.article`
-  /* scroll-snap-stop: always; */
-  /* scroll-snap-align: end; */
+  --inner-padding: 2.5rem;
+
+  scroll-snap-align: end !important;
   display: flex;
     flex-direction: column;
   max-width: 100vw;
   padding: var(--padding-main);
+  margin-top: 2.777778dvh;
   height: max-content;
     min-height: 100dvh;
 
@@ -54,25 +56,24 @@ const Container = styled.article`
 `
 
 const Text = styled.p`
-  font-size: 1.75rem;
+  font-size: 1.25rem;
 
   span {
     color: ${p => p.theme.textSecondary};
   }
 
   @media (max-width: ${Sizes.small}) {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     text-align: center;
   }
 `
 
 const InfoSection = styled.div`
   display: grid;
-    grid-template-columns: 55% 45%;
+    grid-template-columns: 61% 39%;
     grid-template-rows: 1fr;
     align-content: end;
-  margin-top: 5dvh;
-  padding-left: 2.5rem;
+  margin-left: var(--inner-padding);
 
   @media (max-width: ${Sizes.small}) {
     grid-template-columns: 1fr;

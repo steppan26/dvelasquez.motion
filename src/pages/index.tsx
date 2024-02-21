@@ -46,6 +46,7 @@ const MainTitle = styled(TitleSecondary)`
   scroll-snap-stop: start;
   margin-top: 7.042254dvh;
   padding: var(--padding-main);
+  padding-bottom: 0;
   letter-spacing: -2px;
-  margin-top: calc(var(--nav-height) + 7.042254dvh);
+  font-size: 3.75rem;
 `
