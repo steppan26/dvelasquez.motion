@@ -1,10 +1,22 @@
 import styled from "styled-components"
 import { Sizes } from "../Assets"
+import Image from "next/image"
 
 export const CTAButton:React.FC = () => {
   const handleClick = () => {
     alert('please contact me at: \n\n\n d.velasquezmotion@gmail.com')
   }
+
+  return(
+    <TempButton>
+      <Image
+      src="/button.png"
+      alt="cta button"
+      onClick={handleClick}
+      layout="fill"
+      />
+    </TempButton>
+    )
 
 
   return(
@@ -13,6 +25,21 @@ export const CTAButton:React.FC = () => {
     </Button>
   )
 }
+
+const TempButton = styled.div`
+  --width: 22.22222vw;
+
+  cursor: pointer;
+  justify-self: end;
+  position: relative;
+  width: var(--width);
+  height: calc(var(--width) * 0.33774834);
+  transition: var(--transition) 200ms opacity;
+
+  &:hover {
+    opacity: 0.9;
+  }
+`
 
 const Button = styled.button`
   cursor: pointer;

@@ -18,7 +18,7 @@ export default function Home() {
 }
 
 const Main = styled.main`
-  --padding-main: 0 12.615741vw 7dvh;
+  --padding-main: 0 12.615741vw;
 
   position: relative;
   display: grid;

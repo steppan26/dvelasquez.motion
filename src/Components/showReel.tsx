@@ -60,7 +60,7 @@ const Container = styled.div`
   width: clamp(650px, 80%, 1240px);
   width: calc(100% - var(--inner-padding));
   height: auto;
-  margin-block: 4dvh;
+  margin-top: 4dvh;
 
   @media (max-width: ${Sizes.small}) {
     display: none;

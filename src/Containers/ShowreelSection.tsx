@@ -5,8 +5,6 @@ import { Sizes } from "../Assets"
 
 export const ShowReelSection:React.FC = () => {
   return (
-    <>
-
     <Container id="showReelSection">
       <InfoSection>
         <Text>
@@ -22,7 +20,6 @@ export const ShowReelSection:React.FC = () => {
         </div>
       </ProjectsEntice>
     </Container>
-    </>
   )
 }
 
@@ -38,7 +35,6 @@ const Container = styled.article`
   padding: var(--padding-main);
   margin-top: 2.777778dvh;
   height: max-content;
-    min-height: 100dvh;
 
   @media (max-width: ${Sizes.small}) {
     display: flex;
@@ -57,6 +53,8 @@ const Container = styled.article`
 
 const Text = styled.p`
   font-size: 1.25rem;
+  flex: 0 1 100%;
+  margin-block: 0;
 
   span {
     color: ${p => p.theme.textSecondary};
@@ -73,7 +71,6 @@ const InfoSection = styled.div`
     grid-template-columns: 61% 39%;
     grid-template-rows: 1fr;
     align-content: end;
-  margin-left: var(--inner-padding);
 
   @media (max-width: ${Sizes.small}) {
     grid-template-columns: 1fr;
@@ -94,12 +91,13 @@ const ProjectsEntice = styled.div`
     justify-content: flex-end;
     align-items: center;
     gap: 2rem;
+  margin-block: 8dvh;
 
   &>div {
     position: absolute;
     right: 0;
     transform-origin: center center;
-    transform: rotate(-90deg) translateY(100%);
+    transform: rotate(-90deg) translateY(150px);
 
     img {
       cursor: e-resize;
