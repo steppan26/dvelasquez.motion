@@ -5,6 +5,8 @@ import { ProjectsShowcase } from "../Containers/projectsShowcase"
 
 export default function Home() {
 
+  // add intersection observer so when the HorizontalContainer goes out of view, it scrolls back to the left
+
   return (
     <Main id='mainContainer'>
       <Landing />
