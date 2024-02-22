@@ -71,6 +71,7 @@ const InfoSection = styled.div`
     grid-template-columns: 61% 39%;
     grid-template-rows: 1fr;
     align-content: end;
+  padding-left: 4.25rem;
 
   @media (max-width: ${Sizes.small}) {
     grid-template-columns: 1fr;

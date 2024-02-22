@@ -1,4 +1,4 @@
-import { UseTrailProps, animated, useSpring, useTrail } from "react-spring"
+import { UseSpringProps, UseTrailProps, animated, useSpring, useTrail } from "react-spring"
 import styled from "styled-components"
 import { Sizes } from "../../Assets"
 import { useMemo } from "react"
@@ -31,41 +31,27 @@ interface Props {
   isOpen: boolean
 }
 
-const TRAVEL_DISTANCE = 150
+const TRAVEL_DISTANCE = 250
+
+const easeInOutCubic = (t: any) => (t < 0.5 ? 4 * t ** 3 : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
 export const MenuItems:React.FC<Props> = ({ isOpen }) => {
-  const config: UseTrailProps['config'] = {
-    mass: 2,
-    tension: 300,
-    friction: 39.7,
-    precision: 0.2,
-    restVelocity: 0.4,
-    velocity: 0.2,
-  }
-
-  const menuObjects = useTrail(menuData.length, {
-    config,
+  const translateStyle = useSpring({
     from: { x: TRAVEL_DISTANCE, opacity: 0 },
     to: { x: isOpen ? 0 : TRAVEL_DISTANCE, opacity: isOpen ? 1 : 0 },
-    stagger: 260,
-  })
-
-  const easeInOutCubic = (t: any) => (t < 0.5 ? 4 * t ** 3 : 1 - Math.pow(-2 * t + 2, 3) / 2);
-
-  const style = useSpring({
-    from: { transform: 'scaleX(20%)', x: TRAVEL_DISTANCE, opacity: 0 },
-    to: { transform: isOpen ? 'scaleX(100%)' : 'scaleX(20%)', x: isOpen ? 0 : TRAVEL_DISTANCE, opacity: isOpen ? 1 : 0 },
     config: {
-      duration: 500,
-      easing: easeInOutCubic
-    },
+      mass: 1.4,
+      tension: isOpen ? 250 : 150,
+      friction: isOpen ? 23.5 : 8,
+      precision: 0.2,
+      restVelocity: 0.3,
+      velocity: isOpen ? 0 : 0.1,
+    }
   })
-
-  const menuItems = useMemo(() => (isOpen ? menuObjects : menuObjects.reverse()), [isOpen, menuObjects])
 
   return(
     <Wrapper>
-      <MenuContainer style={style}>
+      <MenuContainer style={{ ...translateStyle }}>
         {menuData.map((props, index) => (
           <Menu key={index} className={index === 0 ? 'active' : ''} >
             <p>{props.text}</p>
@@ -75,15 +61,15 @@ export const MenuItems:React.FC<Props> = ({ isOpen }) => {
     </Wrapper>
   )
 
-  return(
-    <MenuContainer>
-      {menuItems.map((props, index) => (
-        <Menu key={index} style={props} className={index === 0 ? 'active' : ''} >
-          <p>{menuData[index].text}</p>
-        </Menu>
-      ))}
-    </MenuContainer>
-  )
+  // return(
+  //   <MenuContainer>
+  //     {menuItems.map((props, index) => (
+  //       <Menu key={index} style={props} className={index === 0 ? 'active' : ''} >
+  //         <p>{menuData[index].text}</p>
+  //       </Menu>
+  //     ))}
+  //   </MenuContainer>
+  // )
 }
 
 const Menu = styled(animated.div)`

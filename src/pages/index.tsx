@@ -8,6 +8,7 @@ export default function Home() {
     <Main id='mainContainer'>
       <Landing />
       <Container>
+        <Cutout />
         <Navbar />
         <MainTitle>Unique Design for Unique Ideas</MainTitle>
       </Container>
@@ -26,6 +27,7 @@ const Main = styled.main`
     grid-template-rows: auto;
   scroll-snap-type: y mandatory;
   height: 100dvh;
+  width: 100%;
   overflow: auto;
   transition: scroll-behavior 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 
@@ -37,19 +39,20 @@ const Main = styled.main`
 `
 
 const Container = styled.div`
+  position: relative;
   height: max-content;
   scroll-snap-align: start;
   scroll-snap-stop: always;
+`
 
-  &::after {
-    content: '';
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    left: -50px;
-    transform: rotate(45deg) translate(-60px, -60px);
-    background-color: var(--clr-bg-secondary);
-  }
+const Cutout = styled.div`
+  position: absolute;
+  display: block;
+  width: 6.25rem;
+  height: 6.25rem;
+  top: 10dvh;
+  transform: rotate(45deg) translate3d(0, 70%, 0);
+  background-color: var(--clr-bg-secondary);
 `
 
 const MainTitle = styled(TitleSecondary)`

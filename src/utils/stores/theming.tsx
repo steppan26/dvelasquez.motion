@@ -76,7 +76,8 @@ const GlobalStyle = createGlobalStyle<{}>`
     background-color: var(--clr-bg-main);
     font-family: var(--font-text-family);
     font-weight: var(--font-text-font-weight);
-
+    width: clamp(375px, 100dvw, 1950px);
+    overflow: visible;
   }
 
   a {
