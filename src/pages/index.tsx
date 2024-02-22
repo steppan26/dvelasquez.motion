@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { Footer, Landing, Navbar, ShowReelSection } from "../Containers"
-import { TitleSecondary } from "../Assets/UIComponents"
+import { ScrollingContainer, TitleSecondary } from "../Assets/UIComponents"
+import { ProjectsShowcase } from "../Containers/projectsShowcase"
 
 export default function Home() {
 
@@ -12,30 +13,17 @@ export default function Home() {
         <Navbar />
         <MainTitle>Unique Design for Unique Ideas</MainTitle>
       </Container>
-      <ShowReelSection />
+      <HorizontalContainer id="showcaseContainer">
+        <ShowReelSection />
+        <ProjectsShowcase  />
+      </HorizontalContainer>
       <Footer />
     </Main>
   )
 }
 
-const Main = styled.main`
+const Main = styled(ScrollingContainer)`
   --padding-main: 0 12.615741vw;
-
-  position: relative;
-  display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-  scroll-snap-type: y mandatory;
-  height: 100dvh;
-  width: 100%;
-  overflow: auto;
-  transition: scroll-behavior 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-
-  &>* {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    scroll-behavior: smooth;
-  }
 `
 
 const Container = styled.div`
@@ -62,4 +50,20 @@ const MainTitle = styled(TitleSecondary)`
   padding-bottom: 0;
   letter-spacing: -2px;
   font-size: 3.75rem;
+`
+
+const HorizontalContainer = styled.div`
+  display: grid;
+    grid-template-columns: 100dvw 1fr;
+    grid-template-rows: 1fr;
+  scroll-snap-align: end !important;
+  width: 100dvw;
+  height: 100dvh;
+    max-height: max-content;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+
+  &>* {
+    scroll-snap-align: end;
+  }
 `

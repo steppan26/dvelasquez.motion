@@ -10,7 +10,7 @@ export const Arrow:React.FC = () => {
 const Container = styled.div`
   position: relative;
   width: 3px;
-  height: 100px;
+  height: 85px;
   background-color: ${p => p.theme.textPrimary};
 
   &::after {

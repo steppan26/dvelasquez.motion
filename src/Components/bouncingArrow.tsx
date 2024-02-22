@@ -4,7 +4,11 @@ import styled from "styled-components";
 import { Arrow, Sizes } from "../Assets";
 import { useIsMobileView } from "../utils/hooks";
 
-export const BouncingArrow:React.FC = () => {
+interface Props {
+  onClick: MouseEventHandler
+}
+
+export const BouncingArrow:React.FC<Props> = ({ onClick }) => {
   const isMobileView = useIsMobileView()
   const TOP = isMobileView ? 0 : -50
   const BOB = {
@@ -33,14 +37,8 @@ export const BouncingArrow:React.FC = () => {
     return () => clearInterval(interval)
   }, [])
 
-  const handleClick: MouseEventHandler = (e) => {
-    const main = document.querySelector('#mainContainer') as HTMLElement
-    main.scrollBy({ top: window.innerHeight, behavior: 'smooth' })
-    window.dispatchEvent(new CustomEvent('resetMask'))
-  }
-
   return(
-    <ArrowWrapper style={style} onClick={handleClick}>
+    <ArrowWrapper style={style} onClick={onClick}>
       <Arrow />
     </ArrowWrapper>
   )

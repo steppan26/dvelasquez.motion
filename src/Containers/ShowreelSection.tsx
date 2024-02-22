@@ -2,8 +2,16 @@ import styled from "styled-components"
 import { TitleSecondary } from "../Assets/UIComponents"
 import { BouncingArrow, CTAButton, ShowReel } from "../Components"
 import { Sizes } from "../Assets"
+import { MouseEventHandler } from "react"
 
 export const ShowReelSection:React.FC = () => {
+
+  const handleArrowClick: MouseEventHandler = (e) => {
+    const container = document.querySelector('#showcaseContainer') as HTMLElement
+    container.scrollBy({ left: window.innerWidth, behavior: 'smooth' })
+    window.dispatchEvent(new CustomEvent('resetMask'))
+  }
+
   return (
     <Container id="showReelSection">
       <InfoSection>
@@ -15,9 +23,9 @@ export const ShowReelSection:React.FC = () => {
       <ShowReel />
       <ProjectsEntice>
         <ProjectsText>Handpicked projects</ProjectsText>
-        <div>
-          <BouncingArrow />
-        </div>
+        <span>
+          <BouncingArrow onClick={handleArrowClick} />
+        </span>
       </ProjectsEntice>
     </Container>
   )
@@ -28,10 +36,10 @@ export const ShowReelSection:React.FC = () => {
 const Container = styled.article`
   --inner-padding: 2.5rem;
 
-  scroll-snap-align: end !important;
   display: flex;
     flex-direction: column;
-  max-width: 100vw;
+  width: 100dvw;
+    max-width: 100%;
   padding: var(--padding-main);
   margin-top: 2.777778dvh;
   height: max-content;
@@ -67,10 +75,6 @@ const Text = styled.p`
 `
 
 const InfoSection = styled.div`
-  /* display: grid;
-    grid-template-columns: 61% 39%;
-    grid-template-rows: 1fr;
-    align-content: end; */
   display: flex;
     justify-content: space-between;
     align-items: center;
@@ -95,17 +99,17 @@ const ProjectsEntice = styled.div`
   display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 2rem;
   margin-block: 8dvh;
 
-  &>div {
+  &>span {
     position: absolute;
-    right: 0;
+    left: calc(100% + 5rem);
     transform-origin: center center;
-    transform: rotate(-90deg) translateY(150px);
+    transform: rotate(-90deg);
+    cursor: e-resize;
 
-    img {
-      cursor: e-resize;
+    &>div {
+      margin: 0;
     }
   }
 

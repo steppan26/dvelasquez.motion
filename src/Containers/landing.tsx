@@ -4,9 +4,16 @@ import { PrimaryTitle } from "../Components/styledComponents"
 import { Sizes } from "../Assets"
 import { useIsMobileView } from "../utils/hooks"
 import { LandingMobile, Navbar } from "."
+import { MouseEventHandler } from "react"
 
 export const Landing:React.FC = () => {
   const { isMobileView } = useIsMobileView()
+
+  const handleArrowClick: MouseEventHandler = (e) => {
+    const main = document.querySelector('#mainContainer') as HTMLElement
+    main.scrollBy({ top: window.innerHeight, behavior: 'smooth' })
+    window.dispatchEvent(new CustomEvent('resetMask'))
+  }
 
   if(isMobileView) return <LandingMobile />
 
@@ -21,7 +28,7 @@ export const Landing:React.FC = () => {
             <span>Brand Design</span>
             <span>Motion Design</span>
           </TextWrapper>
-          <BouncingArrow />
+          <BouncingArrow onClick={handleArrowClick} />
         </Wrapper>
       </MouseMask>
     </Container>
