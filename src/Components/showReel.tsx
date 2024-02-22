@@ -1,9 +1,11 @@
 import styled from "styled-components"
 import { Sizes } from "../Assets"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export const ShowReel:React.FC = () => {
+  const videoRef = useRef<HTMLVideoElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
+  const [hasBeenClicked, setHasBeenClicked] = useState(false)
 
   useEffect(() => {
     if(typeof window == 'undefined' || !containerRef.current) return
@@ -19,12 +21,32 @@ export const ShowReel:React.FC = () => {
     window.dispatchEvent(new CustomEvent('resetMask'))
   }
 
+  const handleVideoClick = () => {
+    if(!hasBeenClicked && videoRef.current) {
+      videoRef.current.currentTime = 0
+      videoRef.current?.play()
+      setTimeout(() => setHasBeenClicked(true), 100)
+    }
+  }
+
   return(
     <Container ref={containerRef}>
       <Text>
         Showreel
       </Text>
-      <Video />
+      <Video
+      ref={videoRef}
+      autoPlay
+      muted={!hasBeenClicked}
+      controls={hasBeenClicked}
+      onClick={handleVideoClick}
+      controlsList="nodownload"
+      poster="/showreel_static.png"
+      preload="metadata"
+
+      >
+        <source src="/showreel.mp4" type="video/mp4" />
+      </Video>
     </Container>
   )
 }
@@ -36,8 +58,9 @@ const Container = styled.div`
     justify-content: flex-end;
     align-items: flex-end;
   width: clamp(650px, 80%, 1240px);
-  height: 500px;
-  margin-block: 4dvh;
+  width: calc(100% - var(--inner-padding));
+  height: auto;
+  margin-top: 4dvh;
 
   @media (max-width: ${Sizes.small}) {
     display: none;
@@ -48,11 +71,6 @@ const Video = styled.video`
   flex: 1 1 100%;
   width: clamp(650px, 80%, 1240px);
   height: 100%;
-  background-color: var(--clr-bg-secondary);
-  background-image: url('/public/showreel_static.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
   transition: var(--transition) 120ms all;
   border-radius: var(--border-radius);
 

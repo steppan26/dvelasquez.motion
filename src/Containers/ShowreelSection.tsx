@@ -6,7 +6,6 @@ import { Sizes } from "../Assets"
 export const ShowReelSection:React.FC = () => {
   return (
     <Container id="showReelSection">
-      <MainTitle>Unique Design for Unique Ideas</MainTitle>
       <InfoSection>
         <Text>
           Through <span>brand expression</span> and <span>visual storytelling</span> I can help daring <span>organisations</span>, ambitious <span>startups</span> and <span>creative individuals</span> craft their story, communicate their ideas and build their tribe.
@@ -24,15 +23,18 @@ export const ShowReelSection:React.FC = () => {
   )
 }
 
+
+
 const Container = styled.article`
-  scroll-snap-stop: s ;
+  --inner-padding: 2.5rem;
+
+  scroll-snap-align: end !important;
   display: flex;
     flex-direction: column;
   max-width: 100vw;
+  padding: var(--padding-main);
+  margin-top: 2.777778dvh;
   height: max-content;
-    min-height: 100dvh;
-  margin-top: 7.042254dvh;
-  padding: 0 12.615741vw 7dvh;
 
   @media (max-width: ${Sizes.small}) {
     display: flex;
@@ -49,31 +51,26 @@ const Container = styled.article`
   }
 `
 
-const MainTitle = styled(TitleSecondary)`
-  letter-spacing: -2px;
-`
-
-
 const Text = styled.p`
-  font-size: 1.75rem;
+  font-size: 1.25rem;
+  flex: 0 1 100%;
+  margin-block: 0;
 
   span {
     color: ${p => p.theme.textSecondary};
   }
 
   @media (max-width: ${Sizes.small}) {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     text-align: center;
   }
 `
 
 const InfoSection = styled.div`
   display: grid;
-    grid-template-columns: 55% 45%;
+    grid-template-columns: 61% 39%;
     grid-template-rows: 1fr;
     align-content: end;
-  margin-top: 5dvh;
-  padding-left: 2.5rem;
 
   @media (max-width: ${Sizes.small}) {
     grid-template-columns: 1fr;
@@ -94,12 +91,13 @@ const ProjectsEntice = styled.div`
     justify-content: flex-end;
     align-items: center;
     gap: 2rem;
+  margin-block: 8dvh;
 
   &>div {
     position: absolute;
     right: 0;
     transform-origin: center center;
-    transform: rotate(-90deg) translateY(100%);
+    transform: rotate(-90deg) translateY(150px);
 
     img {
       cursor: e-resize;

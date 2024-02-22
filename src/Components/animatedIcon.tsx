@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import { useEffect, useRef, useState } from "react";
-//@ts-ignore
 import { supportsHEVCAlpha } from "../utils/helpers";
 import { Sizes } from "../Assets";
 
@@ -61,7 +60,7 @@ export const AnimatedIcon:React.FC = () => {
 }
 
 const Wrapper = styled.div`
-  --logo-size: 11vw;
+  --logo-size: 9.305556vw;
 
   z-index: 999;
   height: max-content;

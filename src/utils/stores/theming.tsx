@@ -61,6 +61,7 @@ const GlobalStyle = createGlobalStyle<{}>`
     --font-text-color: var(--clr-text-main);
 
     --border-radius: 4px;
+    --nav-height: 8.802817dvh;
 
     --transition: ease;
     font-size: var(--font-size);
