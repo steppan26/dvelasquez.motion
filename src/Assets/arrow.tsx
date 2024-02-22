@@ -1,9 +1,10 @@
 import Image from "next/image"
+import ArrowSVG from '/public/arrow.svg'
 
 export const Arrow:React.FC = () => {
   return(
     <Image
-        src="/arrow.svg"
+        src={ArrowSVG}
         alt="arrow"
         layout='fill'
         // width={15}
