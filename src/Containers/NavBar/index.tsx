@@ -60,10 +60,10 @@ const Nav = styled.nav<{islanding?: boolean}>`
 const MenuWrapper = styled.div`
   cursor: pointer;
   display: flex;
-  justify-content: center;
-  align-items: center;
+    justify-content: center;
+    align-items: center;
   padding: 1rem;
-  gap: 10px;
+  gap: 3px;
 
   @media (max-width: ${Sizes.small}) {
     gap: 5px;

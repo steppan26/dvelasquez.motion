@@ -51,9 +51,7 @@ const ArrowWrapper = styled(animated.div)`
   cursor: s-resize;
   z-index: 10;
   align-self: end;
-  margin-bottom: 19.555556dvh;
-  height: 3.125rem;
-  width: 1.25rem;
+  margin-bottom: 15.555556dvh;
 
   @media (max-width: ${Sizes.small}) {
     align-self: unset;

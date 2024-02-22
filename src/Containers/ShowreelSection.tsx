@@ -67,10 +67,14 @@ const Text = styled.p`
 `
 
 const InfoSection = styled.div`
-  display: grid;
+  /* display: grid;
     grid-template-columns: 61% 39%;
     grid-template-rows: 1fr;
-    align-content: end;
+    align-content: end; */
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
   padding-left: 4.25rem;
 
   @media (max-width: ${Sizes.small}) {

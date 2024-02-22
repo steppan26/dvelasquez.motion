@@ -29,11 +29,13 @@ export const CTAButton:React.FC = () => {
 const TempButton = styled.div`
   --width: 22.22222vw;
 
+  flex: 1 0 var(--width);
   cursor: pointer;
   justify-self: end;
   position: relative;
-  width: var(--width);
+  max-width: 260px;
   height: calc(var(--width) * 0.33774834);
+    max-height: calc(260px * 0.33774834);
   transition: var(--transition) 200ms opacity;
 
   &:hover {

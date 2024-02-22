@@ -1,7 +1,6 @@
-import { UseSpringProps, UseTrailProps, animated, useSpring, useTrail } from "react-spring"
+import { animated, useSpring } from "react-spring"
 import styled from "styled-components"
 import { Sizes } from "../../Assets"
-import { useMemo } from "react"
 
 interface MenuItem {
   text: string
@@ -60,16 +59,6 @@ export const MenuItems:React.FC<Props> = ({ isOpen }) => {
       </MenuContainer>
     </Wrapper>
   )
-
-  // return(
-  //   <MenuContainer>
-  //     {menuItems.map((props, index) => (
-  //       <Menu key={index} style={props} className={index === 0 ? 'active' : ''} >
-  //         <p>{menuData[index].text}</p>
-  //       </Menu>
-  //     ))}
-  //   </MenuContainer>
-  // )
 }
 
 const Menu = styled(animated.div)`
@@ -77,7 +66,7 @@ const Menu = styled(animated.div)`
   line-height: 2.4375rem;
 
   p {
-    font-weight: 400;
+    font-weight: 300;
     margin-block: 0;
     transition: cubic-bezier(0.18, 0.89, 0.32, 1.28) 800ms transform;
   }
@@ -85,7 +74,7 @@ const Menu = styled(animated.div)`
   &.active {
     text-decoration: underline;
 
-    p { font-weight: 600; }
+    p { font-weight: 400; }
   }
 
   &:hover {
@@ -97,7 +86,7 @@ const Menu = styled(animated.div)`
 const MenuContainer = styled(animated.div)`
   display: flex;
     justify-content: flex-end;
-    gap: 2.5rem;
+    gap: 1.75rem;
   overflow: hidden;
   width: max-content;
   margin-right: 2.5rem;
