@@ -49,7 +49,7 @@ export const AnimatedLogo:React.FC = () => {
 }
 
 const Wrapper = styled.div`
-  --logo-size: 16.203704vw;
+  --logo-size: 12.203704vw;
 
   z-index: 999;
   height: max-content;

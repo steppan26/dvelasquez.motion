@@ -57,7 +57,6 @@ const Container = styled.div`
   display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-  width: clamp(650px, 80%, 1240px);
   width: calc(100% - var(--inner-padding));
   height: auto;
   margin-top: 4dvh;
