@@ -45,8 +45,10 @@ export const ScrollingSection:React.FC<Props> = ({ children, backgroundImageUrl,
     data-projectid
     ref={containerRef}
     >
-      <BackgroundHeader className='background' imgUrl={ backgroundImageUrl } />
-      <Overlay className='overlay' />
+      <BackgroundWrapper>
+        <BackgroundHeader className='background' imgUrl={ backgroundImageUrl } />
+        <Overlay className='overlay' />
+      </BackgroundWrapper>
       {isSelected && children}
     </Container>
   )
@@ -56,6 +58,11 @@ const Container = styled.div<{isSelected: boolean}>`
   cursor: pointer;
   flex: ${p => p.isSelected ? '0 0 100%' : '0 1 25%'};
   position: relative;
+  display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
   width: 100%;
   height: 100vh;
 
@@ -64,6 +71,17 @@ const Container = styled.div<{isSelected: boolean}>`
   &:hover {
     flex: ${p => p.isSelected ? '0 0 100%' : '0 1 33%'};
   }
+
+  &>.snap-to {
+    scroll-snap-align: start;
+  }
+`
+
+const BackgroundWrapper = styled.div`
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
 `
 
 

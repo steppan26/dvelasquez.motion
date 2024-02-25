@@ -1,9 +1,10 @@
 import styled from "styled-components"
-import { ScrollingSection } from "../Components"
 import goBiggerLogo from '../../public/projects/go_bigger.jpg'
 import followMeLogo from '../../public/projects/follow_me.jpg'
 import laraLogo from '../../public/projects/girl_called_sara.jpg'
 import rokuLogo from '../../public/projects/jelly_Roku.jpg'
+import { ScrollingSection } from "."
+import { JellySmackPortfolio } from "../Projects"
 
 export const ProjectsShowcase:React.FC = () => {
   const handleButtonClick = () => {
@@ -13,7 +14,9 @@ export const ProjectsShowcase:React.FC = () => {
   return(
     <Container id="showcaseContainer">
       <Button onClick={handleButtonClick} />
-      <ScrollingSection id="go-bigger" backgroundImageUrl={goBiggerLogo.src} />
+      <ScrollingSection id="go-bigger" backgroundImageUrl={goBiggerLogo.src}>
+        <JellySmackPortfolio />
+      </ScrollingSection>
       <ScrollingSection id="lara" backgroundImageUrl={laraLogo.src} />
       <ScrollingSection id="follow-me" backgroundImageUrl={followMeLogo.src} />
       <ScrollingSection id="roku" backgroundImageUrl={rokuLogo.src} />
