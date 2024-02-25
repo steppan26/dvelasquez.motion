@@ -1,15 +1,36 @@
 import styled from "styled-components"
+import { ScrollingSection } from "../Components"
+import goBiggerLogo from '../../public/projects/go_bigger.jpg'
+import followMeLogo from '../../public/projects/follow_me.jpg'
+import laraLogo from '../../public/projects/girl_called_sara.jpg'
+import rokuLogo from '../../public/projects/jelly_Roku.jpg'
 
 export const ProjectsShowcase:React.FC = () => {
+  const handleButtonClick = () => {
+    window.dispatchEvent(new CustomEvent('selectProject', {detail: {id: ''}}))
+  }
+
   return(
-    <Container>
-      <Dummy data-red />
-      <Dummy data-green />
-      <Dummy data-blue />
-      <Dummy data-yellow />
+    <Container id="showcaseContainer">
+      <Button onClick={handleButtonClick} />
+      <ScrollingSection id="go-bigger" backgroundImageUrl={goBiggerLogo.src} />
+      <ScrollingSection id="lara" backgroundImageUrl={laraLogo.src} />
+      <ScrollingSection id="follow-me" backgroundImageUrl={followMeLogo.src} />
+      <ScrollingSection id="roku" backgroundImageUrl={rokuLogo.src} />
     </Container>
   )
 }
+
+const Button = styled.div`
+  z-index: 20;
+  position: fixed;
+    top: 1rem;
+    right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 6px;
+  background-color: black;
+`
 
 const Container = styled.div`
   display: flex;
@@ -18,28 +39,42 @@ const Container = styled.div`
   height: 100dvh;
   width: 100dvw;
   overflow: auto;
-`
+  background-color: transparent;
 
-const Dummy = styled.div`
-  flex: 1 0 20%;
-  height: 100%;
-  box-shadow: -4px 0 8px rgba(50, 50, 50, 0.125);
-  transition: ease all 300ms;
+  .overlay { --angle: to bottom; }
 
-  &:hover {
-    flex-basis: 30%;
+  #go-bigger_container {
+    .background {
+      background-position: left;
+    }
+
+    .overlay {
+      --primary-color: rgba(122, 155, 118, 0.90);
+      --secondary-color: rgba(255, 210, 64, 0.90);
+    }
   }
 
-  &[data-red] {
-    background-color: #dd5a5a;
+  #follow-me_container {
+
+    .overlay {
+      --primary-color: rgba(206, 8, 81, 0.80);
+      --secondary-color: rgba(255, 210, 64, 0.80);
+    }
   }
-  &[data-green] {
-    background-color: #8bcf8b;
+
+  #lara_container {
+
+    .overlay {
+      --primary-color: rgba(206, 8, 81, 0.80);
+      --secondary-color: rgba(243, 228, 217, 0.80);
+    }
   }
-  &[data-blue] {
-    background-color: #7c7cdd;
+
+  #roku_container {
+
+    .overlay {
+      --primary-color: rgba(206, 8, 81, 0.60);
+      --secondary-color: rgba(55, 0, 49, 0.60);
+    }
   }
-  &[data-yellow] {
-    background-color: #eeeeb1;
-  }
-`
+  `
