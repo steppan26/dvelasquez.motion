@@ -1,6 +1,7 @@
 import { animated, useSpring } from "react-spring"
 import styled from "styled-components"
 import { Sizes } from "../../Assets"
+import Link from "next/link"
 
 interface MenuItem {
   text: string
@@ -52,8 +53,8 @@ export const MenuItems:React.FC<Props> = ({ isOpen }) => {
     <Wrapper>
       <MenuContainer style={{ ...translateStyle }}>
         {menuData.map((props, index) => (
-          <Menu key={index} className={index === 0 ? 'active' : ''} >
-            <p>{props.text}</p>
+          <Menu key={index} className={index === 0 ? 'active' : ''}>
+            <Link href={props.href} scroll prefetch>{props.text}</Link>
           </Menu>
         ))}
       </MenuContainer>
@@ -65,20 +66,17 @@ const Menu = styled(animated.div)`
   font-size: 1.25rem;
   line-height: 2.4375rem;
 
-  p {
-    font-weight: 300;
-    margin-block: 0;
-    transition: cubic-bezier(0.18, 0.89, 0.32, 1.28) 800ms transform;
-  }
+  font-weight: 300;
+  margin-block: 0;
+  transition: cubic-bezier(0.18, 0.89, 0.32, 1.28) 800ms transform;
 
   &.active {
     text-decoration: underline;
-
-    p { font-weight: 400; }
+    font-weight: 400;
   }
 
   &:hover {
-    p { transform: scale(1.07); }
+    transform: scale(1.07);
   }
 `
 
