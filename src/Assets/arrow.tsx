@@ -9,7 +9,7 @@ export const Arrow:React.FC = () => {
 
 const Container = styled.div`
   position: relative;
-  width: 3px;
+  width: 2px;
   height: 85px;
   background-color: ${p => p.theme.textPrimary};
 
@@ -17,8 +17,8 @@ const Container = styled.div`
     content: '';
     position: absolute;
     bottom: 0;
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     transform: translateX(-40%) rotate(45deg);
     background-color: inherit;
   }
