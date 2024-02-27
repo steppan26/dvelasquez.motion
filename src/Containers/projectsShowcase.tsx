@@ -1,25 +1,73 @@
+import { ReactNode } from "react"
+import { useTransition } from "react-spring"
 import styled from "styled-components"
 import goBiggerLogo from '../../public/projects/go_bigger.jpg'
 import followMeLogo from '../../public/projects/follow_me.jpg'
 import laraLogo from '../../public/projects/girl_called_sara.jpg'
 import rokuLogo from '../../public/projects/jelly_Roku.jpg'
 import { ScrollingSection } from "."
-import { JellySmackPortfolio } from "../Projects"
+import { FollowProject, JellySmackPortfolio, LaraProject, RokuProject } from "../Projects"
+
+const ProjectsListData: ProjectData[] = [
+  {
+    id: 'go-bigger',
+    imageUrl: goBiggerLogo.src,
+    childComponent: <JellySmackPortfolio />
+  },
+  {
+    id: 'lara',
+    imageUrl: laraLogo.src,
+    childComponent: <LaraProject />
+  },
+  {
+    id: 'follow-me',
+    imageUrl: followMeLogo.src,
+    childComponent: <FollowProject />
+  },
+  {
+    id: 'roku',
+    imageUrl: rokuLogo.src,
+    childComponent: <RokuProject />
+  },
+]
+
+interface ProjectData {
+  imageUrl: string
+  id: string
+  childComponent?: ReactNode
+}
 
 export const ProjectsShowcase:React.FC = () => {
+
   const handleButtonClick = () => {
-    window.dispatchEvent(new CustomEvent('selectProject', {detail: {id: ''}}))
+    window.dispatchEvent(new CustomEvent('selectProject', {detail: {id: 'reset'}}))
   }
+
+  const transitions = useTransition(ProjectsListData, {
+    from: {
+      y: '-100vh'
+    },
+    enter: {
+      y: '0vh'
+    },
+    delay: 200,
+    trail: 100,
+    config: {
+      mass: 2.2,
+      friction: 40,
+      tension: 220,
+      restVelocity: 2
+    }
+  })
 
   return(
     <Container id="showcaseContainer">
       <Button onClick={handleButtonClick} />
-      <ScrollingSection id="go-bigger" backgroundImageUrl={goBiggerLogo.src}>
-        <JellySmackPortfolio />
-      </ScrollingSection>
-      <ScrollingSection id="lara" backgroundImageUrl={laraLogo.src} />
-      <ScrollingSection id="follow-me" backgroundImageUrl={followMeLogo.src} />
-      <ScrollingSection id="roku" backgroundImageUrl={rokuLogo.src} />
+      {transitions((style, item) => (
+        <ScrollingSection style={style} id={item.id} backgroundImageUrl={item.imageUrl}>
+          {item.childComponent}
+        </ScrollingSection>
+      ))}
     </Container>
   )
 }
@@ -33,6 +81,15 @@ const Button = styled.div`
   height: 3rem;
   border-radius: 6px;
   background-color: black;
+  border: 2px solid black;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-left: 20px double var(--clr-bg-main);
+    border-right: 20px double var(--clr-bg-main);
+  }
 `
 
 const Container = styled.div`
@@ -47,10 +104,6 @@ const Container = styled.div`
   .overlay { --angle: to bottom; }
 
   #go-bigger_container {
-    .background {
-      background-position: left;
-    }
-
     .overlay {
       --primary-color: rgba(122, 155, 118, 0.90);
       --secondary-color: rgba(255, 210, 64, 0.90);

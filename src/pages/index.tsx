@@ -1,7 +1,6 @@
 import styled from "styled-components"
 import { Footer, Landing, Navbar, ShowReelSection } from "../Containers"
 import { ScrollingContainer, TitleSecondary } from "../Assets/UIComponents"
-import { ProjectsShowcase } from "../Containers/projectsShowcase"
 
 export default function Home() {
 
@@ -15,10 +14,7 @@ export default function Home() {
         <Navbar />
         <MainTitle>Unique Design for Unique Ideas</MainTitle>
       </Container>
-      <HorizontalContainer id="showcaseContainer">
-        <ShowReelSection />
-        <ProjectsShowcase  />
-      </HorizontalContainer>
+      <ShowReelSection />
       <Footer />
     </Main>
   )
@@ -52,21 +48,4 @@ const MainTitle = styled(TitleSecondary)`
   padding-bottom: 0;
   letter-spacing: -2px;
   font-size: 3.75rem;
-`
-
-const HorizontalContainer = styled.div`
-  display: grid;
-    grid-template-columns: 100dvw 1fr;
-    grid-template-rows: 1fr;
-  scroll-snap-align: end !important;
-  width: 100dvw;
-  height: max-content;
-  /* height: 100dvh; */
-    max-height: max-content;
-  overflow: auto;
-  scroll-snap-type: x mandatory;
-
-  &>* {
-    scroll-snap-align: end;
-  }
 `

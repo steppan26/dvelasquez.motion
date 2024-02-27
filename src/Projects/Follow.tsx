@@ -1,19 +1,17 @@
 import Image from "next/image"
 import styled from "styled-components"
-import MainHeaderImage from "../../public/projects/goBigger/main_header_static.jpg"
+import MainHeaderImage from "../../public/projects/follow_me.jpg"
 
-export const JellySmackPortfolio:React.FC = () => {
+export const FollowProject:React.FC = () => {
   return(
     <Container className='scroll-to'>
-      {/* <ImageWrappper className="main-image"> */}
+      <ImageWrappper className="main-image">
         <Image
         src={MainHeaderImage.src}
         alt="The words 'go larger' in big, duplicated over itself"
-        width={1728}
-        height={1126}
-        layout="responsive"
+        layout="fill"
         />
-      {/* </ImageWrappper> */}
+      </ImageWrappper>
       <Buffer />
     </Container>
   )
@@ -21,11 +19,14 @@ export const JellySmackPortfolio:React.FC = () => {
 
 const Container = styled.div`
   cursor: default;
-  width: 100vw;
 `
 
 const ImageWrappper = styled.div`
   position: relative;
+  display: flex;
+
+  height: calc(100vw * 0.56228571);
+  width: 100vw;
 `
 
 const Buffer = styled.div`

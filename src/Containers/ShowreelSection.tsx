@@ -3,6 +3,7 @@ import { TitleSecondary } from "../Assets/UIComponents"
 import { BouncingArrow, CTAButton, ShowReel } from "../Components"
 import { Sizes } from "../Assets"
 import { MouseEventHandler } from "react"
+import Link from "next/link"
 
 export const ShowReelSection:React.FC = () => {
 
@@ -21,7 +22,7 @@ export const ShowReelSection:React.FC = () => {
         <CTAButton />
       </InfoSection>
       <ShowReel />
-      <ProjectsEntice onClick={handleArrowClick}>
+      <ProjectsEntice href="/works" scroll prefetch>
         <ProjectsText>Handpicked projects</ProjectsText>
         <span>
           <BouncingArrow onClick={handleArrowClick} />
@@ -36,6 +37,7 @@ export const ShowReelSection:React.FC = () => {
 const Container = styled.article`
   --inner-padding: 4.25rem;
 
+  scroll-snap-align: end;
   display: flex;
     flex-direction: column;
   width: 100dvw;
@@ -94,7 +96,7 @@ const ProjectsText = styled(TitleSecondary)`
   font-size: 1.25rem;
 `
 
-const ProjectsEntice = styled.div`
+const ProjectsEntice = styled(Link)`
   cursor: e-resize;
   position: relative;
   display: flex;

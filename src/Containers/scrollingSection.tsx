@@ -1,15 +1,20 @@
-import { useCallback, useEffect, useRef, useState } from "react"
+import { CSSProperties, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { animated, useSpring } from "react-spring"
 import styled from "styled-components"
 
 interface Props {
   backgroundImageUrl: string
   id: string
   children?: any
+  style: any
 }
 
-export const ScrollingSection:React.FC<Props> = ({ children, backgroundImageUrl, id }) => {
+export const ScrollingSection = forwardRef<HTMLDivElement, Props>((props, ref) => {
+  const { children, id, style } = props
   const containerRef = useRef<HTMLDivElement>(null)
   const [isSelected, setIsSelected] = useState(false)
+  const [isHovering, setIsHovering] = useState(false)
+  const [isVisible, setVisible] = useState(true)
 
   useEffect(() => {
     if(!window) return
@@ -18,6 +23,11 @@ export const ScrollingSection:React.FC<Props> = ({ children, backgroundImageUrl,
 
     return () => window.removeEventListener('selectProject', _handleSelect)
   }, [])
+
+  useEffect(() => console.info('isVisible', isVisible), [isVisible])
+
+  const handleMouseEnter = () => setIsHovering(true)
+  const handleMouseLeave = () => setIsHovering(false)
 
   const notifyListeners = useCallback(() => {
     const event = new CustomEvent('selectProject', {
@@ -34,69 +44,66 @@ export const ScrollingSection:React.FC<Props> = ({ children, backgroundImageUrl,
   }, [isSelected, notifyListeners])
 
   const _handleSelect = (e: any) => {
+    setVisible(e.detail.id === id || e.detail.id === 'reset')
     setIsSelected(e.detail.id === id)
   }
+
+  const animationConfig = {
+    mass: isSelected ? 1.2 : isHovering ? 1.4 : 1.2,
+    friction: isSelected ? 40 : isHovering ? 30 : 40,
+    tension: isSelected ? 300 : isHovering ? 200 : 300,
+  }
+
+  const containerSpring = useSpring({
+    from: { flexBasis: '25%', flexShrink: 1 },
+    to: {
+      flexBasis: isSelected ? '100%' : isHovering ? '33%' : '25%',
+      flexShrink: isSelected || isHovering ? 0 : 1,
+    },
+    config: animationConfig
+  })
+
+  const overlaySpring = useSpring({
+    from: { opacity: 1 },
+    to: { opacity: isSelected ? 0 : isHovering ? 0.65 : 1 },
+    config: animationConfig
+  })
 
   return(
     <Container
     id={id+'_container'}
-    isSelected={isSelected}
+    className={isVisible && !isSelected ? 'active' : undefined}
     onClick={() => setIsSelected(true)}
     data-projectid
-    ref={containerRef}
+    ref={ref || containerRef}
+    style={{...style, ...containerSpring}}
+    onMouseEnter={handleMouseEnter}
+    onMouseLeave={handleMouseLeave}
     >
-      <BackgroundWrapper>
-        <BackgroundHeader className='background' imgUrl={ backgroundImageUrl } />
-        <Overlay className='overlay' />
-      </BackgroundWrapper>
-      {isSelected && children}
+      {children}
+      <Overlay className='overlay' style={{...overlaySpring}} />
     </Container>
   )
-}
+})
 
-const Container = styled.div<{isSelected: boolean}>`
+ScrollingSection.displayName = "ScrollingSection"
+
+const Container = styled(animated.div)`
   cursor: pointer;
-  flex: ${p => p.isSelected ? '0 0 100%' : '0 1 25%'};
+  flex-shrink: 1;
+  flex-grow: 0;
+  flex-basis: 25%;
   position: relative;
-  display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-  width: 100%;
   height: 100vh;
-
-  transition: flex-basis 230ms cubic-bezier(.77,0,.18,1);
-
-  &:hover {
-    flex: ${p => p.isSelected ? '0 0 100%' : '0 1 33%'};
-  }
+  width: max-content;
+  overflow: auto;
 
   &>.snap-to {
     scroll-snap-align: start;
   }
 `
 
-const BackgroundWrapper = styled.div`
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 100vh;
-`
-
-
-const BackgroundHeader = styled.div<{ imgUrl: string }>`
-  width: 100%;
-  height: 100%;
-  background-image: url(${p => p.imgUrl});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-origin: center center;
-  background-size: cover;
-  backdrop-filter: opacity(20%);
-`
-
-const Overlay = styled.div`
+const Overlay = styled(animated.div)`
   position: absolute;
   top: 0; left: 0;
   height: 100%; width: 100%;
