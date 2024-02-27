@@ -13,18 +13,6 @@ export const Navbar:React.FC<Props> = ({ isLanding }) => {
   const navRef = useRef<HTMLElement>(null)
   const [isOpen, setIsOpen] = useState(false)
 
-  // useEffect(() => {
-  //   if(typeof window == 'undefined' || !navRef.current) return
-
-  //   const showReelSection = document.getElementById('mainContainer')
-  //   const observer = new IntersectionObserver(handleOpacity, { root: window.document })
-  //   observer.observe(showReelSection as Element)
-  // }, [])
-
-  // const handleOpacity = (e: any) => {
-  //   console.info("INTERCEPTING", e)
-  // }
-
   return(
     <Nav ref={navRef} islanding={isLanding}>
       { isLanding ? <AnimatedIcon /> : <AnimatedLogo /> }
@@ -46,8 +34,7 @@ const Nav = styled.nav<{islanding?: boolean}>`
   width: 100vw;
   height: var(--nav-height);
   background-color: ${p => !p.islanding && p.theme.backgroundPrimary + 'f0'};
-  padding: 1rem 53px 0;
-  /* box-shadow: 0 6px 10px 0 ${p => p.islanding ? 'transparent' : p.theme.textPrimary + '10'}; */
+  padding: 1rem 3vw 0;
 
   .active {
     color: ${p => p.islanding ? 'inherit' : p.theme.backgroundSecondary};

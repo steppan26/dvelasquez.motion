@@ -25,7 +25,7 @@ export default function Home() {
 }
 
 const Main = styled(ScrollingContainer)`
-  --padding-main: 0 12.615741vw;
+  --padding-main: 11.5vw;
 `
 
 const Container = styled.div`
@@ -48,7 +48,7 @@ const Cutout = styled.div`
 const MainTitle = styled(TitleSecondary)`
   scroll-snap-stop: start;
   margin-top: 7.042254dvh;
-  padding: var(--padding-main);
+  padding: 0 var(--padding-main);
   padding-bottom: 0;
   letter-spacing: -2px;
   font-size: 3.75rem;
@@ -60,7 +60,8 @@ const HorizontalContainer = styled.div`
     grid-template-rows: 1fr;
   scroll-snap-align: end !important;
   width: 100dvw;
-  height: 100dvh;
+  height: max-content;
+  /* height: 100dvh; */
     max-height: max-content;
   overflow: auto;
   scroll-snap-type: x mandatory;

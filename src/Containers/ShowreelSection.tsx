@@ -21,7 +21,7 @@ export const ShowReelSection:React.FC = () => {
         <CTAButton />
       </InfoSection>
       <ShowReel />
-      <ProjectsEntice>
+      <ProjectsEntice onClick={handleArrowClick}>
         <ProjectsText>Handpicked projects</ProjectsText>
         <span>
           <BouncingArrow onClick={handleArrowClick} />
@@ -34,13 +34,13 @@ export const ShowReelSection:React.FC = () => {
 
 
 const Container = styled.article`
-  --inner-padding: 2.5rem;
+  --inner-padding: 4.25rem;
 
   display: flex;
     flex-direction: column;
   width: 100dvw;
     max-width: 100%;
-  padding: var(--padding-main);
+  padding: 0 var(--padding-main);
   margin-top: 2.777778dvh;
   height: max-content;
 
@@ -79,7 +79,7 @@ const InfoSection = styled.div`
     justify-content: space-between;
     align-items: center;
     gap: 3rem;
-  padding-left: 4.25rem;
+  padding-left: var(--inner-padding);
 
   @media (max-width: ${Sizes.small}) {
     grid-template-columns: 1fr;
@@ -91,24 +91,25 @@ const InfoSection = styled.div`
 `
 
 const ProjectsText = styled(TitleSecondary)`
-  font-size: 1.6rem;
+  font-size: 1.25rem;
 `
 
 const ProjectsEntice = styled.div`
+  cursor: e-resize;
   position: relative;
   display: flex;
     justify-content: flex-end;
     align-items: center;
-  margin-block: 8dvh;
+  margin-block: 6.8dvh;
 
   &>span {
     position: absolute;
-    left: calc(100% + 5rem);
+    right: calc(43px - var(--padding-main) + 3vw);
     transform-origin: center center;
     transform: rotate(-90deg);
-    cursor: e-resize;
 
     &>div {
+      cursor: e-resize;
       margin: 0;
     }
   }
