@@ -1,5 +1,5 @@
-import { ReactNode } from "react"
-import { useTransition } from "react-spring"
+import { ReactNode, useEffect, useState } from "react"
+import { AnimationResult, Controller, OnRest, animated, useSpring, useTransition } from "react-spring"
 import styled from "styled-components"
 import goBiggerLogo from '../../public/projects/go_bigger.jpg'
 import followMeLogo from '../../public/projects/follow_me.jpg'
@@ -44,19 +44,26 @@ export const ProjectsShowcase:React.FC = () => {
   }
 
   const transitions = useTransition(ProjectsListData, {
-    from: {
-      y: '-100vh'
-    },
-    enter: {
-      y: '0vh'
-    },
-    delay: 200,
-    trail: 100,
+    from: {x: '200vw' },
+    enter: { x: '0vw' },
+    delay: 100,
+    trail: 120,
     config: {
-      mass: 2.2,
-      friction: 40,
-      tension: 220,
-      restVelocity: 2
+      mass: 1.4,
+      friction: 50,
+      tension: 320,
+      restVelocity: 6
+    }
+  })
+
+  const scaleTransform = useSpring({
+    from: { paddingRight: '200vw' },
+    to: { paddingRight: '0' },
+    config: {
+      mass: 2,
+      friction: 50,
+      tension: 80,
+      delay: 100
     }
   })
 
@@ -64,7 +71,7 @@ export const ProjectsShowcase:React.FC = () => {
     <Container id="showcaseContainer">
       <Button onClick={handleButtonClick} />
       {transitions((style, item) => (
-        <ScrollingSection style={style} id={item.id} backgroundImageUrl={item.imageUrl}>
+        <ScrollingSection style={{...style, ...scaleTransform}} id={item.id} backgroundImageUrl={item.imageUrl}>
           {item.childComponent}
         </ScrollingSection>
       ))}
@@ -92,14 +99,14 @@ const Button = styled.div`
   }
 `
 
-const Container = styled.div`
+const Container = styled(animated.div)`
   display: flex;
     justify-content: flex-start;
     align-items: flex-start;
   height: 100dvh;
   width: 100dvw;
   overflow: auto;
-  background-color: transparent;
+  background-color: var(--clr-bg-secondary);
 
   .overlay { --angle: to bottom; }
 
@@ -133,4 +140,8 @@ const Container = styled.div`
       --secondary-color: rgba(55, 0, 49, 0.60);
     }
   }
-  `
+`
+
+const Wrapper = styled(animated.div)`
+  display: flex;
+`
