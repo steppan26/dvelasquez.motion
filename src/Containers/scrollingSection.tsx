@@ -1,4 +1,5 @@
-import { forwardRef, useCallback, useEffect, useRef, useState } from "react"
+import { useRouter } from "next/router"
+import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { animated, useSpring } from "react-spring"
 import styled from "styled-components"
 
@@ -12,45 +13,34 @@ interface Props {
 export const ScrollingSection: React.FC<Props> = (props) => {
   const { children, id, style } = props
   const containerRef = useRef<HTMLDivElement>(null)
+  const router = useRouter()
   const [isSelected, setIsSelected] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
   const [isVisible, setVisible] = useState(true)
 
-  useEffect(() => {
-    if(!window) return
+  const getActivePage = useCallback(() => {
+    const pathList = router.asPath.split('#')
 
-    window.addEventListener('selectProject', _handleSelect)
-
-    return () => window.removeEventListener('selectProject', _handleSelect)
-  })
+    return pathList.length > 1 ? pathList[1] : 'reset'
+  }, [router])
 
   useEffect(() => {
+    const selectedPage = getActivePage()
+    setVisible(selectedPage === id || selectedPage === 'reset')
+    setIsSelected(selectedPage === id)
+  }, [id, getActivePage])
+
+  useEffect(() => {
+    let displayNavBar = true
     if(isVisible && !isSelected && containerRef.current){
       containerRef.current.scrollTo({top: 0})
+      displayNavBar = false
     }
+    window.dispatchEvent(new CustomEvent('shouldDisplayNavBar', {detail: { displayNavBar }}))
   }, [isSelected, isVisible])
 
   const handleMouseEnter = () => setIsHovering(true)
   const handleMouseLeave = () => setIsHovering(false)
-
-  const notifyListeners = useCallback(() => {
-    const event = new CustomEvent('selectProject', {
-      bubbles: true,
-      detail: { id }
-    })
-    window.dispatchEvent(event)
-  }, [id])
-
-  useEffect(() => {
-    if(!isSelected) return
-
-    notifyListeners()
-  }, [isSelected, notifyListeners])
-
-  const _handleSelect = (e: any) => {
-    setVisible(e.detail.id === id || e.detail.id === 'reset')
-    setIsSelected(e.detail.id === id)
-  }
 
   const animationConfig = {
     mass: isSelected ? 1.2 : isHovering ? 1.4 : 1.2,
@@ -77,7 +67,7 @@ export const ScrollingSection: React.FC<Props> = (props) => {
     <Container
     id={id+'_container'}
     className={isVisible && !isSelected ? 'active' : undefined}
-    onClick={() => setIsSelected(true)}
+    onClick={() => router.push('/works#' + id)}
     data-projectid
     ref={containerRef}
     style={{...style, ...containerSpring}}
@@ -90,10 +80,8 @@ export const ScrollingSection: React.FC<Props> = (props) => {
   )
 }
 
-// ScrollingSection.displayName = "ScrollingSection"
-
 const Container = styled(animated.div)`
-  cursor: pointer;
+  cursor: default;
   flex-shrink: 1;
   flex-grow: 0;
   flex-basis: 25%;
@@ -107,6 +95,7 @@ const Container = styled(animated.div)`
   }
 
   &.active {
+    cursor: pointer;
     overflow: hidden;
   }
 `

@@ -5,7 +5,7 @@ import MainHeaderImage from "../../public/projects/goBigger/main_header_static.j
 export const JellySmackPortfolio:React.FC = () => {
   return(
     <Container className='scroll-to'>
-      {/* <ImageWrappper className="main-image"> */}
+      <LandingSection>
         <Image
         src={MainHeaderImage.src}
         alt="The words 'go larger' in big, duplicated over itself"
@@ -13,7 +13,7 @@ export const JellySmackPortfolio:React.FC = () => {
         height={1126}
         layout="responsive"
         />
-      {/* </ImageWrappper> */}
+      </LandingSection>
       <Buffer />
     </Container>
   )
@@ -24,7 +24,7 @@ const Container = styled.div`
   width: 100vw;
 `
 
-const ImageWrappper = styled.div`
+const LandingSection = styled.div`
   position: relative;
 `
 

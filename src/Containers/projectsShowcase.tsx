@@ -5,27 +5,27 @@ import goBiggerLogo from '../../public/projects/go_bigger.jpg'
 import followMeLogo from '../../public/projects/follow_me.jpg'
 import laraLogo from '../../public/projects/girl_called_sara.jpg'
 import rokuLogo from '../../public/projects/jelly_Roku.jpg'
-import { ScrollingSection } from "."
+import { Navbar, ScrollingSection } from "."
 import { FollowProject, JellySmackPortfolio, LaraProject, RokuProject } from "../Projects"
 
 const ProjectsListData: ProjectData[] = [
   {
-    id: 'go-bigger',
+    id: 'jellysmack',
     imageUrl: goBiggerLogo.src,
     childComponent: <JellySmackPortfolio />
   },
   {
-    id: 'lara',
+    id: 'cpms',
     imageUrl: laraLogo.src,
     childComponent: <LaraProject />
   },
   {
-    id: 'follow-me',
+    id: 'motion-secrets',
     imageUrl: followMeLogo.src,
     childComponent: <FollowProject />
   },
   {
-    id: 'roku',
+    id: 'myteria',
     imageUrl: rokuLogo.src,
     childComponent: <RokuProject />
   },
@@ -38,11 +38,6 @@ interface ProjectData {
 }
 
 export const ProjectsShowcase:React.FC = () => {
-
-  const handleButtonClick = () => {
-    window.dispatchEvent(new CustomEvent('selectProject', {detail: {id: 'reset'}}))
-  }
-
   const transitions = useTransition(ProjectsListData, {
     from: {x: '200vw' },
     enter: { x: '0vw' },
@@ -69,7 +64,7 @@ export const ProjectsShowcase:React.FC = () => {
 
   return(
     <Container id="showcaseContainer">
-      <Button onClick={handleButtonClick} />
+      <Navbar type='projects' />
       {transitions((style, item) => (
         <ScrollingSection style={{...style, ...scaleTransform}} id={item.id} backgroundImageUrl={item.imageUrl}>
           {item.childComponent}
@@ -140,8 +135,4 @@ const Container = styled(animated.div)`
       --secondary-color: rgba(55, 0, 49, 0.60);
     }
   }
-`
-
-const Wrapper = styled(animated.div)`
-  display: flex;
 `

@@ -20,7 +20,7 @@ export const Landing:React.FC = () => {
   return(
     <>
     <Container>
-      <Navbar isLanding />
+      <Navbar type='landing' />
       <MouseMask>
           <Wrapper>
           <TextWrapper>

@@ -2,6 +2,8 @@ import { animated, useSpring } from "react-spring"
 import styled from "styled-components"
 import { Sizes } from "../../Assets"
 import Link from "next/link"
+import { useRouter } from "next/router"
+import { useEffect } from "react"
 
 interface MenuItem {
   text: string
@@ -36,6 +38,8 @@ const TRAVEL_DISTANCE = 250
 const easeInOutCubic = (t: any) => (t < 0.5 ? 4 * t ** 3 : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
 export const MenuItems:React.FC<Props> = ({ isOpen }) => {
+  const router = useRouter()
+
   const translateStyle = useSpring({
     from: { x: TRAVEL_DISTANCE, opacity: 0 },
     to: { x: isOpen ? 0 : TRAVEL_DISTANCE, opacity: isOpen ? 1 : 0 },
@@ -53,8 +57,11 @@ export const MenuItems:React.FC<Props> = ({ isOpen }) => {
     <Wrapper>
       <MenuContainer style={{ ...translateStyle }}>
         {menuData.map((props, index) => (
-          <Menu key={index} className={index === 0 ? 'active' : ''}>
-            <Link href={props.href} scroll prefetch>{props.text}</Link>
+          <Menu key={index} className={router.route === props.href ? 'active' : ''}>
+            { router.route === '/works' && props.href === '/works'
+              ? <Button onClick={() => router.push('/works')}>{props.text}</Button>
+              : <Link href={props.href} scroll prefetch>{props.text}</Link>
+            }
           </Menu>
         ))}
       </MenuContainer>
@@ -68,16 +75,29 @@ const Menu = styled(animated.div)`
 
   font-weight: 300;
   margin-block: 0;
+  color: var(--clr-text-main);
   transition: cubic-bezier(0.18, 0.89, 0.32, 1.28) 800ms transform;
 
   &.active {
     text-decoration: underline;
     font-weight: 400;
+
+    &>button {
+      text-decoration: underline;
+      font-weight: 400;
+    }
   }
 
   &:hover {
     transform: scale(1.07);
   }
+`
+
+const Button = styled.button`
+  appearance: none;
+  border: none;
+  background-color: inherit;
+  color: inherit;
 `
 
 

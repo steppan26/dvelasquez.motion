@@ -11,7 +11,7 @@ export default function Home() {
       <Landing />
       <Container>
         <Cutout />
-        <Navbar />
+        <Navbar type='showcase' />
         <MainTitle>Unique Design for Unique Ideas</MainTitle>
       </Container>
       <ShowReelSection />
