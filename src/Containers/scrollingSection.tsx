@@ -1,4 +1,4 @@
-import { CSSProperties, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { forwardRef, useCallback, useEffect, useRef, useState } from "react"
 import { animated, useSpring } from "react-spring"
 import styled from "styled-components"
 
@@ -9,7 +9,7 @@ interface Props {
   style: any
 }
 
-export const ScrollingSection = forwardRef<HTMLDivElement, Props>((props, ref) => {
+export const ScrollingSection: React.FC<Props> = (props) => {
   const { children, id, style } = props
   const containerRef = useRef<HTMLDivElement>(null)
   const [isSelected, setIsSelected] = useState(false)
@@ -22,9 +22,13 @@ export const ScrollingSection = forwardRef<HTMLDivElement, Props>((props, ref) =
     window.addEventListener('selectProject', _handleSelect)
 
     return () => window.removeEventListener('selectProject', _handleSelect)
-  }, [])
+  })
 
-  useEffect(() => console.info('isVisible', isVisible), [isVisible])
+  useEffect(() => {
+    if(isVisible && !isSelected && containerRef.current){
+      containerRef.current.scrollTo({top: 0})
+    }
+  }, [isSelected, isVisible])
 
   const handleMouseEnter = () => setIsHovering(true)
   const handleMouseLeave = () => setIsHovering(false)
@@ -75,7 +79,7 @@ export const ScrollingSection = forwardRef<HTMLDivElement, Props>((props, ref) =
     className={isVisible && !isSelected ? 'active' : undefined}
     onClick={() => setIsSelected(true)}
     data-projectid
-    ref={ref || containerRef}
+    ref={containerRef}
     style={{...style, ...containerSpring}}
     onMouseEnter={handleMouseEnter}
     onMouseLeave={handleMouseLeave}
@@ -84,9 +88,9 @@ export const ScrollingSection = forwardRef<HTMLDivElement, Props>((props, ref) =
       <Overlay className='overlay' style={{...overlaySpring}} />
     </Container>
   )
-})
+}
 
-ScrollingSection.displayName = "ScrollingSection"
+// ScrollingSection.displayName = "ScrollingSection"
 
 const Container = styled(animated.div)`
   cursor: pointer;
@@ -100,6 +104,10 @@ const Container = styled(animated.div)`
 
   &>.snap-to {
     scroll-snap-align: start;
+  }
+
+  &.active {
+    overflow: hidden;
   }
 `
 

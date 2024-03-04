@@ -1,5 +1,5 @@
-import { ReactNode, useEffect, useState } from "react"
-import { AnimationResult, Controller, OnRest, animated, useSpring, useTransition } from "react-spring"
+import { ReactNode } from "react"
+import { animated, useSpring, useTransition } from "react-spring"
 import styled from "styled-components"
 import goBiggerLogo from '../../public/projects/go_bigger.jpg'
 import followMeLogo from '../../public/projects/follow_me.jpg'
