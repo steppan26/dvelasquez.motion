@@ -11,6 +11,7 @@ export const IntroSection:React.FC = () => {
         alt="Animated icon of the jellysmack logo jumping out of an open box"
         width={389}
         height={419}
+        layout="responsive"
         />
       </ImageWrapper>
       <ProjectWrapper>
@@ -42,12 +43,12 @@ const ImageWrapper = styled.div`
 `
 
 const ProjectWrapper = styled.div`
-  width: clamp(375px, 34vw, 650px);
+  width: clamp(375px, 40vw, 650px);
   grid-area: project;
   `
 
 const WhyWrapper = styled.div`
-  width: clamp(375px, 34vw, 650px);
+  width: clamp(375px, 40vw, 650px);
   grid-area: why;
 `
 
