@@ -62,11 +62,15 @@ const Container = styled.article`
 `
 
 const Text = styled.p`
-  font-size: 1.25rem;
+  font-size: 1.625rem;
   flex: 0 1 100%;
   margin-block: 0;
+  font-family: "neusa-next-std-wide";
+  font-weight: 400;
 
   span {
+    font-family: "neusa-next-std-wide";
+    font-weight: 400;
     color: ${p => p.theme.textSecondary};
   }
 

@@ -69,12 +69,12 @@ const TextWrapper = styled(PrimaryTitle)`
   color: ${p => p.theme.textPrimary};
   font-size: 4.375rem;
   line-height: 6.75rem;
+  font-family: "neusa-next-std-wide" !important;
   font-weight: 300;
+  font-style: italic;
 
-  span {
-    font-size: inherit;
-    line-height: inherit;
-    font-weight: inherit;
+  &>span {
+    font-family: "neusa-next-std-wide" !important;
   }
 
   @media (max-width: ${Sizes.small}) {
