@@ -1,6 +1,6 @@
 import Image from "next/image"
 import styled from "styled-components"
-import MainHeaderImage from "../../public/projects/goBigger/main_header_static.jpg"
+import MainHeaderImage from "../../public/projects/jellysmack/main_header_static.jpg"
 
 export const JellySmackPortfolio:React.FC = () => {
   return(

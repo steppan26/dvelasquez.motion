@@ -1,12 +1,15 @@
 import styled from "styled-components"
 import { useEffect, useRef, useState } from "react";
-import { supportsHEVCAlpha } from "../utils/helpers";
 import { Sizes } from "../Assets";
+// @ts-ignore
+import { supportsHEVCAlpha } from "../utils/helpers";
+import { useRouter } from "next/router";
 
-export const AnimatedLogo:React.FC = () => {
+export const AnimatedLogoLight:React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
   const [displayVideo, setDisplayVideo] = useState(true)
+  const router = useRouter()
 
   useEffect(() => {
     if(typeof window == 'undefined' || !wrapperRef.current || !videoRef.current) return
@@ -22,13 +25,10 @@ export const AnimatedLogo:React.FC = () => {
     })
   }, [])
 
-  const handleClick = () => {
-    const main = document.getElementById('mainContainer') as HTMLElement
-    main.scrollTo({top: 0, behavior: 'smooth'})
-  }
+  const loadHomePage = () => router.push('/', '/', { scroll: true })
 
   return(
-    <Wrapper ref={wrapperRef} onClick={handleClick}>
+    <Wrapper ref={wrapperRef} onClick={loadHomePage}>
       {displayVideo
       ? <video
           ref={videoRef}
@@ -40,7 +40,7 @@ export const AnimatedLogo:React.FC = () => {
           preload="auto"
           style={{ display: 'block', width: '100%' }}
         >
-          <source src="/Logo_Animation_text_wine.webm" type="video/webm" />
+          <source src="/logos/text_light.webm" type="video/webm" />
         </video>
       : <AnimatedGif />
       }
@@ -52,6 +52,7 @@ const Wrapper = styled.div`
   --logo-size: 12.203704vw;
 
   z-index: 999;
+  position: relative;
   height: max-content;
   width: max-content;
   width: var(--logo-size);
@@ -64,7 +65,7 @@ const Wrapper = styled.div`
 const AnimatedGif = styled.div`
   width: var(--logo-size);
   height: calc(var(--logo-size) * 0.35555556);
-  background-image: url("/Logo_Animation_text_wine.gif");
+  background-image: url("/logos/text_light.gif");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;

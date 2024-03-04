@@ -1,7 +1,7 @@
 import Image from "next/image"
 import styled from "styled-components"
 import { Sizes } from "../Assets"
-import LogoImage from '/public/Logo_Animation_full.gif'
+import LogoImage from '/public/logos/text_and_brush_wine.gif'
 
 export const Footer:React.FC = () => {
   return(

@@ -75,8 +75,12 @@ const Menu = styled(animated.div)`
 
   font-weight: 300;
   margin-block: 0;
-  color: var(--clr-text-main);
+  color: var(--nav-main-color);
   transition: cubic-bezier(0.18, 0.89, 0.32, 1.28) 800ms transform;
+
+  & * {
+    color: inherit;
+  }
 
   &.active {
     text-decoration: underline;

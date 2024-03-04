@@ -12,7 +12,8 @@ const ProjectsListData: ProjectData[] = [
   {
     id: 'jellysmack',
     imageUrl: goBiggerLogo.src,
-    childComponent: <JellySmackPortfolio />
+    childComponent: <JellySmackPortfolio />,
+    isLightNavBar: true
   },
   {
     id: 'cpms',
@@ -27,14 +28,16 @@ const ProjectsListData: ProjectData[] = [
   {
     id: 'myteria',
     imageUrl: rokuLogo.src,
-    childComponent: <RokuProject />
+    childComponent: <RokuProject />,
+    isLightNavBar: true
   },
 ]
 
-interface ProjectData {
+export interface ProjectData {
   imageUrl: string
   id: string
   childComponent?: ReactNode
+  isLightNavBar?: boolean
 }
 
 export const ProjectsShowcase:React.FC = () => {
@@ -64,7 +67,7 @@ export const ProjectsShowcase:React.FC = () => {
 
   return(
     <Container id="showcaseContainer">
-      <Navbar type='projects' />
+      <Navbar type='projects' navData={ProjectsListData} />
       {transitions((style, item) => (
         <ScrollingSection style={{...style, ...scaleTransform}} id={item.id} backgroundImageUrl={item.imageUrl}>
           {item.childComponent}

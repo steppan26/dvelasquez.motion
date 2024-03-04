@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import styled from "styled-components"
 import { Sizes } from "../../Assets";
-import { AnimatedLogo } from "../../Components";
+import { AnimatedLogoDark } from "../../Components";
 import { MenuItems } from "../MenuSimple/menuItems";
 import { ToggleButton } from "../MenuSimple/toggleButton";
 
@@ -17,7 +17,7 @@ export const ShowcaseNavbar:React.FC = () => {
 
   return(
     <Nav ref={navRef}>
-      <AnimatedLogo />
+      <AnimatedLogoDark />
       <MenuWrapper onMouseLeave={handleMouseLeave} onMouseEnter={() => clearTimeout(timeout.current)}>
         <MenuItems isOpen={isOpen} />
         <ToggleButton isOpen={isOpen} setIsOpen={setIsOpen} />
@@ -27,6 +27,8 @@ export const ShowcaseNavbar:React.FC = () => {
 }
 
 const Nav = styled.nav<{islanding?: boolean}>`
+  --nav-main-color: var(--clr-text-main);
+
   z-index: 999;
   position: sticky;
     top: 0;
@@ -37,12 +39,6 @@ const Nav = styled.nav<{islanding?: boolean}>`
   height: var(--nav-height);
   background-color: ${p => p.theme.backgroundPrimary + 'f0'};
   padding: 1rem 3vw 0;
-
-  .active {
-    text-decoration: underline;
-
-    p { font-weight: ${p => p.islanding ? 600 : 400}; }
-  }
 `
 
 const MenuWrapper = styled.div`

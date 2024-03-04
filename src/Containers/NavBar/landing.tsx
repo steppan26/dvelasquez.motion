@@ -27,6 +27,8 @@ export const LandingNavbar:React.FC = () => {
 }
 
 const Nav = styled.nav`
+  --nav-main-color: var(--clr-text-main);
+
   z-index: 999;
   position: absolute;
     top: 0;
@@ -36,13 +38,6 @@ const Nav = styled.nav`
   width: 100vw;
   height: var(--nav-height);
   padding: 1rem 3vw 0;
-
-  .active {
-    color: inherit;
-    text-decoration: underline;
-
-    p { font-weight: 600; }
-  }
 `
 
 const MenuWrapper = styled.div`

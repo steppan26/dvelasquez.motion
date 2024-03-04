@@ -88,7 +88,7 @@ const Diamond = styled(animated.span)`
     height: 100%;
     transform: rotate(45deg);
     border-radius: 1px;
-    background-color: ${p => p.theme.textPrimary};
+    background-color: var(--nav-main-color);
   }
 
   @media (max-width: ${Sizes.small}) {
