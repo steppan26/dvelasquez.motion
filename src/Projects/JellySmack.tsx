@@ -1,6 +1,7 @@
 import Image from "next/image"
 import styled from "styled-components"
 import MainHeaderImage from "../../public/projects/jellysmack/main_header_static.jpg"
+import { JellySmackLandingLower } from "../Components"
 
 export const JellySmackPortfolio:React.FC = () => {
   return(
@@ -13,8 +14,8 @@ export const JellySmackPortfolio:React.FC = () => {
         height={1126}
         layout="responsive"
         />
+        <JellySmackLandingLower />
       </LandingSection>
-      <Buffer />
     </Container>
   )
 }
@@ -22,13 +23,9 @@ export const JellySmackPortfolio:React.FC = () => {
 const Container = styled.div`
   cursor: default;
   width: 100vw;
+  background-color: var(--clr-bg-main);
 `
 
 const LandingSection = styled.div`
   position: relative;
-`
-
-const Buffer = styled.div`
-  height: 200vh;
-  background: linear-gradient(to top, transparent, black);
 `
