@@ -7,6 +7,7 @@ import { ToggleButton } from "../MenuSimple/toggleButton";
 import { animated, useSpring } from "react-spring";
 import { useRouter } from "next/router";
 import { ProjectData } from "../projectsShowcase";
+import dynamic from "next/dynamic";
 
 interface Props {
   navData: ProjectData[]
@@ -18,6 +19,9 @@ export const ProjectsNavbar:React.FC<Props> = ({ navData }) => {
   const timeout = useRef<NodeJS.Timeout>()
   const [isVisible, setIsVisible] = useState(false)
   const router = useRouter()
+
+  const LogoLight = dynamic(() => import('../../Components/animatedLogoLight').then(comp => comp.AnimatedLogoLight), {ssr: false})
+  const LogoDark = dynamic(() => import('../../Components/animatedLogoDark').then(comp => comp.AnimatedLogoDark), {ssr: false})
 
   const displayLightNavbar = useMemo(() => (
     navData?.filter(d => d.isLightNavBar).some(p => router.asPath.includes(p.id)) ?? false
@@ -55,8 +59,8 @@ export const ProjectsNavbar:React.FC<Props> = ({ navData }) => {
   return(
     <Nav ref={navRef} style={heightSpring} data-islight={displayLightNavbar}>
       {displayLightNavbar
-      ? <AnimatedLogoLight />
-      : <AnimatedLogoDark />
+      ? <LogoLight />
+      : <LogoDark />
       }
       <MenuWrapper onMouseLeave={handleMouseLeave} onMouseEnter={() => clearTimeout(timeout.current)}>
         <MenuItems isOpen={isOpen} />
