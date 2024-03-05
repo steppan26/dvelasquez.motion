@@ -25,13 +25,15 @@ export const JellyMessage:React.FC = () => {
 }
 
 const Container = styled.div`
+  --base-spacing: 12.5vh;
+
   display: flex;
     justify-content: center;
     align-items: flex-start;
     gap: 3vw;
   width: 70%;
   margin-inline: auto;
-  margin-block: 10dvh;
+  margin-block: calc(9rem + var(--base-spacing)) var(--base-spacing);
 `
 
 const Text = styled.p`

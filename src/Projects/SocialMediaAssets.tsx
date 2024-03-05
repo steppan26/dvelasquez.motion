@@ -130,7 +130,6 @@ const BottomSection = styled.div`
     grid-gap: 5vw;
   margin-top: 10dvh;
   margin-inline: calc(var(--page-margin) * -1);
-  padding-bottom: 5dvh;
 
   &>img:first-of-type {
     margin-top: 11vh;

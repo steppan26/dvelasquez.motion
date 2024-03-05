@@ -4,6 +4,7 @@ import MainHeaderImage from "../../public/projects/jellysmack/main_header_static
 import { JellySmackLandingLower } from "../Components"
 import { Footer, IntroSection, JellyMessage, PhoneScreenshots, Stickers } from "../Containers"
 import JellyBoxImage from '/public/projects/jellysmack/jellybox.png'
+import BannerImage from '/public/projects/jellysmack/jelly_thank-you.png'
 import { SocialMediaAssets } from "."
 
 const introData = {
@@ -31,6 +32,13 @@ export const JellySmackPortfolio:React.FC = () => {
       <Stickers />
       <SocialMediaAssets />
       <JellyMessage />
+      <Image
+        src={BannerImage.src}
+        alt="Banner image thanking user for watching"
+        width={BannerImage.width}
+        height={BannerImage.height}
+        layout="responsive"
+      />
       <Footer />
     </Container>
   )
