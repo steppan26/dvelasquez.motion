@@ -3,6 +3,14 @@ import styled from "styled-components"
 import MainHeaderImage from "../../public/projects/jellysmack/main_header_static.jpg"
 import { JellySmackLandingLower } from "../Components"
 import { IntroSection, PhoneScreenshots, Stickers } from "../Containers"
+import JellyBoxImage from '/public/projects/jellysmack/jellybox.png'
+
+const introData = {
+  image: JellyBoxImage,
+  imageAlt: "Animated icon of the jellysmack logo jumping out of an open box",
+  projectText: "Through brand expression and visual storytelling I can help daring organisations, ambitious startups and creative individuals craft their story, communicate their ideas and build their tribe.",
+  howText: "Through brand expression and visual storytelling I can help daring organisations, ambitious startups and creative individuals craft their story, communicate their ideas and build their tribe."
+}
 
 export const JellySmackPortfolio:React.FC = () => {
   return(
@@ -17,7 +25,7 @@ export const JellySmackPortfolio:React.FC = () => {
         />
         <JellySmackLandingLower />
       </LandingSection>
-      <IntroSection />
+      <IntroSection {...introData} />
       <PhoneScreenshots />
       <Stickers />
     </Container>

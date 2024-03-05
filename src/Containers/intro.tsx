@@ -1,26 +1,32 @@
-import Image from "next/image"
+import Image, { StaticImageData } from "next/image"
 import styled from "styled-components"
-import JellyBoxImage from '/public/projects/jellysmack/jellybox.png'
 
-export const IntroSection:React.FC = () => {
+interface Props {
+  image: StaticImageData
+  imageAlt: string
+  projectText: string
+  howText: string
+}
+
+export const IntroSection:React.FC<Props> = ({ image, imageAlt, projectText, howText }) => {
   return(
     <Container>
       <ImageWrapper>
         <Image
-        src={JellyBoxImage.src}
-        alt="Animated icon of the jellysmack logo jumping out of an open box"
-        width={389}
-        height={419}
+        src={image.src}
+        alt={imageAlt}
+        width={image.width}
+        height={image.height}
         layout="responsive"
         />
       </ImageWrapper>
       <ProjectWrapper>
         <Header>The project</Header>
-        <Text>Through brand expression and visual storytelling I can help daring organisations, ambitious startups and creative individuals craft their story, communicate their ideas and build their tribe.</Text>
+        <Text>{projectText}</Text>
       </ProjectWrapper>
       <WhyWrapper>
         <Header>The Why and How</Header>
-        <Text>Through brand expression and visual storytelling I can help daring organisations, ambitious startups and creative individuals craft their story, communicate their ideas and build their tribe.</Text>
+        <Text>{howText}</Text>
       </WhyWrapper>
     </Container>
   )
@@ -60,5 +66,6 @@ const Header = styled.h4`
 `
 
 const Text = styled.p`
+  font-family: var(--font-family-regular);
   font-size: 1.25rem;
 `
