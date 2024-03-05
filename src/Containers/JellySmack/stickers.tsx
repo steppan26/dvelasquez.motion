@@ -49,7 +49,7 @@ const InformationWrapper = styled.div`
   display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2vw;
+    /* gap: 2vw; */
   margin-block: 15dvh;
 
     img {
@@ -71,4 +71,5 @@ const Text = styled.p`
   font-size: 1.875rem;
   line-height: 2.625rem;
   text-align: center;
+  margin-right: 2.5rem;
 `
