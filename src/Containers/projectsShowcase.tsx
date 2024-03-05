@@ -77,25 +77,6 @@ export const ProjectsShowcase:React.FC = () => {
   )
 }
 
-const Button = styled.div`
-  z-index: 20;
-  position: fixed;
-    top: 1rem;
-    right: 1rem;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 6px;
-  background-color: black;
-  border: 2px solid black;
-
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-left: 20px double var(--clr-bg-main);
-    border-right: 20px double var(--clr-bg-main);
-  }
-`
 
 const Container = styled(animated.div)`
   position: relative;

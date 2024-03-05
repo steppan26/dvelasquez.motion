@@ -15,7 +15,7 @@ interface Props {
 
 export const ProjectsNavbar:React.FC<Props> = ({ navData }) => {
   const navRef = useRef<HTMLElement>(null)
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
   const timeout = useRef<NodeJS.Timeout>()
   const [isVisible, setIsVisible] = useState(false)
   const router = useRouter()
