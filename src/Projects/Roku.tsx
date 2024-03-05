@@ -4,7 +4,7 @@ import MainHeaderImage from "../../public/projects/jelly_Roku.jpg"
 
 export const RokuProject:React.FC = () => {
   return(
-    <Container className='scroll-to'>
+    <Container>
       <ImageWrappper className="main-image">
         <Image
         src={MainHeaderImage.src}

@@ -4,7 +4,7 @@ import MainHeaderImage from "../../public/projects/follow_me.jpg"
 
 export const FollowProject:React.FC = () => {
   return(
-    <Container className='scroll-to'>
+    <Container>
       <ImageWrappper className="main-image">
         <Image
         src={MainHeaderImage.src}

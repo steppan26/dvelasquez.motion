@@ -4,7 +4,7 @@ import MainHeaderImage from "../../public/projects/girl_called_sara.jpg"
 
 export const LaraProject:React.FC = () => {
   return(
-    <Container className='scroll-to'>
+    <Container>
       <ImageWrappper className="main-image">
         <Image
         src={MainHeaderImage.src}

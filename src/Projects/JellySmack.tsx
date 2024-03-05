@@ -2,8 +2,9 @@ import Image from "next/image"
 import styled from "styled-components"
 import MainHeaderImage from "../../public/projects/jellysmack/main_header_static.jpg"
 import { JellySmackLandingLower } from "../Components"
-import { IntroSection, PhoneScreenshots, Stickers } from "../Containers"
+import { Footer, IntroSection, JellyMessage, PhoneScreenshots, Stickers } from "../Containers"
 import JellyBoxImage from '/public/projects/jellysmack/jellybox.png'
+import { SocialMediaAssets } from "."
 
 const introData = {
   image: JellyBoxImage,
@@ -14,7 +15,7 @@ const introData = {
 
 export const JellySmackPortfolio:React.FC = () => {
   return(
-    <Container className='scroll-to'>
+    <Container>
       <LandingSection>
         <Image
         src={MainHeaderImage.src}
@@ -28,6 +29,9 @@ export const JellySmackPortfolio:React.FC = () => {
       <IntroSection {...introData} />
       <PhoneScreenshots />
       <Stickers />
+      <SocialMediaAssets />
+      <JellyMessage />
+      <Footer />
     </Container>
   )
 }
