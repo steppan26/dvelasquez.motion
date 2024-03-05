@@ -1,5 +1,5 @@
 export * from './JellySmack'
 export * from './Follow'
 export * from './Roku'
-export * from './Lara'
+export * from './CPMS'
 export * from './SocialMediaAssets'

@@ -89,6 +89,7 @@ const Container = styled(animated.div)`
   height: 100vh;
   width: max-content;
   overflow: auto;
+  background-color: var(--clr-bg-main);
 
   &>.snap-to {
     scroll-snap-align: start;

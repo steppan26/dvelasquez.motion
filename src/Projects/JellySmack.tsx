@@ -45,6 +45,8 @@ export const JellySmackPortfolio:React.FC = () => {
 }
 
 const Container = styled.div`
+  --container-padding: 5.3vw;
+
   cursor: default;
   width: 100vw;
   background-color: var(--clr-bg-main);

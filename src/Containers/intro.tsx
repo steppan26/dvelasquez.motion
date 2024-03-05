@@ -1,5 +1,6 @@
 import Image, { StaticImageData } from "next/image"
 import styled from "styled-components"
+import { Sizes } from "../Assets"
 
 interface Props {
   image: StaticImageData
@@ -34,29 +35,60 @@ export const IntroSection:React.FC<Props> = ({ image, imageAlt, projectText, how
 
 const Container = styled.div`
   display: grid;
-    grid-template-columns: 1fr 1.5fr;
+    grid-template-columns: 42% 50%;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: 'image project'
     'image why';
+    grid-gap: 3vw 5.5vw;
     align-items: center;
     justify-items: start;
-  padding-inline: 5vw;
+  padding-inline: var(--container-padding);
   margin-block: 15dvh;
+
+  @media (max-width: ${Sizes.small}) {
+    display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4rem;
+    margin-block: 8dvh;
+  }
 `
 
 const ImageWrapper = styled.div`
   grid-area: image;
-  justify-self: center;
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+
+  @media (max-width: ${Sizes.small}) {
+    order: 1;
+    width: 100%;
+  }
 `
 
 const ProjectWrapper = styled.div`
-  width: clamp(375px, 40vw, 650px);
   grid-area: project;
-  `
+  align-self: end;
+
+  @media (max-width: ${Sizes.small}) {
+    order: 0;
+    width: 100%;
+    text-align: center;
+    white-space: break-spaces;
+  }
+`
 
 const WhyWrapper = styled.div`
-  width: clamp(375px, 40vw, 650px);
   grid-area: why;
+  align-self: start;
+
+  @media (max-width: ${Sizes.small}) {
+    order: 2;
+    width: 100%;
+    text-align: center;
+    white-space: break-spaces;
+  }
 `
 
 const Header = styled.h4`
@@ -66,9 +98,22 @@ const Header = styled.h4`
   letter-spacing: -1px;
   color: var(--clr-text-main);
   margin-bottom: 1.25rem;
+
+  @media (max-width: ${Sizes.small}) {
+    font-size: 1.875rem;
+    margin-bottom: 1.5rem;
+  }
 `
 
 const Text = styled.p`
-  font-family: var(--font-family-regular);
-  font-size: 1.25rem;
+  font-family: var(--font-family-wide);
+  font-weight: 300;
+  font-size: 1.2rem;
+  margin-block: 0;
+  line-height: 2.06rem;
+
+  @media (max-width: ${Sizes.small}) {
+    font-size: 1rem;
+    line-height: 1.56rem;
+  }
 `

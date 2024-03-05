@@ -21,12 +21,12 @@ const ProjectsListData: ProjectData[] = [
     childComponent: <CPMSProject />
   },
   {
-    id: 'motion-secrets',
+    id: 'motionSecrets',
     imageUrl: followMeLogo.src,
     childComponent: <FollowProject />
   },
   {
-    id: 'myteria',
+    id: 'mysteria',
     imageUrl: rokuLogo.src,
     childComponent: <RokuProject />,
     isLightNavBar: true
@@ -90,14 +90,14 @@ const Container = styled(animated.div)`
 
   .overlay { --angle: to bottom; }
 
-  #go-bigger_container {
+  #jellysmack_container {
     .overlay {
       --primary-color: rgba(122, 155, 118, 0.90);
       --secondary-color: rgba(255, 210, 64, 0.90);
     }
   }
 
-  #follow-me_container {
+  #motionSecrets_container {
 
     .overlay {
       --primary-color: rgba(206, 8, 81, 0.80);
@@ -105,7 +105,7 @@ const Container = styled(animated.div)`
     }
   }
 
-  #lara_container {
+  #cpms_container {
 
     .overlay {
       --primary-color: rgba(206, 8, 81, 0.80);
@@ -113,7 +113,7 @@ const Container = styled(animated.div)`
     }
   }
 
-  #roku_container {
+  #mysteria_container {
 
     .overlay {
       --primary-color: rgba(206, 8, 81, 0.60);
