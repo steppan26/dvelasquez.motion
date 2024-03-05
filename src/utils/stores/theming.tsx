@@ -53,7 +53,8 @@ const GlobalStyle = createGlobalStyle<{}>`
     --clr-bg-main: ${p => (p.theme as ITheme).backgroundPrimary};
     --clr-bg-secondary: ${p => (p.theme as ITheme).backgroundSecondary};
 
-    --font-family: 'neusa-next-std', 'neusa-next-std-wide', sans-serif;
+    --font-family-regular: 'neusa-next-std', sans-serif;
+    --font-family-wide: 'neusa-next-std-wide', sans-serif;
     --font-family-title: "ff-cocon-pro", sans-serif;
     --font-title-font-weight: 600;
     --font-title-color: var(--clr-text-main);
@@ -110,7 +111,7 @@ const GlobalStyle = createGlobalStyle<{}>`
     }
   }
 
-  * {
+  p {
     font-family: var(--font-family);
     font-weight: var(--font-text-font-weight);
   }
