@@ -28,8 +28,8 @@ export const ProjectsNavbar:React.FC<Props> = ({ navData }) => {
   ), [router, navData])
 
   const heightSpring = useSpring({
-    from: { top: '-20dvh' },
-    to: { top: isVisible ? '0' : '-20dvh' },
+    from: { opacity: 1 },
+    to: { opacity: isVisible ? 1 : 0 },
     config: {
       mass: 1.4,
       friction: 25,
