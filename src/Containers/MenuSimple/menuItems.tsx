@@ -76,6 +76,7 @@ const Menu = styled(animated.div)`
   font-weight: 300;
   margin-block: 0;
   color: var(--nav-main-color);
+  font-family: var(--font-family-regular);
   transition: cubic-bezier(0.18, 0.89, 0.32, 1.28) 800ms transform;
 
   & * {

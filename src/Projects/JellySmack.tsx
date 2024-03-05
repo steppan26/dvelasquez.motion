@@ -2,7 +2,7 @@ import Image from "next/image"
 import styled from "styled-components"
 import MainHeaderImage from "../../public/projects/jellysmack/main_header_static.jpg"
 import { JellySmackLandingLower } from "../Components"
-import { IntroSection, PhoneScreenshots } from "../Containers"
+import { IntroSection, PhoneScreenshots, Stickers } from "../Containers"
 
 export const JellySmackPortfolio:React.FC = () => {
   return(
@@ -19,6 +19,7 @@ export const JellySmackPortfolio:React.FC = () => {
       </LandingSection>
       <IntroSection />
       <PhoneScreenshots />
+      <Stickers />
     </Container>
   )
 }
