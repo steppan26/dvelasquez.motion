@@ -25,7 +25,7 @@ export const JellyMessage:React.FC = () => {
 }
 
 const Container = styled.div`
-  --base-spacing: 12.5vh;
+  --base-spacing: 8vh;
 
   display: flex;
     justify-content: center;

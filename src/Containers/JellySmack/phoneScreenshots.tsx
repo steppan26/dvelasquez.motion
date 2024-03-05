@@ -47,7 +47,6 @@ const Container = styled.div`
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
     gap: 4rem;
-  margin-top: 15dvh;
   margin-inline: auto;
   overflow-x: auto;
   width: clamp(375px, 90vw, 1440px);

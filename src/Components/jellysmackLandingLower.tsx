@@ -36,8 +36,9 @@ const Container = styled.div`
     grid-template-columns: 1fr 2fr 1fr;
     justify-items: center;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0 40%, black 40%);
-  padding-bottom: 2.5rem;
   transform: translateY(-40%);
+  padding-bottom: 5dvh;
+  margin-bottom: 48.5%;
 `
 
 const WatchPin = styled.div`

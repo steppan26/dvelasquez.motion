@@ -41,6 +41,7 @@ const Container = styled.div`
     align-items: center;
     justify-items: start;
   padding-inline: 5vw;
+  margin-block: 15dvh;
 `
 
 const ImageWrapper = styled.div`
@@ -61,8 +62,10 @@ const WhyWrapper = styled.div`
 const Header = styled.h4`
   font-size: 2.5rem;
   font-style: italic;
-  font-weight: 300;
-  letter-spacing: -2px;
+  font-weight: 400;
+  letter-spacing: -1px;
+  color: var(--clr-text-main);
+  margin-bottom: 1.25rem;
 `
 
 const Text = styled.p`

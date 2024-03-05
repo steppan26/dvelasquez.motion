@@ -52,4 +52,5 @@ const Container = styled.div`
 
 const LandingSection = styled.div`
   position: relative;
+  max-height: 135dvh;
 `
