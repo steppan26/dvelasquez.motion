@@ -73,6 +73,10 @@ const GlobalStyle = createGlobalStyle<{}>`
     }
   }
 
+  * {
+    box-sizing: border-box;
+  }
+
   body {
     background-color: var(--clr-bg-main);
     font-family: var(--font-text-family);
