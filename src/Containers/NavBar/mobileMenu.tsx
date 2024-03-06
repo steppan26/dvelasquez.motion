@@ -25,7 +25,7 @@ export const MobileMenu:React.FC<Props> = ({ isOpen }) => {
     <Container style={{...opacitySpring, display: isVisible ? 'grid' : 'none'}}>
       <MenuButton data-area="home" href="/">Home</MenuButton>
       <Line data-position="top" />
-      <MenuButton data-area="works" href="/">Works</MenuButton>
+      <MenuButton data-area="works" href="/works">Works</MenuButton>
       <Line data-position="left" />
       <Line data-position="right" />
       <MenuButton data-area="about" href="/">About</MenuButton>

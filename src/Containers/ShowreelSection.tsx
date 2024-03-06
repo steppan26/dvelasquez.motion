@@ -7,13 +7,7 @@ import Link from "next/link"
 
 export const ShowReelSection:React.FC = () => {
 
-  const tempArrowClick: MouseEventHandler = (e) => {
-    alert("Coming soon: \n\nThis website is currently under construction, please contact me for more information at d.velasquezmotion@gmail.com")
-  }
-
   const handleArrowClick: MouseEventHandler = (e) => {
-    const container = document.querySelector('#showcaseContainer') as HTMLElement
-    container.scrollBy({ left: window.innerWidth, behavior: 'smooth' })
     window.dispatchEvent(new CustomEvent('resetMask'))
   }
 
@@ -26,10 +20,10 @@ export const ShowReelSection:React.FC = () => {
         <CTAButton />
       </InfoSection>
       <ShowReel />
-      <ProjectsEntice href="/" scroll prefetch>
-        <ProjectsText onClick={tempArrowClick}>Handpicked projects</ProjectsText>
+      <ProjectsEntice href="/works" scroll prefetch>
+        <ProjectsText onClick={handleArrowClick}>Handpicked projects</ProjectsText>
         <span>
-          <BouncingArrow onClick={tempArrowClick} />
+          <BouncingArrow onClick={handleArrowClick} />
         </span>
       </ProjectsEntice>
     </Container>
@@ -114,12 +108,13 @@ const ProjectsEntice = styled(Link)`
   display: flex;
     justify-content: flex-end;
     align-items: center;
-  margin-block: 6.8dvh;
+    gap: 2.2vw;
+  margin-block: 3.5dvh;
+  margin-inline: auto calc(clamp(-50px, -5.9vw, -85px) * 2);
+  width: max-content;
 
   &>span {
-    position: absolute;
-    right: calc(4vw - var(--padding-main));
-    transform-origin: center center;
+    transform-origin: center;
     transform: rotate(-90deg);
 
     &>div {

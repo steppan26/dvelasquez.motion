@@ -17,7 +17,7 @@ const menuData: MenuItem[] = [
   },
   {
     text: "Works",
-    href: "/"
+    href: "/works"
   },
   {
     text: "About",
@@ -84,11 +84,11 @@ const Menu = styled(animated.div)`
   }
 
   &.active {
-    /* text-decoration: underline; */
+    text-decoration: underline;
     font-weight: 400;
 
     &>button {
-      /* text-decoration: underline; */
+      text-decoration: underline;
       font-weight: 400;
     }
   }
