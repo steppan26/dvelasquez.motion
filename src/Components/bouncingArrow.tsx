@@ -29,7 +29,7 @@ const ArrowWrapper = styled(animated.div)`
   cursor: s-resize;
   z-index: 10;
   align-self: end;
-  margin-bottom: 15.555556dvh;
+  margin-bottom: 2dvh;
   padding-inline: 1.5rem;
   width: 4.6vw;
 
