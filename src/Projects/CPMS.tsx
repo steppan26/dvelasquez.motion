@@ -2,7 +2,7 @@ import Image from "next/image"
 import styled from "styled-components"
 import MainHeaderImage from "../../public/projects/girl_called_sara.jpg"
 import ClaraImage from '/public/projects/cpms/clara_profile_illustration.png'
-import { DrawingsSection, IntroSection } from "../Containers"
+import { DataScreenshots, DrawingsSection, Footer, IntroSection } from "../Containers"
 import { ProjectScreens } from "../Containers"
 import { Sizes } from "../Assets"
 
@@ -26,6 +26,8 @@ export const CPMSProject:React.FC = () => {
       />
       <ProjectScreens />
       <DrawingsSection />
+      <DataScreenshots />
+      <Footer />
     </Container>
   )
 }
