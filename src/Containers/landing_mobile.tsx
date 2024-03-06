@@ -3,6 +3,7 @@ import { BouncingArrow } from "../Components"
 import { PrimaryTitle } from "../Components/styledComponents"
 import { Sizes } from "../Assets"
 import type { MouseEventHandler } from "react"
+import { Navbar } from "."
 
 export const LandingMobile:React.FC = () => {
   const handleArrowClick: MouseEventHandler = (e) => {
@@ -13,6 +14,7 @@ export const LandingMobile:React.FC = () => {
 
   return(
     <Container>
+      <Navbar type='mobile' />
       <ContentWrapper>
         <TextWrapper>
           <span>Art Direction</span>
@@ -26,6 +28,7 @@ export const LandingMobile:React.FC = () => {
 }
 
 const Container = styled.article`
+  z-index: 100;
   position: relative;
   display: flex;
     justify-content: center;
@@ -47,6 +50,7 @@ const TextWrapper = styled(PrimaryTitle)`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  font-family: var(--font-family-wide);
   font-size: 32px;
   line-height: 52px;
   width: 100%;

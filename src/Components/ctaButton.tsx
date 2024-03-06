@@ -1,20 +1,21 @@
 import styled from "styled-components"
 import { Sizes } from "../Assets"
 import Image from "next/image"
+import ButtonImage from '/public/Assets/cta_button.png'
 
 export const CTAButton:React.FC = () => {
   const handleClick = () => {
-    alert('please contact me at: \n\n\n d.velasquezmotion@gmail.com')
+    alert("Coming soon: \n\nThis website is currently under construction, please contact me for more information at d.velasquezmotion@gmail.com")
   }
 
   return(
     <TempButton>
       <Image
-      src="/button.png"
+      src={ButtonImage.src}
       alt="cta button"
       onClick={handleClick}
-      width={279}
-      height={65}
+      width={ButtonImage.width}
+      height={ButtonImage.height}
       layout="responsive"
       />
     </TempButton>
@@ -29,20 +30,32 @@ export const CTAButton:React.FC = () => {
 }
 
 const TempButton = styled.div`
-  --width: 22.22222vw;
+  --width: 20.22222vw;
 
   flex: 1 0 var(--width);
+  align-self: flex-end;
   cursor: pointer;
   justify-self: end;
   position: relative;
-  max-width: 280px;
-  height: calc(var(--width) * 0.33774834);
-    max-height: calc(260px * 0.33774834);
-  transform: translateX(20%);
+  max-width: 240px;
+  height: auto;
+  margin-bottom: 1rem;
+  transform: translateX(30%);
   transition: var(--transition) 200ms opacity;
 
   &:hover {
     opacity: 0.9;
+  }
+
+  @media (max-width: ${Sizes.small}) {
+    --width: 60vw;
+
+    align-self: center;
+    height: max-content;
+      max-height: 58px;
+    width: var(--width);
+    margin-bottom: 2.5rem;
+    transform: unset;
   }
 `
 

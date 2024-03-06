@@ -15,7 +15,7 @@ export const TitleSecondary = styled.h4`
 
   @media (max-width: ${Sizes.small}) {
     text-align: center;
-    font-size: 28px;
+    font-size: 1.875rem;
   }
 `
 

@@ -1,7 +1,7 @@
 import Image from "next/image"
 import styled from "styled-components"
 import { Sizes } from "../Assets"
-import LogoImage from '/public/logos/text_and_brush_wine.gif'
+import LogoImage from '/public/logos/text_and_brush.png'
 import Link from "next/link"
 
 export const Footer:React.FC = () => {

@@ -50,6 +50,9 @@ export const ToggleButton:React.FC<Props> = ({ isOpen, setIsOpen }) => {
       onTouchStart={singleAnimation}
       onClick={handleOnClick}
       >
+        <HoverArea onMouseEnter={handleActivateAnimation} >
+        </HoverArea>
+          <MouseInteractionArea />
         {diamonds.map((props, index) => (
           <Diamond key={index} style={props} />
         ))}
@@ -59,15 +62,35 @@ export const ToggleButton:React.FC<Props> = ({ isOpen, setIsOpen }) => {
 
 
 const DiamondsWrapper = styled.div`
+  z-index: 5;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: clamp(5px, 0.502762vw, 10px);
-  padding-block: 1rem;
+  padding-block: 2rem;
 
   @media (max-width: ${Sizes.small}) {
     gap: 8px;
   }
+`
+
+const HoverArea = styled.div`
+  --area-size: 30vw;
+
+  cursor: default;
+  z-index: 4;
+  position: absolute;
+  width: var(--area-size);
+  height: var(--area-size);
+  border-radius: 50%;
+`
+
+const MouseInteractionArea = styled.div`
+  z-index: 6;
+  cursor: pointer;
+  position: absolute;
+  inset: 0 -1rem;
 `
 
 const Diamond = styled(animated.span)`
@@ -92,6 +115,6 @@ const Diamond = styled(animated.span)`
   }
 
   @media (max-width: ${Sizes.small}) {
-    --diamond-size: 5px;
+    --diamond-size: 4px;
   }
 `

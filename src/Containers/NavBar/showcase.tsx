@@ -39,6 +39,10 @@ const Nav = styled.nav<{islanding?: boolean}>`
   height: var(--nav-height);
   background-color: ${p => p.theme.backgroundPrimary + 'f0'};
   padding: 1rem 3vw 0;
+
+  @media (max-width: ${Sizes.small}) {
+    display: none;
+  }
 `
 
 const MenuWrapper = styled.div`

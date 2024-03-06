@@ -1,11 +1,28 @@
+import { useEffect, useMemo, useRef, useState } from "react"
+import Image from "next/image"
 import styled from "styled-components"
 import { Sizes } from "../Assets"
-import { useEffect, useRef, useState } from "react"
+import MouseStickerImage from '/public/Assets/better_with_sound.gif'
+import { useMousePosition } from "../utils/hooks"
 
 export const ShowReel:React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const [hasBeenClicked, setHasBeenClicked] = useState(false)
+  const sceneRef = useRef<HTMLDivElement>(null)
+  const stickerRef = useRef<HTMLImageElement>(null)
+  const mousePosition = useMousePosition(sceneRef.current)
+
+  const maskPosition = useMemo(() => {
+    const element = sceneRef.current
+    const maskElement = stickerRef.current
+    if(maskElement && element) {
+      const elementRect = element.getBoundingClientRect();
+      let newX = mousePosition.x - elementRect.left - (maskElement.clientWidth / 2);
+      let newY = mousePosition.y - elementRect.top - (maskElement.clientHeight / 2);
+      return { x: newX, y: newY }
+    }
+  }, [mousePosition])
 
   useEffect(() => {
     if(typeof window == 'undefined' || !containerRef.current) return
@@ -31,22 +48,33 @@ export const ShowReel:React.FC = () => {
 
   return(
     <Container ref={containerRef}>
-      <Text>
-        Showreel
-      </Text>
-      <Video
-      ref={videoRef}
-      autoPlay
-      muted={!hasBeenClicked}
-      controls={hasBeenClicked}
-      onClick={handleVideoClick}
-      controlsList="nodownload"
-      poster="/showreel_static.png"
-      preload="metadata"
-
-      >
-        <source src="/showreel.mp4" type="video/mp4" />
-      </Video>
+      <TextWrapper>
+        <Text>Showreel</Text>
+      </TextWrapper>
+      <VideoWrapper ref={sceneRef}>
+        <Video
+        ref={videoRef}
+        autoPlay
+        playsInline
+        muted={!hasBeenClicked}
+        controls={hasBeenClicked}
+        onClick={handleVideoClick}
+        controlsList="nodownload"
+        poster="/showreel_static.png"
+        preload="metadata"
+        >
+          <source src="/showreel.webm" type="video/webm" />
+        </Video>
+        <MouseSticker
+        ref={stickerRef}
+        src={MouseStickerImage.src}
+        alt="better with sound sticker"
+        width={MouseStickerImage.width}
+        height={MouseStickerImage.height}
+        data-hasbeenclicked={hasBeenClicked}
+        style={{ top: maskPosition?.y, left: maskPosition?.x }}
+        />
+      </VideoWrapper>
     </Container>
   )
 }
@@ -62,17 +90,51 @@ const Container = styled.div`
   margin-top: 4dvh;
 
   @media (max-width: ${Sizes.small}) {
-    display: none;
+    align-self: center;
+    width: 100vw;
+    margin-top: 2dvh;
+  }
+`
+
+const VideoWrapper = styled.div`
+  position: relative;
+  flex: 1 1 100%;
+  transition: var(--transition) 120ms all;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+
+  &:hover {
+    img[data-hasbeenclicked = "false"] {
+      display: unset !important;
+    }
+  }
+
+  @media (max-width: ${Sizes.small}) {
+    max-height: 56vw;
+    border-radius: 0;
   }
 `
 
 const Video = styled.video`
-  flex: 1 1 100%;
-  width: clamp(650px, 80%, 1240px);
+  width: 100%;
   height: 100%;
   transition: var(--transition) 120ms all;
   border-radius: var(--border-radius);
 
+  @media (max-width: ${Sizes.small}) {
+    width: 100%;
+    border-radius: 0;
+    margin-bottom: -1px;
+  }
+`
+
+const TextWrapper = styled.span`
+  transform: rotate(-90deg);
+    transform-origin: left bottom;
+
+  @media (max-width: ${Sizes.small}) {
+    display: none;
+  }
 `
 
 const Text = styled.h3`
@@ -81,9 +143,20 @@ const Text = styled.h3`
     left: 0;
   font-family: var(--font-family-wide);
     font-size: 80px;
-    font-weight: 200;
+    font-weight: 100;
     font-style: italic;
   color: ${p => p.theme.btnPrimaryBg};
-  transform: rotate(-90deg);
-    transform-origin: left bottom;
+`
+
+const MouseSticker = styled(Image)`
+  --size: 110px;
+
+  display: none;
+  position: absolute;
+  pointer-events: none;
+  left: 0; top: 0;
+  width: var(--size);
+  height: var(--size);
+  z-index: 5;
+  mix-blend-mode: difference;
 `

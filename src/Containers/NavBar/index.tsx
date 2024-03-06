@@ -1,5 +1,6 @@
 import { ProjectData } from "../projectsShowcase"
 import { LandingNavbar } from "./landing"
+import { NavMobile } from "./mobile"
 import { ProjectsNavbar } from "./projects"
 import { ShowcaseNavbar } from "./showcase"
 
@@ -8,7 +9,7 @@ interface Props {
   navData?: ProjectData[]
 }
 
-type NavBarType = 'landing' | 'showcase' | 'projects'
+type NavBarType = 'landing' | 'showcase' | 'projects' | 'mobile'
 
 export const Navbar:React.FC<Props> = ({ type, navData }) => {
   switch (type) {
@@ -20,6 +21,9 @@ export const Navbar:React.FC<Props> = ({ type, navData }) => {
 
     case 'showcase':
       return <ShowcaseNavbar />
+
+    case 'mobile':
+      return <NavMobile />
 
     default:
       return <></>

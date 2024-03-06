@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { Footer, Landing, Navbar, ShowReelSection } from "../Containers"
 import { ScrollingContainer, TitleSecondary } from "../Assets/UIComponents"
+import { Sizes } from "../Assets"
 
 export default function Home() {
 
@@ -39,6 +40,10 @@ const Cutout = styled.div`
   top: 10dvh;
   transform: rotate(45deg) translate3d(0, 70%, 0);
   background-color: var(--clr-bg-secondary);
+
+  @media (max-width: ${Sizes.small}) {
+    display: none;
+  }
 `
 
 const MainTitle = styled(TitleSecondary)`
@@ -48,4 +53,14 @@ const MainTitle = styled(TitleSecondary)`
   padding-bottom: 0;
   letter-spacing: -2px;
   font-size: 3.75rem;
+
+  @media (max-width: ${Sizes.small}) {
+    max-width: 14rem;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 2.8rem;
+    padding-inline: 0;
+    margin-inline: auto;
+    margin-top: 5dvh;
+  }
 `

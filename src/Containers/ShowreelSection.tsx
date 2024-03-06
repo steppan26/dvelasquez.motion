@@ -7,6 +7,10 @@ import Link from "next/link"
 
 export const ShowReelSection:React.FC = () => {
 
+  const tempArrowClick: MouseEventHandler = (e) => {
+    alert("Coming soon: \n\nThis website is currently under construction, please contact me for more information at d.velasquezmotion@gmail.com")
+  }
+
   const handleArrowClick: MouseEventHandler = (e) => {
     const container = document.querySelector('#showcaseContainer') as HTMLElement
     container.scrollBy({ left: window.innerWidth, behavior: 'smooth' })
@@ -22,10 +26,10 @@ export const ShowReelSection:React.FC = () => {
         <CTAButton />
       </InfoSection>
       <ShowReel />
-      <ProjectsEntice href="/works" scroll prefetch>
-        <ProjectsText>Handpicked projects</ProjectsText>
+      <ProjectsEntice href="/" scroll prefetch>
+        <ProjectsText onClick={tempArrowClick}>Handpicked projects</ProjectsText>
         <span>
-          <BouncingArrow onClick={handleArrowClick} />
+          <BouncingArrow onClick={tempArrowClick} />
         </span>
       </ProjectsEntice>
     </Container>
@@ -49,9 +53,8 @@ const Container = styled.article`
   @media (max-width: ${Sizes.small}) {
     display: flex;
       flex-direction: column;
-      align-items: center;
     padding-top: unset;
-    margin-top: 5dvh;
+    margin-top: 2dvh;
     min-height: unset;
 
     &>h4 {
@@ -61,9 +64,25 @@ const Container = styled.article`
   }
 `
 
+const InfoSection = styled.div`
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  max-width: 100%;
+  padding-left: var(--inner-padding);
+  margin-right: calc(var(--inner-padding) * -1);
+
+  @media (max-width: ${Sizes.small}) {
+    display: flex;
+      flex-direction: column;
+    padding-left: 0;
+  }
+`
+
 const Text = styled.p`
-  font-size: 1.5rem;
-  line-height: 2.4375rem;
+  font-size: 1.35rem;
+  line-height: 2rem;
   flex: 0 1 100%;
   margin-block: 0;
   font-family: "neusa-next-std-wide";
@@ -76,33 +95,21 @@ const Text = styled.p`
   }
 
   @media (max-width: ${Sizes.small}) {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    line-height: 1.5625rem;
     text-align: center;
-  }
-`
-
-const InfoSection = styled.div`
-  display: flex;
-    justify-content: space-between;
-    align-items: center;
-  padding-left: var(--inner-padding);
-  margin-right: calc(var(--inner-padding) * -1);
-
-  @media (max-width: ${Sizes.small}) {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    grid-gap: 2rem;
-    margin-top: 2dvh;
-    padding-left: 0;
+    margin-bottom: 2.5rem;
   }
 `
 
 const ProjectsText = styled(TitleSecondary)`
+  cursor: e-resize;
   font-size: 1.25rem;
+  margin-block: 0;
 `
 
 const ProjectsEntice = styled(Link)`
-  cursor: e-resize;
+  cursor: default;
   position: relative;
   display: flex;
     justify-content: flex-end;
@@ -111,13 +118,14 @@ const ProjectsEntice = styled(Link)`
 
   &>span {
     position: absolute;
-    right: calc(43px - var(--padding-main) + 3vw);
+    right: calc(4vw - var(--padding-main));
     transform-origin: center center;
     transform: rotate(-90deg);
 
     &>div {
       cursor: e-resize;
       margin: 0;
+      width: 4.4vw;
     }
   }
 

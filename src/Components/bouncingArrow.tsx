@@ -1,45 +1,25 @@
 import { MouseEventHandler, useEffect } from "react";
 import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
-import { Arrow, Sizes } from "../Assets";
+import { Sizes } from "../Assets";
 import { useIsMobileView } from "../utils/hooks";
+import ArrowGif from '/public/Assets/arrow.gif'
+import Image from "next/image";
 
 interface Props {
   onClick: MouseEventHandler
 }
 
 export const BouncingArrow:React.FC<Props> = ({ onClick }) => {
-  const isMobileView = useIsMobileView()
-  const TOP = isMobileView ? 0 : -50
-  const BOB = {
-    from: { y: TOP - 18 },
-    to: { y: TOP },
-    config: {
-      mass: 2,
-      tension: 400,
-      friction: 15,
-      velocity: 0.2,
-      restVelocity: 0.4,
-    },
-  }
-  const [style, set] = useSpring(() => (BOB))
-
-  const makeBounce = (e?: any) => {
-    set(BOB)
-  }
-
-  useEffect(() => {
-    if(typeof window == 'undefined') return
-
-    makeBounce()
-    const interval = setInterval(makeBounce, 3000)
-
-    return () => clearInterval(interval)
-  }, [])
-
   return(
-    <ArrowWrapper style={style} onClick={onClick}>
-      <Arrow />
+    <ArrowWrapper onClick={onClick}>
+      <Image
+      src={ArrowGif.src}
+      alt="animated bouncing arrow"
+      width={ArrowGif.width}
+      height={ArrowGif.height}
+      layout="responsive"
+      />
     </ArrowWrapper>
   )
 }
@@ -50,12 +30,15 @@ const ArrowWrapper = styled(animated.div)`
   z-index: 10;
   align-self: end;
   margin-bottom: 15.555556dvh;
-  padding-inline: 1rem;
+  padding-inline: 1.5rem;
+  width: 4.6vw;
 
   @media (max-width: ${Sizes.small}) {
     align-self: unset;
     position: absolute;
       bottom: 3rem;
     height: 30px;
+    margin-bottom: 0.5rem;
+    width: 15vw;
   }
 `
