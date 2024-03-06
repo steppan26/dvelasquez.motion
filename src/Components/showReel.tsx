@@ -79,7 +79,7 @@ const Text = styled.h3`
   position: absolute;
     bottom: 0;
     left: 0;
-  font-family: var(--font-family);
+  font-family: var(--font-family-wide);
     font-size: 80px;
     font-weight: 200;
     font-style: italic;

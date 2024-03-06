@@ -13,7 +13,9 @@ export const CTAButton:React.FC = () => {
       src="/button.png"
       alt="cta button"
       onClick={handleClick}
-      layout="fill"
+      width={279}
+      height={65}
+      layout="responsive"
       />
     </TempButton>
     )
@@ -33,9 +35,10 @@ const TempButton = styled.div`
   cursor: pointer;
   justify-self: end;
   position: relative;
-  max-width: 260px;
+  max-width: 280px;
   height: calc(var(--width) * 0.33774834);
     max-height: calc(260px * 0.33774834);
+  transform: translateX(20%);
   transition: var(--transition) 200ms opacity;
 
   &:hover {

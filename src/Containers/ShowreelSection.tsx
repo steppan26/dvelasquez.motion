@@ -62,7 +62,8 @@ const Container = styled.article`
 `
 
 const Text = styled.p`
-  font-size: 1.625rem;
+  font-size: 1.5rem;
+  line-height: 2.4375rem;
   flex: 0 1 100%;
   margin-block: 0;
   font-family: "neusa-next-std-wide";
@@ -84,8 +85,8 @@ const InfoSection = styled.div`
   display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 3rem;
   padding-left: var(--inner-padding);
+  margin-right: calc(var(--inner-padding) * -1);
 
   @media (max-width: ${Sizes.small}) {
     grid-template-columns: 1fr;
