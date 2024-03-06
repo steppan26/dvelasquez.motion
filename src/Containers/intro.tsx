@@ -50,7 +50,7 @@ const Container = styled.div`
       flex-direction: column;
       align-items: center;
       gap: 4rem;
-    margin-block: 8dvh;
+    margin-block: 8dvh 6dvh;
   }
 `
 

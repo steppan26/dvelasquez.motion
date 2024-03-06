@@ -3,6 +3,7 @@ import styled from "styled-components"
 import RocketShipImage from '/public/projects/jellysmack/rocket.png'
 import PositiveVibesImage from '/public/projects/jellysmack/positive_vibes.png'
 import StickersVideo from '/public/projects/jellysmack/stickers_video.png'
+import { Text } from "../../Components/styledComponents"
 
 export const Stickers:React.FC = () => {
   return(
@@ -49,27 +50,21 @@ const InformationWrapper = styled.div`
   display: flex;
     justify-content: center;
     align-items: center;
-    /* gap: 2vw; */
   margin-block: 15dvh;
 
-    img {
-      transform-origin: center;
+  img {
+    transform-origin: center;
 
-      &:first-of-type {
-        transform: translateY(10%) scale(1.15) rotate(-19.5deg);
-      }
-
-      &:last-of-type {
-        transform: translateY(-30%) scale(1.15) rotate(-45.85deg);
-      }
+    &:first-of-type {
+      transform: translateY(10%) scale(1.15) rotate(-19.5deg);
     }
-`
 
-const Text = styled.p`
-  font-family: "neusa-next-std-wide";
-  font-weight: 400;
-  font-size: 1.875rem;
-  line-height: 2.625rem;
-  text-align: center;
-  margin-right: 2.5rem;
+    &:last-of-type {
+      transform: translateY(-30%) scale(1.15) rotate(-45.85deg);
+    }
+  }
+
+  p {
+    margin-right: 2.5rem;
+  }
 `

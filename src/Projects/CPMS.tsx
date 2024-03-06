@@ -2,7 +2,7 @@ import Image from "next/image"
 import styled from "styled-components"
 import MainHeaderImage from "../../public/projects/girl_called_sara.jpg"
 import ClaraImage from '/public/projects/cpms/clara_profile_illustration.png'
-import { IntroSection } from "../Containers"
+import { DrawingsSection, IntroSection } from "../Containers"
 import { ProjectScreens } from "../Containers"
 import { Sizes } from "../Assets"
 
@@ -25,6 +25,7 @@ export const CPMSProject:React.FC = () => {
       howText="Through brand expression and visual storytelling I can help daring organisations, ambitious startups and creative individuals craft their story, communicate their ideas and build their tribe."
       />
       <ProjectScreens />
+      <DrawingsSection />
     </Container>
   )
 }
@@ -52,7 +53,7 @@ const ImageWrappper = styled.div`
     @media (max-width: ${Sizes.small}) {
       width: 100% !important;
       height: auto !important;
-      padding-block: 1.5rem;
+      padding-block: 1.3rem;
       transform-origin: center;
       transform: scale(1.2);
     }
