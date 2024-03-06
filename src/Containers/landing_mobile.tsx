@@ -1,11 +1,13 @@
 import styled from "styled-components"
 import { PrimaryTitle } from "../Components/styledComponents"
+import { Sizes } from "../Assets"
 import { Navbar } from "."
 
 export const LandingMobile:React.FC = () => {
   return(
+    <>
+    <Navbar type='mobile' />
     <Container>
-      <Navbar type='mobile' />
       <ContentWrapper>
         <TextWrapper>
           <span>Art Direction</span>
@@ -14,6 +16,7 @@ export const LandingMobile:React.FC = () => {
         </TextWrapper>
       </ContentWrapper>
     </Container>
+    </>
   )
 }
 
@@ -24,8 +27,13 @@ const Container = styled.article`
     justify-content: center;
     align-items: flex-start;
   width: 100dvw;
-  height: max-content;
+  height: 100dvh;
+  overflow: hidden;
   padding-top: 7dvh;
+
+  @media (max-width: ${Sizes.small}) {
+    height: max-content;
+  }
 `
 
 const TextWrapper = styled(PrimaryTitle)`
