@@ -7,6 +7,10 @@ import Link from "next/link"
 
 export const ShowReelSection:React.FC = () => {
 
+  const tempArrowClick: MouseEventHandler = (e) => {
+    alert("Coming soon: \n\nThis website is currently under construction, please contact me for more information at d.velasquezmotion@gmail.com")
+  }
+
   const handleArrowClick: MouseEventHandler = (e) => {
     const container = document.querySelector('#showcaseContainer') as HTMLElement
     container.scrollBy({ left: window.innerWidth, behavior: 'smooth' })
@@ -22,10 +26,10 @@ export const ShowReelSection:React.FC = () => {
         <CTAButton />
       </InfoSection>
       <ShowReel />
-      <ProjectsEntice href="/works" scroll prefetch>
-        <ProjectsText>Handpicked projects</ProjectsText>
+      <ProjectsEntice href="/" scroll prefetch>
+        <ProjectsText onClick={tempArrowClick}>Handpicked projects</ProjectsText>
         <span>
-          <BouncingArrow onClick={handleArrowClick} />
+          <BouncingArrow onClick={tempArrowClick} />
         </span>
       </ProjectsEntice>
     </Container>
@@ -98,11 +102,12 @@ const InfoSection = styled.div`
 `
 
 const ProjectsText = styled(TitleSecondary)`
+  cursor: e-resize;
   font-size: 1.25rem;
 `
 
 const ProjectsEntice = styled(Link)`
-  cursor: e-resize;
+  cursor: default;
   position: relative;
   display: flex;
     justify-content: flex-end;

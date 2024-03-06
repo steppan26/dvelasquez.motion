@@ -17,15 +17,15 @@ const menuData: MenuItem[] = [
   },
   {
     text: "Works",
-    href: "/works"
+    href: "/"
   },
   {
     text: "About",
-    href: "/about"
+    href: "/"
   },
   {
     text: "Contact",
-    href: "/contact"
+    href: "/"
   },
 ]
 
@@ -84,11 +84,11 @@ const Menu = styled(animated.div)`
   }
 
   &.active {
-    text-decoration: underline;
+    /* text-decoration: underline; */
     font-weight: 400;
 
     &>button {
-      text-decoration: underline;
+      /* text-decoration: underline; */
       font-weight: 400;
     }
   }

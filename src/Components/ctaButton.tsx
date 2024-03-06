@@ -4,7 +4,7 @@ import Image from "next/image"
 
 export const CTAButton:React.FC = () => {
   const handleClick = () => {
-    alert('please contact me at: \n\n\n d.velasquezmotion@gmail.com')
+    alert("Coming soon: \n\nThis website is currently under construction, please contact me for more information at d.velasquezmotion@gmail.com")
   }
 
   return(
