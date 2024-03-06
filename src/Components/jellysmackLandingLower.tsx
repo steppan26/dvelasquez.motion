@@ -38,7 +38,7 @@ const Container = styled.div`
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0 40%, black 40%);
   transform: translateY(-40%);
   padding-bottom: 5dvh;
-  margin-bottom: 48.5%;
+  /* margin-bottom: 48.5%; */
 `
 
 const WatchPin = styled.div`

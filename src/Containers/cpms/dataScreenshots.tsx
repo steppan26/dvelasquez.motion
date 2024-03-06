@@ -48,7 +48,7 @@ export const DataScreenshots:React.FC = () => {
 const Container = styled.div`
   display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: 28vw 28vw;
     grid-gap: 1rem;
   margin-inline: var(--container-padding);
   margin-bottom: 3rem;

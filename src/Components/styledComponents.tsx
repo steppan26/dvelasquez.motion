@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Sizes } from '../Assets'
 
 export const PrimaryTitle = styled.h1`
   color: ${p => p.theme.textHeader};
@@ -14,4 +15,9 @@ export const Text = styled.p`
   font-size: 1.875rem;
   line-height: 2.625rem;
   text-align: center;
+
+  @media (max-width: ${Sizes.small}) {
+    font-size: 1rem;
+    line-height: 1.56rem;
+  }
 `

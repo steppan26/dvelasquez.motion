@@ -68,9 +68,9 @@ const GlobalStyle = createGlobalStyle<{}>`
     font-size: var(--font-size);
     background-color: var(--clr-bg-main);
 
-    /* @media (max-width: ${Sizes.small}) {
+    @media (max-width: ${Sizes.small}) {
       font-size: 16px;
-    } */
+    }
   }
 
   body {
