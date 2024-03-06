@@ -1,7 +1,7 @@
 import Image from "next/image"
 import styled from "styled-components"
-import JellyDotPinImage from '/public/projects/jellysmack/jellydotcom_pin.png'
-import WatchPinImage from '/public/projects/jellysmack/watch_pin.png'
+import JellyDotPinImage from '/public/projects/jellysmack/jellydotcom_pin.gif'
+import WatchPinImage from '/public/projects/jellysmack/watch_pin.gif'
 
 export const JellySmackLandingLower:React.FC = () => {
   return(
@@ -35,10 +35,9 @@ const Container = styled.div`
   display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     justify-items: center;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0 40%, black 40%);
-  transform: translateY(-40%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0 20%, black 20%);
+  transform: translateY(-20%);
   padding-bottom: 5dvh;
-  /* margin-bottom: 48.5%; */
 `
 
 const WatchPin = styled.div`
@@ -56,7 +55,7 @@ const Text = styled.h3`
 
   align-self: center;
   text-align: center;
-  color: var(--clr-bg-main);
+  color: #fff;
   font-family: 'Jellysmack';
   font-size: 1.75rem;
   line-height: 2.5625rem;

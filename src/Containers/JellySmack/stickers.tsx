@@ -1,8 +1,8 @@
 import Image from "next/image"
 import styled from "styled-components"
-import RocketShipImage from '/public/projects/jellysmack/rocket.png'
-import PositiveVibesImage from '/public/projects/jellysmack/positive_vibes.png'
-import StickersVideo from '/public/projects/jellysmack/stickers_video.png'
+import RocketShipImage from '/public/projects/jellysmack/rocket.gif'
+import PositiveVibesImage from '/public/projects/jellysmack/positive_vibes.gif'
+import StickersVideoStatic from '/public/projects/jellysmack/stickers_video.png'
 import { Text } from "../../Components/styledComponents"
 
 export const Stickers:React.FC = () => {
@@ -35,13 +35,17 @@ export const Stickers:React.FC = () => {
         layout="resoponsive"
         />
       </InformationWrapper>
-      <Image
-        src={StickersVideo.src}
-        alt="video showcase various stickers and their animations"
-        width={1440}
-        height={758}
-        layout="responsive"
-      />
+      <Video
+      autoPlay
+      playsInline
+      muted
+      loop
+      controls={false}
+      controlsList="nodownload"
+      poster={StickersVideoStatic.src}
+      preload="metadata">
+        <source src="/stickers.mp4" type="video/mp4" />
+      </Video>
     </div>
   )
 }
@@ -56,15 +60,19 @@ const InformationWrapper = styled.div`
     transform-origin: center;
 
     &:first-of-type {
-      transform: translateY(10%) scale(1.15) rotate(-19.5deg);
+      transform: translateY(10%) rotate(-19.5deg);
     }
 
     &:last-of-type {
-      transform: translateY(-30%) scale(1.15) rotate(-45.85deg);
+      transform: translateY(-30%) rotate(-45.85deg);
     }
   }
 
   p {
     margin-right: 2.5rem;
   }
+`
+
+const Video = styled.video`
+  width: 101%;
 `

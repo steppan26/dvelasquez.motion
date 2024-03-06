@@ -1,10 +1,10 @@
 import Image from "next/image"
 import styled from "styled-components"
 import MockupImage from '/public/projects/jellysmack/mockup-post.png'
-import PersonalisedCaptionsImage from '/public/projects/jellysmack/personalised_captions.png'
-import KeywordsImage from '/public/projects/jellysmack/keywords.png'
-import FlameGoBiggerImage from '/public/projects/jellysmack/flame_go-bigger.png'
-import WatchImage from '/public/projects/jellysmack/watch-till-the-end.png'
+import PersonalisedCaptionsImage from '/public/projects/jellysmack/personalised_captions.gif'
+import KeywordsImage from '/public/projects/jellysmack/keywords.gif'
+import FlameGoBiggerImage from '/public/projects/jellysmack/flame_go-bigger.gif'
+import WatchImage from '/public/projects/jellysmack/watch-till-the-end.gif'
 import TransitionOneImage from '/public/projects/jellysmack/transition_1.png'
 import TransitionTwoImage from '/public/projects/jellysmack/transition_2.png'
 
@@ -56,22 +56,32 @@ export const SocialMediaAssets:React.FC = () => {
         />
       </MiddleSection>
       <BottomSection>
-        <Image
-        id="transitionOne"
-        src={TransitionOneImage.src}
-        alt="animated sticker showing transition animation"
-        height={TransitionOneImage.height}
-        width={TransitionOneImage.width}
-        layout="responsive"
-        />
-        <Image
-        id="transitionOne"
-        src={TransitionTwoImage.src}
-        alt="animated sticker showing transition animation"
-        height={TransitionTwoImage.height}
-        width={TransitionTwoImage.width}
-        layout="responsive"
-        />
+      <span>
+        <video
+        autoPlay
+        playsInline
+        muted
+        loop
+        controls={false}
+        controlsList="nodownload"
+        poster={TransitionOneImage.src}
+        preload="metadata">
+          <source src="/jellysmack_transition_1.mp4" type="video/mp4" />
+        </video>
+      </span>
+      <span>
+        <video
+        autoPlay
+        playsInline
+        muted
+        loop
+        controls={false}
+        controlsList="nodownload"
+        poster={TransitionTwoImage.src}
+        preload="metadata">
+          <source src="/jellysmack_transition_2.mp4" type="video/mp4" />
+        </video>
+      </span>
       </BottomSection>
     </Container>
   )
@@ -125,13 +135,30 @@ const MiddleSection = styled.div`
 `
 
 const BottomSection = styled.div`
+  --video-size: 720px;
+  --stagger-size: 11vh;
+
   display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 5vw;
   margin-top: 10dvh;
   margin-inline: calc(var(--page-margin) * -1);
 
-  &>img:first-of-type {
-    margin-top: 11vh;
+  &>span {
+    position: relative;
+    display: flex;
+      justify-content: center;
+      align-items: center;
+    max-height: var(--video-size);
+    overflow: hidden;
+  }
+
+  &>span>video {
+    height: auto;
+    width: var(--video-size);
+  }
+
+  &>span:first-of-type {
+    margin-top: var(--stagger-size);
   }
 `

@@ -1,6 +1,6 @@
 import Image from "next/image"
 import styled from "styled-components"
-import AnimatedLogo from '/public/projects/jellysmack/jelly_logo_animated.png'
+import AnimatedLogo from '/public/projects/jellysmack/jelly_logo.gif'
 
 export const JellyMessage:React.FC = () => {
   return(
@@ -8,8 +8,8 @@ export const JellyMessage:React.FC = () => {
       <Image
       src={AnimatedLogo.src}
       alt="Jellysmack logo"
-      width={AnimatedLogo.width}
-      height={AnimatedLogo.height}
+      width={AnimatedLogo.width / 2.5}
+      height={AnimatedLogo.height / 2.5}
       />
       <Text>
         Through the use of animated assets,

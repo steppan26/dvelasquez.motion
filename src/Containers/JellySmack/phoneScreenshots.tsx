@@ -1,8 +1,9 @@
 import Image from "next/image"
 import styled from "styled-components"
-import Screen1 from '/public/projects/jellysmack/phone_screen_0.png'
-import Screen2 from '/public/projects/jellysmack/phone_screen_1.png'
-import Screen3 from '/public/projects/jellysmack/phone_screen_2.png'
+import Screen1 from '/public/projects/jellysmack/phone_screen_0.gif'
+import Screen2 from '/public/projects/jellysmack/phone_screen_1.gif'
+import Screen3 from '/public/projects/jellysmack/phone_screen_2.gif'
+import Screen4 from '/public/projects/jellysmack/phone_screen_3.gif'
 import { Sizes } from "../../Assets"
 
 export const PhoneScreenshots:React.FC = () => {
@@ -31,7 +32,7 @@ export const PhoneScreenshots:React.FC = () => {
       layout="responsive"
       />
       <Image
-      src={Screen2.src}
+      src={Screen4.src}
       alt="Screenshot of This week's Creators"
       width={274}
       height={563}

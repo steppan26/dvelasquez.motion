@@ -88,6 +88,7 @@ const Container = styled(animated.div)`
   position: relative;
   height: 100vh;
   width: max-content;
+  max-width: 100vw;
   overflow: auto;
   background-color: var(--clr-bg-main);
 

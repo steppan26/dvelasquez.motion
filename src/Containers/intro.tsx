@@ -12,7 +12,7 @@ interface Props {
 export const IntroSection:React.FC<Props> = ({ image, imageAlt, projectText, howText }) => {
   return(
     <Container>
-      <ImageWrapper>
+      <ImageWrapper className="intro-image">
         <Image
         src={image.src}
         alt={imageAlt}
@@ -22,7 +22,7 @@ export const IntroSection:React.FC<Props> = ({ image, imageAlt, projectText, how
         />
       </ImageWrapper>
       <ProjectWrapper>
-        <Header>The project</Header>
+        <Header>The Project</Header>
         <Text>{projectText}</Text>
       </ProjectWrapper>
       <WhyWrapper>
@@ -35,11 +35,11 @@ export const IntroSection:React.FC<Props> = ({ image, imageAlt, projectText, how
 
 const Container = styled.div`
   display: grid;
-    grid-template-columns: 42% 50%;
+    grid-template-columns: 4fr 6fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: 'image project'
     'image why';
-    grid-gap: 3vw 5.5vw;
+    grid-gap: 3vw 2.5vw;
     align-items: center;
     justify-items: start;
   padding-inline: var(--container-padding);
