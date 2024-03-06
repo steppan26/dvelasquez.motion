@@ -47,8 +47,8 @@ const Nav = styled.nav`
     justify-content: space-between;
     align-items: center;
   width: 100vw;
-  height: var(--nav-height);
-  padding: 1rem 3vw 0;
+  /* height: var(--nav-height); */
+  padding: 0 3vw;
 `
 
 const MenuWrapper = styled.div`

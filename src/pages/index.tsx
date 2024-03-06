@@ -23,6 +23,13 @@ export default function Home() {
 
 const Main = styled(ScrollingContainer)`
   --padding-main: 11.5vw;
+
+  @media (max-width: ${Sizes.small}) {
+    display: block;
+    max-width: 100dvw;
+    height: max-content;
+    overflow: hidden;
+  }
 `
 
 const Container = styled.div`
@@ -30,6 +37,7 @@ const Container = styled.div`
   height: max-content;
   scroll-snap-align: start;
   scroll-snap-stop: always;
+  max-width: 100dvw;
 `
 
 const Cutout = styled.div`
