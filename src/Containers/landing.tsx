@@ -2,39 +2,54 @@ import styled from "styled-components"
 import { BouncingArrow, MouseMask } from "../Components"
 import { PrimaryTitle } from "../Components/styledComponents"
 import { Sizes } from "../Assets"
-import { useIsMobileView } from "../utils/hooks"
 import { LandingMobile, Navbar } from "."
-import { MouseEventHandler } from "react"
+import { MouseEventHandler, useRef } from "react"
 
 export const Landing:React.FC = () => {
-  const { isMobileView } = useIsMobileView()
+  const selectorRef = useRef<HTMLDivElement>(null)
 
   const handleArrowClick: MouseEventHandler = (e) => {
-    const main = document.querySelector('#mainContainer') as HTMLElement
-    main.scrollBy({ top: window.innerHeight, behavior: 'smooth' })
+    const siblingElement = selectorRef.current?.nextSibling as HTMLElement
+    siblingElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    // const main = document.querySelector('#mainContainer') as HTMLElement
+    // main.scrollBy({ top: window.innerHeight / 2, behavior: 'smooth' })
     window.dispatchEvent(new CustomEvent('resetMask'))
   }
 
-  if(isMobileView) return <LandingMobile />
-
   return(
-    <>
-    <Container>
-      <Navbar type='landing' />
-      <MouseMask>
-          <Wrapper>
-          <TextWrapper>
-            <span>Art Direction</span>
-            <span>Brand Design</span>
-            <span>Motion Design</span>
-          </TextWrapper>
-          <BouncingArrow onClick={handleArrowClick} />
-        </Wrapper>
-      </MouseMask>
-    </Container>
-    </>
+    <Selector ref={selectorRef}>
+      <span>
+        <LandingMobile />
+      </span>
+      <Container data-desktop >
+        <Navbar type='landing' />
+        <MouseMask>
+            <Wrapper>
+            <TextWrapper>
+              <span>Art Direction</span>
+              <span>Brand Design</span>
+              <span>Motion Design</span>
+            </TextWrapper>
+            <BouncingArrow onClick={handleArrowClick} />
+          </Wrapper>
+        </MouseMask>
+      </Container>
+    </Selector>
   )
 }
+
+const Selector = styled.div`
+  &>* {
+    display: none;
+    &[data-desktop] { display: flex; }
+
+    @media (max-width: ${Sizes.small}) {
+      display: block;
+      &[data-desktop] { display: none; }
+    }
+  }
+
+`
 
 const Wrapper = styled.div`
   position: relative;

@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <Main id='mainContainer'>
       <Landing />
-      <Container>
+      <Container data-lazy>
         <Cutout />
         <Navbar type='showcase' />
         <MainTitle>Unique Design for Unique Ideas</MainTitle>
@@ -26,7 +26,6 @@ const Main = styled(ScrollingContainer)`
 
   @media (max-width: ${Sizes.small}) {
     display: block;
-    max-width: 100dvw;
     height: max-content;
     overflow: hidden;
   }

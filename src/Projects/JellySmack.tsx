@@ -31,7 +31,7 @@ export const JellySmackPortfolio:React.FC = () => {
       <Stickers />
       <SocialMediaAssets />
       <JellyMessage />
-      <VideoWrapper>
+      <VideoWrapper  data-lazy>
         <video
         autoPlay
         playsInline

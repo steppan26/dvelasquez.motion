@@ -1,8 +1,7 @@
-import { MouseEventHandler, useEffect } from "react";
-import { animated, useSpring } from "react-spring";
+import { MouseEventHandler } from "react";
+import { animated } from "react-spring";
 import styled from "styled-components";
 import { Sizes } from "../Assets";
-import { useIsMobileView } from "../utils/hooks";
 import ArrowGif from '/public/Assets/arrow.gif'
 import Image from "next/image";
 

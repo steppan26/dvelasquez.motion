@@ -86,10 +86,10 @@ const Container = styled(animated.div)`
   flex-grow: 0;
   flex-basis: 25%;
   position: relative;
-  height: 100vh;
+  /* height: 100vh; */
   width: max-content;
-  max-width: 100vw;
-  overflow: auto;
+    max-width: 100vw;
+  /* overflow: auto; */
   background-color: var(--clr-bg-main);
 
   &>.snap-to {
@@ -98,7 +98,9 @@ const Container = styled(animated.div)`
 
   &.active {
     cursor: pointer;
-    overflow: hidden;
+    height: 100vh;
+    /* overflow: hidden; */
+    height: max-height;
   }
 `
 

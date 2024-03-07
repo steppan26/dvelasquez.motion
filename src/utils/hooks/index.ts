@@ -1,2 +1,5 @@
-export * from './useMousePosition'
 export * from './useIsMobileView'
+export * from './useGetDynamicTextColor'
+export * from './useMousePosition'
+export * from './useSlideInOnLoad'
+export * from './useTrackMouseClick'

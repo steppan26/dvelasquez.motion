@@ -3,12 +3,14 @@ import { useEffect, useMemo, useState } from "react"
 import { ThemeProvider, createGlobalStyle } from "styled-components"
 import favicon from '../../Assets/favicon.png'
 import { type ITheme, darkTheme, lightTheme, Sizes } from "../../Assets"
+//@ts-ignore
+import { useSlideInOnLoad } from "../hooks"
 
 
 type ColorScheme = 'light' | 'dark'
 
 export const Theming:React.FC<any> = ({ children }) => {
-
+  useSlideInOnLoad()
   const [colorScheme, setColorScheme]  =useState<ColorScheme>('light')
   const currentTheme = useMemo(() => colorScheme === 'light' ? lightTheme : darkTheme, [colorScheme])
 
@@ -78,11 +80,19 @@ const GlobalStyle = createGlobalStyle<{}>`
   }
 
   body {
+    position: relative;
     background-color: var(--clr-bg-main);
     font-family: var(--font-text-family);
     font-weight: var(--font-text-font-weight);
     width: clamp(375px, 100dvw, 1950px);
     overflow: visible;
+
+    #viewportFrame {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      opacity: 1;
+    }
   }
 
   a {

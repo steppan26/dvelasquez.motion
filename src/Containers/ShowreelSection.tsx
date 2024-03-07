@@ -12,7 +12,7 @@ export const ShowReelSection:React.FC = () => {
   }
 
   return (
-    <Container id="showReelSection">
+    <Container id="showReelSection" data-lazy>
       <InfoSection>
         <Text>
           Through <span>brand expression</span> and <span>visual storytelling</span> I can help daring <span>organisations</span>, ambitious <span>startups</span> and <span>creative individuals</span> craft their story, communicate their ideas and build their tribe.

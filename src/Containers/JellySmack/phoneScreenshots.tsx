@@ -8,7 +8,7 @@ import { Sizes } from "../../Assets"
 
 export const PhoneScreenshots:React.FC = () => {
   return(
-    <Container>
+    <Container data-lazy >
       <Image
       id="screenOne"
       src={Screen1}

@@ -11,7 +11,7 @@ export const Stickers:React.FC = () => {
   const { isMobileView } = useIsMobileView()
   return(
     <Container>
-      <InformationWrapper>
+      <InformationWrapper data-lazy>
         <Image
           className="rocketship"
           src={RocketShipImage}
@@ -32,6 +32,7 @@ export const Stickers:React.FC = () => {
         />
       </InformationWrapper>
       <Video
+      data-lazy
       autoPlay
       playsInline
       muted

@@ -12,7 +12,7 @@ export const JellyMessage:React.FC = () => {
   const activeImage = useMemo(() => isMobileView ? StaticLogo : AnimatedLogo, [isMobileView])
 
   return(
-    <Container>
+    <Container data-lazy>
       <Image src={activeImage} alt="Jellysmack logo" />
       <Text>
         Through the use of animated assets,

@@ -17,7 +17,7 @@ export const SocialMediaAssets:React.FC = () => {
 
   return(
     <Container>
-      <TopSection>
+      <TopSection data-lazy>
         <Image
         id='mockup'
         src={MockupImage}
@@ -37,7 +37,7 @@ export const SocialMediaAssets:React.FC = () => {
         layout="responsive"
         />
       </TopSection>
-      <MiddleSection>
+      <MiddleSection data-lazy>
         <Image
         id="flame"
         src={isMobileView ? GoBiggerImage : FlameGoBiggerImage}
@@ -51,7 +51,7 @@ export const SocialMediaAssets:React.FC = () => {
         layout="responsive"
         />
       </MiddleSection>
-      <BottomSection>
+      <BottomSection data-lazy>
       <span>
         <video
         autoPlay

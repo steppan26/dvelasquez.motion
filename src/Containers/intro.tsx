@@ -17,13 +17,15 @@ export const IntroSection:React.FC<Props> = ({ image, imageAlt, projectText, how
         src={image}
         alt={imageAlt}
         layout="responsive"
+        loading="lazy"
+        data-lazy
         />
       </ImageWrapper>
-      <ProjectWrapper>
+      <ProjectWrapper data-lazy>
         <Header>The Project</Header>
         <Text>{projectText}</Text>
       </ProjectWrapper>
-      <WhyWrapper>
+      <WhyWrapper data-lazy>
         <Header>The Why and How</Header>
         <Text>{howText}</Text>
       </WhyWrapper>
