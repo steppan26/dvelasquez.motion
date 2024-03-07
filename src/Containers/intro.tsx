@@ -14,10 +14,8 @@ export const IntroSection:React.FC<Props> = ({ image, imageAlt, projectText, how
     <Container>
       <ImageWrapper className="intro-image">
         <Image
-        src={image.src}
+        src={image}
         alt={imageAlt}
-        width={image.width}
-        height={image.height}
         layout="responsive"
         />
       </ImageWrapper>

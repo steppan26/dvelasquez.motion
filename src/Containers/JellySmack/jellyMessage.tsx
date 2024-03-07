@@ -13,12 +13,7 @@ export const JellyMessage:React.FC = () => {
 
   return(
     <Container>
-      <Image
-      src={activeImage.src}
-      alt="Jellysmack logo"
-      width={activeImage.width / 2.5}
-      height={activeImage.height / 2.5}
-      />
+      <Image src={activeImage} alt="Jellysmack logo" />
       <Text>
         Through the use of animated assets,
         {!isMobileView && <br />} Jellysmack amplifies digital storytelling,
@@ -32,6 +27,7 @@ export const JellyMessage:React.FC = () => {
 const Container = styled.div`
   --base-spacing: 8vh;
 
+  position: relative;
   display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -39,6 +35,11 @@ const Container = styled.div`
   width: 70%;
   margin-inline: auto;
   margin-block: calc(9rem + var(--base-spacing)) var(--base-spacing);
+
+  img {
+    width: 10vw;
+    height: auto;
+  }
 
   @media (max-width: ${Sizes.small}) {
     display: grid;

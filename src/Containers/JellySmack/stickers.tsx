@@ -5,34 +5,29 @@ import PositiveVibesImage from '/public/projects/jellysmack/positive_vibes.gif'
 import StickersVideoStatic from '/public/projects/jellysmack/stickers_video.png'
 import { Text } from "../../Components/styledComponents"
 import { Sizes } from "../../Assets"
+import { useIsMobileView } from "../../utils/hooks"
 
 export const Stickers:React.FC = () => {
+  const { isMobileView } = useIsMobileView()
   return(
     <Container>
       <InformationWrapper>
         <Image
           className="rocketship"
-          src={RocketShipImage.src}
+          src={RocketShipImage}
           alt="rocketship sticker"
-          width={350}
-          height={350}
           layout="resoponsive"
         />
         <Text>
-          <span>Through the use of animated assets,</span>
-          <br />
-          <span>Jellysmack amplifies digital storytelling,</span>
-          <br />
-          <span>enriching the viewer experience and fostering</span>
-          <br />
-          <span>meaningful connections with the audience.</span>
+          Through the use of animated assets,
+          {!isMobileView && <br />} Jellysmack amplifies digital storytelling,
+          {!isMobileView && <br />} enriching the viewer experience and fostering
+          {!isMobileView && <br />} meaningful connections with the audience.
         </Text>
         <Image
         className="positive-vibes"
-        src={PositiveVibesImage.src}
+        src={PositiveVibesImage}
         alt="positive vibes sticker"
-        width={283}
-        height={256}
         layout="resoponsive"
         />
       </InformationWrapper>
@@ -61,36 +56,39 @@ const Container = styled.div`
 `
 
 const InformationWrapper = styled.div`
-  display: flex;
-    justify-content: center;
-    align-items: center;
-  margin-block: 15dvh;
+  display: grid;
+    grid-template-columns: 1fr 3.5fr 1fr;
+    justify-items: center;
+  margin: 15dvh 10vw;
 
   img {
+    max-width: 100%;
+    height: auto;
     transform-origin: center;
 
     &:first-of-type {
+      justify-self: end;
       transform: translateY(10%) rotate(-19.5deg);
     }
 
     &:last-of-type {
+      justify-self: start;
       transform: translateY(-30%) rotate(-45.85deg);
     }
   }
 
-  p {
-    margin-right: 2.5rem;
-  }
-
   @media (max-width: ${Sizes.small}) {
-    flex-direction: column;
+    display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     gap: 1rem;
     margin-block: 7dvh;
 
     img {
       transform-origin: center;
-      width: 40vw;
-      height: calc(40vw * 0.9);
+      width: 30vw;
+      height: calc(30vw * 0.9);
 
       &:first-of-type {
         transform: rotate(-19.5deg);

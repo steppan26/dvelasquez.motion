@@ -11,35 +11,27 @@ export const PhoneScreenshots:React.FC = () => {
     <Container>
       <Image
       id="screenOne"
-      src={Screen1.src}
+      src={Screen1}
       alt="Screenshot of 'New Jellys on the block'"
-      width={274}
-      height={563}
       layout="responsive"
       />
       <Image
       id="screenTwo"
-      src={Screen2.src}
+      src={Screen2}
       alt="Screenshot of This week's Creators"
-      width={274}
-      height={563}
       layout="responsive"
       className='shift-up'
       />
       <Image
       id="screenThree"
-      src={Screen3.src}
+      src={Screen3}
       alt="Screenshot of 'Were thrilled to have you'"
-      width={274}
-      height={563}
       layout="responsive"
       />
       <Image
       id="screenFour"
-      src={Screen4.src}
+      src={Screen4}
       alt="Screenshot of This week's Creators"
-      width={274}
-      height={563}
       layout="responsive"
       className='shift-up'
       />

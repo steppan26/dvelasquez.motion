@@ -20,44 +20,34 @@ export const SocialMediaAssets:React.FC = () => {
       <TopSection>
         <Image
         id='mockup'
-        src={MockupImage.src}
+        src={MockupImage}
         alt="social media post mockup"
-        height={MockupImage.height}
-        width={MockupImage.width}
         layout="responsive"
         />
         <Image
         id='personalisedCaptions'
-        src={PersonalisedCaptionsImage.src}
+        src={PersonalisedCaptionsImage}
         alt="animated sticker of the word 'captions'"
-        height={PersonalisedCaptionsImage.height}
-        width={PersonalisedCaptionsImage.width}
         layout="responsive"
         />
         <Image
         id='keywords'
-        src={isMobileView ? FlameKeywordsImage.src : KeywordsImage.src}
+        src={isMobileView ? FlameKeywordsImage : KeywordsImage}
         alt="animated sticker of the word 'keywords'"
-        height={KeywordsImage.height}
-        width={KeywordsImage.width}
         layout="responsive"
         />
       </TopSection>
       <MiddleSection>
         <Image
         id="flame"
-        src={isMobileView ? GoBiggerImage.src : FlameGoBiggerImage.src}
+        src={isMobileView ? GoBiggerImage : FlameGoBiggerImage}
         alt="animated sticker of a flame in the Jellysmack brand colours"
-        height={isMobileView ? GoBiggerImage.height : FlameGoBiggerImage.height}
-        width={isMobileView ? GoBiggerImage.width : FlameGoBiggerImage.width}
         layout="responsive"
         />
         <Image
         id="watch"
-        src={WatchImage.src}
+        src={WatchImage}
         alt="animated sticker inciting to 'watch till the end'"
-        height={WatchImage.height}
-        width={WatchImage.width}
         layout="responsive"
         />
       </MiddleSection>
