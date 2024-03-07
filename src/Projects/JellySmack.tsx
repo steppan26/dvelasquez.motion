@@ -6,6 +6,7 @@ import { Footer, IntroSection, JellyMessage, PhoneScreenshots, Stickers } from "
 import JellyBoxImage from '/public/projects/jellysmack/jellybox.gif'
 import BannerImage from '/public/projects/jellysmack/jelly_thank-you.png'
 import { SocialMediaAssets } from "."
+import { Sizes } from "../Assets"
 
 const introData = {
   image: JellyBoxImage,
@@ -63,6 +64,11 @@ const Container = styled.div`
     width: 75%;
     justify-self: center;
   }
+
+  @media (max-width: ${Sizes.small}) {
+    --container-padding: 10vw;
+
+  }
 `
 
 const LandingSection = styled.div`
@@ -83,6 +89,11 @@ const HeaderWrapper = styled.div`
   img {
     height: 111% !important;
     width: unset !important;
+  }
+
+  @media (max-width: ${Sizes.small}) {
+    width: 100%;
+    height: auto;
   }
 `
 

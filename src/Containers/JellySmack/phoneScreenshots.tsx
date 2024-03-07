@@ -10,6 +10,7 @@ export const PhoneScreenshots:React.FC = () => {
   return(
     <Container>
       <Image
+      id="screenOne"
       src={Screen1.src}
       alt="Screenshot of 'New Jellys on the block'"
       width={274}
@@ -17,6 +18,7 @@ export const PhoneScreenshots:React.FC = () => {
       layout="responsive"
       />
       <Image
+      id="screenTwo"
       src={Screen2.src}
       alt="Screenshot of This week's Creators"
       width={274}
@@ -25,6 +27,7 @@ export const PhoneScreenshots:React.FC = () => {
       className='shift-up'
       />
       <Image
+      id="screenThree"
       src={Screen3.src}
       alt="Screenshot of 'Were thrilled to have you'"
       width={274}
@@ -32,6 +35,7 @@ export const PhoneScreenshots:React.FC = () => {
       layout="responsive"
       />
       <Image
+      id="screenFour"
       src={Screen4.src}
       alt="Screenshot of This week's Creators"
       width={274}
@@ -57,6 +61,21 @@ const Container = styled.div`
 
     &.shift-up {
       margin-top: 8dvh;
+    }
+  }
+
+  @media (max-width: ${Sizes.small}) {
+    grid-template-columns: 1fr 1fr;
+      grid-gap: 0 1rem;
+    padding-inline: 1rem;
+
+    img#screenThree {
+      order: 4;
+      margin-top: 8dvh;
+    }
+    img#screenFour {
+      order: 3;
+      margin-top: 0;
     }
   }
 `

@@ -2,6 +2,7 @@ import Image from "next/image"
 import styled from "styled-components"
 import JellyDotPinImage from '/public/projects/jellysmack/jellydotcom_pin.gif'
 import WatchPinImage from '/public/projects/jellysmack/watch_pin.gif'
+import { Sizes } from "../Assets"
 
 export const JellySmackLandingLower:React.FC = () => {
   return(
@@ -12,6 +13,7 @@ export const JellySmackLandingLower:React.FC = () => {
         alt="badge announcing to watch until the end"
         height={300}
         width={332}
+        layout="responsive"
         />
       </WatchPin>
       <Text>
@@ -23,6 +25,7 @@ export const JellySmackLandingLower:React.FC = () => {
         alt="badge announcing to watch until the end"
         height={300}
         width={300}
+        layout="responsive"
         />
       </JellyPin>
     </Container>
@@ -30,7 +33,7 @@ export const JellySmackLandingLower:React.FC = () => {
 }
 
 const Container = styled.div`
-  --pin-size: 300px;
+  --pin-size: 20vw;
 
   display: grid;
     grid-template-columns: 1fr 2fr 1fr;
@@ -38,6 +41,13 @@ const Container = styled.div`
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0 20%, black 20%);
   transform: translateY(-20%);
   padding-bottom: 5dvh;
+
+  @media (max-width: ${Sizes.small}) {
+    max-width: 100%;
+    transform: unset;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0 , black);
+    padding-bottom: 2dvh;
+  }
 `
 
 const WatchPin = styled.div`
@@ -63,6 +73,14 @@ const Text = styled.h3`
   font-weight: 400;
   padding: 8rem 5.25rem;
 
+  @media (max-width: ${Sizes.small}) {
+    font-size: 0.5625rem;
+    line-height: 0.95rem;
+    letter-spacing: 1px;
+    font-weight: 400;
+    padding: 1rem 0;
+
+  }
 `
 
 const JellyPin = styled.div`

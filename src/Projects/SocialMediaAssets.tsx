@@ -7,6 +7,7 @@ import FlameGoBiggerImage from '/public/projects/jellysmack/flame_go-bigger.gif'
 import WatchImage from '/public/projects/jellysmack/watch-till-the-end.gif'
 import TransitionOneImage from '/public/projects/jellysmack/transition_1.png'
 import TransitionTwoImage from '/public/projects/jellysmack/transition_2.png'
+import { Sizes } from "../Assets"
 
 export const SocialMediaAssets:React.FC = () => {
   return(
@@ -92,6 +93,10 @@ const Container = styled.div`
 
   margin-top: 22dvh;
   margin-inline: var(--page-margin);
+
+  @media (max-width: ${Sizes.small}) {
+    margin-top: 3dvh;
+  }
 `
 
 const TopSection = styled.div`
@@ -105,7 +110,7 @@ const TopSection = styled.div`
     align-items: center;
     grid-gap: 2vw;
 
-  &>#mockup {
+  #mockup {
     grid-area: mockup;
     justify-self: end;
     transform-origin: center;
@@ -119,9 +124,23 @@ const TopSection = styled.div`
     transform: translateX(-20%);
   }
 
-  &>#keywords {
+  #keywords {
     align-self: start;
     grid-area: keywords;
+  }
+
+  @media (max-width: ${Sizes.small}) {
+    display: flex;
+      flex-direction: column;
+      padding-right: 3rem;
+
+    &>#mockup {
+      padding: 2.5rem;
+    }
+
+    &>#personalisedCaptions {
+      transform: translate(25vw, -25dvh) scale(0.8);
+    }
   }
 `
 

@@ -4,10 +4,11 @@ import RocketShipImage from '/public/projects/jellysmack/rocket.gif'
 import PositiveVibesImage from '/public/projects/jellysmack/positive_vibes.gif'
 import StickersVideoStatic from '/public/projects/jellysmack/stickers_video.png'
 import { Text } from "../../Components/styledComponents"
+import { Sizes } from "../../Assets"
 
 export const Stickers:React.FC = () => {
   return(
-    <div>
+    <Container>
       <InformationWrapper>
         <Image
           className="rocketship"
@@ -46,9 +47,18 @@ export const Stickers:React.FC = () => {
       preload="metadata">
         <source src="/stickers.mp4" type="video/mp4" />
       </Video>
-    </div>
+    </Container>
   )
 }
+
+const Container = styled.div`
+  @media (max-width: ${Sizes.small}) {
+    display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+`
 
 const InformationWrapper = styled.div`
   display: flex;
@@ -71,8 +81,34 @@ const InformationWrapper = styled.div`
   p {
     margin-right: 2.5rem;
   }
+
+  @media (max-width: ${Sizes.small}) {
+    flex-direction: column;
+    gap: 1rem;
+    margin-block: 7dvh;
+
+    img {
+      transform-origin: center;
+      width: 40vw;
+      height: calc(40vw * 0.9);
+
+      &:first-of-type {
+        transform: rotate(-19.5deg);
+      }
+
+      &:last-of-type {
+        transform: rotate(45.85deg);
+      }
+    }
+
+    p {
+      font-size: 1rem;
+      margin-right: 0;
+    }
+  }
 `
 
 const Video = styled.video`
-  width: 101%;
+  width: 120%;
+  height: auto;
 `

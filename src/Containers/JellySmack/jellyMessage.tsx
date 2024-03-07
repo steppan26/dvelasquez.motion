@@ -1,6 +1,7 @@
 import Image from "next/image"
 import styled from "styled-components"
 import AnimatedLogo from '/public/projects/jellysmack/jelly_logo.gif'
+import { Sizes } from "../../Assets"
 
 export const JellyMessage:React.FC = () => {
   return(
