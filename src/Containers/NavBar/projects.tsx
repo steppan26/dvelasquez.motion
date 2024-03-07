@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import styled from "styled-components"
 import { Sizes } from "../../Assets";
-import { AnimatedLogoDark, AnimatedLogoLight } from "../../Components";
 import { MenuItems } from "../MenuSimple/menuItems";
 import { ToggleButton } from "../MenuSimple/toggleButton";
 import { animated, useSpring } from "react-spring";
