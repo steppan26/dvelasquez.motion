@@ -3,13 +3,18 @@ import styled from "styled-components"
 import MockupImage from '/public/projects/jellysmack/mockup-post.png'
 import PersonalisedCaptionsImage from '/public/projects/jellysmack/personalised_captions.gif'
 import KeywordsImage from '/public/projects/jellysmack/keywords.gif'
+import FlameKeywordsImage from '/public/projects/jellysmack/flame_keywords.gif'
 import FlameGoBiggerImage from '/public/projects/jellysmack/flame_go-bigger.gif'
+import GoBiggerImage from '/public/projects/jellysmack/go-bigger.gif'
 import WatchImage from '/public/projects/jellysmack/watch-till-the-end.gif'
 import TransitionOneImage from '/public/projects/jellysmack/transition_1.png'
 import TransitionTwoImage from '/public/projects/jellysmack/transition_2.png'
 import { Sizes } from "../Assets"
+import { useIsMobileView } from "../utils/hooks"
 
 export const SocialMediaAssets:React.FC = () => {
+  const { isMobileView } = useIsMobileView()
+
   return(
     <Container>
       <TopSection>
@@ -31,7 +36,7 @@ export const SocialMediaAssets:React.FC = () => {
         />
         <Image
         id='keywords'
-        src={KeywordsImage.src}
+        src={isMobileView ? FlameKeywordsImage.src : KeywordsImage.src}
         alt="animated sticker of the word 'keywords'"
         height={KeywordsImage.height}
         width={KeywordsImage.width}
@@ -41,10 +46,10 @@ export const SocialMediaAssets:React.FC = () => {
       <MiddleSection>
         <Image
         id="flame"
-        src={FlameGoBiggerImage.src}
+        src={isMobileView ? GoBiggerImage.src : FlameGoBiggerImage.src}
         alt="animated sticker of a flame in the Jellysmack brand colours"
-        height={FlameGoBiggerImage.height}
-        width={FlameGoBiggerImage.width}
+        height={isMobileView ? GoBiggerImage.height : FlameGoBiggerImage.height}
+        width={isMobileView ? GoBiggerImage.width : FlameGoBiggerImage.width}
         layout="responsive"
         />
         <Image
@@ -101,7 +106,7 @@ const Container = styled.div`
 
 const TopSection = styled.div`
   display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 0.8fr;
     grid-template-rows: 7fr 6fr;
     grid-template-areas:
     'mockup personalised'
@@ -130,16 +135,36 @@ const TopSection = styled.div`
   }
 
   @media (max-width: ${Sizes.small}) {
-    display: flex;
-      flex-direction: column;
-      padding-right: 3rem;
+      grid-template-columns: 100%;
+      grid-template-rows: auto;
+      grid-template-areas: unset;
 
     &>#mockup {
-      padding: 2.5rem;
+      z-index: 3;
+      grid-row: 1 / 3;
+      grid-column: 1 / 2;
+      align-self: center;
+      justify-self: start;
+      padding: 1rem 22vw 2rem 8vw;
     }
 
     &>#personalisedCaptions {
-      transform: translate(25vw, -25dvh) scale(0.8);
+      z-index: 4;
+      grid-row: 2 / 3;
+      grid-column: 1 / 2;
+      justify-self: end;
+      transform: translateX(5vw);
+      padding-inline: 30vw 0;
+    }
+
+    &>#keywords {
+      grid-row: 3 / 4;
+      grid-column: 1 / 2;
+      align-self: end;
+      justify-self: center;
+      max-width: 80vw;
+      padding-inline: 1rem;
+      margin-bottom: 2vh;
     }
   }
 `
@@ -151,10 +176,19 @@ const MiddleSection = styled.div`
     justify-items: center;
     align-items: start;
   padding-inline: 5vw;
+
+  @media (max-width: ${Sizes.small}) {
+    display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10vw;
+    padding-inline: 10vw;
+  }
 `
 
 const BottomSection = styled.div`
-  --video-size: 720px;
+  --video-size: 50vw;
   --stagger-size: 11vh;
 
   display: grid;
@@ -179,5 +213,19 @@ const BottomSection = styled.div`
 
   &>span:first-of-type {
     margin-top: var(--stagger-size);
+  }
+
+  @media (max-width: ${Sizes.small}) {
+    --video-size: 100%;
+
+    display: block;
+
+    &>span {
+      height: 100vw;
+    }
+
+    &>span:last-of-type {
+      display: none;
+    }
   }
 `

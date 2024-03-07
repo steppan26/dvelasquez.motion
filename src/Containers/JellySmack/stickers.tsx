@@ -52,12 +52,12 @@ export const Stickers:React.FC = () => {
 }
 
 const Container = styled.div`
-  @media (max-width: ${Sizes.small}) {
-    display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-  }
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  max-width: 100vw;
+  overflow: hidden;
 `
 
 const InformationWrapper = styled.div`

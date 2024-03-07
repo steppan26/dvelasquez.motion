@@ -1,7 +1,4 @@
-import Image from "next/image"
 import styled from "styled-components"
-import MainHeaderImage from "../../public/projects/jellysmack/main_header.gif"
-import { JellySmackLandingLower } from "../Components"
 import { Footer, IntroSection, JellyMessage, PhoneScreenshots, Stickers } from "../Containers"
 import JellyBoxImage from '/public/projects/jellysmack/jellybox.gif'
 import BannerImage from '/public/projects/jellysmack/jelly_thank-you.png'
@@ -19,16 +16,15 @@ export const JellySmackPortfolio:React.FC = () => {
   return(
     <Container>
       <LandingSection>
-        <HeaderWrapper>
-          <Image
-          src={MainHeaderImage.src}
-          alt="The words 'go larger' in big, duplicated over itself"
-          width={1728}
-          height={1126}
-          layout="responsive"
-          />
-        </HeaderWrapper>
-        <JellySmackLandingLower />
+        <video
+        muted
+        autoPlay
+        playsInline
+        loop
+        controls={false}
+        >
+          <source src="/go-bigger_header.webm" type="video/webm" />
+        </video>
       </LandingSection>
       <IntroSection {...introData} />
       <PhoneScreenshots />
@@ -55,6 +51,8 @@ export const JellySmackPortfolio:React.FC = () => {
 
 const Container = styled.div`
   --container-padding: 5.3vw;
+  max-width: 100vw;
+  overflow: hidden;
 
   cursor: default;
   width: 100vw;
@@ -73,27 +71,12 @@ const Container = styled.div`
 
 const LandingSection = styled.div`
   position: relative;
-  max-height: 135dvh;
-  margin-bottom: 25dvh;
-`
-
-const HeaderWrapper = styled.div`
-  position: relative;
   display: flex;
     justify-content: center;
-    align-items: center;
   width: 100vw;
-  height: 100dvh;
-  overflow: hidden;
 
-  img {
-    height: 111% !important;
-    width: unset !important;
-  }
-
-  @media (max-width: ${Sizes.small}) {
-    width: 100%;
-    height: auto;
+  video {
+    width: 110%;
   }
 `
 
@@ -109,5 +92,14 @@ const VideoWrapper = styled.div`
   video {
     width: 100%;
     height: auto;
+  }
+
+  @media (max-width: ${Sizes.small}) {
+    height: auto;
+    max-height: 53vw;
+
+    video {
+      width: 150%;
+    }
   }
 `
