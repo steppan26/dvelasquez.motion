@@ -25,6 +25,8 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
     const elementsArray = Array.from(document.querySelectorAll(querySelector))
     elementsArray.forEach(target => {
       const wrapper = _wrapElement(target);
+      if(!wrapper) return
+
       wrapper.style.transform = ' translateY(20dvh)';
       wrapper.style.opacity = '0.1';
       wrapper.style.transition = `${slideTimeInMs}ms all ${slideFunction}`
@@ -35,10 +37,14 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
   const _wrapElement = (elementToWrap: Element) => {
     const wrapperElement = document.createElement('div')
     wrapperElement.classList.add('slide-wrapper')
-    var clonedElement = elementToWrap.cloneNode(true);
-    (elementToWrap.parentNode as HTMLElement).insertBefore(wrapperElement, elementToWrap);
-    wrapperElement.appendChild(clonedElement);
-    (elementToWrap.parentNode as HTMLElement).removeChild(elementToWrap);
+    var clonedElement = elementToWrap.cloneNode(true)
+    if(!elementToWrap.parentNode) return
+
+    elementToWrap.parentNode.insertBefore(wrapperElement, elementToWrap)
+    wrapperElement.appendChild(clonedElement)
+    if(!elementToWrap.parentNode) return
+
+    elementToWrap.parentNode.removeChild(elementToWrap)
 
     return wrapperElement;
 }

@@ -7,6 +7,7 @@ import laraLogo from '../../public/projects/girl_called_sara.jpg'
 import rokuLogo from '../../public/projects/jelly_Roku.jpg'
 import { Navbar, ScrollingSection } from "."
 import { FollowProject, JellySmackPortfolio, CPMSProject, RokuProject } from "../Projects"
+import { useActiveProjects } from "../utils/hooks"
 
 const ProjectsListData: ProjectData[] = [
   {
@@ -33,34 +34,37 @@ const ProjectsListData: ProjectData[] = [
   },
 ]
 
+export type projectName = 'jellysmack' | 'cpms' | 'motionSecrets' | 'mysteria'
+
 export interface ProjectData {
   imageUrl: string
-  id: string
+  id: projectName
   childComponent?: ReactNode
   isLightNavBar?: boolean
 }
 
 export const ProjectsShowcase:React.FC = () => {
+  const { activeSection } = useActiveProjects()
+
   const transitions = useTransition(ProjectsListData, {
-    from: {x: '200vw' },
+    from: {x:  activeSection === 'reset' ? '100vw' : '0vw' },
     enter: { x: '0vw' },
     delay: 100,
-    trail: 120,
+    trail: 20,
     config: {
-      mass: 1.4,
+      mass: 1,
       friction: 50,
-      tension: 320,
-      restVelocity: 6
+      tension: 520,
     }
   })
 
   const scaleTransform = useSpring({
-    from: { paddingRight: '200vw' },
+    from: { paddingRight: activeSection === 'reset' ? '200vw' : '0vw' },
     to: { paddingRight: '0' },
     config: {
-      mass: 2,
-      friction: 50,
-      tension: 80,
+      mass: 1,
+      friction: 65,
+      tension: 180,
       delay: 100
     }
   })
