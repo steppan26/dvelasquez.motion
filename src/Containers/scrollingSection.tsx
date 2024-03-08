@@ -108,6 +108,10 @@ const Container = styled(animated.div)`
     max-height: 100dvh;
     overflow: hidden;
   }
+
+  &.hidden {
+    max-height: 100dvh;
+  }
 `
 
 const Overlay = styled(animated.div)`
