@@ -32,7 +32,7 @@ export const Stickers:React.FC = () => {
         />
       </InformationWrapper>
       <Video
-      data-lazy
+      // data-lazy
       autoPlay
       playsInline
       muted
@@ -108,6 +108,6 @@ const InformationWrapper = styled.div`
 `
 
 const Video = styled.video`
-  width: 120%;
+  width: 100%;
   height: auto;
 `

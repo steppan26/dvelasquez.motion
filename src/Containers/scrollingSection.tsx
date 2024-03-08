@@ -100,7 +100,7 @@ const Container = styled(animated.div)`
     cursor: pointer;
     height: 100vh;
     /* overflow: hidden; */
-    height: max-height;
+    height: max-content;
   }
 `
 

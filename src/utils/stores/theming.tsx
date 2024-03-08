@@ -87,11 +87,17 @@ const GlobalStyle = createGlobalStyle<{}>`
     width: clamp(375px, 100dvw, 1950px);
     overflow: visible;
 
-    #viewportFrame {
-      pointer-events: none;
-      position: fixed;
-      inset: 0;
-      opacity: 1;
+    .slide-wrapper {
+      position: relative;
+      /* display: inherit;
+        justify-content: inherit;
+        align-items: inherit;
+      width: inherit;
+        max-width: inherit;
+      height: inherit;
+        width: inherit; */
+      overflow: hidden;
+
     }
   }
 

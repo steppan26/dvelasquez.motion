@@ -83,9 +83,9 @@ const Container = styled(animated.div)`
   display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-  height: 100dvh;
   width: 100dvw;
-  overflow: auto;
+    max-width: 100dvw;
+  overflow: hidden;
   background-color: var(--clr-bg-secondary);
 
   .overlay { --angle: to bottom; }

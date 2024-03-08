@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { randomIntFromInterval } from "../helpers";
 
 const slideTimeInMs = 500
 const slideFunction = "cubic-bezier(0.47, 1.09, 1, 1.14)"
@@ -15,7 +16,7 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
           setTimeout(() => _unwrapElement(entry.target), slideTimeInMs)
         }
       })
-    }, { threshold: 0.05, root: null, rootMargin: '5%' })
+    }, { threshold: 0.05, root: null, rootMargin: randomIntFromInterval(3, 8) + 'px' })
     observer.observe(target)
     setObservers(v => [...v, observer])
   }, [])
@@ -33,6 +34,7 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
 
   const _wrapElement = (elementToWrap: Element) => {
     const wrapperElement = document.createElement('div')
+    wrapperElement.classList.add('slide-wrapper')
     var clonedElement = elementToWrap.cloneNode(true);
     (elementToWrap.parentNode as HTMLElement).insertBefore(wrapperElement, elementToWrap);
     wrapperElement.appendChild(clonedElement);
