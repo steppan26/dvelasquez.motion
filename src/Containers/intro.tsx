@@ -1,6 +1,7 @@
 import Image, { StaticImageData } from "next/image"
 import styled from "styled-components"
 import { Sizes } from "../Assets"
+import { useCallback, useMemo } from "react"
 
 interface Props {
   image: StaticImageData
@@ -10,6 +11,7 @@ interface Props {
 }
 
 export const IntroSection:React.FC<Props> = ({ image, imageAlt, projectText, howText }) => {
+
   return(
     <Container>
       <ImageWrapper className="intro-image">
@@ -23,11 +25,11 @@ export const IntroSection:React.FC<Props> = ({ image, imageAlt, projectText, how
       </ImageWrapper>
       <ProjectWrapper data-lazy>
         <Header>The Project</Header>
-        <Text>{projectText}</Text>
+        {projectText.split('\\n').map( text => <Text key={text}>{text}</Text> )}
       </ProjectWrapper>
       <WhyWrapper data-lazy>
         <Header>The Why and How</Header>
-        <Text>{howText}</Text>
+        {howText.split('\\n').map( text => <Text key={text}>{text}</Text> )}
       </WhyWrapper>
     </Container>
   )
@@ -35,15 +37,15 @@ export const IntroSection:React.FC<Props> = ({ image, imageAlt, projectText, how
 
 const Container = styled.div`
   display: grid;
-    grid-template-columns: 4fr 6fr;
+    grid-template-columns: 4.2fr 7fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: 'image project'
     'image why';
     grid-gap: 3vw 2.5vw;
     align-items: center;
     justify-items: start;
-  padding-inline: var(--container-padding);
-  margin-block: 15dvh;
+  padding-inline: var(--container-padding) calc(var(--container-padding) + 5vw);
+  margin-block: 10dvh;
 
   @media (max-width: ${Sizes.small}) {
     display: flex;
@@ -56,6 +58,7 @@ const Container = styled.div`
 
 const ImageWrapper = styled.div`
   grid-area: image;
+  text-align: center;
   width: 100%;
   height: auto;
   border-radius: var(--border-radius);
@@ -108,9 +111,14 @@ const Header = styled.h4`
 const Text = styled.p`
   font-family: var(--font-family-wide);
   font-weight: 300;
-  font-size: 1.2rem;
-  margin-block: 0;
+  font-size: 1.125rem;
+  margin-block: 1rem;
   line-height: 2.06rem;
+  padding-left: 2rem;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
 
   @media (max-width: ${Sizes.small}) {
     font-size: 1rem;
