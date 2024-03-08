@@ -9,41 +9,73 @@ import { Sizes } from "../../Assets"
 export const ProjectScreens:React.FC = () => {
   return(
     <Container>
-      <ImageWrapper id="videoPink">
-        <Image
-        src={ProjectScreenImage00.src}
-        alt=""
-        width={ProjectScreenImage00.width}
-        height={ProjectScreenImage00.height}
-        layout="responsive"
-        />
+      <ImageWrapper id="videoPink" data-lazy>
+        <video
+        muted
+        playsInline
+        autoPlay
+        loop
+        controls={false}
+        poster={ProjectScreenImage00.src}
+        >
+          <source src="cpms_scene00_pink.webm" type="video/webm" />
+          <Image
+          src={ProjectScreenImage00}
+          alt="screenshot"
+          layout="responsive"
+          />
+        </video>
       </ImageWrapper>
-      <ImageWrapper id="videoBlueLight">
-        <Image
-        src={ProjectScreenImage01.src}
-        alt=""
-        width={ProjectScreenImage01.width}
-        height={ProjectScreenImage01.height}
-        layout="responsive"
-        />
+      <ImageWrapper id="videoBlueLight" data-lazy>
+        <video
+        muted
+        playsInline
+        autoPlay
+        loop
+        controls={false}
+        poster={ProjectScreenImage01.src}
+        >
+          <source src="cpms_scene01_light-blue.webm" type="video/webm" />
+          <Image
+          src={ProjectScreenImage01}
+          alt="screenshot"
+          layout="responsive"
+          />
+        </video>
       </ImageWrapper>
-      <ImageWrapper id="videoGreen">
-        <Image
-        src={ProjectScreenImage02.src}
-        alt=""
-        width={ProjectScreenImage02.width}
-        height={ProjectScreenImage02.height}
-        layout="responsive"
-        />
+      <ImageWrapper id="videoGreen" data-lazy>
+        <video
+        muted
+        playsInline
+        autoPlay
+        loop
+        controls={false}
+        poster={ProjectScreenImage02.src}
+        >
+          <source src="cpms_scene02_green.webm" type="video/webm" />
+          <Image
+          src={ProjectScreenImage02}
+          alt="screenshot"
+          layout="responsive"
+          />
+        </video>
       </ImageWrapper>
-      <ImageWrapper id="videoBlueDark">
-        <Image
-        src={ProjectScreenImage03.src}
-        alt=""
-        width={ProjectScreenImage03.width}
-        height={ProjectScreenImage03.height}
-        layout="responsive"
-        />
+      <ImageWrapper id="videoBlueDark" data-lazy>
+        <video
+        muted
+        playsInline
+        autoPlay
+        loop
+        controls={false}
+        poster={ProjectScreenImage03.src}
+        >
+          <source src="cpms_scene03_dark-blue.webm" type="video/webm" />
+          <Image
+          src={ProjectScreenImage03}
+          alt="screenshot"
+          layout="responsive"
+          />
+        </video>
       </ImageWrapper>
     </Container>
   )
@@ -73,7 +105,7 @@ const ImageWrapper = styled.span`
     height: 25dvh;
   }
 
-  img {
+  img, video {
     height: 100% !important;
     width: unset !important;
   }
@@ -81,7 +113,7 @@ const ImageWrapper = styled.span`
   &#videoPink {
     flex: 0 0 65%;
 
-    img {
+    img, video {
       transform: translateX(20px);
     }
 
@@ -90,7 +122,7 @@ const ImageWrapper = styled.span`
       flex-basis: 100%;
       border-radius: 0;
 
-      img {
+      img, video {
         height: auto !important;
         width: 100% !important;
         transform-origin: center top;
@@ -102,8 +134,8 @@ const ImageWrapper = styled.span`
   &#videoBlueLight {
     flex: 1 0 20%;
 
-    img {
-      transform: translateX(-110px);
+    img, video {
+      transform: scaleX(-100%);
     }
 
     @media (max-width: ${Sizes.small}) {
@@ -111,7 +143,7 @@ const ImageWrapper = styled.span`
       flex-basis: 40%;
       border-radius: var(--border-radius) 0 0 var(--border-radius);
 
-      img {
+      img, video {
         transform: unset;
         margin-right: 5rem;
       }
@@ -126,7 +158,7 @@ const ImageWrapper = styled.span`
       flex-basis: 50%;
       border-radius: 0 var(--border-radius) var(--border-radius) 0;
 
-      img {
+      img, video {
         margin-left: 2.5rem;
       }
     }
@@ -140,7 +172,7 @@ const ImageWrapper = styled.span`
       flex-basis: 100%;
       border-radius: 0;
 
-      img {
+      img, video {
         height: auto !important;
         width: 100% !important;
         margin-top: 1.5rem;

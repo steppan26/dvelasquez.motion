@@ -2,11 +2,12 @@ import { ReactNode } from "react"
 import { animated, useSpring, useTransition } from "react-spring"
 import styled from "styled-components"
 import goBiggerLogo from '../../public/projects/go_bigger.jpg'
-import followMeLogo from '../../public/projects/follow_me.jpg'
+import motionSecretsLogo from '../../public/projects/follow_me.jpg'
 import laraLogo from '../../public/projects/girl_called_sara.jpg'
 import rokuLogo from '../../public/projects/jelly_Roku.jpg'
 import { Navbar, ScrollingSection } from "."
-import { FollowProject, JellySmackPortfolio, CPMSProject, RokuProject } from "../Projects"
+import { MotionSecretsProject, JellySmackPortfolio, CPMSProject, RokuProject } from "../Projects"
+import { useActiveProjects } from "../utils/hooks"
 
 const ProjectsListData: ProjectData[] = [
   {
@@ -22,8 +23,8 @@ const ProjectsListData: ProjectData[] = [
   },
   {
     id: 'motionSecrets',
-    imageUrl: followMeLogo.src,
-    childComponent: <FollowProject />
+    imageUrl: motionSecretsLogo.src,
+    childComponent: <MotionSecretsProject />
   },
   {
     id: 'mysteria',
@@ -33,40 +34,43 @@ const ProjectsListData: ProjectData[] = [
   },
 ]
 
+export type projectName = 'jellysmack' | 'cpms' | 'motionSecrets' | 'mysteria'
+
 export interface ProjectData {
   imageUrl: string
-  id: string
+  id: projectName
   childComponent?: ReactNode
   isLightNavBar?: boolean
 }
 
 export const ProjectsShowcase:React.FC = () => {
+  const { activeSection } = useActiveProjects()
+
   const transitions = useTransition(ProjectsListData, {
-    from: {x: '200vw' },
+    from: {x:  activeSection === 'reset' ? '100vw' : '0vw' },
     enter: { x: '0vw' },
     delay: 100,
-    trail: 120,
+    trail: 20,
     config: {
-      mass: 1.4,
+      mass: 1,
       friction: 50,
-      tension: 320,
-      restVelocity: 6
+      tension: 520,
     }
   })
 
   const scaleTransform = useSpring({
-    from: { paddingRight: '200vw' },
+    from: { paddingRight: activeSection === 'reset' ? '200vw' : '0vw' },
     to: { paddingRight: '0' },
     config: {
-      mass: 2,
-      friction: 50,
-      tension: 80,
+      mass: 1,
+      friction: 65,
+      tension: 180,
       delay: 100
     }
   })
 
   return(
-    <Container id="showcaseContainer">
+    <Container id="showcaseContainer" data-isfullscreen={activeSection !== 'reset'}>
       <Navbar type='projects' navData={ProjectsListData} />
       {transitions((style, item) => (
         <ScrollingSection style={{...style, ...scaleTransform}} id={item.id} backgroundImageUrl={item.imageUrl}>
@@ -91,6 +95,7 @@ const Container = styled(animated.div)`
   .overlay { --angle: to bottom; }
 
   #jellysmack_container {
+    grid-area: jellysmack;
     .overlay {
       --primary-color: rgba(122, 155, 118, 0.90);
       --secondary-color: rgba(255, 210, 64, 0.90);
@@ -98,6 +103,7 @@ const Container = styled(animated.div)`
   }
 
   #motionSecrets_container {
+    grid-area: motion;
 
     .overlay {
       --primary-color: rgba(206, 8, 81, 0.80);
@@ -106,6 +112,7 @@ const Container = styled(animated.div)`
   }
 
   #cpms_container {
+    grid-area: cpms;
 
     .overlay {
       --primary-color: rgba(206, 8, 81, 0.80);
@@ -114,6 +121,7 @@ const Container = styled(animated.div)`
   }
 
   #mysteria_container {
+    grid-area: mysteria;
 
     .overlay {
       --primary-color: rgba(206, 8, 81, 0.60);

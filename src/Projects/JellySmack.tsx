@@ -51,6 +51,7 @@ export const JellySmackPortfolio:React.FC = () => {
 
 const Container = styled.div`
   --container-padding: 5.3vw;
+
   max-width: 100vw;
   overflow: hidden;
 
@@ -73,7 +74,7 @@ const LandingSection = styled.div`
   position: relative;
   display: flex;
     justify-content: center;
-  width: 100vw;
+  width: 100%;
 
   video {
     width: 110%;

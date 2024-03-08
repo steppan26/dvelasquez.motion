@@ -7,6 +7,7 @@ import { animated, useSpring } from "react-spring";
 import { useRouter } from "next/router";
 import { ProjectData } from "../projectsShowcase";
 import dynamic from "next/dynamic";
+import { useActiveProjects } from "../../utils/hooks";
 
 interface Props {
   navData: ProjectData[]
@@ -16,15 +17,14 @@ export const ProjectsNavbar:React.FC<Props> = ({ navData }) => {
   const navRef = useRef<HTMLElement>(null)
   const [isOpen, setIsOpen] = useState(false)
   const timeout = useRef<NodeJS.Timeout>()
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
   const router = useRouter()
+  const { activeSection } = useActiveProjects()
 
   const LogoLight = dynamic(() => import('../../Components/animatedLogoLight').then(comp => comp.AnimatedLogoLight), {ssr: false})
   const LogoDark = dynamic(() => import('../../Components/animatedLogoDark').then(comp => comp.AnimatedLogoDark), {ssr: false})
 
-  const displayLightNavbar = useMemo(() => (
-    navData?.filter(d => d.isLightNavBar).some(p => router.asPath.includes(p.id)) ?? false
-  ), [router, navData])
+  const displayLightNavbar = useMemo(() => ['jellysmack', 'mysteria', 'reset'].includes(activeSection), [activeSection])
 
   const heightSpring = useSpring({
     from: { opacity: 1 },
@@ -36,24 +36,9 @@ export const ProjectsNavbar:React.FC<Props> = ({ navData }) => {
     }
   })
 
-  useEffect(() => {
-    if(typeof window == 'undefined') return
-
-    window.addEventListener('shouldDisplayNavBar', handleEvent)
-
-    return () => window.removeEventListener('shouldDisplayNavBar', handleEvent)
-  }, [])
-
-  const handleEvent = (e: any) => {
-    const { displayNavBar } = e.detail
-    setIsVisible(displayNavBar)
-  }
-
   const handleMouseLeave = () => {
     timeout.current = setTimeout(() => setIsOpen(false), 600)
   }
-
-  useEffect(() => console.info("ttt",displayLightNavbar), [displayLightNavbar])
 
   return(
     <Nav ref={navRef} style={heightSpring} data-islight={displayLightNavbar}>

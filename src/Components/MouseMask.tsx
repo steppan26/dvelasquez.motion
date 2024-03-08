@@ -74,7 +74,7 @@ export const MouseMask:React.FC<Props> = ({ children }) => {
       style={style}
       />
       {children}
-      <Toggle className={currentShape} onClick={handleClick} />
+      {/* <Toggle className={currentShape} onClick={handleClick} /> */}
     </Scene>
   )
 }

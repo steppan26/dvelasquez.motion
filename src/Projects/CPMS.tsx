@@ -11,13 +11,21 @@ export const CPMSProject:React.FC = () => {
   return(
     <Container>
       <ImageWrappper className="main-image">
-        <Image
-        src={MainHeaderImage.src}
-        alt="The words 'go bigger' in big, duplicated over itself"
-        width={MainHeaderImage.width}
-        height={MainHeaderImage.height}
-        layout="responsive"
-        />
+        <video
+        autoPlay
+        muted
+        playsInline
+        loop
+        controls={false}
+        poster={MainHeaderImage.src}
+        >
+          <source src="cpms-main-header.webm" type="video/webm" />
+          <Image
+          src={MainHeaderImage}
+          alt="The words 'go bigger' in big, duplicated over itself"
+          layout="responsive"
+          />
+        </video>
       </ImageWrappper>
       <IntroSection
       image={ClaraImage}
@@ -28,14 +36,24 @@ export const CPMSProject:React.FC = () => {
       <ProjectScreens />
       <DrawingsSection />
       <DataScreenshots />
-      <VideoWrapper>
-        <Image
-        src={MainVideoImage.src}
-        alt="screenshot of the video for the CPMS project"
-        width={MainVideoImage.width}
-        height={MainVideoImage.height}
-        layout="responsive"
-        />
+      <VideoWrapper data-lazy>
+        <video
+        autoPlay
+        muted
+        playsInline
+        controls
+        loop
+        poster={MainVideoImage.src}
+        controlsList="nodownload"
+        preload="metadata"
+        >
+          <source src="cpms-main-video.webm" type="video/webm" />
+          <Image
+          src={MainVideoImage}
+          alt="screenshot of the video for the CPMS project"
+          layout="responsive"
+          />
+        </video>
       </VideoWrapper>
       <Footer />
     </Container>
@@ -58,7 +76,7 @@ const ImageWrappper = styled.div`
   width: 100vw;
   overflow: hidden;
 
-  img {
+  img, video {
     height: 100dvh !important;
     width: auto !important;
 

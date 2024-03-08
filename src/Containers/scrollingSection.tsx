@@ -1,7 +1,8 @@
 import { useRouter } from "next/router"
-import { useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import { animated, useSpring } from "react-spring"
 import styled from "styled-components"
+import { useActiveProjects } from "../utils/hooks"
 
 interface Props {
   backgroundImageUrl: string
@@ -14,21 +15,25 @@ export const ScrollingSection: React.FC<Props> = (props) => {
   const { children, id, style } = props
   const containerRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
-  const [isSelected, setIsSelected] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
   const [isVisible, setVisible] = useState(true)
+  const { activeSection } = useActiveProjects()
 
-  const getActivePage = useCallback(() => {
-    const pathList = router.asPath.split('#')
+  const isSelected = useMemo(() => (activeSection === id), [activeSection, id])
 
-    return pathList.length > 1 ? pathList[1] : 'reset'
-  }, [router])
+  const sectionWidth = useMemo(() => {
+    if(isSelected) return "100%"
+
+    if(activeSection !== 'reset') return '0'
+
+    if(isHovering) return '33%'
+
+    return '25%'
+  }, [isSelected, activeSection, isHovering])
 
   useEffect(() => {
-    const selectedPage = getActivePage()
-    setVisible(selectedPage === id || selectedPage === 'reset')
-    setIsSelected(selectedPage === id)
-  }, [id, getActivePage])
+    setVisible([id, 'reset'].includes(activeSection))
+  }, [activeSection, id])
 
   useEffect(() => {
     let displayNavBar = true
@@ -49,11 +54,9 @@ export const ScrollingSection: React.FC<Props> = (props) => {
   }
 
   const containerSpring = useSpring({
-    from: { flexBasis: '25%', flexShrink: 1 },
-    to: {
-      flexBasis: isSelected ? '100%' : isHovering ? '33%' : '25%',
-      flexShrink: isSelected || isHovering ? 0 : 1,
-    },
+    from: { width: activeSection === 'reset' ? '25%' : '100%' },
+    to: { width: sectionWidth },
+    onRest: (v) => { setTimeout(() => setVisible(v.value.width !== '0%'), 0) },
     config: animationConfig
   })
 
@@ -63,12 +66,13 @@ export const ScrollingSection: React.FC<Props> = (props) => {
     config: animationConfig
   })
 
+  useEffect(() => console.info("AA", id, isVisible), [isVisible, id])
+
   return(
     <Container
     id={id+'_container'}
-    className={isVisible && !isSelected ? 'active' : undefined}
+    className={isSelected ? 'active' : !isVisible ? 'hidden' : undefined}
     onClick={() => router.push('/works#' + id)}
-    data-projectid
     ref={containerRef}
     style={{...style, ...containerSpring}}
     onMouseEnter={handleMouseEnter}
@@ -81,32 +85,36 @@ export const ScrollingSection: React.FC<Props> = (props) => {
 }
 
 const Container = styled(animated.div)`
-  cursor: default;
-  flex-shrink: 1;
-  flex-grow: 0;
-  flex-basis: 25%;
+  cursor: pointer;
   position: relative;
-  /* height: 100vh; */
-  width: max-content;
-    max-width: 100vw;
-  /* overflow: auto; */
-  background-color: var(--clr-bg-main);
+  width: 100%;
+    max-width: 100%;
+  height: 100%;
+    max-height: 100dvh;
+  background-color: var(--clr-bg-projects);
+  overflow: hidden;
 
   &>.snap-to {
     scroll-snap-align: start;
   }
 
   &.active {
-    cursor: pointer;
-    height: 100vh;
-    /* overflow: hidden; */
+    cursor: default;
     height: max-content;
+    max-height: unset;
+  }
+
+  &.hidden {
+    max-height: 100dvh;
+    overflow: hidden;
   }
 `
 
 const Overlay = styled(animated.div)`
+  pointer-events: none;
   position: absolute;
-  top: 0; left: 0;
-  height: 100%; width: 100%;
+  top: 0; left: 0; right: 0;
+  height: 100%;
+  width: 100%;
   background: linear-gradient(var(--angle), var(--primary-color), var(--secondary-color));
 `
