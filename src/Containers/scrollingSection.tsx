@@ -66,8 +66,6 @@ export const ScrollingSection: React.FC<Props> = (props) => {
     config: animationConfig
   })
 
-  useEffect(() => console.info("AA", id, isVisible), [isVisible, id])
-
   return(
     <Container
     id={id+'_container'}

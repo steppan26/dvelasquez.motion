@@ -62,10 +62,6 @@ export const MouseMask:React.FC<Props> = ({ children }) => {
     set({ x: maskPosition?.x, y: maskPosition?.y })
   }, [maskPosition, set])
 
-  const handleClick = () => {
-    console.info('click')
-  }
-
   return(
     <Scene ref={sceneRef}>
       <Mask

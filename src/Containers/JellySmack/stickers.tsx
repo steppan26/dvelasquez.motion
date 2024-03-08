@@ -69,12 +69,12 @@ const InformationWrapper = styled.div`
 
     &:first-of-type {
       justify-self: end;
-      transform: translateY(10%) rotate(-19.5deg);
+      transform: scale(1.5) translateY(10%) rotate(-19.5deg);
     }
 
     &:last-of-type {
       justify-self: start;
-      transform: translateY(-30%) rotate(-45.85deg);
+      transform: scale(1.2) translateY(-30%) rotate(-45.85deg);
     }
   }
 

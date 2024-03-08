@@ -9,7 +9,7 @@ import { Sizes } from "../../Assets"
 export const ProjectScreens:React.FC = () => {
   return(
     <Container>
-      <ImageWrapper id="videoPink" data-lazy>
+      <ImageWrapper id="videoPink" data-lazy="projectScreens_image">
         <video
         muted
         playsInline
@@ -26,7 +26,7 @@ export const ProjectScreens:React.FC = () => {
           />
         </video>
       </ImageWrapper>
-      <ImageWrapper id="videoBlueLight" data-lazy>
+      <ImageWrapper id="videoBlueLight" data-lazy="projectScreens_image" >
         <video
         muted
         playsInline
@@ -43,7 +43,7 @@ export const ProjectScreens:React.FC = () => {
           />
         </video>
       </ImageWrapper>
-      <ImageWrapper id="videoGreen" data-lazy>
+      <ImageWrapper id="videoGreen" data-lazy="projectScreens_image" >
         <video
         muted
         playsInline
@@ -60,7 +60,7 @@ export const ProjectScreens:React.FC = () => {
           />
         </video>
       </ImageWrapper>
-      <ImageWrapper id="videoBlueDark" data-lazy>
+      <ImageWrapper id="videoBlueDark" data-lazy="projectScreens_image" >
         <video
         muted
         playsInline

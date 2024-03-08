@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
 import { randomIntFromInterval } from "../helpers";
 
-const slideTimeInMs = 500
-const slideFunction = "cubic-bezier(0.47, 1.09, 1, 1.14)"
+const slideTimeInMs = 1800
+const slideTransform = 'translateY(5dvh)'
+const slideFunction = "cubic-bezier(0.71, 0, 0.18, 0.93)"
 
 export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
   const [observers, setObservers] = useState<IntersectionObserver[]>([])
@@ -19,23 +20,23 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
           }, slideTimeInMs)
         }
       })
-    }, { threshold: 0.05, root: null, rootMargin: randomIntFromInterval(3, 8) + 'px' })
+    }, { threshold: 0.25, root: null, rootMargin: randomIntFromInterval(3, 8) + 'px' })
     observer.observe(target)
     setObservers(v => [...v, observer])
   }, [])
 
   const _wrapElement = useCallback((elementToWrap: Element) => {
+    const parentNode = elementToWrap.parentNode
+    if(!parentNode) return
+
     const wrapperElement = document.createElement('div')
     wrapperElement.classList.add('slide-wrapper')
     var clonedElement = elementToWrap.cloneNode(true)
-    _applyStyles(wrapperElement, elementToWrap)
-    if(!elementToWrap.parentNode) return
 
-    elementToWrap.parentNode.insertBefore(wrapperElement, elementToWrap)
+    parentNode.insertBefore(wrapperElement, elementToWrap)
     wrapperElement.appendChild(clonedElement)
-    if(!elementToWrap.parentNode) return
-
-    elementToWrap.parentNode.removeChild(elementToWrap)
+    _applyStyles(wrapperElement, elementToWrap)
+    parentNode.removeChild(elementToWrap)
 
     return wrapperElement;
   }, [])
@@ -46,8 +47,10 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
       const wrapper = _wrapElement(target);
       if(!wrapper) return
 
-      wrapper.style.transform = ' translateY(20dvh)';
-      wrapper.style.opacity = '0.1';
+      const originalStyle = window.getComputedStyle(target)
+      const transformRegex = new RegExp('translate(?:Y)?\(([^)]+)\)', 'g')
+      wrapper.style.transform = slideTransform + ' ' + originalStyle.transform.replaceAll(transformRegex, "");
+      wrapper.style.opacity = '0';
       wrapper.style.transition = `${slideTimeInMs}ms all ${slideFunction}`
       _attachObserver(wrapper)
   })
@@ -55,10 +58,22 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
 
 
   const _applyStyles = (wrapperElement: HTMLElement, elementToWrap: Element) => {
-    if(elementToWrap.className.startsWith("projectScreens__ImageWrapper")){
-      const flexStyle = window.getComputedStyle(elementToWrap).flex
-      wrapperElement.style.flex = flexStyle
+
+    // TRANSITION ANIMATION
+    const originalStyle = window.getComputedStyle(elementToWrap)
+    // @ts-ignore
+    const element_id = elementToWrap.dataset.lazy
+
+    if(element_id === 'phone-screenshots_image'){
+      wrapperElement.style.margin = originalStyle.margin
+      wrapperElement.style.width = originalStyle.width
+      wrapperElement.style.height = originalStyle.height
     }
+
+    if(element_id === 'jelly-projectScreens_image'){
+      wrapperElement.style.flex = originalStyle.flex
+    }
+
   }
 
   const _unwrapElement = (wrapperElement: Element) => {
@@ -68,6 +83,7 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
     wrapperElement.parentNode.replaceChild(childElement, wrapperElement)
     return childElement;
   }
+
   useEffect(() => {
     if(typeof window == 'undefined') return
 

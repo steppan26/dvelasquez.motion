@@ -10,14 +10,14 @@ export const PhoneScreenshots:React.FC = () => {
   return(
     <Container >
       <Image
-      data-lazy
+      data-lazy="phone-screenshots_image"
       id="screenOne"
       src={Screen1}
       alt="Screenshot of 'New Jellys on the block'"
       layout="responsive"
       />
       <Image
-      data-lazy
+      data-lazy="phone-screenshots_image"
       id="screenTwo"
       src={Screen2}
       alt="Screenshot of This week's Creators"
@@ -25,14 +25,14 @@ export const PhoneScreenshots:React.FC = () => {
       className='shift-up'
       />
       <Image
-      data-lazy
+      data-lazy="phone-screenshots_image"
       id="screenThree"
       src={Screen3}
       alt="Screenshot of 'Were thrilled to have you'"
       layout="responsive"
       />
       <Image
-      data-lazy
+      data-lazy="phone-screenshots_image"
       id="screenFour"
       src={Screen4}
       alt="Screenshot of This week's Creators"

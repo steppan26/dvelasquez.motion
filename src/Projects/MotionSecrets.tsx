@@ -1,7 +1,7 @@
 import Image from "next/image"
 import styled from "styled-components"
 import MainHeaderImage from "../../public/projects/follow_me.jpg"
-import { Footer, IntroSection, PersonalProjectsList } from "../Containers"
+import { Footer, IntroSection, PersonalProjectsList, ProjectDrawings } from "../Containers"
 import IntroImage from '/public/projects/motion_secrets/Blue_dot.gif'
 import { Sizes } from "../Assets"
 import { LoopingVideo } from "../Components"
@@ -23,6 +23,7 @@ export const MotionSecretsProject:React.FC = () => {
       howText="I seized this opportunity to explore the stories I wanted to convey in each exercise. My goal was to move beyond mere technique and imagine a fully realised world within each project.\nIncorporating music and building a universe around them to bring them to life proved to be a deeply personal and meaningful experience. I'm excited to see what stories I can create in the following lessons."
       />
       <PersonalProjectsList />
+      <ProjectDrawings />
       <Footer />
     </Container>
   )

@@ -12,7 +12,7 @@ export const JellyMessage:React.FC = () => {
   const activeImage = useMemo(() => isMobileView ? StaticLogo : AnimatedLogo, [isMobileView])
 
   return(
-    <Container data-lazy>
+    <Container data-lazy="jelly-message">
       <Image src={activeImage} alt="Jellysmack logo" />
       <Text>
         Through the use of animated assets,
@@ -37,7 +37,7 @@ const Container = styled.div`
   margin-block: calc(9rem + var(--base-spacing)) var(--base-spacing);
 
   img {
-    width: 10vw;
+    width: 15vw;
     height: auto;
   }
 
