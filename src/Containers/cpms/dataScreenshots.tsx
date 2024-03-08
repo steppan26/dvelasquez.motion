@@ -9,37 +9,57 @@ import { Sizes } from "../../Assets"
 export const DataScreenshots:React.FC = () => {
   return(
     <Container>
-      <VideoWrapper>
-        <Image
-        src={Screenshot00.src}
-        alt="screenshot of data"
-        width={Screenshot00.width}
-        height={Screenshot00.height}
-        />
+      <VideoWrapper data-lazy>
+        <video
+        muted
+        playsInline
+        autoPlay
+        loop
+        controls={false}
+        poster={Screenshot00.src}
+        >
+          <source src="cpms_data-screen00.webm" type="video/webm" />
+          <Image src={Screenshot00} alt="screenshot of data" />
+        </video>
       </VideoWrapper>
-      <VideoWrapper>
-        <Image
-        src={Screenshot01.src}
-        alt="screenshot of data"
-        width={Screenshot01.width}
-        height={Screenshot01.height}
-        />
+      <VideoWrapper data-lazy>
+        <video
+        muted
+        playsInline
+        autoPlay
+        loop
+        controls={false}
+        poster={Screenshot01.src}
+        >
+          <source src="cpms_data-screen01.webm" type="video/webm" />
+          <Image src={Screenshot01} alt="screenshot of data" />
+        </video>
       </VideoWrapper>
-      <VideoWrapper>
-        <Image
-        src={Screenshot02.src}
-        alt="screenshot of data"
-        width={Screenshot02.width}
-        height={Screenshot02.height}
-        />
+      <VideoWrapper data-lazy>
+        <video
+        muted
+        playsInline
+        autoPlay
+        loop
+        controls={false}
+        poster={Screenshot02.src}
+        >
+          <source src="cpms_data-screen02.webm" type="video/webm" />
+          <Image src={Screenshot02} alt="screenshot of data" />
+        </video>
       </VideoWrapper>
-      <VideoWrapper>
-        <Image
-        src={Screenshot03.src}
-        alt="screenshot of data"
-        width={Screenshot03.width}
-        height={Screenshot03.height}
-        />
+      <VideoWrapper data-lazy>
+        <video
+        muted
+        playsInline
+        autoPlay
+        loop
+        controls={false}
+        poster={Screenshot03.src}
+        >
+          <source src="cpms_data-screen03.webm" type="video/webm" />
+          <Image src={Screenshot03} alt="screenshot of data" />
+        </video>
       </VideoWrapper>
     </Container>
   )
@@ -64,7 +84,7 @@ const VideoWrapper = styled.span`
   overflow: hidden;
   border-radius: var(--border-radius);
 
-  img {
+  img, video {
     width: auto !important;
     height: 100% !important;
     transform: scale(1.05);
@@ -73,7 +93,7 @@ const VideoWrapper = styled.span`
   @media (max-width: ${Sizes.small}) {
     border-radius: 0;
 
-    img {
+    img, video {
       height: auto !important;
       width: 100% !important;
       transform: unset;

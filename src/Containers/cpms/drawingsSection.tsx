@@ -7,7 +7,7 @@ import { Sizes } from "../../Assets"
 
 export const DrawingsSection:React.FC = () => {
   return(
-    <Container>
+    <Container data-lazy>
       <div id="drawingGirl">
         <Image
         src={Drawing01.src}

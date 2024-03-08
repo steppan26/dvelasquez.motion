@@ -28,7 +28,7 @@ export const CPMSProject:React.FC = () => {
       <ProjectScreens />
       <DrawingsSection />
       <DataScreenshots />
-      <VideoWrapper>
+      <VideoWrapper data-lazy>
         <Image
         src={MainVideoImage.src}
         alt="screenshot of the video for the CPMS project"

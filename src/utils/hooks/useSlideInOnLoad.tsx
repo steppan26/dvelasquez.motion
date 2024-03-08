@@ -21,6 +21,22 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
     setObservers(v => [...v, observer])
   }, [])
 
+  const _wrapElement = useCallback((elementToWrap: Element) => {
+    const wrapperElement = document.createElement('div')
+    wrapperElement.classList.add('slide-wrapper')
+    var clonedElement = elementToWrap.cloneNode(true)
+    _applyStyles(wrapperElement, elementToWrap)
+    if(!elementToWrap.parentNode) return
+
+    elementToWrap.parentNode.insertBefore(wrapperElement, elementToWrap)
+    wrapperElement.appendChild(clonedElement)
+    if(!elementToWrap.parentNode) return
+
+    elementToWrap.parentNode.removeChild(elementToWrap)
+
+    return wrapperElement;
+  }, [])
+
   const addObservers = useCallback(() => {
     const elementsArray = Array.from(document.querySelectorAll(querySelector))
     elementsArray.forEach(target => {
@@ -32,26 +48,21 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
       wrapper.style.transition = `${slideTimeInMs}ms all ${slideFunction}`
       _attachObserver(wrapper)
   })
-  },[querySelector, _attachObserver])
+  },[querySelector, _attachObserver, _wrapElement])
 
-  const _wrapElement = (elementToWrap: Element) => {
-    const wrapperElement = document.createElement('div')
-    wrapperElement.classList.add('slide-wrapper')
-    var clonedElement = elementToWrap.cloneNode(true)
-    if(!elementToWrap.parentNode) return
 
-    elementToWrap.parentNode.insertBefore(wrapperElement, elementToWrap)
-    wrapperElement.appendChild(clonedElement)
-    if(!elementToWrap.parentNode) return
-
-    elementToWrap.parentNode.removeChild(elementToWrap)
-
-    return wrapperElement;
-}
+  const _applyStyles = (wrapperElement: HTMLElement, elementToWrap: Element) => {
+    if(elementToWrap.className.startsWith("projectScreens__ImageWrapper")){
+      const flexStyle = window.getComputedStyle(elementToWrap).flex
+      wrapperElement.style.flex = flexStyle
+    }
+  }
 
   const _unwrapElement = (wrapperElement: Element) => {
     var childElement = wrapperElement.firstChild as HTMLElement
-    (wrapperElement.parentNode as HTMLElement).replaceChild(childElement, wrapperElement)
+    if(!wrapperElement.parentNode) return
+
+    wrapperElement.parentNode.replaceChild(childElement, wrapperElement)
     return childElement;
   }
   useEffect(() => {
