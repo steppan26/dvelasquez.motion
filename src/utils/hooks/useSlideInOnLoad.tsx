@@ -20,7 +20,7 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
           }, slideTimeInMs)
         }
       })
-    }, { threshold: 0.25, root: null, rootMargin: randomIntFromInterval(3, 8) + 'px' })
+    }, { threshold: 0.15, root: null, rootMargin: randomIntFromInterval(3, 8) + 'px' })
     observer.observe(target)
     setObservers(v => [...v, observer])
   }, [])
@@ -43,7 +43,9 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
 
   const addObservers = useCallback(() => {
     const elementsArray = Array.from(document.querySelectorAll(querySelector))
-    elementsArray.forEach(target => {
+    //@ts-ignore
+    elementsArray.filter((el) => !["", "false"].includes(el.dataset.lazy))
+    .forEach(target => {
       const wrapper = _wrapElement(target);
       if(!wrapper) return
 
@@ -63,6 +65,17 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
     const originalStyle = window.getComputedStyle(elementToWrap)
     // @ts-ignore
     const element_id = elementToWrap.dataset.lazy
+    wrapperElement.style.transform = originalStyle.transform
+
+    if(element_id === 'motion-secrets_drawings_text'){
+      wrapperElement.style.margin = originalStyle.margin
+    }
+
+    if(element_id === 'motion-secrets_drawing'){
+      wrapperElement.style.gridArea = originalStyle.gridArea
+      wrapperElement.style.alignSelf = originalStyle.alignSelf
+      wrapperElement.style.justifySelf = originalStyle.justifySelf
+    }
 
     if(element_id === 'phone-screenshots_image'){
       wrapperElement.style.margin = originalStyle.margin

@@ -5,9 +5,9 @@ import { Sizes } from "../../Assets"
 export const PersonalProjectsList:React.FC = () => {
   return(
     <Container>
-      <LoopingVideo videoPath="motion-secrets_who-is-looking.webm" soundOption allowControls />
-      <LoopingVideo videoPath="motion-secrets_mischievous_blue_dot.webm" soundOption allowControls />
-      <LoopingVideo videoPath="motion-secrets_intro.webm" soundOption allowControls />
+      <LoopingVideo dataLazy videoPath="motion-secrets_who-is-looking.webm" soundOption allowControls />
+      <LoopingVideo dataLazy videoPath="motion-secrets_mischievous_blue_dot.webm" soundOption allowControls />
+      <LoopingVideo dataLazy videoPath="motion-secrets_intro.webm" soundOption allowControls />
     </Container>
   )
 }

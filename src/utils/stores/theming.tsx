@@ -90,14 +90,6 @@ const GlobalStyle = createGlobalStyle<{}>`
 
     .slide-wrapper {
       position: relative;
-      /* display: inherit;
-        justify-content: inherit;
-        align-items: inherit;
-      width: inherit;
-        max-width: inherit;
-      height: inherit;
-        width: inherit; */
-      overflow: hidden;
 
     }
   }

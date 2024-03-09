@@ -9,11 +9,13 @@ import Drawing4 from '/public/projects/motion_secrets/drawing_4.png'
 export const ProjectDrawings:React.FC = () => {
   return(
     <Container>
-      <Image src={Drawing1} alt="" id="drawingOne" data-lazy />
-      <Image src={Drawing2} alt="" id="drawingTwo" data-lazy />
-      <Image src={Drawing3} alt="" id="drawingThree" data-lazy />
-      <Image src={Drawing4} alt="" id="drawingFour" data-lazy />
-      <Text data-lazy>There&apos;s always a lot of thinking and planning involved in each of these short exercises, and I believe that the process of getting there is half of the story. Here&apos;s a tiny sneak peek of what my notebook looks like.</Text>
+      <Image src={Drawing1} alt="" id="drawingOne" data-lazy="motion-secrets_drawing" />
+      <Image src={Drawing2} alt="" id="drawingTwo" data-lazy="motion-secrets_drawing" />
+      <Image src={Drawing3} alt="" id="drawingThree" data-lazy="motion-secrets_drawing" />
+      <Image src={Drawing4} alt="" id="drawingFour" data-lazy="motion-secrets_drawing" />
+      <Text data-lazy="motion-secrets_drawing" >
+        There&apos;s always a lot of thinking and planning involved in each of these short exercises, and I believe that the process of getting there is half of the story. Here&apos;s a tiny sneak peek of what my notebook looks like.
+      </Text>
     </Container>
   )
 }

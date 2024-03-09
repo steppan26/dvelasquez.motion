@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import Image, { type StaticImageData } from "next/image"
 import styled from "styled-components"
 import MouseStickerImage from '/public/Assets/better_with_sound.gif'
@@ -12,9 +12,10 @@ interface Props {
   videoType?: string
   soundOption?: boolean
   allowControls?: boolean
+  dataLazy?: boolean | string
 }
 
-export const LoopingVideo:React.FC<Props> = ({ imageAlt="", backupImage, videoPath, videoType="video/webm", soundOption, allowControls }) => {
+export const LoopingVideo:React.FC<Props> = ({ imageAlt="", backupImage, videoPath, videoType="video/webm", soundOption, allowControls, dataLazy=false }) => {
   const mousePosition = useMousePosition()
   const [hasBeenClicked, setHasBeenClicked] = useState(false)
   const stickerRef = useRef<HTMLImageElement>(null)
@@ -45,7 +46,7 @@ export const LoopingVideo:React.FC<Props> = ({ imageAlt="", backupImage, videoPa
   }
 
   return(
-    <VideoWrapper ref={sceneRef}>
+    <VideoWrapper ref={sceneRef} data-lazy={dataLazy} >
       <video
       ref={videoRef}
       autoPlay

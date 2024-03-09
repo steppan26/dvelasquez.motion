@@ -51,7 +51,7 @@ const Container = styled.div`
 
 const ImageWrappper = styled.div`
   position: relative;
-  width: 100%;
+  width: 100vw;
     max-width: 100vw;
   height: auto;
 

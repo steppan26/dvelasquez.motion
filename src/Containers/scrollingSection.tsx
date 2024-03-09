@@ -21,6 +21,13 @@ export const ScrollingSection: React.FC<Props> = (props) => {
 
   const isSelected = useMemo(() => (activeSection === id), [activeSection, id])
 
+  useEffect(() => {
+    if(!containerRef.current) return
+
+    containerRef.current.scrollTo({ top: 0, behavior: 'instant' })
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [])
+
   const sectionWidth = useMemo(() => {
     if(isSelected) return "100%"
 
