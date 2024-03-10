@@ -53,6 +53,7 @@ const Container = styled.div`
       align-items: center;
       gap: 4rem;
     margin-block: 8dvh 6dvh;
+    padding-inline: var(--container-padding)
   }
 `
 
@@ -123,5 +124,6 @@ const Text = styled.p`
   @media (max-width: ${Sizes.small}) {
     font-size: 1rem;
     line-height: 1.56rem;
+    padding-left: 0;
   }
 `

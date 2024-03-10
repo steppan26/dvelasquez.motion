@@ -6,7 +6,7 @@ import motionSecretsLogo from '../../public/projects/follow_me.jpg'
 import laraLogo from '../../public/projects/girl_called_sara.jpg'
 import rokuLogo from '../../public/projects/jelly_Roku.jpg'
 import { Navbar, ScrollingSection } from "."
-import { MotionSecretsProject, JellySmackPortfolio, CPMSProject, RokuProject } from "../Projects"
+import { MotionSecretsProject, JellySmackPortfolio, CPMSProject, MysteriaProject } from "../Projects"
 import { useActiveProjects } from "../utils/hooks"
 
 const ProjectsListData: ProjectData[] = [
@@ -29,7 +29,7 @@ const ProjectsListData: ProjectData[] = [
   {
     id: 'mysteria',
     imageUrl: rokuLogo.src,
-    childComponent: <RokuProject />,
+    childComponent: <MysteriaProject />,
     isLightNavBar: true
   },
 ]
