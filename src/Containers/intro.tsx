@@ -20,14 +20,14 @@ export const IntroSection:React.FC<Props> = ({ image, imageAlt, projectText, how
         alt={imageAlt}
         layout="responsive"
         loading="lazy"
-        data-lazy
+        data-lazy="intro"
         />
       </ImageWrapper>
-      <ProjectWrapper data-lazy>
+      <ProjectWrapper data-lazy="intro" >
         <Header>The Project</Header>
         {projectText.split('\\n').map( text => <Text key={text}>{text}</Text> )}
       </ProjectWrapper>
-      <WhyWrapper data-lazy>
+      <WhyWrapper data-lazy="intro" >
         <Header>The Why and How</Header>
         {howText.split('\\n').map( text => <Text key={text}>{text}</Text> )}
       </WhyWrapper>

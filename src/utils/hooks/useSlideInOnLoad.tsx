@@ -67,6 +67,11 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
     const element_id = elementToWrap.dataset.lazy
     wrapperElement.style.transform = originalStyle.transform
 
+    if(element_id === 'intro'){
+      wrapperElement.style.gridArea = originalStyle.gridArea
+      wrapperElement.style.alignSelf = originalStyle.alignSelf
+    }
+
     if(element_id === 'motion-secrets_drawings_text'){
       wrapperElement.style.margin = originalStyle.margin
     }
