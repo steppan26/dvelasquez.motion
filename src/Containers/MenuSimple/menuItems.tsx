@@ -21,11 +21,11 @@ const menuData: MenuItem[] = [
   },
   {
     text: "About",
-    href: "/"
+    href: "/about"
   },
   {
     text: "Contact",
-    href: "/"
+    href: "/#"
   },
 ]
 
@@ -70,6 +70,8 @@ export const MenuItems:React.FC<Props> = ({ isOpen }) => {
 }
 
 const Menu = styled(animated.div)`
+  position: relative;
+  z-index: 20;
   font-size: 1.25rem;
   line-height: 2.4375rem;
 
@@ -84,18 +86,26 @@ const Menu = styled(animated.div)`
     color: inherit;
   }
 
-  &.active {
-    text-decoration: underline;
-    font-weight: 400;
-
-    &>button {
-      text-decoration: underline;
-      font-weight: 400;
-    }
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--clr-text-main);
+    transition: ease-out width 300ms;
   }
 
-  &:hover {
+  &:hover,
+  &.active {
+    &:after {
+      width: 100%;
+    }
+  }
+  .active {
     transform: scale(1.07);
+    font-weight: 400;
   }
 `
 
