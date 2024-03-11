@@ -103,7 +103,6 @@ const Container = styled(animated.div)`
   height: 100%;
     max-height: 100dvh;
   background-color: var(--clr-bg-projects);
-  color: var(--clr-bg-secondary) !important;
   border: 2px solid var(--clr-bg-secondary);
   overflow: hidden;
   border-radius: var(--border-radius);

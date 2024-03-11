@@ -88,7 +88,7 @@ export const ProjectsShowcaseBlocks:React.FC = () => {
 
 
 const Container = styled(animated.div)`
-  --spacing: 10vw;
+  --spacing: 10vw 20dvh;
 
   position: relative;
   display: grid;
