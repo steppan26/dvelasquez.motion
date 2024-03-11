@@ -93,7 +93,7 @@ const Menu = styled(animated.div)`
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--clr-text-main);
+    background-color: var(--nav-main-color);
     transition: ease-out width 300ms;
   }
 

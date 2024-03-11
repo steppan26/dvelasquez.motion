@@ -73,11 +73,13 @@ const Container = styled.div`
 
 const ImageWrappper = styled.div`
   position: relative;
-  width: 100vw;
+  width: 100%;
+    max-width: 100vw;
   overflow: hidden;
 
   img, video {
-    height: 100dvh !important;
+    height: 100% !important;
+    max-height: 100dvh !important;
     width: auto !important;
 
     @media (max-width: ${Sizes.small}) {

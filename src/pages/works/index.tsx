@@ -1,9 +1,9 @@
 import { NextPage } from "next";
-import { ProjectsShowcase } from "../../Containers/projectsShowcase";
+import { ProjectsShowcaseBlocks } from "../../Containers";
 
 const Index:NextPage = () => {
   return(
-    <ProjectsShowcase />
+    <ProjectsShowcaseBlocks />
   )
 }
 

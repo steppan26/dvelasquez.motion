@@ -87,7 +87,7 @@ const ImageWrappper = styled.div`
     justify-content: center;
 
   height: calc(100vw * 0.56228571);
-  width: 100vw;
+  width: 100%;
 `
 
 const ContentWrapper = styled.div`

@@ -1,6 +1,5 @@
 import { NextPage } from "next"
 import styled from "styled-components"
-import { TitlePrimary } from "../../Assets/UIComponents"
 import { Text } from "../../Components/styledComponents"
 import { Navbar } from "../../Containers"
 import Image from "next/image"

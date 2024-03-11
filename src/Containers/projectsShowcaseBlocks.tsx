@@ -43,7 +43,7 @@ export interface ProjectData {
   isLightNavBar?: boolean
 }
 
-export const ProjectsShowcase:React.FC = () => {
+export const ProjectsShowcaseBlocks:React.FC = () => {
   const { activeSection } = useActiveProjects()
 
   const transitions = useTransition(ProjectsListData, {
@@ -58,22 +58,27 @@ export const ProjectsShowcase:React.FC = () => {
     }
   })
 
-  const scaleTransform = useSpring({
-    from: { paddingRight: activeSection === 'reset' ? '200vw' : '0vw' },
-    to: { paddingRight: '0' },
-    config: {
-      mass: 1,
-      friction: 65,
-      tension: 180,
-      delay: 100
-    }
-  })
+  // const scaleTransform = useSpring({
+  //   from: {
+  //     width: activeSection === 'reset' ? '30vw' : '100vw'
+  //   },
+  //   to: {
+  //     width: activeSection === 'reset' ? '30vw' : '100vw',
+  //     padding: activeSection === 'reset' ? '30vw' : '100vw',
+  //   },
+  //   config: {
+  //     mass: 1,
+  //     friction: 65,
+  //     tension: 180,
+  //     delay: 100
+  //   }
+  // })
 
   return(
     <Container id="showcaseContainer" data-isfullscreen={activeSection !== 'reset'}>
       <Navbar type='projects' navData={ProjectsListData} />
       {transitions((style, item) => (
-        <ProjectBlock style={{...style, ...scaleTransform}} id={item.id} backgroundImageUrl={item.imageUrl}>
+        <ProjectBlock style={{ ...style }} id={item.id} backgroundImageUrl={item.imageUrl}>
           {item.childComponent}
         </ProjectBlock>
       ))}
@@ -83,22 +88,32 @@ export const ProjectsShowcase:React.FC = () => {
 
 
 const Container = styled(animated.div)`
+  --spacing: 10vw;
+
   position: relative;
-  display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+  display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 'jellysmack motion' 'cpms mysteria';
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing);
   width: 100dvw;
     max-width: 100dvw;
+  max-height: 100dvh;
+  padding: var(--spacing);
   overflow: hidden;
-  background-color: var(--clr-bg-secondary);
+  background-color: var(--clr-bg-projects);
 
   .overlay { --angle: to bottom; }
 
   #jellysmack_container {
     grid-area: jellysmack;
     .overlay {
-      --primary-color: rgba(122, 155, 118, 0.90);
-      --secondary-color: rgba(255, 210, 64, 0.90);
+      --primary-color: rgba(122, 155, 118, 1);
+      --secondary-color: rgba(255, 210, 64, 1);
     }
   }
 
@@ -106,8 +121,8 @@ const Container = styled(animated.div)`
     grid-area: motion;
 
     .overlay {
-      --primary-color: rgba(206, 8, 81, 0.80);
-      --secondary-color: rgba(255, 210, 64, 0.80);
+      --primary-color: rgba(206, 8, 81, 1);
+      --secondary-color: rgba(255, 210, 64, 1);
     }
   }
 
@@ -115,8 +130,8 @@ const Container = styled(animated.div)`
     grid-area: cpms;
 
     .overlay {
-      --primary-color: rgba(206, 8, 81, 0.80);
-      --secondary-color: rgba(243, 228, 217, 0.80);
+      --primary-color: rgba(206, 8, 81, 1);
+      --secondary-color: rgba(243, 228, 217, 1);
     }
   }
 
@@ -124,8 +139,26 @@ const Container = styled(animated.div)`
     grid-area: mysteria;
 
     .overlay {
-      --primary-color: rgba(206, 8, 81, 0.60);
-      --secondary-color: rgba(55, 0, 49, 0.60);
+      --primary-color: rgba(206, 8, 81, 1);
+      --secondary-color: rgba(55, 0, 49, 1);
+    }
+  }
+
+  &[data-isfullscreen='true'] {
+    grid-template-columns: 100vw 0;
+    grid-template-rows: auto;
+    grid-template-areas: 'viewport hidden';
+    padding: 0;
+    grid-gap: 0;
+    overflow: auto;
+
+    &>div{
+      cursor: unset;
+      grid-area: hidden !important;
+
+      &.active {
+        grid-area: viewport !important;
+      }
     }
   }
 `

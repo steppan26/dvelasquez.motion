@@ -24,7 +24,7 @@ export const ProjectsNavbar:React.FC<Props> = ({ navData }) => {
   const LogoLight = dynamic(() => import('../../Components/animatedLogoLight').then(comp => comp.AnimatedLogoLight), {ssr: false})
   const LogoDark = dynamic(() => import('../../Components/animatedLogoDark').then(comp => comp.AnimatedLogoDark), {ssr: false})
 
-  const displayLightNavbar = useMemo(() => ['jellysmack', 'mysteria', 'reset'].includes(activeSection), [activeSection])
+  const displayLightNavbar = useMemo(() => ['jellysmack', 'mysteria'].includes(activeSection), [activeSection])
 
   const heightSpring = useSpring({
     from: { opacity: 1 },
