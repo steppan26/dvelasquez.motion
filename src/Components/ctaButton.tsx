@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { Sizes } from "../Assets"
-import Image from "next/image"
+import Image from "next/legacy/image"
 import ButtonImage from '/public/Assets/cta_button.png'
 
 export const CTAButton:React.FC = () => {

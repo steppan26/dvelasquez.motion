@@ -3,7 +3,7 @@ import { animated } from "react-spring";
 import styled from "styled-components";
 import { Sizes } from "../Assets";
 import ArrowGif from '/public/Assets/arrow.gif'
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 interface Props {
   onClick: MouseEventHandler

@@ -1,4 +1,4 @@
-import Image from "next/image"
+import Image from "next/legacy/image"
 import styled from "styled-components"
 import Screen1 from '/public/projects/jellysmack/phone_screen_0.gif'
 import Screen2 from '/public/projects/jellysmack/phone_screen_1.gif'

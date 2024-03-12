@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { Text } from "../../Components/styledComponents"
-import Image from "next/image"
+import Image from "next/legacy/image"
 import Drawing1 from '/public/projects/motion_secrets/drawing_1.png'
 import Drawing2 from '/public/projects/motion_secrets/drawing_2.png'
 import Drawing3 from '/public/projects/motion_secrets/drawing_3.png'

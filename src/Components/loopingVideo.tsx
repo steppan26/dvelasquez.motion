@@ -1,5 +1,5 @@
 import { useMemo, useRef, useState } from "react"
-import Image, { type StaticImageData } from "next/image"
+import Image, { type StaticImageData } from "next/legacy/image"
 import styled from "styled-components"
 import MouseStickerImage from '/public/Assets/better_with_sound.gif'
 import { useMousePosition } from "../utils/hooks"

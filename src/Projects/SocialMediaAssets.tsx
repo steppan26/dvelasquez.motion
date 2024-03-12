@@ -1,4 +1,4 @@
-import Image from "next/image"
+import Image from "next/legacy/image"
 import styled from "styled-components"
 import MockupImage from '/public/projects/jellysmack/mockup-post.png'
 import PersonalisedCaptionsImage from '/public/projects/jellysmack/personalised_captions.gif'

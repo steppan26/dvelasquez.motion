@@ -2,7 +2,7 @@ import { NextPage } from "next"
 import styled from "styled-components"
 import { Text } from "../../Components/styledComponents"
 import { Navbar } from "../../Containers"
-import Image from "next/image"
+import Image from "next/legacy/image"
 import PrimaryImage from '/public/about/dani_main.png'
 import GalleryImage00 from '/public/about/gallery_1.png'
 import GalleryImage01 from '/public/about/gallery_2.png'

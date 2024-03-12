@@ -1,4 +1,4 @@
-import Image from "next/image"
+import Image from "next/legacy/image"
 import styled from "styled-components"
 import MainHeaderImage from "../../public/projects/girl_called_sara.jpg"
 import ClaraImage from '/public/projects/cpms/clara_profile_illustration.png'

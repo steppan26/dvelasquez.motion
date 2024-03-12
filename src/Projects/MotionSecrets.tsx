@@ -1,4 +1,4 @@
-import Image from "next/image"
+import Image from "next/legacy/image"
 import styled from "styled-components"
 import MainHeaderImage from "../../public/projects/follow_me.jpg"
 import { Footer, IntroSection, PersonalProjectsList, ProjectDrawings } from "../Containers"

@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from "next/image"
+import Image, { StaticImageData } from "next/legacy/image"
 import styled from "styled-components"
 import { Sizes } from "../Assets"
 import { useCallback, useMemo } from "react"

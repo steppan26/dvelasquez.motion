@@ -1,4 +1,4 @@
-import Image from "next/image"
+import Image from "next/legacy/image"
 import styled from "styled-components"
 import RocketShipImage from '/public/projects/jellysmack/rocket.gif'
 import PositiveVibesImage from '/public/projects/jellysmack/positive_vibes.gif'
@@ -16,7 +16,7 @@ export const Stickers:React.FC = () => {
           className="rocketship"
           src={RocketShipImage}
           alt="rocketship sticker"
-          layout="resoponsive"
+          layout="responsive"
         />
         <Text>
           Through the use of animated assets,
@@ -28,7 +28,7 @@ export const Stickers:React.FC = () => {
         className="positive-vibes"
         src={PositiveVibesImage}
         alt="positive vibes sticker"
-        layout="resoponsive"
+        layout="responsive"
         />
       </InformationWrapper>
       <Video

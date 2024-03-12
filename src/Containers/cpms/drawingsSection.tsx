@@ -1,4 +1,4 @@
-import Image from "next/image"
+import Image from "next/legacy/image"
 import styled from "styled-components"
 import Drawing00 from '/public/projects/cpms/drawing_00.png'
 import Drawing01 from '/public/projects/cpms/drawing_01.png'

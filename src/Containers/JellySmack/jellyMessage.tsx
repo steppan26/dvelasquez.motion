@@ -1,4 +1,4 @@
-import Image from "next/image"
+import Image from "next/legacy/image"
 import styled from "styled-components"
 import AnimatedLogo from '/public/projects/jellysmack/jelly_logo.gif'
 import StaticLogo from '/public/projects/jellysmack/jellysmack_logo.png'

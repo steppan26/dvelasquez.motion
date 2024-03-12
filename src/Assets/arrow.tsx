@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import ArrowGif from '/public/Assets/arrow.gif'
-import Image from "next/image"
+import Image from "next/legacy/image"
 
 export const Arrow:React.FC = () => {
 

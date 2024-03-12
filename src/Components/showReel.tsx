@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react"
-import Image from "next/image"
+import Image from "next/legacy/image"
 import styled from "styled-components"
 import { Sizes } from "../Assets"
 import MouseStickerImage from '/public/Assets/better_with_sound.gif'

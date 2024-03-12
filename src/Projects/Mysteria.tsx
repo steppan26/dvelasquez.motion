@@ -1,4 +1,4 @@
-import Image from "next/image"
+import Image from "next/legacy/image"
 import styled from "styled-components"
 import MainHeaderImage from "../../public/projects/mysteria/Jellysmack_roku_intro.png"
 import { Footer, IntroSection } from "../Containers"
