@@ -7,8 +7,9 @@ import laraLogo from '../../public/projects/girl_called_sara.jpg'
 import rokuLogo from '../../public/projects/jelly_Roku.jpg'
 import { Footer, Navbar, ProjectBlock } from "."
 import { MotionSecretsProject, JellySmackPortfolio, CPMSProject, MysteriaProject } from "../Projects"
-import { useActiveProjects } from "../utils/hooks"
+import { useActiveProjects, useIsMobileView } from "../utils/hooks"
 import { PrimaryTitle } from "../Components/styledComponents"
+import { Sizes } from "../Assets"
 
 const ProjectsListData: ProjectData[] = [
   {
@@ -51,6 +52,7 @@ export interface ProjectData {
 
 export const ProjectsShowcaseBlocks:React.FC = () => {
   const { activeSection } = useActiveProjects()
+  const { isMobileView } = useIsMobileView()
 
   const transitions = useTransition(ProjectsListData, {
     from: {x:  activeSection === 'reset' ? '100vw' : '0vw' },
@@ -68,7 +70,10 @@ export const ProjectsShowcaseBlocks:React.FC = () => {
 
   return(
     <>
-      <Navbar type='projects' navData={ProjectsListData} />
+      { isMobileView
+        ? <Navbar type='mobile' />
+        : <Navbar type='projects' navData={ProjectsListData} />
+      }
       <Title data-isfullscreen={isFullScreen}>Handpicked Projects</Title>
       <Container id="showcaseContainer" data-isfullscreen={isFullScreen}>
         {transitions((style, item) => (
@@ -81,7 +86,6 @@ export const ProjectsShowcaseBlocks:React.FC = () => {
     </>
   )
 }
-
 
 const Container = styled(animated.div)`
   --spacing: 7vw;
@@ -159,6 +163,11 @@ const Container = styled(animated.div)`
       }
     }
   }
+
+  @media (max-width: ${Sizes.small}) {
+    display: flex;
+      flex-direction: column;
+  }
 `
 
 const Title = styled(PrimaryTitle)`
@@ -174,5 +183,11 @@ const Title = styled(PrimaryTitle)`
 
   &[data-isfullscreen='true']{
     display: none;
+  }
+
+  @media (max-width: ${Sizes.small}) {
+    font-size: 3.5rem;
+    line-height: calc(3.5rem * 1.2);
+    margin-block: 0;
   }
 `

@@ -71,6 +71,10 @@ const Nav = styled(animated.nav)`
   height: var(--nav-height);
   padding: 1rem 3vw 0;
   overflow: hidden;
+
+  @media (max-width: ${Sizes.small}) {
+    display: none;
+  }
 `
 
 const MenuWrapper = styled.div`

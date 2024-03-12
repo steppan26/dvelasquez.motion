@@ -3,6 +3,7 @@ import { animated } from "react-spring"
 import styled from "styled-components"
 import { useRouter } from "next/router"
 import { useActiveProjects } from "../utils/hooks"
+import { Sizes } from "../Assets"
 
 interface Props {
   backgroundImageUrl: string
@@ -76,6 +77,10 @@ const Overlay = styled(animated.div)`
   font-size: 3rem;
   transform-origin: bottom;
   transition: ease-in-out transform 360ms;
+
+  @media (max-width: ${Sizes.small}) {
+    font-size: 2rem;
+  }
 `
 
 const Container = styled(animated.div)`
@@ -117,6 +122,20 @@ const Container = styled(animated.div)`
   &:hover {
     ${Overlay} {
       transform: translateY(100%);
+    }
+  }
+
+  @media (max-width: ${Sizes.small}) {
+    width: 100%;
+    height: 300px;
+    overflow: visible;
+
+    &.hidden,
+    &.active,
+    &:hover {
+      ${Overlay} {
+        display: none;
+      }
     }
   }
 `

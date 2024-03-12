@@ -81,6 +81,7 @@ const GlobalStyle = createGlobalStyle<{}>`
     font-weight: var(--font-text-font-weight);
     width: clamp(375px, 100dvw, 1950px);
     overflow: visible;
+    margin: 0;
 
     .slide-wrapper {
       position: relative;

@@ -1,7 +1,8 @@
 import { NextPage } from "next";
-import { ProjectsShowcaseBlocks } from "../../Containers";
+import { LandingMobile, ProjectsShowcaseBlocks } from "../../Containers";
 import styled from "styled-components";
 import Head from "next/head";
+import { Sizes } from "../../Assets";
 
 const Index:NextPage = () => {
   return(
