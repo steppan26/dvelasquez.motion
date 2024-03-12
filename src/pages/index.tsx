@@ -2,12 +2,17 @@ import styled from "styled-components"
 import { Footer, Landing, Navbar, ShowReelSection } from "../Containers"
 import { ScrollingContainer, TitleSecondary } from "../Assets/UIComponents"
 import { Sizes } from "../Assets"
+import Head from "next/head"
 
 export default function Home() {
 
   // add intersection observer so when the HorizontalContainer goes out of view, it scrolls back to the left
 
   return (
+    <>
+    <Head>
+      <title>D.Velasquez</title>
+    </Head>
     <Main id='mainContainer'>
       <Landing />
       <Container data-lazy>
@@ -18,6 +23,7 @@ export default function Home() {
       <ShowReelSection />
       <Footer />
     </Main>
+    </>
   )
 }
 

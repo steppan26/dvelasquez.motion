@@ -10,9 +10,15 @@ import GalleryImage02 from '/public/about/gallery_3.png'
 import GalleryImage03 from '/public/about/gallery_4.png'
 import GalleryImage04 from '/public/about/gallery_5.png'
 import { Sizes } from "../../Assets"
+import Head from "next/head"
 
 const Index:NextPage = () => {
   return (
+    <>
+    <Head>
+      <title>D.Velasquez | about</title>
+      <meta name='description' content="" />
+    </Head>
     <Main>
       <Navbar type="showcase" />
       <Wrapper>
@@ -82,6 +88,7 @@ const Index:NextPage = () => {
         </Gallery>
       </Wrapper>
     </Main>
+    </>
   );
 }
 

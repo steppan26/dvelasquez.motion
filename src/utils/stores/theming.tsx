@@ -1,7 +1,6 @@
 import Head from "next/head"
 import { useEffect, useMemo, useState } from "react"
 import { ThemeProvider, createGlobalStyle } from "styled-components"
-import favicon from '../../Assets/favicon.png'
 import { type ITheme, darkTheme, lightTheme, Sizes } from "../../Assets"
 //@ts-ignore
 import { useSlideInOnLoad } from "../hooks"
@@ -32,11 +31,6 @@ export const Theming:React.FC<any> = ({ children }) => {
 
   return(
     <>
-    <Head>
-      <title>D.Velasquez</title>
-      <link rel='icon' href={favicon.src} />
-      <link rel="stylesheet" href="https://use.typekit.net/ojg6bke.css" />
-    </Head>
     <ThemeProvider theme={currentTheme}>
       <GlobalStyle />
       {children}

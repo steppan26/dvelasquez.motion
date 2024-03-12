@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "sitemap": "node generate_sitemap.js",
-		"build": "next build && npm run sitemap",
+    "build": "next build && npm run sitemap",
     "start": "next start",
     "lint": "next lint"
   },
@@ -16,6 +16,7 @@
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
+    "react-gtm-module": "^2.0.11",
     "react-spring": "^9.7.3",
     "sass": "^1.70.0",
     "styled-components": "^6.1.1"

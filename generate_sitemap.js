@@ -4,7 +4,7 @@ const urls = [
     'https://dvelasquez.art/',
     'https://dvelasquez.art/about',
     'https://dvelasquez.art/works',
-    'https://dvelasquez.art/contact',
+    // 'https://dvelasquez.art/contact',
 ];
 
 function generateSitemap(urls) {
