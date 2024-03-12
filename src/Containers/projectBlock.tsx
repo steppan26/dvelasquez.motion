@@ -1,7 +1,7 @@
-import { useRouter } from "next/router"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { animated } from "react-spring"
 import styled from "styled-components"
+import { useRouter } from "next/router"
 import { useActiveProjects } from "../utils/hooks"
 
 interface Props {
@@ -16,7 +16,6 @@ export const ProjectBlock: React.FC<Props> = (props) => {
   const { children, id, style, name } = props
   const containerRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
-  const [isHovering, setIsHovering] = useState(false)
   const [isVisible, setVisible] = useState(true)
   const { activeSection } = useActiveProjects()
 
@@ -28,16 +27,6 @@ export const ProjectBlock: React.FC<Props> = (props) => {
     containerRef.current.scrollTo({ top: 0, behavior: 'instant' })
     window.scrollTo({ top: 0, behavior: 'instant' })
   }, [])
-
-  const sectionWidth = useMemo(() => {
-    if(isSelected) return "100%"
-
-    if(activeSection !== 'reset') return '0'
-
-    if(isHovering) return '33%'
-
-    return '25%'
-  }, [isSelected, activeSection, isHovering])
 
   useEffect(() => {
     setVisible([id, 'reset'].includes(activeSection))
@@ -52,9 +41,6 @@ export const ProjectBlock: React.FC<Props> = (props) => {
     window.dispatchEvent(new CustomEvent('shouldDisplayNavBar', {detail: { displayNavBar }}))
   }, [isSelected, isVisible])
 
-  const handleMouseEnter = () => setIsHovering(true)
-  const handleMouseLeave = () => setIsHovering(false)
-
   return(
     <Container
     id={id+'_container'}
@@ -62,8 +48,6 @@ export const ProjectBlock: React.FC<Props> = (props) => {
     onClick={() => router.push('/works#' + id)}
     ref={containerRef}
     style={style}
-    onMouseEnter={handleMouseEnter}
-    onMouseLeave={handleMouseLeave}
     >
       {children}
       <Overlay className='overlay' >
@@ -132,7 +116,7 @@ const Container = styled(animated.div)`
   &.active,
   &:hover {
     ${Overlay} {
-      transform: scaleY(0);
+      transform: translateY(100%);
     }
   }
 `

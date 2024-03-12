@@ -69,7 +69,7 @@ export const ProjectsShowcaseBlocks:React.FC = () => {
   return(
     <>
       <Navbar type='projects' navData={ProjectsListData} />
-      <Title>Handpicked Projects</Title>
+      <Title data-isfullscreen={isFullScreen}>Handpicked Projects</Title>
       <Container id="showcaseContainer" data-isfullscreen={isFullScreen}>
         {transitions((style, item) => (
           <ProjectBlock style={{ ...style }} name={item.name} backgroundImageUrl={item.imageUrl} id={item.id}>
@@ -77,7 +77,7 @@ export const ProjectsShowcaseBlocks:React.FC = () => {
           </ProjectBlock>
         ))}
       </Container>
-      <Footer />
+      { !isFullScreen && <Footer /> }
     </>
   )
 }
@@ -148,7 +148,7 @@ const Container = styled(animated.div)`
     justify-content: unset;
     padding: 0;
     grid-gap: 0;
-    overflow: auto;
+    overflow: visible;
 
     &>div{
       cursor: unset;
@@ -171,4 +171,8 @@ const Title = styled(PrimaryTitle)`
     font-style: italic;
     line-height: calc(5rem * 1.2);
   color: ${p => p.theme.btnPrimaryBg};
+
+  &[data-isfullscreen='true']{
+    display: none;
+  }
 `

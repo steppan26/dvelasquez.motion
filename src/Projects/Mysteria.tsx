@@ -13,10 +13,10 @@ export const MysteriaProject:React.FC = () => {
     <Container>
       <ImageWrappper className="main-image">
         <Image
-          src={MainHeaderImage.src}
+          src={MainHeaderImage}
           alt="The words 'go larger' in big, duplicated over itself"
-          fill
-          sizes="100vw" />
+          layout="responsive"
+           />
       </ImageWrappper>
       <IntroSection
       image={IntroImage}
@@ -57,10 +57,25 @@ export const MysteriaProject:React.FC = () => {
 const Container = styled.div`
   --container-padding: 5.3vw;
 
-  cursor: default;
+  @media (max-width: ${Sizes.small}) {
+    --container-padding: 11.8vw;
+  }
 
-  width: 100% !important;
-    max-width: 100vw !important;
+  cursor: default;
+  width: 100%;
+    max-width: 100vw;
+  max-height: 100%;
+`
+
+const ImageWrappper = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  height: calc(100vw * 0.56228571);
+  height: 100%;
+    max-height: 100%;
+  width: 100%;
 
   .intro-image {
     justify-self: end;
@@ -82,15 +97,6 @@ const Container = styled.div`
       transform: unset;
     }
   }
-`
-
-const ImageWrappper = styled.div`
-  position: relative;
-  display: flex;
-    justify-content: center;
-
-  height: calc(100vw * 0.56228571);
-  width: 100%;
 `
 
 const ContentWrapper = styled.div`
