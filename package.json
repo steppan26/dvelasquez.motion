@@ -17,7 +17,6 @@
     "react-dom": "^18",
     "react-spring": "^9.7.3",
     "sass": "^1.70.0",
-    "sharp": "^0.33.2",
     "styled-components": "^6.1.1"
   },
   "devDependencies": {
