@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { randomIntFromInterval } from "../helpers";
 
-const slideTimeInMs = 1800
+const slideTimeInMs = 800
 const slideTransform = 'translateY(5dvh)'
 const slideFunction = "cubic-bezier(0.71, 0, 0.18, 0.93)"
 
@@ -66,6 +66,9 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
     // @ts-ignore
     const element_id = elementToWrap.dataset.lazy
     wrapperElement.style.transform = originalStyle.transform
+    wrapperElement.style.flex = originalStyle.flex
+    wrapperElement.style.gridArea = originalStyle.gridArea
+    wrapperElement.style.overflow = originalStyle.overflow
 
     if(element_id === 'intro'){
       wrapperElement.style.gridArea = originalStyle.gridArea
