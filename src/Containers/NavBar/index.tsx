@@ -1,4 +1,4 @@
-import { ProjectData } from "../projectsShowcase"
+import { ProjectData } from ".."
 import { LandingNavbar } from "./landing"
 import { NavMobile } from "./mobile"
 import { ProjectsNavbar } from "./projects"

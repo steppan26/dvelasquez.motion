@@ -1,7 +1,6 @@
 import Image, { StaticImageData } from "next/image"
 import styled from "styled-components"
 import { Sizes } from "../Assets"
-import { useCallback, useMemo } from "react"
 
 interface Props {
   image: StaticImageData

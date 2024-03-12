@@ -11,8 +11,6 @@ export const Landing:React.FC = () => {
   const handleArrowClick: MouseEventHandler = (e) => {
     const siblingElement = selectorRef.current?.nextSibling as HTMLElement
     siblingElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    // const main = document.querySelector('#mainContainer') as HTMLElement
-    // main.scrollBy({ top: window.innerHeight / 2, behavior: 'smooth' })
     window.dispatchEvent(new CustomEvent('resetMask'))
   }
 

@@ -1,6 +1,6 @@
 import { useRouter } from "next/router"
 import { useCallback, useEffect, useState } from "react"
-import type { projectName } from "../../Containers/projectsShowcase"
+import { projectName } from "../../Containers"
 
 type sectionType = projectName | 'reset'
 

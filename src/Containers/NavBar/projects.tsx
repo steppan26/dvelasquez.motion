@@ -1,13 +1,13 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import styled from "styled-components"
 import { Sizes } from "../../Assets";
 import { MenuItems } from "../MenuSimple/menuItems";
 import { ToggleButton } from "../MenuSimple/toggleButton";
 import { animated, useSpring } from "react-spring";
 import { useRouter } from "next/router";
-import { ProjectData } from "../projectsShowcase";
 import dynamic from "next/dynamic";
 import { useActiveProjects } from "../../utils/hooks";
+import { ProjectData } from "..";
 
 interface Props {
   navData: ProjectData[]
