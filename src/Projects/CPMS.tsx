@@ -1,4 +1,4 @@
-import Image from "next/legacy/image"
+import Image from "next/image"
 import styled from "styled-components"
 import MainHeaderImage from "../../public/projects/girl_called_sara.jpg"
 import ClaraImage from '/public/projects/cpms/clara_profile_illustration.png'
@@ -8,7 +8,7 @@ import { ProjectScreens } from "../Containers"
 import { Sizes } from "../Assets"
 
 export const CPMSProject:React.FC = () => {
-  return(
+  return (
     <Container>
       <ImageWrappper className="main-image">
         <video
@@ -21,10 +21,13 @@ export const CPMSProject:React.FC = () => {
         >
           <source src="cpms-main-header.webm" type="video/webm" />
           <Image
-          src={MainHeaderImage}
-          alt="The words 'go bigger' in big, duplicated over itself"
-          layout="responsive"
-          />
+            src={MainHeaderImage}
+            alt="The words 'go bigger' in big, duplicated over itself"
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto"
+            }} />
         </video>
       </ImageWrappper>
       <IntroSection
@@ -49,15 +52,18 @@ export const CPMSProject:React.FC = () => {
         >
           <source src="cpms-main-video.webm" type="video/webm" />
           <Image
-          src={MainVideoImage}
-          alt="screenshot of the video for the CPMS project"
-          layout="responsive"
-          />
+            src={MainVideoImage}
+            alt="screenshot of the video for the CPMS project"
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto"
+            }} />
         </video>
       </VideoWrapper>
       <Footer />
     </Container>
-  )
+  );
 }
 
 const Container = styled.div`
@@ -68,6 +74,8 @@ const Container = styled.div`
   }
 
   cursor: default;
+  width: 100%;
+    max-width: 100vw;
   background-color: var(--clr-bg-main);
 `
 
@@ -78,9 +86,10 @@ const ImageWrappper = styled.div`
   overflow: hidden;
 
   img, video {
+    width: 100% !important;
+      max-width: 100vw !important;
     height: 100% !important;
-    max-height: 100dvh !important;
-    width: auto !important;
+      max-height: 100dvh !important;
 
     @media (max-width: ${Sizes.small}) {
       width: 100% !important;

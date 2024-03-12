@@ -62,7 +62,7 @@ const Nav = styled(animated.nav)`
   }
 
   z-index: 999;
-  position: absolute;
+  position: fixed;
     top: 0;
   display: flex;
     justify-content: space-between;

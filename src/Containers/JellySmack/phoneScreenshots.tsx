@@ -1,4 +1,4 @@
-import Image from "next/legacy/image"
+import Image from "next/image"
 import styled from "styled-components"
 import Screen1 from '/public/projects/jellysmack/phone_screen_0.gif'
 import Screen2 from '/public/projects/jellysmack/phone_screen_1.gif'
@@ -7,40 +7,52 @@ import Screen4 from '/public/projects/jellysmack/phone_screen_3.gif'
 import { Sizes } from "../../Assets"
 
 export const PhoneScreenshots:React.FC = () => {
-  return(
+  return (
     <Container >
       <Image
-      data-lazy="phone-screenshots_image"
-      id="screenOne"
-      src={Screen1}
-      alt="Screenshot of 'New Jellys on the block'"
-      layout="responsive"
-      />
+        data-lazy="phone-screenshots_image"
+        id="screenOne"
+        src={Screen1}
+        alt="Screenshot of 'New Jellys on the block'"
+        sizes="100vw"
+        style={{
+          width: "100%",
+          height: "auto"
+        }} />
       <Image
-      data-lazy="phone-screenshots_image"
-      id="screenTwo"
-      src={Screen2}
-      alt="Screenshot of This week's Creators"
-      layout="responsive"
-      className='shift-up'
-      />
+        data-lazy="phone-screenshots_image"
+        id="screenTwo"
+        src={Screen2}
+        alt="Screenshot of This week's Creators"
+        className='shift-up'
+        sizes="100vw"
+        style={{
+          width: "100%",
+          height: "auto"
+        }} />
       <Image
-      data-lazy="phone-screenshots_image"
-      id="screenThree"
-      src={Screen3}
-      alt="Screenshot of 'Were thrilled to have you'"
-      layout="responsive"
-      />
+        data-lazy="phone-screenshots_image"
+        id="screenThree"
+        src={Screen3}
+        alt="Screenshot of 'Were thrilled to have you'"
+        sizes="100vw"
+        style={{
+          width: "100%",
+          height: "auto"
+        }} />
       <Image
-      data-lazy="phone-screenshots_image"
-      id="screenFour"
-      src={Screen4}
-      alt="Screenshot of This week's Creators"
-      layout="responsive"
-      className='shift-up'
-      />
+        data-lazy="phone-screenshots_image"
+        id="screenFour"
+        src={Screen4}
+        alt="Screenshot of This week's Creators"
+        className='shift-up'
+        sizes="100vw"
+        style={{
+          width: "100%",
+          height: "auto"
+        }} />
     </Container>
-  )
+  );
 }
 
 const Container = styled.div`

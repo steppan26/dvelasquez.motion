@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react"
-import Image from "next/legacy/image"
+import Image from "next/image"
 import styled from "styled-components"
 import { Sizes } from "../Assets"
 import MouseStickerImage from '/public/Assets/better_with_sound.gif'
@@ -141,7 +141,7 @@ const Text = styled.h3`
   position: absolute;
     bottom: 0;
     left: 0;
-  font-family: var(--font-family-wide);
+  font-family: var(--font-family-regular);
     font-size: 80px;
     font-weight: 100;
     font-style: italic;

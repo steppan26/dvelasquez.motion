@@ -1,35 +1,41 @@
-import Image from "next/legacy/image"
+import Image from "next/image"
 import styled from "styled-components"
 import JellyDotPinImage from '/public/projects/jellysmack/jellydotcom_pin.gif'
 import WatchPinImage from '/public/projects/jellysmack/watch_pin.gif'
 import { Sizes } from "../Assets"
 
 export const JellySmackLandingLower:React.FC = () => {
-  return(
+  return (
     <Container>
       <WatchPin>
         <Image
-        src={WatchPinImage.src}
-        alt="badge announcing to watch until the end"
-        height={300}
-        width={332}
-        layout="responsive"
-        />
+          src={WatchPinImage.src}
+          alt="badge announcing to watch until the end"
+          height={300}
+          width={332}
+          sizes="100vw"
+          style={{
+            width: "100%",
+            height: "auto"
+          }} />
       </WatchPin>
       <Text>
         Jellysmack helps creators grow their communities and maximise their earnings across multiple social media platforms.
       </Text>
       <JellyPin>
         <Image
-        src={JellyDotPinImage.src}
-        alt="badge announcing to watch until the end"
-        height={300}
-        width={300}
-        layout="responsive"
-        />
+          src={JellyDotPinImage.src}
+          alt="badge announcing to watch until the end"
+          height={300}
+          width={300}
+          sizes="100vw"
+          style={{
+            width: "100%",
+            height: "auto"
+          }} />
       </JellyPin>
     </Container>
-  )
+  );
 }
 
 const Container = styled.div`

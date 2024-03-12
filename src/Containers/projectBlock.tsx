@@ -7,12 +7,13 @@ import { useActiveProjects } from "../utils/hooks"
 interface Props {
   backgroundImageUrl: string
   id: string
+  name: string
   children?: any
   style: any
 }
 
 export const ProjectBlock: React.FC<Props> = (props) => {
-  const { children, id, style } = props
+  const { children, id, style, name } = props
   const containerRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
   const [isHovering, setIsHovering] = useState(false)
@@ -66,7 +67,7 @@ export const ProjectBlock: React.FC<Props> = (props) => {
     >
       {children}
       <Overlay className='overlay' >
-        {id}
+        {name}
       </Overlay>
     </Container>
   )
@@ -83,17 +84,15 @@ const Overlay = styled(animated.div)`
   display: flex;
     justify-content: center;
     align-items: center;
-  /* background: linear-gradient(var(--angle), var(--primary-color), var(--secondary-color)); */
-  background-color: inherit !important;
-  color: var(--clr-bg-secondary) !important;
+  background: linear-gradient(var(--angle), var(--primary-color), var(--secondary-color));
+  color: var(--clr-bg-main) !important;
   opacity: 1;
   overflow: hidden;
   font-family: var(--font-family-wide);
-  font-size: 1.25rem;
-  transform-origin: top left;
-  transition: ease-in-out all 360ms;
+  font-size: 3rem;
+  transform-origin: bottom;
+  transition: ease-in-out transform 360ms;
 `
-
 
 const Container = styled(animated.div)`
   cursor: pointer;
@@ -103,11 +102,8 @@ const Container = styled(animated.div)`
   height: 100%;
     max-height: 100dvh;
   background-color: var(--clr-bg-projects);
-  border: 2px solid var(--clr-bg-secondary);
   overflow: hidden;
   border-radius: var(--border-radius);
-  transition: ease-in-out all 360ms;
-  transform: skew(-45deg);
 
   &>*:first-child {
     width: 100%;
@@ -136,7 +132,7 @@ const Container = styled(animated.div)`
   &.active,
   &:hover {
     ${Overlay} {
-      width: 0%;
+      transform: scaleY(0);
     }
   }
 `

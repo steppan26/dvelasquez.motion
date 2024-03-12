@@ -1,5 +1,5 @@
 import { useMemo, useRef, useState } from "react"
-import Image, { type StaticImageData } from "next/legacy/image"
+import Image, { type StaticImageData } from "next/image"
 import styled from "styled-components"
 import MouseStickerImage from '/public/Assets/better_with_sound.gif'
 import { useMousePosition } from "../utils/hooks"
@@ -45,7 +45,7 @@ export const LoopingVideo:React.FC<Props> = ({ imageAlt="", backupImage, videoPa
     }
   }
 
-  return(
+  return (
     <VideoWrapper ref={sceneRef} >
       <video
       ref={videoRef}
@@ -60,7 +60,13 @@ export const LoopingVideo:React.FC<Props> = ({ imageAlt="", backupImage, videoPa
       poster={backupImage?.src}
       >
         <source src={videoPath} type={videoType} />
-        { backupImage && <Image src={backupImage} alt={imageAlt} /> }
+        { backupImage && <Image
+          src={backupImage}
+          alt={imageAlt}
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} /> }
       </video>
       { soundOption &&
         <MouseSticker
@@ -74,7 +80,7 @@ export const LoopingVideo:React.FC<Props> = ({ imageAlt="", backupImage, videoPa
         />
       }
     </VideoWrapper>
-  )
+  );
 }
 
 const VideoWrapper = styled.div`

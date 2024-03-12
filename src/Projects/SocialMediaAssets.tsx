@@ -1,4 +1,4 @@
-import Image from "next/legacy/image"
+import Image from "next/image"
 import styled from "styled-components"
 import MockupImage from '/public/projects/jellysmack/mockup-post.png'
 import PersonalisedCaptionsImage from '/public/projects/jellysmack/personalised_captions.gif'
@@ -15,41 +15,56 @@ import { useIsMobileView } from "../utils/hooks"
 export const SocialMediaAssets:React.FC = () => {
   const { isMobileView } = useIsMobileView()
 
-  return(
+  return (
     <Container>
       <TopSection data-lazy>
         <Image
-        id='mockup'
-        src={MockupImage}
-        alt="social media post mockup"
-        layout="responsive"
-        />
+          id='mockup'
+          src={MockupImage}
+          alt="social media post mockup"
+          sizes="100vw"
+          style={{
+            width: "100%",
+            height: "auto"
+          }} />
         <Image
-        id='personalisedCaptions'
-        src={PersonalisedCaptionsImage}
-        alt="animated sticker of the word 'captions'"
-        layout="responsive"
-        />
+          id='personalisedCaptions'
+          src={PersonalisedCaptionsImage}
+          alt="animated sticker of the word 'captions'"
+          sizes="100vw"
+          style={{
+            width: "100%",
+            height: "auto"
+          }} />
         <Image
-        id='keywords'
-        src={isMobileView ? FlameKeywordsImage : KeywordsImage}
-        alt="animated sticker of the word 'keywords'"
-        layout="responsive"
-        />
+          id='keywords'
+          src={isMobileView ? FlameKeywordsImage : KeywordsImage}
+          alt="animated sticker of the word 'keywords'"
+          sizes="100vw"
+          style={{
+            width: "100%",
+            height: "auto"
+          }} />
       </TopSection>
       <MiddleSection data-lazy>
         <Image
-        id="flame"
-        src={isMobileView ? GoBiggerImage : FlameGoBiggerImage}
-        alt="animated sticker of a flame in the Jellysmack brand colours"
-        layout="responsive"
-        />
+          id="flame"
+          src={isMobileView ? GoBiggerImage : FlameGoBiggerImage}
+          alt="animated sticker of a flame in the Jellysmack brand colours"
+          sizes="100vw"
+          style={{
+            width: "100%",
+            height: "auto"
+          }} />
         <Image
-        id="watch"
-        src={WatchImage}
-        alt="animated sticker inciting to 'watch till the end'"
-        layout="responsive"
-        />
+          id="watch"
+          src={WatchImage}
+          alt="animated sticker inciting to 'watch till the end'"
+          sizes="100vw"
+          style={{
+            width: "100%",
+            height: "auto"
+          }} />
       </MiddleSection>
       <BottomSection data-lazy>
       <span>
@@ -80,7 +95,7 @@ export const SocialMediaAssets:React.FC = () => {
       </span>
       </BottomSection>
     </Container>
-  )
+  );
 }
 
 const Container = styled.div`

@@ -2,7 +2,7 @@ import { NextPage } from "next"
 import styled from "styled-components"
 import { Text } from "../../Components/styledComponents"
 import { Navbar } from "../../Containers"
-import Image from "next/legacy/image"
+import Image from "next/image"
 import PrimaryImage from '/public/about/dani_main.png'
 import GalleryImage00 from '/public/about/gallery_1.png'
 import GalleryImage01 from '/public/about/gallery_2.png'
@@ -12,13 +12,19 @@ import GalleryImage04 from '/public/about/gallery_5.png'
 import { Sizes } from "../../Assets"
 
 const Index:NextPage = () => {
-  return(
+  return (
     <Main>
       <Navbar type="showcase" />
       <Wrapper>
         <HeaderText >Hola!</HeaderText>
         <Picture>
-          <Image src={PrimaryImage} alt="picture of Daniela" />
+          <Image
+            src={PrimaryImage}
+            alt="picture of Daniela"
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
         </Picture>
         <MainText>
           <TextBlock>
@@ -38,15 +44,45 @@ const Index:NextPage = () => {
           </TextBlock>
         </MainText>
         <Gallery>
-          <Image src={GalleryImage00} alt="picture of Daniela" />
-          <Image src={GalleryImage01} alt="picture of Daniela" />
-          <Image src={GalleryImage02} alt="picture of Daniela" />
-          <Image src={GalleryImage03} alt="picture of Daniela" />
-          <Image src={GalleryImage04} alt="picture of Daniela" />
+          <Image
+            src={GalleryImage00}
+            alt="picture of Daniela"
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
+          <Image
+            src={GalleryImage01}
+            alt="picture of Daniela"
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
+          <Image
+            src={GalleryImage02}
+            alt="picture of Daniela"
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
+          <Image
+            src={GalleryImage03}
+            alt="picture of Daniela"
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
+          <Image
+            src={GalleryImage04}
+            alt="picture of Daniela"
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
         </Gallery>
       </Wrapper>
     </Main>
-  )
+  );
 }
 
 export default Index

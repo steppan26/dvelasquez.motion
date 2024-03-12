@@ -1,4 +1,4 @@
-import Image from "next/legacy/image"
+import Image from "next/image"
 import styled from "styled-components"
 import MainHeaderImage from "../../public/projects/mysteria/Jellysmack_roku_intro.png"
 import { Footer, IntroSection } from "../Containers"
@@ -9,14 +9,14 @@ import { Text } from "../Components/styledComponents"
 import { VideosGallery } from "../Containers/mysteria"
 
 export const MysteriaProject:React.FC = () => {
-  return(
+  return (
     <Container>
       <ImageWrappper className="main-image">
         <Image
-        src={MainHeaderImage.src}
-        alt="The words 'go larger' in big, duplicated over itself"
-        layout="fill"
-        />
+          src={MainHeaderImage.src}
+          alt="The words 'go larger' in big, duplicated over itself"
+          fill
+          sizes="100vw" />
       </ImageWrappper>
       <IntroSection
       image={IntroImage}
@@ -51,7 +51,7 @@ export const MysteriaProject:React.FC = () => {
       </ContentWrapper>
       <Footer />
     </Container>
-  )
+  );
 }
 
 const Container = styled.div`
@@ -59,15 +59,18 @@ const Container = styled.div`
 
   cursor: default;
 
-  .intro-image {
+  width: 100% !important;
+    max-width: 100vw !important;
 
+  .intro-image {
     justify-self: end;
     height: 60%;
     overflow: hidden;
 
     img {
+      width: 100% !important;
+        max-width: 100vw !important;
       height: 100% !important;
-      width: auto !important;
       transform: translateX(-3rem);
     }
   }

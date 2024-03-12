@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { Sizes } from "../Assets"
-import Image from "next/legacy/image"
+import Image from "next/image"
 import ButtonImage from '/public/Assets/cta_button.png'
 
 export const CTAButton:React.FC = () => {
@@ -8,18 +8,21 @@ export const CTAButton:React.FC = () => {
     alert("Coming soon: \n\nThis website is currently under construction, please contact me for more information at d.velasquezmotion@gmail.com")
   }
 
-  return(
+  return (
     <TempButton>
       <Image
-      src={ButtonImage.src}
-      alt="cta button"
-      onClick={handleClick}
-      width={ButtonImage.width}
-      height={ButtonImage.height}
-      layout="responsive"
-      />
+        src={ButtonImage.src}
+        alt="cta button"
+        onClick={handleClick}
+        width={ButtonImage.width}
+        height={ButtonImage.height}
+        sizes="100vw"
+        style={{
+          width: "100%",
+          height: "auto"
+        }} />
     </TempButton>
-    )
+  );
 
 
   return(

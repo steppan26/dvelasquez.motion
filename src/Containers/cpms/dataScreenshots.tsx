@@ -1,4 +1,4 @@
-import Image from "next/legacy/image"
+import Image from "next/image"
 import styled from "styled-components"
 import Screenshot00 from '/public/projects/cpms/data_screen_00.png'
 import Screenshot01 from '/public/projects/cpms/data_screen_01.png'
@@ -7,7 +7,7 @@ import Screenshot03 from '/public/projects/cpms/data_screen_03.png'
 import { Sizes } from "../../Assets"
 
 export const DataScreenshots:React.FC = () => {
-  return(
+  return (
     <Container>
       <VideoWrapper data-lazy>
         <video
@@ -19,7 +19,13 @@ export const DataScreenshots:React.FC = () => {
         poster={Screenshot00.src}
         >
           <source src="cpms_data-screen00.webm" type="video/webm" />
-          <Image src={Screenshot00} alt="screenshot of data" />
+          <Image
+            src={Screenshot00}
+            alt="screenshot of data"
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
         </video>
       </VideoWrapper>
       <VideoWrapper data-lazy>
@@ -32,7 +38,13 @@ export const DataScreenshots:React.FC = () => {
         poster={Screenshot01.src}
         >
           <source src="cpms_data-screen01.webm" type="video/webm" />
-          <Image src={Screenshot01} alt="screenshot of data" />
+          <Image
+            src={Screenshot01}
+            alt="screenshot of data"
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
         </video>
       </VideoWrapper>
       <VideoWrapper data-lazy>
@@ -45,7 +57,13 @@ export const DataScreenshots:React.FC = () => {
         poster={Screenshot02.src}
         >
           <source src="cpms_data-screen02.webm" type="video/webm" />
-          <Image src={Screenshot02} alt="screenshot of data" />
+          <Image
+            src={Screenshot02}
+            alt="screenshot of data"
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
         </video>
       </VideoWrapper>
       <VideoWrapper data-lazy>
@@ -58,11 +76,17 @@ export const DataScreenshots:React.FC = () => {
         poster={Screenshot03.src}
         >
           <source src="cpms_data-screen03.webm" type="video/webm" />
-          <Image src={Screenshot03} alt="screenshot of data" />
+          <Image
+            src={Screenshot03}
+            alt="screenshot of data"
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
         </video>
       </VideoWrapper>
     </Container>
-  )
+  );
 }
 
 const Container = styled.div`

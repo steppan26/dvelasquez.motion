@@ -1,17 +1,20 @@
 import styled from "styled-components"
 import ArrowGif from '/public/Assets/arrow.gif'
-import Image from "next/legacy/image"
+import Image from "next/image"
 
 export const Arrow:React.FC = () => {
 
-  return(
+  return (
     <Image
-    src={ArrowGif.src}
-    alt="animated bouncing arrow"
-    width={ArrowGif.width}
-    height={ArrowGif.height}
-    />
-  )
+      src={ArrowGif.src}
+      alt="animated bouncing arrow"
+      width={ArrowGif.width}
+      height={ArrowGif.height}
+      style={{
+        maxWidth: "100%",
+        height: "auto"
+      }} />
+  );
 
   return(
     <Container></Container>

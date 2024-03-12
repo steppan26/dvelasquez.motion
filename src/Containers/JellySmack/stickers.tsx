@@ -1,4 +1,4 @@
-import Image from "next/legacy/image"
+import Image from "next/image"
 import styled from "styled-components"
 import RocketShipImage from '/public/projects/jellysmack/rocket.gif'
 import PositiveVibesImage from '/public/projects/jellysmack/positive_vibes.gif'
@@ -9,15 +9,18 @@ import { useIsMobileView } from "../../utils/hooks"
 
 export const Stickers:React.FC = () => {
   const { isMobileView } = useIsMobileView()
-  return(
+  return (
     <Container>
       <InformationWrapper data-lazy>
         <Image
           className="rocketship"
           src={RocketShipImage}
           alt="rocketship sticker"
-          layout="responsive"
-        />
+          sizes="100vw"
+          style={{
+            width: "100%",
+            height: "auto"
+          }} />
         <Text>
           Through the use of animated assets,
           {!isMobileView && <br />} Jellysmack amplifies digital storytelling,
@@ -25,11 +28,14 @@ export const Stickers:React.FC = () => {
           {!isMobileView && <br />} meaningful connections with the audience.
         </Text>
         <Image
-        className="positive-vibes"
-        src={PositiveVibesImage}
-        alt="positive vibes sticker"
-        layout="responsive"
-        />
+          className="positive-vibes"
+          src={PositiveVibesImage}
+          alt="positive vibes sticker"
+          sizes="100vw"
+          style={{
+            width: "100%",
+            height: "auto"
+          }} />
       </InformationWrapper>
       <Video
       // data-lazy
@@ -44,7 +50,7 @@ export const Stickers:React.FC = () => {
         <source src="/stickers.mp4" type="video/mp4" />
       </Video>
     </Container>
-  )
+  );
 }
 
 const Container = styled.div`

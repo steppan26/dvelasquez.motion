@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from "next/legacy/image"
+import Image, { StaticImageData } from "next/image"
 import styled from "styled-components"
 import { Sizes } from "../Assets"
 import { useCallback, useMemo } from "react"
@@ -12,16 +12,19 @@ interface Props {
 
 export const IntroSection:React.FC<Props> = ({ image, imageAlt, projectText, howText }) => {
 
-  return(
+  return (
     <Container>
       <ImageWrapper className="intro-image">
         <Image
-        src={image}
-        alt={imageAlt}
-        layout="responsive"
-        loading="lazy"
-        data-lazy="intro"
-        />
+          src={image}
+          alt={imageAlt}
+          loading="lazy"
+          data-lazy="intro"
+          sizes="100vw"
+          style={{
+            width: "100%",
+            height: "auto"
+          }} />
       </ImageWrapper>
       <ProjectWrapper data-lazy="intro" >
         <Header>The Project</Header>
@@ -32,7 +35,7 @@ export const IntroSection:React.FC<Props> = ({ image, imageAlt, projectText, how
         {howText.split('\\n').map( text => <Text key={text}>{text}</Text> )}
       </WhyWrapper>
     </Container>
-  )
+  );
 }
 
 const Container = styled.div`

@@ -1,4 +1,4 @@
-import Image from "next/legacy/image"
+import Image from "next/image"
 import styled from "styled-components"
 import AnimatedLogo from '/public/projects/jellysmack/jelly_logo.gif'
 import StaticLogo from '/public/projects/jellysmack/jellysmack_logo.png'
@@ -11,9 +11,15 @@ export const JellyMessage:React.FC = () => {
 
   const activeImage = useMemo(() => isMobileView ? StaticLogo : AnimatedLogo, [isMobileView])
 
-  return(
+  return (
     <Container data-lazy="jelly-message">
-      <Image src={activeImage} alt="Jellysmack logo" />
+      <Image
+        src={activeImage}
+        alt="Jellysmack logo"
+        style={{
+          maxWidth: "100%",
+          height: "auto"
+        }} />
       <Text>
         Through the use of animated assets,
         {!isMobileView && <br />} Jellysmack amplifies digital storytelling,
@@ -21,7 +27,7 @@ export const JellyMessage:React.FC = () => {
         {!isMobileView && <br />} meaningful connections with the audience.
       </Text>
     </Container>
-  )
+  );
 }
 
 const Container = styled.div`

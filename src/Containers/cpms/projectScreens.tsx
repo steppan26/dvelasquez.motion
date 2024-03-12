@@ -1,4 +1,4 @@
-import Image from "next/legacy/image"
+import Image from "next/image"
 import styled from "styled-components"
 import ProjectScreenImage00 from '/public/projects/cpms/project_screen_00.png'
 import ProjectScreenImage01 from '/public/projects/cpms/project_screen_01.png'
@@ -7,7 +7,7 @@ import ProjectScreenImage03 from '/public/projects/cpms/project_screen_03.png'
 import { Sizes } from "../../Assets"
 
 export const ProjectScreens:React.FC = () => {
-  return(
+  return (
     <Container>
       <ImageWrapper id="videoPink" data-lazy="projectScreens_image">
         <video
@@ -20,10 +20,13 @@ export const ProjectScreens:React.FC = () => {
         >
           <source src="cpms_scene00_pink.webm" type="video/webm" />
           <Image
-          src={ProjectScreenImage00}
-          alt="screenshot"
-          layout="responsive"
-          />
+            src={ProjectScreenImage00}
+            alt="screenshot"
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto"
+            }} />
         </video>
       </ImageWrapper>
       <ImageWrapper id="videoBlueLight" data-lazy="projectScreens_image" >
@@ -37,10 +40,13 @@ export const ProjectScreens:React.FC = () => {
         >
           <source src="cpms_scene01_light-blue.webm" type="video/webm" />
           <Image
-          src={ProjectScreenImage01}
-          alt="screenshot"
-          layout="responsive"
-          />
+            src={ProjectScreenImage01}
+            alt="screenshot"
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto"
+            }} />
         </video>
       </ImageWrapper>
       <ImageWrapper id="videoGreen" data-lazy="projectScreens_image" >
@@ -54,10 +60,13 @@ export const ProjectScreens:React.FC = () => {
         >
           <source src="cpms_scene02_green.webm" type="video/webm" />
           <Image
-          src={ProjectScreenImage02}
-          alt="screenshot"
-          layout="responsive"
-          />
+            src={ProjectScreenImage02}
+            alt="screenshot"
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto"
+            }} />
         </video>
       </ImageWrapper>
       <ImageWrapper id="videoBlueDark" data-lazy="projectScreens_image" >
@@ -71,14 +80,17 @@ export const ProjectScreens:React.FC = () => {
         >
           <source src="cpms_scene03_dark-blue.webm" type="video/webm" />
           <Image
-          src={ProjectScreenImage03}
-          alt="screenshot"
-          layout="responsive"
-          />
+            src={ProjectScreenImage03}
+            alt="screenshot"
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto"
+            }} />
         </video>
       </ImageWrapper>
     </Container>
-  )
+  );
 }
 
 const Container = styled.div`
