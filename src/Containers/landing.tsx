@@ -23,7 +23,7 @@ export const Landing:React.FC = () => {
         <Navbar type='landing' />
         <MouseMask>
             <Wrapper>
-            <TextWrapper>
+            <TextWrapper onClick={handleArrowClick}>
               <span>Art Direction</span>
               <span>Brand Design</span>
               <span>Motion Design</span>
@@ -85,6 +85,7 @@ const TextWrapper = styled(PrimaryTitle)`
   font-family: "neusa-next-std-wide" !important;
   font-weight: 300;
   font-style: italic;
+  margin-block: 0;
 
   &>span {
     font-family: "neusa-next-std-wide" !important;

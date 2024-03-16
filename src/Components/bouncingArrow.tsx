@@ -12,16 +12,7 @@ interface Props {
 export const BouncingArrow:React.FC<Props> = ({ onClick }) => {
   return (
     <ArrowWrapper onClick={onClick}>
-      <Image
-        src={ArrowGif.src}
-        alt="animated bouncing arrow"
-        width={ArrowGif.width}
-        height={ArrowGif.height}
-        sizes="100vw"
-        style={{
-          width: "100%",
-          height: "auto"
-        }} />
+      <Image src={ArrowGif} alt="animated bouncing arrow" />
     </ArrowWrapper>
   );
 }
@@ -31,10 +22,10 @@ const ArrowWrapper = styled(animated.div)`
   cursor: s-resize;
   z-index: 10;
   align-self: end;
-  margin-bottom: 2dvh;
+  margin-bottom: 3rem;
   padding-inline: 1.5rem;
   max-height: clamp(50px, 5.9vw, 85px);
-  width: 4.6vw;
+  width: 4.14rem;
 
   @media (max-width: ${Sizes.small}) {
     align-self: unset;

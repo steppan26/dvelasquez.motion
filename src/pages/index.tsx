@@ -27,7 +27,7 @@ export default function Home() {
   )
 }
 
-const Main = styled(ScrollingContainer)`
+const Main = styled.main`
   --padding-main: 11.5vw;
 
   @media (max-width: ${Sizes.small}) {

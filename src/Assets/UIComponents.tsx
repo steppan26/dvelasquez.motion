@@ -23,7 +23,7 @@ export const ScrollingContainer = styled.div`
   position: relative;
   scroll-snap-type: y mandatory;
   height: 100dvh;
-  width: 100%;
+  width: 100vw;
     max-width: 100vw;
   overflow: auto;
 
