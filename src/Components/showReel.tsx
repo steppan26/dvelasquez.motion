@@ -69,22 +69,13 @@ const VideoWrapper = styled.div`
   }
 `
 
-const Video = styled.video`
-  width: 100%;
-  height: 100%;
-  transition: var(--transition) 120ms all;
-  border-radius: var(--border-radius);
-
-  @media (max-width: ${Sizes.small}) {
-    width: 100%;
-    border-radius: 0;
-    margin-bottom: -1px;
-  }
-`
-
 const TextWrapper = styled.span`
   transform: rotate(-90deg);
     transform-origin: left bottom;
+
+  h3 {
+    margin-block: 0;
+  }
 
   @media (max-width: ${Sizes.small}) {
     display: none;
@@ -100,17 +91,4 @@ const Text = styled.h3`
     font-weight: 100;
     font-style: italic;
   color: ${p => p.theme.btnPrimaryBg};
-`
-
-const MouseSticker = styled(Image)`
-  --size: 110px;
-
-  display: none;
-  position: absolute;
-  pointer-events: none;
-  left: 0; top: 0;
-  width: var(--size);
-  height: var(--size);
-  z-index: 5;
-  mix-blend-mode: difference;
 `
