@@ -20,6 +20,7 @@ const Index:NextPage = () => {
 export default Index
 
 const Main = styled.main`
+  width: max-content;
   height: max-content;
   background-color: var(--clr-bg-projects);
 `

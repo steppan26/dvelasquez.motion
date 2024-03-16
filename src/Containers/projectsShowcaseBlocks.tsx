@@ -102,7 +102,7 @@ const Container = styled(animated.div)`
     gap: 3vw;
   margin-bottom: 3dvh;
   width: 100dvw;
-    max-width: 100dvw;
+    max-width: 100%;
   max-height: 80dvh;
   padding-inline: var(--spacing);
   overflow: hidden;
@@ -172,6 +172,7 @@ const Container = styled(animated.div)`
 
 const Title = styled(PrimaryTitle)`
   padding-block: var(--nav-height) 2dvh;
+  margin-block: 0;
   margin-left: 7vw;
   grid-area: header;
   font-family: var(--font-family-regular);
