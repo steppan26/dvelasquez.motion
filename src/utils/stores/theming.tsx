@@ -40,6 +40,11 @@ export const Theming:React.FC<any> = ({ children }) => {
 
 
 const GlobalStyle = createGlobalStyle<{}>`
+  @keyframes fadeIn {
+    from { opacity: 0 }
+    to { opacity: 1 }
+  }
+
   :root {
     // VARIABLES
     --font-size: 16px;

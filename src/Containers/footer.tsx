@@ -3,8 +3,12 @@ import styled from "styled-components"
 import { Sizes } from "../Assets"
 import LogoImage from '/public/logos/text_and_brush.png'
 import Link from "next/link"
+import { FooterLetsTalk } from "."
+
 
 export const Footer:React.FC = () => {
+  return <FooterLetsTalk />
+
   return(
     <Container>
       <Logo
