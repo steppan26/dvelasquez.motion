@@ -15,7 +15,7 @@ export const Footer:React.FC = () => {
       />
       <TextWrapper>
         <InternalLink href="/">Home</InternalLink>
-        <InternalLink href="/works">Works</InternalLink>
+        <InternalLink href="/works#">Works</InternalLink>
         <InternalLink href="/about">About</InternalLink>
         <InternalLink href="/">Contact</InternalLink>
       </TextWrapper>

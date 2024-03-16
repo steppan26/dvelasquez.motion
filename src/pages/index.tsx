@@ -15,10 +15,10 @@ export default function Home() {
     </Head>
     <Main id='mainContainer'>
       <Landing />
-      <Container data-lazy>
-        <Cutout />
+      <Container>
+        <Cutout data-lazy />
         <Navbar type='showcase' />
-        <MainTitle>Unique Design for Unique Ideas</MainTitle>
+        <MainTitle data-lazy>Unique Design for Unique Ideas</MainTitle>
       </Container>
       <ShowReelSection />
       <Footer />
@@ -29,6 +29,8 @@ export default function Home() {
 
 const Main = styled.main`
   --padding-main: 11.5vw;
+  width: max-content;
+    max-width: 100vw;
 
   @media (max-width: ${Sizes.small}) {
     display: block;
@@ -51,8 +53,16 @@ const Cutout = styled.div`
   width: 6.25rem;
   height: 6.25rem;
   top: 10dvh;
-  transform: rotate(45deg) translate3d(0, 70%, 0);
-  background-color: var(--clr-bg-secondary);
+  /* transform: rotate(45deg) translate3d(0, 70%, 0); */
+  /* background-color: var(--clr-bg-secondary); */
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--clr-bg-secondary);
+    transform: rotate(45deg) translate3d(0, 70%, 0);
+  }
 
   @media (max-width: ${Sizes.small}) {
     display: none;

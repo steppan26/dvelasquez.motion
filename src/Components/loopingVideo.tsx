@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react"
+import { MutableRefObject, useEffect, useMemo, useRef, useState } from "react"
 import Image, { type StaticImageData } from "next/image"
 import styled from "styled-components"
 import MouseStickerImage from '/public/Assets/better_with_sound.gif'
@@ -16,11 +16,12 @@ interface Props {
 }
 
 export const LoopingVideo:React.FC<Props> = ({ imageAlt="", backupImage, videoPath, videoType="video/webm", soundOption, allowControls, dataLazy=false }) => {
-  const mousePosition = useMousePosition()
   const [hasBeenClicked, setHasBeenClicked] = useState(false)
   const stickerRef = useRef<HTMLImageElement>(null)
   const sceneRef = useRef<HTMLImageElement>(null)
+  // const mousePosition = useMousePosition(sceneRef.current)
   const videoRef = useRef<HTMLVideoElement>(null)
+  const [mousePosition, setMousePosition] = useState({x: 0, y: 0})
 
   const maskPosition = useMemo(() => {
     const element = sceneRef.current
@@ -29,6 +30,8 @@ export const LoopingVideo:React.FC<Props> = ({ imageAlt="", backupImage, videoPa
       const elementRect = element.getBoundingClientRect();
       let newX = mousePosition.x - elementRect.left - (maskElement.clientWidth / 2);
       let newY = mousePosition.y - elementRect.top - (maskElement.clientHeight / 2);
+      maskElement.style.top = newY + 'px'
+      maskElement.style.left = newX + 'px'
       return { left: newX, top: newY }
     }
   }, [mousePosition])
@@ -45,8 +48,15 @@ export const LoopingVideo:React.FC<Props> = ({ imageAlt="", backupImage, videoPa
     }
   }
 
+  const handleMouseMove = (e: any) => {
+    console.info(e.target)
+    setMousePosition({x: e.clientX, y: e.clientY})
+  }
+
+  useEffect(() => console.info("grg", mousePosition), [mousePosition])
+
   return (
-    <VideoWrapper ref={sceneRef} >
+    <VideoWrapper ref={sceneRef} onMouseEnter={handleMouseMove} onMouseMove={handleMouseMove} data-lazy >
       <video
       ref={videoRef}
       autoPlay
@@ -71,10 +81,8 @@ export const LoopingVideo:React.FC<Props> = ({ imageAlt="", backupImage, videoPa
       { soundOption &&
         <MouseSticker
           ref={stickerRef}
-          src={MouseStickerImage.src}
+          src={MouseStickerImage}
           alt="better with sound sticker"
-          width={MouseStickerImage.width}
-          height={MouseStickerImage.height}
           data-hasbeenclicked={hasBeenClicked}
           style={{...maskPosition}}
         />
@@ -83,35 +91,6 @@ export const LoopingVideo:React.FC<Props> = ({ imageAlt="", backupImage, videoPa
   );
 }
 
-const VideoWrapper = styled.div`
-  position: relative;
-  flex: 1 1 100%;
-  max-width: 100%;
-  transition: var(--transition) 120ms all;
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  background-color: transparent;
-
-  img, video {
-
-    &:first-child {
-      height: auto;
-      width: 100%;
-      border-radius: var(--border-radius);
-    }
-  }
-
-  &:hover {
-    img:nth-child(2)[data-hasbeenclicked = "false"] {
-      display: unset !important;
-    }
-  }
-
-  @media (max-width: ${Sizes.small}) {
-    border-radius: 0;
-    overflow: visible;
-  }
-`
 
 const MouseSticker = styled(Image)`
   --size: 110px;
@@ -134,5 +113,36 @@ const MouseSticker = styled(Image)`
     &[data-hasbeenclicked = "true"] {
       display: none;
     }
+  }
+`
+
+
+const VideoWrapper = styled.div`
+  position: relative;
+  flex: 1 1 100%;
+  max-width: 100%;
+  transition: var(--transition) 120ms all;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background-color: transparent;
+
+  img, video {
+
+    &:first-child {
+      height: auto;
+      width: 100%;
+      border-radius: var(--border-radius);
+    }
+  }
+
+  &:hover {
+    ${MouseSticker}[data-hasbeenclicked = "false"] {
+      display: unset !important;
+    }
+  }
+
+  @media (max-width: ${Sizes.small}) {
+    border-radius: 0;
+    overflow: visible;
   }
 `

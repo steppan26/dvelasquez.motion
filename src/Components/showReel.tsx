@@ -1,29 +1,13 @@
-import { useEffect, useMemo, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 import Image from "next/image"
 import styled from "styled-components"
 import { Sizes } from "../Assets"
-import MouseStickerImage from '/public/Assets/better_with_sound.gif'
-import { useMousePosition } from "../utils/hooks"
+import BackupImage from '/public/showreel_static.png'
+import { LoopingVideo } from "."
 
 export const ShowReel:React.FC = () => {
-  const videoRef = useRef<HTMLVideoElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
-  const [hasBeenClicked, setHasBeenClicked] = useState(false)
   const sceneRef = useRef<HTMLDivElement>(null)
-  const stickerRef = useRef<HTMLImageElement>(null)
-  const mousePosition = useMousePosition(sceneRef.current)
-
-  const maskPosition = useMemo(() => {
-    const element = sceneRef.current
-    const maskElement = stickerRef.current
-    if(maskElement && element) {
-      const elementRect = element.getBoundingClientRect();
-      let newX = mousePosition.x - elementRect.left - (maskElement.clientWidth / 2);
-      let newY = mousePosition.y - elementRect.top - (maskElement.clientHeight / 2);
-      return { x: newX, y: newY }
-    }
-  }, [mousePosition])
-
   useEffect(() => {
     if(typeof window == 'undefined' || !containerRef.current) return
 
@@ -38,41 +22,17 @@ export const ShowReel:React.FC = () => {
     window.dispatchEvent(new CustomEvent('resetMask'))
   }
 
-  const handleVideoClick = () => {
-    if(!hasBeenClicked && videoRef.current) {
-      videoRef.current.currentTime = 0
-      videoRef.current?.play()
-      setTimeout(() => setHasBeenClicked(true), 100)
-    }
-  }
-
   return(
     <Container ref={containerRef}>
       <TextWrapper>
         <Text>Showreel</Text>
       </TextWrapper>
-      <VideoWrapper ref={sceneRef}>
-        <Video
-        ref={videoRef}
-        autoPlay
-        playsInline
-        muted={!hasBeenClicked}
-        controls={hasBeenClicked}
-        onClick={handleVideoClick}
-        controlsList="nodownload"
-        poster="/showreel_static.png"
-        preload="metadata"
-        >
-          <source src="/showreel.webm" type="video/webm" />
-        </Video>
-        <MouseSticker
-        ref={stickerRef}
-        src={MouseStickerImage.src}
-        alt="better with sound sticker"
-        width={MouseStickerImage.width}
-        height={MouseStickerImage.height}
-        data-hasbeenclicked={hasBeenClicked}
-        style={{ top: maskPosition?.y, left: maskPosition?.x }}
+      <VideoWrapper>
+        <LoopingVideo
+        videoPath="/showreel.webm"
+        backupImage={BackupImage}
+        imageAlt="Screenshot of the showreel"
+        soundOption
         />
       </VideoWrapper>
     </Container>
@@ -102,12 +62,6 @@ const VideoWrapper = styled.div`
   transition: var(--transition) 120ms all;
   border-radius: var(--border-radius);
   overflow: hidden;
-
-  &:hover {
-    img[data-hasbeenclicked = "false"] {
-      display: unset !important;
-    }
-  }
 
   @media (max-width: ${Sizes.small}) {
     max-height: 56vw;

@@ -1,9 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-import { randomIntFromInterval } from "../helpers";
-
-const slideTimeInMs = 800
-const slideTransform = 'translateY(5dvh)'
-const slideFunction = "cubic-bezier(0.71, 0, 0.18, 0.93)"
 
 export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
   const [observers, setObservers] = useState<IntersectionObserver[]>([])
@@ -12,15 +7,23 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if(entry.isIntersecting){
-          (entry.target as HTMLElement).style.transform = 'translateY(0px)';
+          (entry.target as HTMLElement).style.transform = 'translateY(0)';
           (entry.target as HTMLElement).style.opacity = '1';
-          setTimeout(() => {
-            _unwrapElement(entry.target)
-            observer.disconnect()
-          }, slideTimeInMs)
+          console.info(entry.target)
+          const durationRaw = getComputedStyle(entry.target as HTMLElement).transitionDuration
+          const cleanedDuration = parseFloat(durationRaw.replace('s', '').trim()) * 1000
+          console.info('duration', cleanedDuration)
+          // setTimeout(() => {
+          //   _unwrapElement(entry.target)
+          //   observer.disconnect()
+          // }, cleanedDuration + 100)
         }
       })
-    }, { threshold: 0.15, root: null, rootMargin: randomIntFromInterval(3, 8) + 'px' })
+    }, {
+      threshold: 0.15,
+      root: null,
+      // rootMargin: randomIntFromInterval(3, 8) + 'px'
+    })
     observer.observe(target)
     setObservers(v => [...v, observer])
   }, [])
@@ -31,13 +34,9 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
 
     const wrapperElement = document.createElement('div')
     wrapperElement.classList.add('slide-wrapper')
-    var clonedElement = elementToWrap.cloneNode(true)
-
-    parentNode.insertBefore(wrapperElement, elementToWrap)
-    wrapperElement.appendChild(clonedElement)
     _applyStyles(wrapperElement, elementToWrap)
-    parentNode.removeChild(elementToWrap)
-
+    parentNode.insertBefore(wrapperElement, elementToWrap)
+    wrapperElement.appendChild(elementToWrap)
     return wrapperElement;
   }, [])
 
@@ -47,14 +46,7 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
     elementsArray.filter((el) => !["", "false"].includes(el.dataset.lazy))
     .forEach(target => {
       const wrapper = _wrapElement(target);
-      if(!wrapper) return
-
-      const originalStyle = window.getComputedStyle(target)
-      const transformRegex = new RegExp('translate(?:Y)?\(([^)]+)\)', 'g')
-      wrapper.style.transform = slideTransform + ' ' + originalStyle.transform.replaceAll(transformRegex, "");
-      wrapper.style.opacity = '0';
-      wrapper.style.transition = `${slideTimeInMs}ms all ${slideFunction}`
-      _attachObserver(wrapper)
+      wrapper && _attachObserver(wrapper)
   })
   },[querySelector, _attachObserver, _wrapElement])
 
@@ -65,7 +57,7 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
     const originalStyle = window.getComputedStyle(elementToWrap)
     // @ts-ignore
     const element_id = elementToWrap.dataset.lazy
-    wrapperElement.style.transform = originalStyle.transform
+    // wrapperElement.style.transform = originalStyle.transform
     wrapperElement.style.flex = originalStyle.flex
     wrapperElement.style.gridArea = originalStyle.gridArea
     wrapperElement.style.overflow = originalStyle.overflow
@@ -104,6 +96,15 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
     wrapperElement.parentNode.replaceChild(childElement, wrapperElement)
     return childElement;
   }
+
+  // const attachEventListeners = (elementToWrap: Element, clonedElement: Node) => {
+  //   const events = getEventListeners(elementToWrap, 'element')
+  //   Object.keys(events).forEach((eventType ) => {
+  //     events[eventType].forEach((event: any) => {
+  //       console.info("event", event)
+  //     });
+  //   })
+  // }
 
   useEffect(() => {
     if(typeof window == 'undefined') return

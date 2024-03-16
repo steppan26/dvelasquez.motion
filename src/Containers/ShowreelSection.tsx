@@ -6,14 +6,13 @@ import { MouseEventHandler } from "react"
 import Link from "next/link"
 
 export const ShowReelSection:React.FC = () => {
-
   const handleArrowClick: MouseEventHandler = (e) => {
     window.dispatchEvent(new CustomEvent('resetMask'))
   }
 
   return (
-    <Container id="showReelSection" data-lazy>
-      <InfoSection>
+    <Container id="showReelSection">
+      <InfoSection data-lazy>
         <Text>
           Through <span>brand expression</span> and <span>visual storytelling</span> I can help daring <span>organisations</span>, ambitious <span>startups</span> and <span>creative individuals</span> craft their story, communicate their ideas and build their tribe.
         </Text>

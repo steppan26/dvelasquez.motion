@@ -114,6 +114,7 @@ const Button = styled.button`
   border: none;
   background-color: inherit;
   color: inherit;
+  font-size: inherit;
 `
 
 

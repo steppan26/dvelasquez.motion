@@ -1,4 +1,3 @@
-import Head from "next/head"
 import { useEffect, useMemo, useState } from "react"
 import { ThemeProvider, createGlobalStyle } from "styled-components"
 import { type ITheme, darkTheme, lightTheme, Sizes } from "../../Assets"
@@ -79,14 +78,18 @@ const GlobalStyle = createGlobalStyle<{}>`
     background-color: var(--clr-bg-main);
     font-family: var(--font-text-family);
     font-weight: var(--font-text-font-weight);
-    /* width: clamp(375px, 100dvw, 1950px);
-      max-width: 100vw; */
-    overflow: visible;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100dvh;
+    min-height: max-content;
     margin: 0;
 
     .slide-wrapper {
       position: relative;
-
+      transform: translateY(7dvh);
+      transition: 800ms all cubic-bezier(0.71, 0, 0.18, 0.93);
+      transition-duration: 800ms;
+      opacity: 0;
     }
   }
 
