@@ -21,6 +21,7 @@ export default Index
 
 const Main = styled.main`
   width: max-content;
+    max-width: 100%;
   height: max-content;
   background-color: var(--clr-bg-projects);
 `

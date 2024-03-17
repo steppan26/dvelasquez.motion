@@ -11,7 +11,7 @@ interface Props {
 
 export const BouncingArrow:React.FC<Props> = ({ onClick }) => {
   return (
-    <ArrowWrapper onClick={onClick}>
+    <ArrowWrapper onClick={onClick} className="bouncing-arrow">
       <Image src={ArrowGif} alt="animated bouncing arrow" />
     </ArrowWrapper>
   );

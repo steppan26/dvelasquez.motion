@@ -10,6 +10,7 @@ export const ArrowLong:React.FC = () => {
       alt="long custom arrow"
       style={{
         maxWidth: "100%",
+        width: "100%",
         height: "auto"
       }} />
   );
