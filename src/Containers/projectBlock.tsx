@@ -25,6 +25,12 @@ export const ProjectBlock: React.FC<Props> = (props) => {
   useEffect(() => {
     if(!containerRef.current) return
 
+    containerRef.current?.scrollTo({ top : 0, behavior: 'instant' })
+  }, [router])
+
+  useEffect(() => {
+    if(!containerRef.current) return
+
     containerRef.current.scrollTo({ top: 0, behavior: 'instant' })
     window.scrollTo({ top: 0, behavior: 'instant' })
   }, [])

@@ -3,14 +3,21 @@ import { ThemeProvider, createGlobalStyle } from "styled-components"
 import { type ITheme, darkTheme, lightTheme, Sizes } from "../../Assets"
 //@ts-ignore
 import { useSlideInOnLoad } from "../hooks"
+import { useRouter } from "next/router"
 
 
 type ColorScheme = 'light' | 'dark'
 
 export const Theming:React.FC<any> = ({ children }) => {
   useSlideInOnLoad()
+  const router = useRouter()
   const [colorScheme, setColorScheme]  =useState<ColorScheme>('light')
   const currentTheme = useMemo(() => colorScheme === 'light' ? lightTheme : darkTheme, [colorScheme])
+
+  useEffect(() => {
+    const body = document.querySelector('body')
+    body?.scrollTo({ top: 0, behavior: 'instant' })
+  }, [router.pathname])
 
   useEffect(() => {
     if(typeof window == 'undefined') return

@@ -34,10 +34,12 @@ const Logo = styled(Image)`
   cursor: pointer;
   width: 33vw;
   height: auto;
-  transition: ease opacity 200ms;
+  transform: scale(0.95);
+  transition: ease all 200ms;
 
   &:hover {
-    opacity: 0.8;
+    /* opacity: 0.8; */
+    transform: scale(1.05);
   }
 
   @media (max-width: ${Sizes.small}) {

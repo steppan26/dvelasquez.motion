@@ -1,4 +1,4 @@
-import { ReactNode, useMemo } from "react"
+import { ReactNode, useEffect, useMemo } from "react"
 import { animated, useTransition } from "react-spring"
 import styled from "styled-components"
 import goBiggerLogo from '../../public/projects/go_bigger.jpg'
@@ -10,6 +10,7 @@ import { MotionSecretsProject, JellySmackPortfolio, CPMSProject, MysteriaProject
 import { useActiveProjects, useIsMobileView } from "../utils/hooks"
 import { PrimaryTitle } from "../Components/styledComponents"
 import { Sizes } from "../Assets"
+import { useRouter } from "next/router"
 
 const ProjectsListData: ProjectData[] = [
   {

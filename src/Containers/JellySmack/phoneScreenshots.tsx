@@ -61,7 +61,6 @@ const Container = styled.div`
     justify-items: center;
     gap: 4rem;
   margin-inline: auto;
-  overflow-x: auto;
   width: clamp(375px, 90vw, 1440px);
 
   &>img {
@@ -76,6 +75,7 @@ const Container = styled.div`
     grid-template-columns: 1fr 1fr;
       grid-gap: 0 1rem;
     padding-inline: 1rem;
+    overflow-x: auto;
 
     img#screenThree {
       order: 4;
