@@ -89,11 +89,12 @@ export const ProjectsShowcaseBlocks:React.FC = () => {
 
 const Container = styled(animated.div)`
   --spacing: 7vw;
+  --spacing: 10vw;
 
   position: relative;
   display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: repeat(2, 20vw);
     grid-template-areas: 'jellysmack cpms' 'motion mysteria';
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
@@ -173,7 +174,7 @@ const Container = styled(animated.div)`
 const Title = styled(PrimaryTitle)`
   padding-block: var(--nav-height) 2dvh;
   margin-block: 0;
-  margin-left: 7vw;
+  margin-left: 10vw;
   grid-area: header;
   font-family: var(--font-family-regular);
     font-size: 5rem;
@@ -181,6 +182,7 @@ const Title = styled(PrimaryTitle)`
     font-style: italic;
     line-height: calc(5rem * 1.2);
   color: ${p => p.theme.btnPrimaryBg};
+  max-width: 100%;
 
   &[data-isfullscreen='true']{
     display: none;
@@ -190,5 +192,7 @@ const Title = styled(PrimaryTitle)`
     font-size: 3.5rem;
     line-height: calc(3.5rem * 1.2);
     margin-block: 0;
+
+    white-space: inherit;
   }
 `

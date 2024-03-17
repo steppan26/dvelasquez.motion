@@ -1,7 +1,7 @@
 import Image from "next/image"
 import styled from "styled-components"
 import { ArrowLong, Sizes } from "../Assets"
-import LogoImage from '/public/lets_talk.png'
+
 import Link from "next/link"
 import InstagramIcon from '/public/icons/instagram.png'
 import LinkedInIcon from '/public/icons/linkedin.png'
@@ -9,6 +9,7 @@ import GlobeIcon from '/public/icons/globe.png'
 import YoutubeIcon from '/public/icons/youtube.png'
 import { useCallback, useMemo } from "react"
 import { useRouter } from "next/router"
+import { FooterContactSection } from "../Components"
 
 
 export const FooterLetsTalk:React.FC = () => {
@@ -30,7 +31,6 @@ export const FooterLetsTalk:React.FC = () => {
     }
 
     const currentProject = getCurrentProject()
-    // console.info(currentProject)
     const mapper: any = {
       root: 'jellysmack',
       jellysmack: 'cpms',
@@ -56,9 +56,12 @@ export const FooterLetsTalk:React.FC = () => {
           <Image src={LinkedInIcon} alt="linkedin icon" />
         </SocialsWrapper>
       </LinksWrapper>
-      <Logo src={LogoImage} alt="Main Logo" />
+      <FooterContactSection />
       <NextWrapper href={nextLink ?? "/"}>
         {nextLink === '/works' ? "View Projects" : "Next Project"}
+        <BaseArrow>
+          <ArrowLong />
+        </BaseArrow>
         <ArrowWrapper>
           <ArrowLong />
         </ArrowWrapper>
@@ -75,18 +78,15 @@ const Container = styled.footer`
     align-items: center;
   padding: 16dvh 5.7vw;
   width: 100%;
+  max-width: 100vw;
   background-color: var(--clr-bg-secondary);
   box-shadow: inset 0px 4px 20px ${p => p.theme.textPrimary}4c;
   font-family: var(--font-family-regular);
 
   @media (max-width: ${Sizes.small}) {
-    flex-direction: column;
+    flex-direction: column-reverse;
+    gap: 10dvh;
   }
-`
-
-const Logo = styled(Image)`
-  width: 33vw;
-  height: auto;
 `
 
 const LinksWrapper = styled.div`
@@ -180,5 +180,22 @@ const NextWrapper = styled(InternalLink)`
     animation-iteration-count: 1;
     animation-delay: 1200ms;
     animation-fill-mode: forwards;
+
+    @media (max-width: ${Sizes.small}) {
+      transform: translateY(0);
+    }
+  }
+
+`
+
+const BaseArrow = styled.div`
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  opacity: 1;
+  z-index: 5;
+
+  @media (min-width: ${Sizes.small}) {
+    filter: invert(1);
+    z-index: unset;
   }
 `

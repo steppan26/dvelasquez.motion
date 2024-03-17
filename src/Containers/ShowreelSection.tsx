@@ -19,7 +19,7 @@ export const ShowReelSection:React.FC = () => {
         <CTAButton />
       </InfoSection>
       <ShowReel />
-      <ProjectsEntice href="/works" scroll prefetch>
+      <ProjectsEntice href="/works">
         <ProjectsText onClick={handleArrowClick}>Handpicked projects</ProjectsText>
         <span>
           <BouncingArrow onClick={handleArrowClick} />

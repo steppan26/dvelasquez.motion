@@ -74,6 +74,10 @@ const GlobalStyle = createGlobalStyle<{}>`
     }
   }
 
+  html {
+    overflow: hidden;
+  }
+
   * {
     box-sizing: border-box;
   }
