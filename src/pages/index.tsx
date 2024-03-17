@@ -3,31 +3,42 @@ import { Footer, Landing, Navbar, ShowReelSection } from "../Containers"
 import { ScrollingContainer, TitleSecondary } from "../Assets/UIComponents"
 import { Sizes } from "../Assets"
 import Head from "next/head"
+import { useEffect } from "react"
 
 export default function Home() {
 
   // add intersection observer so when the HorizontalContainer goes out of view, it scrolls back to the left
+  useEffect(() => {
+    if(typeof window == 'undefined') return
+
+    const containers = document.querySelectorAll('.scrolling-container')
+    containers.forEach(container => container.addEventListener('onRouteChangeStart', scrollToTop))
+  }, [])
+
+  const scrollToTop = (e: any) => {
+    console.info('e', e)
+  }
 
   return (
     <>
     <Head>
       <title>D.Velasquez</title>
     </Head>
-    <Main id='mainContainer'>
+    <Main id='mainContainer' className='scrolling-container'>
       <Landing />
       <Container>
         <Cutout data-lazy />
         <Navbar type='showcase' />
         <MainTitle data-lazy>Unique Design for Unique Ideas</MainTitle>
+        <ShowReelSection />
       </Container>
-      <ShowReelSection />
       <Footer />
     </Main>
     </>
   )
 }
 
-const Main = styled.main`
+const Main = styled(ScrollingContainer)`
   --padding-main: 11.5vw;
   width: max-content;
     max-width: 100vw;
@@ -76,6 +87,7 @@ const MainTitle = styled(TitleSecondary)`
   padding-bottom: 0;
   letter-spacing: -2px;
   font-size: 3.75rem;
+  margin-bottom: 2.8rem;
 
   @media (max-width: ${Sizes.small}) {
     max-width: 14rem;

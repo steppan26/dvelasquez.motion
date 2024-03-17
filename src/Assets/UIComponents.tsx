@@ -25,7 +25,8 @@ export const ScrollingContainer = styled.div`
   height: 100dvh;
   width: 100vw;
     max-width: 100vw;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 
   &>* {
     scroll-snap-align: start;

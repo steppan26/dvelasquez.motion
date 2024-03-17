@@ -87,8 +87,9 @@ const Text = styled.h3`
     bottom: 0;
     left: 0;
   font-family: var(--font-family-regular);
-    font-size: 80px;
+    font-size: 5rem;
     font-weight: 100;
+    line-height: 3rem;
     font-style: italic;
   color: ${p => p.theme.btnPrimaryBg};
 `
