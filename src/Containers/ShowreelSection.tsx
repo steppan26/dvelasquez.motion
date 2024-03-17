@@ -20,6 +20,9 @@ export const ShowReelSection:React.FC = () => {
       </InfoSection>
       <ShowReel />
       <ProjectsEntice href="/works">
+        <span>
+          <BouncingArrow onClick={handleArrowClick} />
+        </span>
         <ProjectsText onClick={handleArrowClick}>Handpicked projects</ProjectsText>
         <span>
           <BouncingArrow onClick={handleArrowClick} />
@@ -96,31 +99,46 @@ const Text = styled.p`
 `
 
 const ProjectsText = styled(TitleSecondary)`
-  cursor: e-resize;
+  font-family: var(--font-family-wide);
   font-size: 1.25rem;
+  font-weight: 200;
+  font-style: unset;
   margin-block: 0;
 `
 
 const ProjectsEntice = styled(Link)`
-  cursor: default;
+  cursor: pointer;
   position: relative;
   display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     gap: 2.2vw;
   margin-block: 3.5dvh;
-  margin-inline: auto calc(clamp(-50px, -5.9vw, -85px) * 2);
-  width: max-content;
+  width: 100%;
+  transition: ease 200ms all;
+
+  .bouncing-arrow {
+    cursor: inherit;
+  }
 
   &>span {
     transform-origin: center;
-    transform: rotate(-90deg);
+    transform: rotate(90deg) scale(0.5);
+
+    &:first-of-type {
+      transform: rotate(-90deg) scale(0.5);
+    }
 
     &>div {
-      cursor: e-resize;
+      cursor: unset;
       margin: 0;
       width: 4.4vw;
     }
+  }
+
+  &:hover {
+    /* opacity: 0.8; */
+    transform: scale(1.05);
   }
 
   @media (max-width: ${Sizes.small}) {
