@@ -9,14 +9,12 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
         if(entry.isIntersecting){
           (entry.target as HTMLElement).style.transform = 'translateY(0)';
           (entry.target as HTMLElement).style.opacity = '1';
-          console.info(entry.target)
           const durationRaw = getComputedStyle(entry.target as HTMLElement).transitionDuration
           const cleanedDuration = parseFloat(durationRaw.replace('s', '').trim()) * 1000
-          console.info('duration', cleanedDuration)
-          // setTimeout(() => {
-          //   _unwrapElement(entry.target)
-          //   observer.disconnect()
-          // }, cleanedDuration + 100)
+          setTimeout(() => {
+            _unwrapElement(entry.target)
+            observer.disconnect()
+          }, cleanedDuration + 100)
         }
       })
     }, {

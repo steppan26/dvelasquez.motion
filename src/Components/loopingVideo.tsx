@@ -56,7 +56,7 @@ export const LoopingVideo:React.FC<Props> = ({ imageAlt="", backupImage, videoPa
   useEffect(() => console.info("grg", mousePosition), [mousePosition])
 
   return (
-    <VideoWrapper ref={sceneRef} onMouseEnter={handleMouseMove} onMouseMove={handleMouseMove} data-lazy >
+    <VideoWrapper className="looping-video" ref={sceneRef} onMouseEnter={handleMouseMove} onMouseMove={handleMouseMove} data-lazy >
       <video
       ref={videoRef}
       autoPlay

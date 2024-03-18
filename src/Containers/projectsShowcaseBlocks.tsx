@@ -55,8 +55,8 @@ export const ProjectsShowcaseBlocks:React.FC = () => {
   const { isMobileView } = useIsMobileView()
 
   const transitions = useTransition(ProjectsListData, {
-    from: {x:  activeSection === 'reset' ? '100vw' : '0vw' },
-    enter: { x: '0vw' },
+    from: { y:  activeSection === 'reset' ? '200px' : '0',  opacity:  activeSection === 'reset' ? 0 : 1  },
+    enter: { y: '0', opacity: 1 },
     delay: 100,
     trail: 20,
     config: {
@@ -70,18 +70,20 @@ export const ProjectsShowcaseBlocks:React.FC = () => {
 
   return(
     <>
-      { isMobileView
-        ? <Navbar type='mobile' />
-        : <Navbar type='projects' navData={ProjectsListData} />
-      }
-      <Title data-isfullscreen={isFullScreen}>Handpicked Projects</Title>
-      <Container id="showcaseContainer" data-isfullscreen={isFullScreen}>
-        {transitions((style, item) => (
-          <ProjectBlock style={{ ...style }} name={item.name} backgroundImageUrl={item.imageUrl} id={item.id}>
-            {item.childComponent}
-          </ProjectBlock>
-        ))}
-      </Container>
+      <Wrapper>
+        { isMobileView
+          ? <Navbar type='mobile' />
+          : <Navbar type='projects' navData={ProjectsListData} />
+        }
+        <Title data-isfullscreen={isFullScreen}>Handpicked Projects</Title>
+        <Container id="showcaseContainer" data-isfullscreen={isFullScreen}>
+          {transitions((style, item) => (
+            <ProjectBlock style={{ ...style }} name={item.name} backgroundImageUrl={item.imageUrl} id={item.id}>
+              {item.childComponent}
+            </ProjectBlock>
+          ))}
+        </Container>
+      </Wrapper>
       { !isFullScreen && <Footer /> }
     </>
   )
@@ -94,7 +96,7 @@ const Container = styled(animated.div)`
   position: relative;
   display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(2, 20vw);
+    grid-template-rows: repeat(2, 22vw);
     grid-template-areas: 'jellysmack cpms' 'motion mysteria';
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
@@ -107,7 +109,7 @@ const Container = styled(animated.div)`
   max-height: 80dvh;
   padding-inline: var(--spacing);
   overflow: hidden;
-  background-color: var(--clr-bg-main);
+  background-color: inherit;
 
   .overlay { --angle: to right; }
 
@@ -195,4 +197,8 @@ const Title = styled(PrimaryTitle)`
 
     white-space: inherit;
   }
+`
+
+const Wrapper = styled.div`
+  min-height: 100dvh;
 `

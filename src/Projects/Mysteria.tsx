@@ -16,7 +16,7 @@ export const MysteriaProject:React.FC = () => {
           src={MainHeaderImage}
           alt="The words 'go larger' in big, duplicated over itself"
           layout="responsive"
-           />
+          />
       </ImageWrappper>
       <IntroSection
       image={IntroImage}
@@ -77,13 +77,13 @@ const ImageWrappper = styled.div`
     max-height: 100%;
   width: 100%;
 
-  .intro-image {
+  & .intro-image {
     justify-self: end;
     height: 60%;
     overflow: hidden;
 
-    img {
-      width: 100% !important;
+    &>img {
+      width: auto !important;
         max-width: 100vw !important;
       height: 100% !important;
       transform: translateX(-3rem);
@@ -102,6 +102,10 @@ const ImageWrappper = styled.div`
 const ContentWrapper = styled.div`
   padding-inline: var(--container-padding);
   margin-bottom: 10dvh;
+
+  .looping-video {
+    border: 1px solid var(--clr-text-main);
+  }
 
   @media (max-width: ${Sizes.small}) {
     margin-bottom: 5dvh;

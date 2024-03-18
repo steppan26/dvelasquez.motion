@@ -13,17 +13,13 @@ export const IntroSection:React.FC<Props> = ({ image, imageAlt, projectText, how
 
   return (
     <Container>
-      <ImageWrapper className="intro-image">
+      <ImageWrapper className="intro-image" data-lazy="intro">
         <Image
           src={image}
           alt={imageAlt}
           loading="lazy"
-          data-lazy="intro"
-          sizes="100vw"
-          style={{
-            width: "100%",
-            height: "auto"
-          }} />
+          layout="responsive"
+          />
       </ImageWrapper>
       <ProjectWrapper data-lazy="intro" >
         <Header>The Project</Header>
@@ -60,6 +56,7 @@ const Container = styled.div`
 `
 
 const ImageWrapper = styled.div`
+  position: relative;
   grid-area: image;
   text-align: center;
   width: 100%;
@@ -103,11 +100,11 @@ const Header = styled.h4`
   font-weight: 400;
   letter-spacing: -1px;
   color: var(--clr-text-main);
-  margin-bottom: 1.25rem;
+  margin-block: 0 1.25rem;
 
   @media (max-width: ${Sizes.small}) {
     font-size: 1.875rem;
-    margin-bottom: 1.5rem;
+    margin-block: 0 1.5rem;
   }
 `
 
