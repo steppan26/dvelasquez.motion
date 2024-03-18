@@ -44,7 +44,7 @@ export const FooterLetsTalk:React.FC = () => {
 
   return(
     <Container>
-      <BackToTop onClick={scrollToTop} />
+      <BackToTop onClick={() => scrollToTop()} />
       <LinksWrapper>
         <InternalLink scroll href="/">Home</InternalLink>
         <InternalLink scroll href="/works">Works</InternalLink>
