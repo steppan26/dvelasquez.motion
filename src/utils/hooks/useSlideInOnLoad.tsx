@@ -55,7 +55,6 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
     const originalStyle = window.getComputedStyle(elementToWrap)
     // @ts-ignore
     const element_id = elementToWrap.dataset.lazy
-    // wrapperElement.style.transform = originalStyle.transform
     wrapperElement.style.flex = originalStyle.flex
     wrapperElement.style.gridArea = originalStyle.gridArea
     wrapperElement.style.overflow = originalStyle.overflow
@@ -73,6 +72,7 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
       wrapperElement.style.gridArea = originalStyle.gridArea
       wrapperElement.style.alignSelf = originalStyle.alignSelf
       wrapperElement.style.justifySelf = originalStyle.justifySelf
+      wrapperElement.style.overflow = 'visible'
     }
 
     if(element_id === 'phone-screenshots_image'){
@@ -94,15 +94,6 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
     wrapperElement.parentNode.replaceChild(childElement, wrapperElement)
     return childElement;
   }
-
-  // const attachEventListeners = (elementToWrap: Element, clonedElement: Node) => {
-  //   const events = getEventListeners(elementToWrap, 'element')
-  //   Object.keys(events).forEach((eventType ) => {
-  //     events[eventType].forEach((event: any) => {
-  //       console.info("event", event)
-  //     });
-  //   })
-  // }
 
   useEffect(() => {
     if(typeof window == 'undefined') return
