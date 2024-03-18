@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import styled from "styled-components"
 import { Sizes } from "../../Assets";
 import { MenuItems } from "../MenuSimple/menuItems";
@@ -6,42 +6,33 @@ import { ToggleButton } from "../MenuSimple/toggleButton";
 import { animated, useSpring } from "react-spring";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
-import { useActiveProjects } from "../../utils/hooks";
+import { useActiveProjects, useIsMobileView } from "../../utils/hooks";
 import { ProjectData } from "..";
 
 interface Props {
   navData: ProjectData[]
 }
 
-export const ProjectsNavbar:React.FC<Props> = ({ navData }) => {
+export const ProjectsNavbar:React.FC<Props> = () => {
   const navRef = useRef<HTMLElement>(null)
   const [isOpen, setIsOpen] = useState(false)
   const timeout = useRef<NodeJS.Timeout>()
-  const [isVisible, setIsVisible] = useState(true)
-  const router = useRouter()
+  const { isMobileView } = useIsMobileView()
   const { activeSection } = useActiveProjects()
 
   const LogoLight = dynamic(() => import('../../Components/animatedLogoLight').then(comp => comp.AnimatedLogoLight), {ssr: false})
   const LogoDark = dynamic(() => import('../../Components/animatedLogoDark').then(comp => comp.AnimatedLogoDark), {ssr: false})
 
-  const displayLightNavbar = useMemo(() => ['jellysmack', 'mysteria'].includes(activeSection), [activeSection])
+  const displayLightNavbar = useMemo(() => ['jellysmack', 'mysteria'].includes(activeSection) || isMobileView, [activeSection, isMobileView])
 
-  const heightSpring = useSpring({
-    from: { opacity: 1 },
-    to: { opacity: isVisible ? 1 : 0 },
-    config: {
-      mass: 1.4,
-      friction: 25,
-      tension: 250
-    }
-  })
+  useEffect(() => console.info(displayLightNavbar, isMobileView), [displayLightNavbar, isMobileView])
 
   const handleMouseLeave = () => {
     timeout.current = setTimeout(() => setIsOpen(false), 600)
   }
 
   return(
-    <Nav ref={navRef} style={heightSpring} data-islight={displayLightNavbar}>
+    <Nav ref={navRef} data-islight={displayLightNavbar}>
       {displayLightNavbar
       ? <LogoLight />
       : <LogoDark />

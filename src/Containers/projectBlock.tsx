@@ -4,6 +4,7 @@ import styled from "styled-components"
 import { useRouter } from "next/router"
 import { useActiveProjects } from "../utils/hooks"
 import { Sizes } from "../Assets"
+import { projectName } from "."
 
 interface Props {
   backgroundImageUrl: string
@@ -57,7 +58,7 @@ export const ProjectBlock: React.FC<Props> = (props) => {
     style={style}
     >
       {children}
-      <Overlay className='overlay' >
+      <Overlay className={`overlay ${id}`}  >
         {name}
       </Overlay>
     </Container>
@@ -86,6 +87,29 @@ const Overlay = styled(animated.div)`
 
   @media (max-width: ${Sizes.small}) {
     font-size: 2rem;
+    color: transparent !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    inset: 0;
+
+    &:hover, &:active {
+      filter: brightness(1.3);
+    }
+
+    &.jellysmack {
+      background-image: url('projects/mobile_backgrounds/jellysmack.png');
+    }
+    &.cpms {
+      background-image: url('projects/mobile_backgrounds/cpms.png');
+    }
+    &.motionSecrets {
+      background-image: url('projects/mobile_backgrounds/motion_secrets.png');
+    }
+    &.mysteria {
+      background-image: url('projects/mobile_backgrounds/mysteria.png');
+    }
+
   }
 `
 
@@ -134,7 +158,6 @@ const Container = styled(animated.div)`
   @media (max-width: ${Sizes.small}) {
     width: 100%;
     height: 300px;
-    overflow: visible;
 
     &.hidden,
     &.active,

@@ -25,8 +25,8 @@ export const useScrollToTop = () => {
   }
 
 
-  const scrollToTop = () => {
-    scrollableElements.forEach(el => el.scrollTo({ top: 0, behavior: 'smooth' }))
+  const scrollToTop = (behavior: ScrollBehavior='smooth') => {
+    scrollableElements.forEach(el => el.scrollTo({ top: 0, behavior }))
   }
 
   return { scrollToTop }

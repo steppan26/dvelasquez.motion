@@ -2,7 +2,7 @@ import { useRouter } from "next/router"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { animated, useSpring } from "react-spring"
 import styled from "styled-components"
-import { useActiveProjects } from "../utils/hooks"
+import { useActiveProjects, useScrollToTop } from "../utils/hooks"
 
 interface Props {
   backgroundImageUrl: string
@@ -18,14 +18,14 @@ export const ScrollingSection: React.FC<Props> = (props) => {
   const [isHovering, setIsHovering] = useState(false)
   const [isVisible, setVisible] = useState(true)
   const { activeSection } = useActiveProjects()
+  const { scrollToTop } = useScrollToTop()
 
   const isSelected = useMemo(() => (activeSection === id), [activeSection, id])
 
   useEffect(() => {
     if(!containerRef.current) return
 
-    containerRef.current.scrollTo({ top: 0, behavior: 'instant' })
-    window.scrollTo({ top: 0, behavior: 'instant' })
+    scrollToTop('instant')
   }, [])
 
   const sectionWidth = useMemo(() => {

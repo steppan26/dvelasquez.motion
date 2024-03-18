@@ -1,8 +1,7 @@
-import { MutableRefObject, useEffect, useMemo, useRef, useState } from "react"
+import { useMemo, useRef, useState } from "react"
 import Image, { type StaticImageData } from "next/image"
 import styled from "styled-components"
 import MouseStickerImage from '/public/Assets/better_with_sound.gif'
-import { useMousePosition } from "../utils/hooks"
 import { Sizes } from "../Assets"
 
 interface Props {
@@ -19,7 +18,6 @@ export const LoopingVideo:React.FC<Props> = ({ imageAlt="", backupImage, videoPa
   const [hasBeenClicked, setHasBeenClicked] = useState(false)
   const stickerRef = useRef<HTMLImageElement>(null)
   const sceneRef = useRef<HTMLImageElement>(null)
-  // const mousePosition = useMousePosition(sceneRef.current)
   const videoRef = useRef<HTMLVideoElement>(null)
   const [mousePosition, setMousePosition] = useState({x: 0, y: 0})
 
@@ -52,8 +50,6 @@ export const LoopingVideo:React.FC<Props> = ({ imageAlt="", backupImage, videoPa
     console.info(e.target)
     setMousePosition({x: e.clientX, y: e.clientY})
   }
-
-  useEffect(() => console.info("grg", mousePosition), [mousePosition])
 
   return (
     <VideoWrapper className="looping-video" ref={sceneRef} onMouseEnter={handleMouseMove} onMouseMove={handleMouseMove} data-lazy >

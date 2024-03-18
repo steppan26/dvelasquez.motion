@@ -27,7 +27,7 @@ export const NavMobile:React.FC = () => {
   }
 
   return(
-    <Nav ref={navRef}>
+    <Nav ref={navRef} className={isOpen ? "open" : ""}>
       <AnimatedIcon />
       <MenuWrapper onMouseLeave={handleMouseLeave} onMouseEnter={() => clearTimeout(timeout.current)}>
         <MobileMenu isOpen={isOpen} />
@@ -47,8 +47,16 @@ const Nav = styled.nav`
     justify-content: space-between;
     align-items: center;
   width: 100vw;
-  /* height: var(--nav-height); */
   padding: 0 3vw;
+  filter: invert(1);
+
+  &.open {
+    filter: invert(0);
+
+    #mobileMenuBlock {
+      filter: invert(0);
+    }
+  }
 `
 
 const MenuWrapper = styled.div`
@@ -57,9 +65,9 @@ const MenuWrapper = styled.div`
     justify-content: center;
     align-items: center;
   padding: 1rem;
-  gap: 3px;
+  gap: 5px;
 
-  @media (max-width: ${Sizes.small}) {
-    gap: 5px;
+  #mobileMenuBlock {
+    filter: invert(1);
   }
 `

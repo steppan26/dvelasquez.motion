@@ -10,10 +10,12 @@ import YoutubeIcon from '/public/icons/youtube.png'
 import { useCallback, useMemo } from "react"
 import { useRouter } from "next/router"
 import { FooterContactSection } from "../Components"
+import { useScrollToTop } from "../utils/hooks"
 
 
 export const FooterLetsTalk:React.FC = () => {
   const router =  useRouter()
+  const { scrollToTop } = useScrollToTop()
 
   const getCurrentProject = useCallback((): string => {
     const currentProjectList = router.asPath.split('#')
@@ -24,7 +26,6 @@ export const FooterLetsTalk:React.FC = () => {
 
   const nextLink: string = useMemo(() => {
     const currentPath = router.asPath
-    console.info(currentPath)
 
     if(['/', '/about'].includes(currentPath)){
       return '/works'
@@ -43,6 +44,7 @@ export const FooterLetsTalk:React.FC = () => {
 
   return(
     <Container>
+      <BackToTop onClick={scrollToTop} />
       <LinksWrapper>
         <InternalLink scroll href="/">Home</InternalLink>
         <InternalLink scroll href="/works">Works</InternalLink>
@@ -73,6 +75,7 @@ export const FooterLetsTalk:React.FC = () => {
 const Container = styled.footer`
   --footer-color: #F3E4D9;
 
+  position: relative;
   display: flex;
     justify-content: space-between;
     align-items: center;
@@ -197,5 +200,29 @@ const BaseArrow = styled.div`
   @media (min-width: ${Sizes.small}) {
     opacity: 0.3;
     z-index: unset;
+  }
+`
+
+const BackToTop = styled.div`
+  --size: clamp(55px, 4.8vw, 90px);
+
+  cursor: pointer;
+  position: absolute;
+  top: 0; right: 11.5vw;
+  width: var(--size);
+    max-width: 120px;
+  height: var(--size);
+    max-height: 120px;
+  background-image: url('yellow_arrow.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transform: translateY(-50%) rotate(45deg);
+  box-shadow: 0 4px 14px 4px rgba(0, 0, 0, 0.1);
+
+  transition: ease all 260ms;
+
+  &:hover {
+    box-shadow: 0 4px 14px 6px rgba(0, 0, 0, 0.15);
   }
 `

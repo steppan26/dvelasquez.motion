@@ -84,7 +84,7 @@ export const ProjectsShowcaseBlocks:React.FC = () => {
           ))}
         </Container>
       </Wrapper>
-      { !isFullScreen && <Footer /> }
+      { !isFullScreen && !isMobileView && <Footer /> }
     </>
   )
 }
@@ -168,8 +168,25 @@ const Container = styled(animated.div)`
   }
 
   @media (max-width: ${Sizes.small}) {
+    --spacing: 0;
+
     display: flex;
       flex-direction: column;
+    max-height: unset;
+    gap: 0;
+    margin-bottom: 0;
+
+    &>div {
+      overflow: hidden;
+      border-radius: 0;
+      height: 25dvh;
+    }
+
+    &[data-isfullscreen='true'] {
+      &>div {
+        overflow: unset;
+      }
+    }
   }
 `
 
@@ -191,6 +208,7 @@ const Title = styled(PrimaryTitle)`
   }
 
   @media (max-width: ${Sizes.small}) {
+    display: none;
     font-size: 3.5rem;
     line-height: calc(3.5rem * 1.2);
     margin-block: 0;
@@ -201,4 +219,9 @@ const Title = styled(PrimaryTitle)`
 
 const Wrapper = styled.div`
   min-height: 100dvh;
+  margin-bottom: 10dvh;
+
+  @media (max-width: ${Sizes.small}) {
+    margin-bottom: 0;
+  }
 `

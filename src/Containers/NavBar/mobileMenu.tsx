@@ -22,7 +22,7 @@ export const MobileMenu:React.FC<Props> = ({ isOpen }) => {
     }
   })
   return(
-    <Container style={{...opacitySpring, display: isVisible ? 'grid' : 'none'}}>
+    <Container style={{...opacitySpring, display: isVisible ? 'grid' : 'none'}} id="mobileMenuBlock">
       <MenuButton data-area="home" href="/">Home</MenuButton>
       <Line data-position="top" />
       <MenuButton data-area="works" href="/works">Works</MenuButton>
@@ -48,6 +48,7 @@ const Container = styled(animated.div)`
     justify-items: center;
   padding: 8dvh 0;
   background-color: var(--clr-bg-main);
+  height: 100dvh;
 `
 
 const MenuButton = styled(Link)`
