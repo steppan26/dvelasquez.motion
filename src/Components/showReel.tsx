@@ -89,7 +89,7 @@ const Text = styled.h3`
   font-family: var(--font-family-regular);
     font-size: 5rem;
     font-weight: 100;
-    line-height: 3rem;
+    line-height: 4.5rem;
     font-style: italic;
   color: ${p => p.theme.btnPrimaryBg};
 `
