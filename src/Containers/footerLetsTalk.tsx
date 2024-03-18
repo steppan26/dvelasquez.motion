@@ -195,7 +195,7 @@ const BaseArrow = styled.div`
   z-index: 5;
 
   @media (min-width: ${Sizes.small}) {
-    filter: invert(1);
+    opacity: 0.3;
     z-index: unset;
   }
 `
