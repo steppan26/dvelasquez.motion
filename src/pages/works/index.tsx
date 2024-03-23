@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { ProjectsList, ProjectsShowcaseBlocks } from "../../Containers";
+import { ProjectsList } from "../../Containers";
 import styled from "styled-components";
 import Head from "next/head";
 
