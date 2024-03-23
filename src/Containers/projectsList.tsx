@@ -67,7 +67,16 @@ export const ProjectsListContainer:React.FC = () => {
           ))}
         </Container>
       </Wrapper>
-      <Footer />
+      <Footer
+      leftLink={{
+        text: "Home",
+        href: "/"
+      }}
+      rightLink={{
+        text: "About",
+        href: "/about"
+      }}
+      />
     </>
   )
 }

@@ -1,7 +1,7 @@
 import { NextPage } from "next"
 import styled from "styled-components"
 import { Text } from "../../Components/styledComponents"
-import { Navbar } from "../../Containers"
+import { Footer, Navbar } from "../../Containers"
 import Image from "next/image"
 import PrimaryImage from '/public/about/dani_main.png'
 import GalleryImage00 from '/public/about/gallery_1.png'
@@ -87,6 +87,16 @@ const Index:NextPage = () => {
             }} />
         </Gallery>
       </Wrapper>
+      <Footer
+        leftLink={{
+          text: "Works",
+          href: "/works"
+        }}
+        rightLink={{
+          text: "Home",
+          href: "/"
+        }}
+        />
     </Main>
     </>
   );

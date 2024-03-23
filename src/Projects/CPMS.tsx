@@ -61,7 +61,16 @@ export const CPMSProject:React.FC = () => {
             }} />
         </video>
       </VideoWrapper>
-      <Footer />
+      <Footer
+      leftLink={{
+        text: "Home",
+        href: "/"
+      }}
+      rightLink={{
+        text: "Next",
+        href: "/works/motionSecrets"
+      }}
+      />
     </Container>
   );
 }

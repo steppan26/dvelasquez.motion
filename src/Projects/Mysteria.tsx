@@ -49,7 +49,16 @@ export const MysteriaProject:React.FC = () => {
         />
         <LoopingVideo videoPath="mysteria_stories.webm" dataLazy allowControls soundOption />
       </ContentWrapper>
-      <Footer />
+      <Footer
+      leftLink={{
+        text: "Home",
+        href: "/"
+      }}
+      rightLink={{
+        text: "Next",
+        href: "/works/jellysmack"
+      }}
+      />
     </Container>
   );
 }

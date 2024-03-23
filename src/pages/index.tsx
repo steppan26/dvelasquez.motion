@@ -32,7 +32,16 @@ export default function Home() {
         <MainTitle data-lazy>Unique Design for Unique Ideas</MainTitle>
         <ShowReelSection />
       </Container>
-      <Footer />
+      <Footer
+      leftLink={{
+        text: "About",
+        href: "/about"
+      }}
+      rightLink={{
+        text: "Works",
+        href: "/works"
+      }}
+      />
     </Main>
     </>
   )

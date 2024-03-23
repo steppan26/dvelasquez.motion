@@ -24,7 +24,16 @@ export const MotionSecretsProject:React.FC = () => {
       />
       <PersonalProjectsList />
       <ProjectDrawings />
-      <Footer />
+      <Footer
+      leftLink={{
+        text: "Home",
+        href: "/"
+      }}
+      rightLink={{
+        text: "Next",
+        href: "/works/mysteria"
+      }}
+      />
     </Container>
   )
 }

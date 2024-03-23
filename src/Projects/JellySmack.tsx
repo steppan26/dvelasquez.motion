@@ -28,7 +28,16 @@ export const JellySmackPortfolio:React.FC = () => {
       <VideoWrapper  data-lazy>
         <LoopingVideo videoPath="/jelly_thank_you_for_watching.webm" backupImage={BannerImage} />
       </VideoWrapper>
-      <Footer />
+      <Footer
+      leftLink={{
+        text: "Home",
+        href: "/"
+      }}
+      rightLink={{
+        text: "Next",
+        href: "/works/cpms"
+      }}
+      />
     </Container>
   )
 }
