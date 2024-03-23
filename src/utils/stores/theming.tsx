@@ -1,10 +1,8 @@
 import { useEffect, useMemo, useState } from "react"
+import { useRouter } from "next/router"
 import { ThemeProvider, createGlobalStyle } from "styled-components"
 import { type ITheme, darkTheme, lightTheme, Sizes } from "../../Assets"
-//@ts-ignore
 import { useSlideInOnLoad } from "../hooks"
-import { useRouter } from "next/router"
-
 
 type ColorScheme = 'light' | 'dark'
 

@@ -1,7 +1,6 @@
 import { useCallback, useRef, useState } from "react"
 import { animated, useSpring } from "react-spring"
 import styled from "styled-components"
-import { useRouter } from "next/router"
 import { Sizes } from "../Assets"
 import Link from "next/link"
 import Image, { StaticImageData } from "next/image"
@@ -17,7 +16,6 @@ export interface ProjectPeakProps {
 export const ProjectPeak: React.FC<ProjectPeakProps> = ({ backgroundContent, style, id, text}) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const [isHovering, setIsHovering] = useState(false)
-  const router = useRouter()
 
   const BackgroundContent:React.FC = useCallback(() => typeof backgroundContent === 'string'
   ? <LoopingVideo videoPath={backgroundContent} />

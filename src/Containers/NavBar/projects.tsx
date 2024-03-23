@@ -5,19 +5,20 @@ import { MenuItems } from "../MenuSimple/menuItems";
 import { ToggleButton } from "../MenuSimple/toggleButton";
 import { animated } from "react-spring";
 import dynamic from "next/dynamic";
-import { useActiveProjects, useIsMobileView } from "../../utils/hooks";
+import { useIsMobileView } from "../../utils/hooks";
+import { useRouter } from "next/router";
 
 export const ProjectsNavbar:React.FC = () => {
   const navRef = useRef<HTMLElement>(null)
   const [isOpen, setIsOpen] = useState(false)
   const timeout = useRef<NodeJS.Timeout>()
   const { isMobileView } = useIsMobileView()
-  const { activeSection } = useActiveProjects()
+  const router = useRouter()
 
   const LogoLight = dynamic(() => import('../../Components/animatedLogoLight').then(comp => comp.AnimatedLogoLight), {ssr: false})
   const LogoDark = dynamic(() => import('../../Components/animatedLogoDark').then(comp => comp.AnimatedLogoDark), {ssr: false})
 
-  const displayLightNavbar = useMemo(() => ['jellysmack', 'mysteria'].includes(activeSection) || isMobileView, [activeSection, isMobileView])
+  const displayLightNavbar = useMemo(() => isMobileView || ['/works/jellysmack', '/works/mysteria'].includes(router.asPath), [router, isMobileView])
 
   useEffect(() => console.info(displayLightNavbar, isMobileView), [displayLightNavbar, isMobileView])
 

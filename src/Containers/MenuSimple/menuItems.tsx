@@ -1,9 +1,8 @@
+import { useRouter } from "next/router"
 import { animated, useSpring } from "react-spring"
 import styled from "styled-components"
 import { Sizes } from "../../Assets"
 import Link from "next/link"
-import { useRouter } from "next/router"
-import { useEffect } from "react"
 
 interface MenuItem {
   text: string
@@ -58,10 +57,7 @@ export const MenuItems:React.FC<Props> = ({ isOpen }) => {
       <MenuContainer style={{ ...translateStyle }}>
         {menuData.map((props, index) => (
           <Menu key={index} className={router.route === props.href ? 'active' : ''}>
-            { router.route === '/works' && props.href === '/works'
-              ? <Button onClick={() => router.push('/works')}>{props.text}</Button>
-              : <Link href={props.href} scroll prefetch>{props.text}</Link>
-            }
+            <Link href={props.href}>{props.text}</Link>
           </Menu>
         ))}
       </MenuContainer>
