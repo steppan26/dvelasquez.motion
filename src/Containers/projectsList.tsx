@@ -36,7 +36,7 @@ const ProjectsListData: ProjectPeakProps[] = [
   },
 ]
 
-export const ProjectsList:React.FC = () => {
+export const ProjectsListContainer:React.FC = () => {
 
 
   const transitions = useTransition(ProjectsListData, {

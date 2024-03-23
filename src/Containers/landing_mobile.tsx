@@ -6,7 +6,6 @@ import { Navbar } from "."
 export const LandingMobile:React.FC = () => {
   return(
     <>
-    <Navbar type='mobile' />
     <Container>
       <ContentWrapper>
         <TextWrapper>

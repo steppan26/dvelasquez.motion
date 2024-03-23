@@ -20,7 +20,7 @@ const Index:NextPage = () => {
       <meta name='description' content="" />
     </Head>
     <Main>
-      <Navbar type="showcase" />
+      <Navbar type="showcase" mode="dark" />
       <Wrapper>
         <HeaderText >Hola!</HeaderText>
         <Picture>

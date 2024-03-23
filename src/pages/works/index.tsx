@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { ProjectsList } from "../../Containers";
+import { ProjectsListContainer } from "../../Containers";
 import styled from "styled-components";
 import Head from "next/head";
 
@@ -10,7 +10,7 @@ const Index:NextPage = () => {
       <title>D.Velasquez | Works</title>
     </Head>
     <Main>
-      <ProjectsList />
+      <ProjectsListContainer />
     </Main>
     </>
   )

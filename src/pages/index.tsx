@@ -28,7 +28,7 @@ export default function Home() {
       <Landing />
       <Container>
         <Cutout data-lazy />
-        <Navbar type='showcase' />
+        <Navbar type="showcase" mode="dark" />
         <MainTitle data-lazy>Unique Design for Unique Ideas</MainTitle>
         <ShowReelSection />
       </Container>

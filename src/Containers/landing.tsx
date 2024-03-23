@@ -20,7 +20,7 @@ export const Landing:React.FC = () => {
         <LandingMobile />
       </span>
       <Container data-desktop >
-        <Navbar type='landing' />
+        <Navbar type="landing" mode="dark" />
         <MouseMask>
             <Wrapper>
             <TextWrapper onClick={handleArrowClick}>
