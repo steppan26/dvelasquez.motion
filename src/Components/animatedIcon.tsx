@@ -2,13 +2,18 @@ import styled from "styled-components"
 import { useEffect, useRef, useState } from "react";
 import { supportsHEVCAlpha } from "../utils/helpers";
 import { Sizes } from "../Assets";
+import { useIsMobileView } from "../utils/hooks";
 
+interface Props {
+  mode?: 'light' | 'dark'
+}
 
-export const AnimatedIcon:React.FC = () => {
+export const AnimatedIcon:React.FC<Props> = ({ mode }) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
   const [displayVideo, setDisplayVideo] = useState(true)
+  const { isMobileView } = useIsMobileView()
 
   useEffect(() => {
     if(typeof window == 'undefined' || !wrapperRef.current) return
@@ -51,7 +56,10 @@ export const AnimatedIcon:React.FC = () => {
           preload="auto"
           style={{ display: 'block', width: '100%' }}
         >
-          <source src="/logos/brush_wine.webm" type="video/webm" />
+          {mode === 'light' || isMobileView
+            ? <source src="/logos/brush_light.webm" type="video/webm" />
+            : <source src="/logos/brush_wine.webm" type="video/webm" />
+          }
         </video>
       : <AnimatedGif />
       }
@@ -82,4 +90,12 @@ const AnimatedGif = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   animation-iteration-count: 1;
+
+  &[data-colormode="dark"] {
+    background-image: url("/logos/brush_wine.gif");
+  }
+
+  &[data-colormode="dark"] {
+    background-image: url("/logos/brush_light.gif");
+  }
 `

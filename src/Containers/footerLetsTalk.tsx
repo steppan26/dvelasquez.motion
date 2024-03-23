@@ -18,10 +18,8 @@ export const FooterLetsTalk:React.FC = () => {
   const { scrollToTop } = useScrollToTop()
 
   const getCurrentProject = useCallback((): string => {
-    const currentProjectList = router.asPath.split('#')
-    if(currentProjectList.length < 2) return "root"
-
-    return currentProjectList[1]
+    const currentProject = router.query['project'] as string
+    return !!currentProject ? currentProject : "root"
   }, [router])
 
   const nextLink: string = useMemo(() => {
@@ -39,7 +37,7 @@ export const FooterLetsTalk:React.FC = () => {
       motionSecrets: 'mysteria',
       mysteria: 'jellysmack'
     }
-    return "/works#" + mapper[currentProject]
+    return !!currentProject && mapper[currentProject] ? "/works/" + mapper[currentProject] : '/works'
   }, [router, getCurrentProject])
 
   return(
@@ -59,7 +57,7 @@ export const FooterLetsTalk:React.FC = () => {
         </SocialsWrapper>
       </LinksWrapper>
       <FooterContactSection />
-      <NextWrapper href={nextLink ?? "/"}>
+      <NextWrapper href={nextLink}>
         {nextLink === '/works' ? "View Projects" : "Next Project"}
         <BaseArrow>
           <ArrowLong />

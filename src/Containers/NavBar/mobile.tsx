@@ -1,14 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components"
-import { Sizes } from "../../Assets";
 import { AnimatedIcon } from "../../Components";
-import { MenuItems } from "../MenuSimple/menuItems";
 import { ToggleButton } from "../MenuSimple/toggleButton";
 import { MobileMenu } from "./mobileMenu";
 import { useRouter } from "next/router";
 
+interface Props {
+  mode: 'light' | 'dark'
+}
 
-export const NavMobile:React.FC = () => {
+export const NavMobile:React.FC<Props> = ({ mode }) => {
   const navRef = useRef<HTMLElement>(null)
   const [isOpen, setIsOpen] = useState(false)
   const timeout = useRef<NodeJS.Timeout>()
@@ -27,8 +28,11 @@ export const NavMobile:React.FC = () => {
   }
 
   return(
-    <Nav ref={navRef} className={isOpen ? "open" : ""} id="navbarMobile">
-      <AnimatedIcon />
+    <Nav ref={navRef} className={isOpen ? "open" : ""} id="navbarMobile" data-colormode={mode} >
+      {!isOpen || mode === 'light'
+        ? <AnimatedIcon mode="light" />
+        : <AnimatedIcon />
+      }
       <MenuWrapper onMouseLeave={handleMouseLeave} onMouseEnter={() => clearTimeout(timeout.current)}>
         <MobileMenu isOpen={isOpen} />
         <ToggleButton isOpen={isOpen} setIsOpen={setIsOpen} />
@@ -40,23 +44,26 @@ export const NavMobile:React.FC = () => {
 const Nav = styled.nav`
   --nav-main-color: var(--clr-text-main);
 
+  &[data-colormode="light"] {
+    --nav-main-color: var(--clr-bg-main);
+  }
+
+  &[data-colormode="dark"] {
+    --nav-main-color: var(--clr-text-main);
+  }
+
+  &.open {
+    --nav-main-color: var(--clr-text-main);
+  }
+
   z-index: 999;
-  position: absolute;
+  position: fixed;
     top: 0;
   display: flex;
     justify-content: space-between;
     align-items: center;
   width: 100vw;
   padding: 0 3vw;
-  filter: invert(1);
-
-  &.open {
-    filter: invert(0);
-
-    #mobileMenuBlock {
-      filter: invert(0);
-    }
-  }
 `
 
 const MenuWrapper = styled.div`
@@ -66,8 +73,4 @@ const MenuWrapper = styled.div`
     align-items: center;
   padding: 1rem;
   gap: 5px;
-
-  #mobileMenuBlock {
-    filter: invert(1);
-  }
 `

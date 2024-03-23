@@ -75,7 +75,7 @@ export const ProjectsShowcaseBlocks:React.FC = () => {
       <Wrapper>
         <NavSelector >
           <NavMobile />
-          <ProjectsNavbar navData={ProjectsListData} />
+          <ProjectsNavbar />
         </NavSelector>
         <Title data-isfullscreen={isFullScreen}>Handpicked Projects</Title>
         <Container id="showcaseContainer" data-isfullscreen={isFullScreen}>
@@ -205,11 +205,11 @@ const Container = styled(animated.div)`
       height: 25dvh;
     }
 
-    &[data-isfullscreen='true'] {
+    /* &[data-isfullscreen='true'] {
       &>div {
         overflow: unset;
       }
-    }
+    } */
   }
 `
 

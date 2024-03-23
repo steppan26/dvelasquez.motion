@@ -9,9 +9,12 @@ export const useActiveProjects = () => {
   const [activeSection, setActiveSection] = useState<sectionType>('reset')
 
   const getActivePage = useCallback((): sectionType => {
-    const pathList = router.asPath.split('#')
+    // const pathList = router.asPath.split('#')
+    const pathList = router.query['project']
 
-    return pathList.length > 1 ? pathList[1] as projectName : 'reset'
+    return pathList ? pathList as projectName : 'reset'
+
+    // return pathList.length > 1 ? pathList[1] as projectName : 'reset'
   }, [router])
 
   useEffect(() => {

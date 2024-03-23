@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react"
+import { Suspense, useEffect, useMemo, useRef, useState } from "react"
 import { animated } from "react-spring"
 import styled from "styled-components"
 import { useRouter } from "next/router"
@@ -53,7 +53,7 @@ export const ProjectBlock: React.FC<Props> = (props) => {
     <Container
     id={id+'_container'}
     className={isSelected ? 'active' : !isVisible ? 'hidden' : undefined}
-    onClick={() => router.push('/works#' + id)}
+    onClick={() => router.push('/works?project=' + id, 'works')}
     ref={containerRef}
     style={style}
     >

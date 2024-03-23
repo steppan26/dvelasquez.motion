@@ -6,13 +6,8 @@ import { ToggleButton } from "../MenuSimple/toggleButton";
 import { animated } from "react-spring";
 import dynamic from "next/dynamic";
 import { useActiveProjects, useIsMobileView } from "../../utils/hooks";
-import { ProjectData } from "..";
 
-interface Props {
-  navData: ProjectData[]
-}
-
-export const ProjectsNavbar:React.FC<Props> = () => {
+export const ProjectsNavbar:React.FC = () => {
   const navRef = useRef<HTMLElement>(null)
   const [isOpen, setIsOpen] = useState(false)
   const timeout = useRef<NodeJS.Timeout>()
