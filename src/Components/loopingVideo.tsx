@@ -12,13 +12,15 @@ interface Props {
   soundOption?: boolean
   allowControls?: boolean
   dataLazy?: boolean | string
+  autoPlay?: boolean
 }
 
-export const LoopingVideo:React.FC<Props> = ({ imageAlt="", backupImage, videoPath, videoType="video/webm", soundOption, allowControls, dataLazy=false }) => {
-  const [hasBeenClicked, setHasBeenClicked] = useState(false)
+export const LoopingVideo:React.FC<Props> = (props) => {
+  const { imageAlt="", backupImage, videoPath, videoType="video/webm", soundOption, allowControls, dataLazy=false, autoPlay=true } = props
   const stickerRef = useRef<HTMLImageElement>(null)
   const sceneRef = useRef<HTMLImageElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
+  const [hasBeenClicked, setHasBeenClicked] = useState(false)
   const [mousePosition, setMousePosition] = useState({x: 0, y: 0})
 
   const maskPosition = useMemo(() => {
@@ -47,7 +49,6 @@ export const LoopingVideo:React.FC<Props> = ({ imageAlt="", backupImage, videoPa
   }
 
   const handleMouseMove = (e: any) => {
-    console.info(e.target)
     setMousePosition({x: e.clientX, y: e.clientY})
   }
 
@@ -56,7 +57,7 @@ export const LoopingVideo:React.FC<Props> = ({ imageAlt="", backupImage, videoPa
       <Suspense fallback={ backupImage ? <Image src={backupImage} alt="static image version of video" /> : <>loading...</> }>
         <video
         ref={videoRef}
-        autoPlay
+        autoPlay={autoPlay}
         playsInline
         loop
         muted={!soundOption || !hasBeenClicked}

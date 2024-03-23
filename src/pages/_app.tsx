@@ -1,5 +1,3 @@
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
 import type { AppProps } from 'next/app'
 import { Stores } from '../utils/stores'
 import Head from 'next/head'
@@ -13,9 +11,6 @@ import favicon from '../Assets/favicon.png'
 // TagManager.initialize(tagManagerArgs)
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter()
-
-  useEffect(() => console.info(router, Component), [router, Component])
 
   return (
     <>
@@ -24,7 +19,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
       </Head>
     <Stores>
-      <Component {...pageProps} key={router.asPath} />
+      <Component {...pageProps} />
     </Stores>
     </>
   )

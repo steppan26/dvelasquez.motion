@@ -5,16 +5,16 @@ import { Sizes } from "../../Assets"
 export const PersonalProjectsList:React.FC = () => {
   return(
     <Container>
-      <ProjectWrapper>
-        <LoopingVideo dataLazy videoPath="motion-secrets_who-is-looking.webm" soundOption allowControls />
+      <ProjectWrapper data-lazy>
+        <LoopingVideo videoPath="motion-secrets_who-is-looking.webm" soundOption allowControls />
         <Text data-lazy>Is There Anybody Out There ?</Text>
       </ProjectWrapper>
-      <ProjectWrapper>
-        <LoopingVideo dataLazy videoPath="motion-secrets_mischievous_blue_dot.webm" soundOption allowControls />
+      <ProjectWrapper data-lazy>
+        <LoopingVideo videoPath="motion-secrets_mischievous_blue_dot.webm" soundOption allowControls />
         <Text data-lazy>Mischievious Blue Dot</Text>
       </ProjectWrapper>
-      <ProjectWrapper>
-        <LoopingVideo dataLazy videoPath="motion-secrets_intro.webm" soundOption allowControls />
+      <ProjectWrapper data-lazy>
+        <LoopingVideo videoPath="motion-secrets_intro.webm" soundOption allowControls />
         <Text data-lazy>Break On Through To The Other Side</Text>
       </ProjectWrapper>
     </Container>
@@ -46,7 +46,10 @@ const Container = styled.div`
   }
 `
 
-const ProjectWrapper = styled.div``
+const ProjectWrapper = styled.div`
+  width: 100%;
+  height: auto;
+`
 
 const Text = styled.div`
   margin-block: 2rem 3rem;

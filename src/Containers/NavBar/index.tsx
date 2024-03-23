@@ -33,9 +33,9 @@ export const Navbar:React.FC<Props> = ({ type, mode }) => {
 
   return (
     <NavSelector >
-        <NavMobile mode={mode} />
-        <ProjectsNavbar />
-      </NavSelector>
+      <NavMobile mode={mode} />
+      <Nav />
+    </NavSelector>
   )
 }
 
@@ -43,20 +43,21 @@ export const Navbar:React.FC<Props> = ({ type, mode }) => {
 const NavSelector = styled.div`
   z-index: 999;
 
-  #navbarProjects{
-    position: absolute;
+  &>* {
     display: flex;
 
-    @media (max-width: ${Sizes.small}) {
+    &:first-child {
       display: none;
     }
   }
 
-  #navbarMobile{
+  @media (max-width: ${Sizes.small}) {
+    &>* {
     display: none;
 
-    @media (max-width: ${Sizes.small}) {
+    &:first-child {
       display: flex;
     }
+  }
   }
 `

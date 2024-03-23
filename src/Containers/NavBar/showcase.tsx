@@ -30,7 +30,7 @@ const Nav = styled.nav<{islanding?: boolean}>`
   --nav-main-color: var(--clr-text-main);
 
   z-index: 999;
-  position: sticky;
+  position: relative;
     top: 0;
   display: flex;
     justify-content: space-between;

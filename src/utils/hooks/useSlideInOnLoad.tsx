@@ -98,8 +98,10 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
   useEffect(() => {
     if(typeof window == 'undefined') return
 
+    console.info("adding observers")
     addObservers()
-
     return () => observers.forEach(observer => observer.disconnect())
   }, [])
+
+  useEffect(() => console.info('obs', observers), [observers])
 }
