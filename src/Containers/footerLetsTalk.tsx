@@ -1,13 +1,12 @@
+import { useMemo } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import styled from "styled-components"
 import { ArrowLong, Sizes } from "../Assets"
-
-import Link from "next/link"
 import InstagramIcon from '/public/icons/instagram.png'
 import LinkedInIcon from '/public/icons/linkedin.png'
 import GlobeIcon from '/public/icons/globe.png'
 import YoutubeIcon from '/public/icons/youtube.png'
-import { useCallback, useMemo } from "react"
 import { useRouter } from "next/router"
 import { FooterContactSection } from "../Components"
 import { useScrollToTop } from "../utils/hooks"
@@ -17,28 +16,27 @@ export const FooterLetsTalk:React.FC = () => {
   const router =  useRouter()
   const { scrollToTop } = useScrollToTop()
 
-  const getCurrentProject = useCallback((): string => {
-    const currentProject = router.query['project'] as string
-    return !!currentProject ? currentProject : "root"
+  const nextLink = useMemo((): string => {
+    switch (router.asPath) {
+      case "/works":
+        return "/works/jellysmack"
+
+      case "/works/jellysmack":
+        return "/works/cpms"
+
+      case "/works/cpms":
+        return "/works/motionSecrets"
+
+      case "/works/motionSecrets":
+        return "/works/mysteria"
+
+      case "/works/mysteria":
+        return "/works/jellysmack"
+
+      default:
+        return "/works"
+    }
   }, [router])
-
-  const nextLink: string = useMemo(() => {
-    const currentPath = router.asPath
-
-    if(['/', '/about'].includes(currentPath)){
-      return '/works'
-    }
-
-    const currentProject = getCurrentProject()
-    const mapper: any = {
-      root: 'jellysmack',
-      jellysmack: 'cpms',
-      cpms: 'motionSecrets',
-      motionSecrets: 'mysteria',
-      mysteria: 'jellysmack'
-    }
-    return !!currentProject && mapper[currentProject] ? "/works/" + mapper[currentProject] : '/works'
-  }, [router, getCurrentProject])
 
   return(
     <Container>
