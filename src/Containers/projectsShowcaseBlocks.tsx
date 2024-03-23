@@ -1,4 +1,4 @@
-import { ReactNode, useMemo } from "react"
+import { ReactNode, useMemo, useRef } from "react"
 import { animated, useTransition } from "react-spring"
 import styled from "styled-components"
 import goBiggerLogo from '../../public/projects/go_bigger.jpg'
@@ -7,9 +7,11 @@ import laraLogo from '../../public/projects/girl_called_sara.jpg'
 import rokuLogo from '../../public/projects/jelly_Roku.jpg'
 import { Footer, Navbar, ProjectBlock } from "."
 import { MotionSecretsProject, JellySmackPortfolio, CPMSProject, MysteriaProject } from "../Projects"
-import { useActiveProjects, useIsMobileView } from "../utils/hooks"
+import { useActiveProjects, useHideNavBarOnScroll, useIsMobileView } from "../utils/hooks"
 import { PrimaryTitle } from "../Components/styledComponents"
 import { Sizes } from "../Assets"
+import { NavMobile } from "./NavBar/mobile"
+import { ProjectsNavbar } from "./NavBar/projects"
 
 const ProjectsListData: ProjectData[] = [
   {
@@ -71,10 +73,10 @@ export const ProjectsShowcaseBlocks:React.FC = () => {
   return(
     <>
       <Wrapper>
-        { isMobileView
-          ? <Navbar type='mobile' />
-          : <Navbar type='projects' navData={ProjectsListData} />
-        }
+        <NavSelector >
+          <NavMobile />
+          <ProjectsNavbar navData={ProjectsListData} />
+        </NavSelector>
         <Title data-isfullscreen={isFullScreen}>Handpicked Projects</Title>
         <Container id="showcaseContainer" data-isfullscreen={isFullScreen}>
           {transitions((style, item) => (
@@ -88,6 +90,27 @@ export const ProjectsShowcaseBlocks:React.FC = () => {
     </>
   )
 }
+
+const NavSelector = styled.div`
+  z-index: 999;
+
+  #navbarProjects{
+    position: absolute;
+    display: flex;
+
+    @media (max-width: ${Sizes.small}) {
+      display: none;
+    }
+  }
+
+  #navbarMobile{
+    display: none;
+
+    @media (max-width: ${Sizes.small}) {
+      display: flex;
+    }
+  }
+`
 
 const Container = styled(animated.div)`
   --spacing: 7vw;

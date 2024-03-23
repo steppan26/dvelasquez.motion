@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react"
+import { Suspense, useMemo, useRef, useState } from "react"
 import Image, { type StaticImageData } from "next/image"
 import styled from "styled-components"
 import MouseStickerImage from '/public/Assets/better_with_sound.gif'
@@ -53,36 +53,31 @@ export const LoopingVideo:React.FC<Props> = ({ imageAlt="", backupImage, videoPa
 
   return (
     <VideoWrapper className="looping-video" ref={sceneRef} onMouseEnter={handleMouseMove} onMouseMove={handleMouseMove} data-lazy >
-      <video
-      ref={videoRef}
-      autoPlay
-      playsInline
-      loop
-      muted={!soundOption || !hasBeenClicked}
-      controls={hasBeenClicked && allowControls}
-      onClick={handleVideoClick}
-      controlsList="nodownload noremoteplayback"
-      preload="metadata"
-      poster={backupImage?.src}
-      >
-        <source src={videoPath} type={videoType} />
-        { backupImage && <Image
-          src={backupImage}
-          alt={imageAlt}
-          style={{
-            maxWidth: "100%",
-            height: "auto"
-          }} /> }
-      </video>
-      { soundOption &&
-        <MouseSticker
-          ref={stickerRef}
-          src={MouseStickerImage}
-          alt="better with sound sticker"
-          data-hasbeenclicked={hasBeenClicked}
-          style={{...maskPosition}}
-        />
-      }
+      <Suspense fallback={ backupImage ? <Image src={backupImage} alt="static image version of video" /> : <>loading...</> }>
+        <video
+        ref={videoRef}
+        autoPlay
+        playsInline
+        loop
+        muted={!soundOption || !hasBeenClicked}
+        controls={hasBeenClicked && allowControls}
+        onClick={handleVideoClick}
+        controlsList="nodownload noremoteplayback"
+        preload="metadata"
+        poster={backupImage?.src}
+        >
+          <source src={videoPath} type={videoType} />
+        </video>
+        { soundOption &&
+          <MouseSticker
+            ref={stickerRef}
+            src={MouseStickerImage}
+            alt="better with sound sticker"
+            data-hasbeenclicked={hasBeenClicked}
+            style={{...maskPosition}}
+          />
+        }
+      </Suspense>
     </VideoWrapper>
   );
 }

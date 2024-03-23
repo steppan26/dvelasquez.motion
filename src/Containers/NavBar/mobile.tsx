@@ -27,7 +27,7 @@ export const NavMobile:React.FC = () => {
   }
 
   return(
-    <Nav ref={navRef} className={isOpen ? "open" : ""}>
+    <Nav ref={navRef} className={isOpen ? "open" : ""} id="navbarMobile">
       <AnimatedIcon />
       <MenuWrapper onMouseLeave={handleMouseLeave} onMouseEnter={() => clearTimeout(timeout.current)}>
         <MobileMenu isOpen={isOpen} />

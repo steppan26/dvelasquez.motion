@@ -4,6 +4,8 @@ import JellyBoxImage from '/public/projects/jellysmack/jellybox.gif'
 import BannerImage from '/public/projects/jellysmack/jelly_thank-you.png'
 import { SocialMediaAssets } from "."
 import { Sizes } from "../Assets"
+import { LoopingVideo } from "../Components"
+import LandingBackupImage from '/public/projects/jellysmack/landing_banner_static.png'
 
 const introData = {
   image: JellyBoxImage,
@@ -16,15 +18,7 @@ export const JellySmackPortfolio:React.FC = () => {
   return(
     <Container>
       <LandingSection>
-        <video
-        muted
-        autoPlay
-        playsInline
-        loop
-        controls={false}
-        >
-          <source src="/go-bigger_header.webm" type="video/webm" />
-        </video>
+        <LoopingVideo videoPath="/go-bigger_header.webm" backupImage={LandingBackupImage} />
       </LandingSection>
       <IntroSection {...introData} />
       <PhoneScreenshots />
@@ -32,17 +26,7 @@ export const JellySmackPortfolio:React.FC = () => {
       <SocialMediaAssets />
       <JellyMessage />
       <VideoWrapper  data-lazy>
-        <video
-        autoPlay
-        playsInline
-        muted
-        loop
-        controls={false}
-        controlsList="nodownload"
-        poster={BannerImage.src}
-        preload="metadata">
-          <source src="/jelly_thank_you_for_watching.webm" type="video/webm" />
-        </video>
+        <LoopingVideo videoPath="/jelly_thank_you_for_watching.webm" backupImage={BannerImage} />
       </VideoWrapper>
       <Footer />
     </Container>
@@ -75,6 +59,12 @@ const LandingSection = styled.div`
   display: flex;
     justify-content: center;
   width: 100%;
+
+  background-color: black;
+  background-image: url('/projects/jellysmack/landing_banner_static.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 
   video {
     width: 110%;

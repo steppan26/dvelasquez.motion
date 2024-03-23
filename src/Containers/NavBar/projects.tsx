@@ -3,8 +3,7 @@ import styled from "styled-components"
 import { Sizes } from "../../Assets";
 import { MenuItems } from "../MenuSimple/menuItems";
 import { ToggleButton } from "../MenuSimple/toggleButton";
-import { animated, useSpring } from "react-spring";
-import { useRouter } from "next/router";
+import { animated } from "react-spring";
 import dynamic from "next/dynamic";
 import { useActiveProjects, useIsMobileView } from "../../utils/hooks";
 import { ProjectData } from "..";
@@ -32,7 +31,7 @@ export const ProjectsNavbar:React.FC<Props> = () => {
   }
 
   return(
-    <Nav ref={navRef} data-islight={displayLightNavbar}>
+    <Nav ref={navRef} data-islight={displayLightNavbar} id="navbarProjects">
       {displayLightNavbar
       ? <LogoLight />
       : <LogoDark />
