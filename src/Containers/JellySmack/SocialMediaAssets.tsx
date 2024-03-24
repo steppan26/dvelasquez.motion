@@ -9,8 +9,8 @@ import GoBiggerImage from '/public/projects/jellysmack/go-bigger.gif'
 import WatchImage from '/public/projects/jellysmack/watch-till-the-end.gif'
 import TransitionOneImage from '/public/projects/jellysmack/transition_1.png'
 import TransitionTwoImage from '/public/projects/jellysmack/transition_2.png'
-import { Sizes } from "../Assets"
-import { useIsMobileView } from "../utils/hooks"
+import { Sizes } from "../../Assets"
+import { useIsMobileView } from "../../utils/hooks"
 
 export const SocialMediaAssets:React.FC = () => {
   const { isMobileView } = useIsMobileView()
