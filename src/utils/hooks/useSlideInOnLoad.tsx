@@ -1,7 +1,9 @@
+import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 
 export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
   const [observers, setObservers] = useState<IntersectionObserver[]>([])
+  const router = useRouter()
 
   const _attachObserver = useCallback((target: Element) => {
     const observer = new IntersectionObserver(entries => {
@@ -46,7 +48,7 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
       const wrapper = _wrapElement(target);
       wrapper && _attachObserver(wrapper)
   })
-  },[querySelector, _attachObserver, _wrapElement])
+  },[querySelector, _attachObserver, _wrapElement, router])
 
 
   const _applyStyles = (wrapperElement: HTMLElement, elementToWrap: Element) => {
@@ -101,7 +103,5 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
     console.info("adding observers")
     addObservers()
     return () => observers.forEach(observer => observer.disconnect())
-  }, [])
-
-  useEffect(() => console.info('obs', observers), [observers])
+  }, [addObservers, observers])
 }
