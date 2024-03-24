@@ -1,13 +1,8 @@
-import Image from "next/image"
 import styled from "styled-components"
 import { Sizes } from "../Assets"
-import InstagramIcon from '/public/icons/instagram.png'
-import LinkedInIcon from '/public/icons/linkedin.png'
-import GlobeIcon from '/public/icons/globe.png'
-import YoutubeIcon from '/public/icons/youtube.png'
 import { useScrollToTop } from "../utils/hooks"
-import LetsTalkImage from '/public/lets_talk_anim.png'
-import { FooterLink, FooterLinkProps, InternalLink } from "../Components/footerLink"
+import { FooterLink, FooterLinkProps } from "../Components/footerLink"
+import { FooterContactSection } from "../Components"
 
 
 interface Props {
@@ -22,19 +17,7 @@ export const Footer:React.FC<Props> = ({ leftLink, rightLink }) => {
     <Container>
       <BackToTop onClick={() => scrollToTop()} />
       <FooterLink href={leftLink.href} text={leftLink.text} direction="left" />
-      <MiddleSection>
-        <Image src={LetsTalkImage} alt="animated text" />
-        <LinksWrapper>
-          <SocialsWrapper>
-            <InternalLink href="https://www.instagram.com/dvelasquez-motion" target="_blank">
-              <Image src={InstagramIcon} alt="instagram icon" />
-            </InternalLink>
-            <Image src={GlobeIcon} alt="globe icon" />
-            <Image src={YoutubeIcon} alt="youtube icon" />
-            <Image src={LinkedInIcon} alt="linkedin icon" />
-          </SocialsWrapper>
-        </LinksWrapper>
-      </MiddleSection>
+        <FooterContactSection />
       <FooterLink href={rightLink.href} text={rightLink.text} direction="right" />
     </Container>
   )
@@ -61,41 +44,6 @@ const Container = styled.footer`
   }
 `
 
-const LinksWrapper = styled.div`
-  display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 1rem;
-
-  @media (max-width: ${Sizes.small}) {
-    display: none;
-  }
-`
-
-const SocialsWrapper = styled.div`
-  display: flex;
-    gap: 1rem;
-  margin-top: 0.5rem;
-
-  &>* {
-    margin-block: 0;
-    line-height: unset;
-    font-size: unset !important;
-    height: max-content;
-    transition: ease all 420ms;
-
-    &::after {
-      content: unset !important;
-    }
-
-    &:hover {
-      cursor: pointer;
-      transform: scale(1.15);
-    }
-  }
-`
-
 const BackToTop = styled.div`
   --size: clamp(55px, 4.8vw, 90px);
 
@@ -118,12 +66,4 @@ const BackToTop = styled.div`
   &:hover {
     box-shadow: 0 4px 14px 6px rgba(0, 0, 0, 0.15);
   }
-`
-
-const MiddleSection = styled.div`
-  position: relative;
-  display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 `

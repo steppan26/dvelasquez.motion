@@ -1,26 +1,50 @@
-import styled from "styled-components"
-import LogoImage from '/public/lets_talk.png'
+import { useEffect, useState } from "react"
 import Image from "next/image"
-import { useState } from "react"
-import { BouncingArrow } from "."
+import styled from "styled-components"
 import { Sizes } from "../Assets"
+import InstagramIcon from '/public/icons/instagram.png'
+import LinkedInIcon from '/public/icons/linkedin.png'
+import GlobeIcon from '/public/icons/globe.png'
+import YoutubeIcon from '/public/icons/youtube.png'
+import LetsTalkImage from '/public/lets_talk_anim.png'
+import { InternalLink } from "./footerLink"
 
 
 export const FooterContactSection:React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
 
+  useEffect(() => setIsOpen(false), [])
+
   return(
     <Container>
-      <Switcher data-isopen={isOpen}>
-        <Logo onClick={() => setIsOpen(true)} src={LogoImage} alt="Main Logo" />
-        <Form>
-          <ArrowWrapper>
-            <BouncingArrow onClick={() => setIsOpen(false)} />
-          </ArrowWrapper>
-          <a href="mailto:dvelasquez-motion@gmail.com"><b>email:</b> dvelasquez-motion@gmail.com</a>
-          <a href="tel:0033666265371"><b>phone:</b> (+33) 06.66.66.66.66</a>
-        </Form>
-      </Switcher>
+        <MiddleSection>
+          <Slider>
+            <Switcher data-isopen={isOpen}>
+              <Image src={LetsTalkImage} alt="animated text" onClick={() => setIsOpen(true)} />
+              <HiddenSection>
+                <p>Experience the thrill of motion as we turn your visions into breathtaking reality!</p>
+                <p>Let&apos;s make magic happen! ✨🔮</p>
+              </HiddenSection>
+            </Switcher>
+          </Slider>
+          <LinksWrapper>
+          <EmailLink href="mailto:dvelasquez.motion@gmail.com">dvelasquez.motion@gmail.com</EmailLink>
+            <SocialsWrapper>
+              <InternalLink href="https://www.instagram.com/dvelasquez-motion" target="_blank">
+                <Image src={InstagramIcon} alt="instagram icon" />
+              </InternalLink>
+              <InternalLink href="#" target="_blank" >
+                <Image src={GlobeIcon} alt="globe icon" />
+              </InternalLink>
+              <InternalLink href="https://www.youtube.com/@dvelasquez.motion/featured" target="_blank" >
+                <Image src={YoutubeIcon} alt="youtube icon" />
+              </InternalLink>
+              <InternalLink href="https://www.linkedin.com/in/velazquezdaniela/" target="_blank" >
+                <Image src={LinkedInIcon} alt="linkedin icon" />
+              </InternalLink>
+            </SocialsWrapper>
+          </LinksWrapper>
+        </MiddleSection>
     </Container>
   )
 }
@@ -29,21 +53,9 @@ const Container = styled.div`
   overflow: hidden;
 `
 
-
-const Logo = styled(Image)`
-  cursor: pointer;
-  width: 33vw;
-  height: auto;
-  transform: scale(0.95);
-  transition: ease all 200ms;
-
-  &:hover {
-    transform: scale(1);
-  }
-
-  @media (max-width: ${Sizes.small}) {
-    width: 100%;
-  }
+const Slider = styled.div`
+  height: 27dvh;
+  overflow: hidden;
 `
 
 const Switcher = styled.div`
@@ -51,81 +63,87 @@ const Switcher = styled.div`
     grid-template-columns: 1fr;
     grid-template-rows: 27dvh 27dvh;
     align-items: center;
-  height: 27dvh;
 
   transform: translateY(0);
   transition: ease transform 300ms;
 
   &[data-isopen='true'] {
-    transform: translateY(-100%);
+    transform: translateY(-50%);
   }
 `
 
-const Form = styled.div`
+const SocialsWrapper = styled.div`
+  display: flex;
+    gap: 1rem;
+  margin-top: 0.5rem;
+
+  &>* {
+    margin-block: 0;
+    line-height: unset;
+    font-size: unset !important;
+    height: max-content;
+    transition: ease all 420ms;
+
+    &::after {
+      content: unset !important;
+    }
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.15);
+    }
+  }
+`
+
+const MiddleSection = styled.div`
   position: relative;
   display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    gap: 1rem;
-  height: 100%;
-  font-family: var(--font-family-wide);
-  font-weight: 100;
-  font-style: italic;
-  font-size: 1.5rem;
-  line-height: 1.8rem;
-  color: var(--footer-color);
+    align-items: center;
 
-  * {
-    color: inherit;
-
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-
-  @media (max-width: ${Sizes.small}) {
-    a {
-      display: flex;
-        flex-direction: column;
-        align-items: stretch;
-      width: 100%;
-      font-size: 1rem;
-      text-align: center;
-
-      b {
-        font-size: 1.5rem;
-      }
-    }
+  &>img {
+    max-width: 100%;
   }
 `
 
-const ArrowWrapper = styled.div`
-  margin-inline: auto;
-  transform-origin: center;
-  height: 5dvh;
-  transform: rotate(180deg);
-
-  &>div {
-    cursor: n-resize;
-    filter: brightness(200%) invert(1);
-
-    img {
-      height: auto;
-      width: 50%;
-    }
-  }
+const LinksWrapper = styled.div`
+  display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
 
   @media (max-width: ${Sizes.small}) {
-    height: 10dvh;
-    width: 12px;
+    display: none;
+  }
+`
 
-    .bouncing-arrow {
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-      padding-inline: 0;
-      margin-bottom: 0;
-    }
+const HiddenSection = styled.div`
+  height: 50%;
+  width: 100%;
+  font-size: 1.25rem;
+  text-align: center;
+  font-family: var(--font-family-wide);
+  font-weight: 300;
+  color: var(--clr-bg-main);
+  padding-inline: 5rem;
+
+  a {
+    font-size: larger;
+    color: var(--clr-text-main);
+  }
+`
+
+const EmailLink = styled(InternalLink)`
+  font-size: 1.65rem;
+  transition: ease-out 420ms all;
+
+  &::after {
+    content: unset;
+  }
+
+  &:hover {
+    transform: scale(1.03);
   }
 `
