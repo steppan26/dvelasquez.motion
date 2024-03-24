@@ -37,6 +37,9 @@ const Container = styled.footer`
   background-color: var(--clr-bg-secondary);
   box-shadow: inset 0px 4px 20px ${p => p.theme.textPrimary}4c;
   font-family: var(--font-family-regular);
+  background-image: url('/footer_bg.svg');
+  background-size: cover;
+  background-position: center;
 
   @media (max-width: ${Sizes.small}) {
     flex-direction: column-reverse;
