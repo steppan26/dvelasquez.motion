@@ -1,6 +1,4 @@
-import { useMemo } from "react"
 import Image from "next/image"
-import { useRouter } from "next/router"
 import styled from "styled-components"
 import { Sizes } from "../Assets"
 import InstagramIcon from '/public/icons/instagram.png'
@@ -18,30 +16,7 @@ interface Props {
 }
 
 export const Footer:React.FC<Props> = ({ leftLink, rightLink }) => {
-  const router =  useRouter()
   const { scrollToTop } = useScrollToTop()
-
-  const nextLink = useMemo((): string => {
-    switch (router.asPath) {
-      case "/works":
-        return "/works/jellysmack"
-
-      case "/works/jellysmack":
-        return "/works/cpms"
-
-      case "/works/cpms":
-        return "/works/motionSecrets"
-
-      case "/works/motionSecrets":
-        return "/works/mysteria"
-
-      case "/works/mysteria":
-        return "/works/jellysmack"
-
-      default:
-        return "/works"
-    }
-  }, [router])
 
   return(
     <Container>

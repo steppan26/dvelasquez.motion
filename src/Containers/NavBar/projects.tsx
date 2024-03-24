@@ -65,7 +65,6 @@ const Nav = styled(animated.nav)`
 `
 
 const MenuWrapper = styled.div`
-  cursor: pointer;
   display: flex;
     justify-content: center;
     align-items: center;

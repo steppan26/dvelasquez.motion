@@ -32,29 +32,38 @@ interface Props {
   isOpen: boolean
 }
 
-const TRAVEL_DISTANCE = 250
+const TRAVEL_DISTANCE = '110%'
 
 const easeInOutCubic = (t: any) => (t < 0.5 ? 4 * t ** 3 : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
 export const MenuItems:React.FC<Props> = ({ isOpen }) => {
   const router = useRouter()
 
+  const opacityStyle = useSpring({
+    from: { opacity: 1 },
+    to: { opacity: isOpen ? 0 : 1 },
+    config: {
+      duration: 200,
+      velocity: 1
+    }
+  })
+
   const translateStyle = useSpring({
-    from: { x: TRAVEL_DISTANCE, opacity: 0 },
-    to: { x: isOpen ? 0 : TRAVEL_DISTANCE, opacity: isOpen ? 1 : 0 },
+    from: { x: TRAVEL_DISTANCE},
+    to: { x: isOpen ? '0%' : TRAVEL_DISTANCE },
     config: {
       mass: 1.4,
-      tension: isOpen ? 250 : 150,
-      friction: isOpen ? 23.5 : 8,
+      tension: 250,
+      friction: 43.5,
       precision: 0.2,
       restVelocity: 0.3,
-      velocity: isOpen ? 0 : 0.1,
     }
   })
 
   return(
     <Wrapper>
       <MenuContainer style={{ ...translateStyle }}>
+        <Email style={opacityStyle}>dvelasquez.motion@gmail.com</Email>
         {menuData.map((props, index) => (
           <Menu key={index} className={router.route === props.href ? 'active' : ''}>
             <Link href={props.href}>{props.text}</Link>
@@ -105,20 +114,11 @@ const Menu = styled(animated.div)`
   }
 `
 
-const Button = styled.button`
-  appearance: none;
-  border: none;
-  background-color: inherit;
-  color: inherit;
-  font-size: inherit;
-`
-
-
 const MenuContainer = styled(animated.div)`
   display: flex;
     justify-content: flex-end;
+    align-items: center;
     gap: 1.75rem;
-  overflow: hidden;
   width: max-content;
   margin-right: 2.5rem;
   padding-inline: 2rem 0.5rem;
@@ -130,6 +130,21 @@ const MenuContainer = styled(animated.div)`
 `
 
 const Wrapper = styled.div`
+  position: relative;
   width: max-content;
   overflow: hidden;
+`
+
+const Email = styled(animated.p)`
+  z-index: 10;
+  cursor: text;
+  position: absolute;
+  font-family: var(--font-family-wide);
+  color: var(--nav-main-color);
+  font-size: 1.15rem;
+  width: max-content;
+  font-weight: 200;
+  right: 100%;
+  margin-block: 0;
+  padding-right: 2rem;
 `

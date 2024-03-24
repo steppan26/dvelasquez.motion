@@ -48,11 +48,9 @@ export const ToggleButton:React.FC<Props> = ({ isOpen, setIsOpen }) => {
       onMouseEnter={handleActivateAnimation}
       onMouseLeave={() => setIsHovering(false)}
       onTouchStart={singleAnimation}
-      onClick={handleOnClick}
       >
-        <HoverArea onMouseEnter={handleActivateAnimation} >
-        </HoverArea>
-        <MouseInteractionArea />
+        {/* <HoverArea onMouseEnter={handleActivateAnimation} /> */}
+        <MouseInteractionArea onClick={handleOnClick} />
         {diamonds.map((props, index) => (
           <Diamond key={index} style={props} />
         ))}
