@@ -48,7 +48,7 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
       const wrapper = _wrapElement(target);
       wrapper && _attachObserver(wrapper)
   })
-  },[querySelector, _attachObserver, _wrapElement, router])
+  },[querySelector, _attachObserver, _wrapElement])
 
 
   const _applyStyles = (wrapperElement: HTMLElement, elementToWrap: Element) => {
@@ -97,11 +97,18 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
     return childElement;
   }
 
+  const cleanUp = () => {
+    const observedElements = document.querySelectorAll('.slide-wrapper')
+    observedElements.forEach(_unwrapElement)
+    observers.forEach(observer => observer.disconnect())
+  }
+
   useEffect(() => {
     if(typeof window == 'undefined') return
 
     console.info("adding observers")
     addObservers()
-    return () => observers.forEach(observer => observer.disconnect())
-  }, [addObservers, observers])
+
+    return cleanUp
+  }, [router.asPath])
 }
