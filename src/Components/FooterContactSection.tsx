@@ -63,6 +63,7 @@ const Switcher = styled.div`
     grid-template-columns: 1fr;
     grid-template-rows: 27dvh 27dvh;
     align-items: center;
+    justify-items: center;
 
   transform: translateY(0);
   transition: ease transform 300ms;
