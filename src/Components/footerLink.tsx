@@ -1,6 +1,8 @@
 import Link from "next/link"
 import styled from "styled-components"
 import { Sizes, ArrowLong } from "../Assets"
+import { useState } from "react"
+import { useToggle } from "../utils/hooks"
 
 export interface FooterLinkProps {
   text: string
@@ -25,10 +27,12 @@ export const FooterLink:React.FC<FooterLinkProps> = ({ text, href, direction }) 
 
 
 const ArrowWrapper = styled.div`
+  position: absolute;
+  top: 2rem; left: -1rem; right: -3rem;
   overflow: hidden;
 
   img {
-    transition: ease all 1200ms;
+    transition: ease all 600ms;
   }
 `
 
@@ -66,7 +70,7 @@ export const InternalLink = styled(Link)`
 
 const BaseArrow = styled.div`
   position: absolute;
-  bottom: 0; left: 0; right: 0;
+  top: 2rem; left: -1rem; right: -3rem;
   opacity: 1;
   z-index: 5;
 
@@ -99,6 +103,7 @@ const NextWrapper = styled(InternalLink)`
 
     ${BaseArrow}, ${ArrowWrapper} {
       align-self: flex-end;
+      left: -3rem; right: -1rem;
       transform: rotateY(180deg);
     }
 }

@@ -31,7 +31,7 @@ const Container = styled.footer`
     justify-content: space-between;
     align-items: center;
     gap: 2.5vw;
-  padding: 12dvh 5.7vw;
+  padding: 10dvh 5.7vw;
   width: 100%;
   max-width: 100vw;
   background-color: var(--clr-bg-secondary);

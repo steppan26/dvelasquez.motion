@@ -125,6 +125,7 @@ const HiddenSection = styled.div`
   font-size: 1.25rem;
   text-align: center;
   font-family: var(--font-family-wide);
+  font-style: italic;
   font-weight: 300;
   color: var(--clr-bg-main);
   padding-inline: 5rem;
