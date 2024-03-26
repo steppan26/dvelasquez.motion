@@ -177,7 +177,7 @@ const Title = styled(PrimaryTitle)`
   margin-block: 0;
   margin-left: 10vw;
   grid-area: header;
-  font-family: var(--font-family-regular);
+  font-family: var(--font-family-wide);
     font-size: 5rem;
     font-weight: 200;
     font-style: italic;
