@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import MainHeaderImage from "../../public/projects/girl_called_sara.jpg"
+import MainHeaderImage from "/public/projects/girl_called_sara.jpg"
 import ClaraImage from '/public/projects/cpms/clara_profile_illustration.png'
 import MainVideoImage from '/public/projects/cpms/main_video.png'
 import { Navbar, DataScreenshots, DrawingsSection, Footer, IntroSection } from "../../Containers"

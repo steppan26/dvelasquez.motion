@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import { Navbar } from "../../Containers";
 import Image from "next/image"
 import styled from "styled-components"
-import MainHeaderImage from "../../public/projects/mysteria/Jellysmack_roku_intro.png"
+import MainHeaderImage from "/public/projects/mysteria/Jellysmack_roku_intro.png"
 import { Footer, IntroSection } from "../../Containers"
 import IntroImage from '/public/projects/mysteria/intro_image.png'
 import { Sizes } from "../../Assets"
