@@ -6,6 +6,7 @@ import StickersVideoStatic from '/public/projects/jellysmack/stickers_video.png'
 import { Text } from "../../Components/styledComponents"
 import { Sizes } from "../../Assets"
 import { useIsMobileView } from "../../utils/hooks"
+import { LoopingVideo } from "../../Components"
 
 export const Stickers:React.FC = () => {
   const { isMobileView } = useIsMobileView()
@@ -37,18 +38,7 @@ export const Stickers:React.FC = () => {
             height: "auto"
           }} />
       </InformationWrapper>
-      <Video
-      // data-lazy
-      autoPlay
-      playsInline
-      muted
-      loop
-      controls={false}
-      controlsList="nodownload"
-      poster={StickersVideoStatic.src}
-      preload="metadata">
-        <source src="/stickers.mp4" type="video/mp4" />
-      </Video>
+      <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711566006/stickers_ttkpfq.mp4" backupImage={StickersVideoStatic} />
     </Container>
   );
 }

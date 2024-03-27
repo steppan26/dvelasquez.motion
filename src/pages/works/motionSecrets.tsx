@@ -12,11 +12,7 @@ const Page:NextPage = () => {
       <Navbar type="projects" mode="dark" />
       <Container>
       <ImageWrappper className="main-image">
-        <LoopingVideo
-        videoPath="/motion-secrets_intro.webm"
-        backupImage={MainHeaderImage}
-        imageAlt="The words 'go larger' in big, duplicated over itself"
-        />
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565982/motion-secrets_intro_xotqvo.webm" backupImage={MainHeaderImage} />
       </ImageWrappper>
       <IntroSection
       image={IntroImage}
@@ -27,14 +23,8 @@ const Page:NextPage = () => {
       <PersonalProjectsList />
       <ProjectDrawings />
       <Footer
-      leftLink={{
-        text: "Home",
-        href: "/"
-      }}
-      rightLink={{
-        text: "Next",
-        href: "/works/mysteria"
-      }}
+      leftLink={{ text: "Home", href: "/" }}
+      rightLink={{ text: "Next", href: "/works/mysteria" }}
       />
     </Container>
     </>

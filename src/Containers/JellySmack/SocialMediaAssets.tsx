@@ -11,6 +11,7 @@ import TransitionOneImage from '/public/projects/jellysmack/transition_1.png'
 import TransitionTwoImage from '/public/projects/jellysmack/transition_2.png'
 import { Sizes } from "../../Assets"
 import { useIsMobileView } from "../../utils/hooks"
+import { LoopingVideo } from "../../Components"
 
 export const SocialMediaAssets:React.FC = () => {
   const { isMobileView } = useIsMobileView()
@@ -67,32 +68,8 @@ export const SocialMediaAssets:React.FC = () => {
           }} />
       </MiddleSection>
       <BottomSection data-lazy>
-      <span>
-        <video
-        autoPlay
-        playsInline
-        muted
-        loop
-        controls={false}
-        controlsList="nodownload"
-        poster={TransitionOneImage.src}
-        preload="metadata">
-          <source src="/jellysmack_transition_1.mp4" type="video/mp4" />
-        </video>
-      </span>
-      <span>
-        <video
-        autoPlay
-        playsInline
-        muted
-        loop
-        controls={false}
-        controlsList="nodownload"
-        poster={TransitionTwoImage.src}
-        preload="metadata">
-          <source src="/jellysmack_transition_2.mp4" type="video/mp4" />
-        </video>
-      </span>
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565980/jellysmack_transition_1_i7nqbt.mp4" backupImage={TransitionOneImage} />
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565981/jellysmack_transition_2_hljij7.mp4" backupImage={TransitionTwoImage} />
       </BottomSection>
     </Container>
   );
@@ -202,7 +179,7 @@ const BottomSection = styled.div`
   margin-top: 10dvh;
   margin-inline: calc(var(--page-margin) * -1);
 
-  &>span {
+  &>div {
     position: relative;
     display: flex;
       justify-content: center;
@@ -211,12 +188,12 @@ const BottomSection = styled.div`
     overflow: hidden;
   }
 
-  &>span>video {
+  &>div>video {
     height: auto;
     width: var(--video-size);
   }
 
-  &>span:first-of-type {
+  &>div:first-of-type {
     margin-top: var(--stagger-size);
   }
 

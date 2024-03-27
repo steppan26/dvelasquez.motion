@@ -9,6 +9,7 @@ import { Sizes } from "../../Assets"
 import { LoopingVideo } from "../../Components"
 import { Text } from "../../Components/styledComponents"
 import { VideosGallery } from "../../Containers/mysteria"
+import CaseUpdateImage from '/public/projects/mysteria/case_update_static.png'
 
 const Page:NextPage = () => {
   return (
@@ -29,39 +30,33 @@ const Page:NextPage = () => {
       howText="Jellysmack and Roku collaborated to hand-select creators and assist them in launching their own shows. Mysteria and Hello Inspo mark just the beginning of many more shows we will be launching.\nWe developed intros and outros for both the main channels and the individual creators to be featured. Our primary objective was to visually translate the personality of each channel."
       />
       <ContentWrapper>
-        <LoopingVideo videoPath="mysteria_hello_inspo.webm" dataLazy allowControls soundOption />
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565999/mysteria_hello_inspo_mzhn52.webm" dataLazy allowControls soundOption />
         <CenteredText>Top creators offer inspiration covering a wide range of topics, from beauty and style to home makeovers, recipes, DIYs, and more.</CenteredText>
         <VideosGallery
         videosList={[
-          'mysteria_gallery-cooking.webm',
-          'mysteria_gallery-realness.webm',
-          'mysteria_gallery-room-reveal.webm',
-          'mysteria_gallery-doll-house.webm'
+          'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565991/mysteria_gallery-cooking_ntugo1.webm',
+          'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565995/mysteria_gallery-realness_oz6wnl.webm',
+          'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565996/mysteria_gallery-room-reveal_zclouu.webm',
+          'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565993/mysteria_gallery-doll-house_ku7vhq.webm'
         ]}
         />
-        <LoopingVideo videoPath="" dataLazy allowControls soundOption />
+        <LoopingVideo videoPath="" dataLazy allowControls soundOption backupImage={CaseUpdateImage} />
         <CenteredText data-lazy>
           Mysteria shines a spotlight on the experiences of the victims. With its unique storytelling methods, this channel serves as the ultimate destination for true crime enthusiasts.
         </CenteredText>
         <VideosGallery
         videosList={[
-          'mysteria_criminal-psyche.webm',
-          'mysteria_killer-bites.webm',
-          'mysteria_cravings.webm',
-          'mysteria_motives.webm'
+          'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565990/mysteria_criminal-psyche_foievu.webm',
+          'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711566000/mysteria_killer-bites_xxgvtc.webm',
+          'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565988/mysteria_cravings_fnaxfv.webm',
+          'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711566002/mysteria_motives_kluk6u.webm'
         ]}
         />
-        <LoopingVideo videoPath="mysteria_stories.webm" dataLazy allowControls soundOption />
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711566008/mysteria_stories_ks55iv.webm" dataLazy allowControls soundOption />
       </ContentWrapper>
       <Footer
-      leftLink={{
-        text: "Home",
-        href: "/"
-      }}
-      rightLink={{
-        text: "Next",
-        href: "/works/jellysmack"
-      }}
+      leftLink={{ text: "Home", href: "/" }}
+      rightLink={{ text: "Next", href: "/works/jellysmack" }}
       />
     </Container>
     </>

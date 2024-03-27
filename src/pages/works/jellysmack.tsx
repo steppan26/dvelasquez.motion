@@ -28,17 +28,11 @@ const Page:NextPage = () => {
       <SocialMediaAssets />
       <JellyMessage />
       <VideoWrapper  data-lazy>
-        <LoopingVideo videoPath="/jelly_thank_you_for_watching.webm" backupImage={BannerImage} />
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565980/jelly_thank_you_for_watching_xy0jzh.webm" backupImage={BannerImage} />
       </VideoWrapper>
       <Footer
-      leftLink={{
-        text: "Home",
-        href: "/"
-      }}
-      rightLink={{
-        text: "Next",
-        href: "/works/cpms"
-      }}
+      leftLink={{ text: "Home", href: "/" }}
+      rightLink={{ text: "Next", href: "/works/cpms" }}
       />
     </Container>
     </>
