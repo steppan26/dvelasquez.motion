@@ -13,7 +13,7 @@ const Page:NextPage = () => {
       <Container>
       <ImageWrappper className="main-image">
         <LoopingVideo
-        videoPath="motion-secrets_intro.webm"
+        videoPath="/motion-secrets_intro.webm"
         backupImage={MainHeaderImage}
         imageAlt="The words 'go larger' in big, duplicated over itself"
         />
