@@ -1,7 +1,7 @@
 import Image from "next/image"
 import styled from "styled-components"
-import Drawing00 from '/public/projects/cpms/drawing_00.png'
-import Drawing01 from '/public/projects/cpms/drawing_01.png'
+import Drawing00 from '/public/projects/cpms/drawing_00.webp'
+import Drawing01 from '/public/projects/cpms/drawing_01.webp'
 import { Text } from "../../Components/styledComponents"
 import { Sizes } from "../../Assets"
 
@@ -10,10 +10,8 @@ export const DrawingsSection:React.FC = () => {
     <Container data-lazy>
       <div id="drawingGirl">
         <Image
-          src={Drawing01.src}
+          src={Drawing01}
           alt="hand drawing of a little girl"
-          width={Drawing01.width}
-          height={Drawing01.height}
           sizes="100vw"
           style={{
             width: "100%",
@@ -25,10 +23,8 @@ export const DrawingsSection:React.FC = () => {
       </Text>
       <div id="drawingTent">
         <Image
-          src={Drawing00.src}
+          src={Drawing00}
           alt="hand drawing of a refuge tent"
-          width={Drawing00.width}
-          height={Drawing00.height}
           sizes="100vw"
           style={{
             width: "100%",

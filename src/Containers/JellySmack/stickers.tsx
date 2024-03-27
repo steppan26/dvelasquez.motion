@@ -2,7 +2,7 @@ import Image from "next/image"
 import styled from "styled-components"
 import RocketShipImage from '/public/projects/jellysmack/rocket.gif'
 import PositiveVibesImage from '/public/projects/jellysmack/positive_vibes.gif'
-import StickersVideoStatic from '/public/projects/jellysmack/stickers_video.png'
+import StickersVideoStatic from '/public/projects/jellysmack/stickers_video.webp'
 import { Text } from "../../Components/styledComponents"
 import { Sizes } from "../../Assets"
 import { useIsMobileView } from "../../utils/hooks"

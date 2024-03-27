@@ -4,8 +4,8 @@ import { Navbar, Footer, IntroSection, JellyMessage, PhoneScreenshots, Stickers,
 import { Sizes } from "../../Assets"
 import { LoopingVideo } from "../../Components"
 import JellyBoxImage from '/public/projects/jellysmack/jellybox.gif'
-import BannerImage from '/public/projects/jellysmack/jelly_thank-you.png'
-import LandingBackupImage from '/public/projects/jellysmack/landing_banner_static.png'
+import BannerImage from '/public/projects/jellysmack/jelly_thank-you.webp'
+import LandingBackupImage from '/public/projects/jellysmack/landing_banner_static.webp'
 
 const introData = {
   image: JellyBoxImage,

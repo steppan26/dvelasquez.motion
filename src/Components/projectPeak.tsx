@@ -87,16 +87,16 @@ const Overlay = styled(animated.div)`
     }
 
     &.jellysmack {
-      background-image: url('projects/mobile_backgrounds/jellysmack.png');
+      background-image: url('projects/mobile_backgrounds/jellysmack.webp');
     }
     &.cpms {
-      background-image: url('projects/mobile_backgrounds/cpms.png');
+      background-image: url('projects/mobile_backgrounds/cpms.webp');
     }
     &.motionSecrets {
-      background-image: url('projects/mobile_backgrounds/motion_secrets.png');
+      background-image: url('projects/mobile_backgrounds/motion_secrets.webp');
     }
     &.mysteria {
-      background-image: url('projects/mobile_backgrounds/mysteria.png');
+      background-image: url('projects/mobile_backgrounds/mysteria.webp');
     }
   }
 `

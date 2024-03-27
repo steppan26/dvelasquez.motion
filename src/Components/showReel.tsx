@@ -1,8 +1,7 @@
 import { useEffect, useRef } from "react"
-import Image from "next/image"
 import styled from "styled-components"
 import { Sizes } from "../Assets"
-import BackupImage from '/public/showreel_static.png'
+import BackupImage from '/public/showreel_static.webp'
 import { LoopingVideo } from "."
 
 export const ShowReel:React.FC = () => {

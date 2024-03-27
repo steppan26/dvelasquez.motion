@@ -1,10 +1,10 @@
 import styled from "styled-components"
 import { Text } from "../../Components/styledComponents"
 import Image from "next/image"
-import Drawing1 from '/public/projects/motion_secrets/drawing_1.png'
-import Drawing2 from '/public/projects/motion_secrets/drawing_2.png'
-import Drawing3 from '/public/projects/motion_secrets/drawing_3.png'
-import Drawing4 from '/public/projects/motion_secrets/drawing_4.png'
+import Drawing1 from '/public/projects/motion_secrets/drawing_1.webp'
+import Drawing2 from '/public/projects/motion_secrets/drawing_2.webp'
+import Drawing3 from '/public/projects/motion_secrets/drawing_3.webp'
+import Drawing4 from '/public/projects/motion_secrets/drawing_4.webp'
 
 export const ProjectDrawings:React.FC = () => {
   return (

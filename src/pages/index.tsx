@@ -33,14 +33,8 @@ export default function Home() {
         <ShowReelSection />
       </Container>
       <Footer
-      leftLink={{
-        text: "About",
-        href: "/about"
-      }}
-      rightLink={{
-        text: "Works",
-        href: "/works"
-      }}
+      leftLink={{ text: "About", href: "/about" }}
+      rightLink={{ text: "Works", href: "/works" }}
       />
     </Main>
     </>

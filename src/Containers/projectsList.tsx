@@ -2,10 +2,10 @@ import styled from "styled-components"
 import { PrimaryTitle } from "../Components/styledComponents"
 import { Sizes } from "../Assets"
 import { animated, useTransition } from "react-spring"
-import goBiggerLogo from '../../public/projects/go_bigger.jpg'
-import motionSecretsLogo from '../../public/projects/follow_me.jpg'
-import laraLogo from '../../public/projects/girl_called_sara.jpg'
-import rokuLogo from '../../public/projects/jelly_Roku.jpg'
+import goBiggerLogo from '../../public/projects/go_bigger.webp'
+import motionSecretsLogo from '../../public/projects/follow_me.webp'
+import laraLogo from '../../public/projects/girl_called_sara.webp'
+import rokuLogo from '../../public/projects/jelly_Roku.webp'
 import { Footer } from "."
 import { NavMobile } from "./NavBar/mobile"
 import { ProjectsNavbar } from "./NavBar/projects"

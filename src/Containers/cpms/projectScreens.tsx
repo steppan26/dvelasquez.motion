@@ -1,9 +1,9 @@
 import Image from "next/image"
 import styled from "styled-components"
-import ProjectScreenImage00 from '/public/projects/cpms/project_screen_00.png'
-import ProjectScreenImage01 from '/public/projects/cpms/project_screen_01.png'
-import ProjectScreenImage02 from '/public/projects/cpms/project_screen_02.png'
-import ProjectScreenImage03 from '/public/projects/cpms/project_screen_03.png'
+import ProjectScreenImage00 from '/public/projects/cpms/project_screen_00.webp'
+import ProjectScreenImage01 from '/public/projects/cpms/project_screen_01.webp'
+import ProjectScreenImage02 from '/public/projects/cpms/project_screen_02.webp'
+import ProjectScreenImage03 from '/public/projects/cpms/project_screen_03.webp'
 import { Sizes } from "../../Assets"
 import { LoopingVideo } from "../../Components"
 

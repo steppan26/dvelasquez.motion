@@ -1,14 +1,14 @@
 import Image from "next/image"
 import styled from "styled-components"
-import MockupImage from '/public/projects/jellysmack/mockup-post.png'
+import MockupImage from '/public/projects/jellysmack/mockup-post.webp'
 import PersonalisedCaptionsImage from '/public/projects/jellysmack/personalised_captions.gif'
 import KeywordsImage from '/public/projects/jellysmack/keywords.gif'
 import FlameKeywordsImage from '/public/projects/jellysmack/flame_keywords.gif'
 import FlameGoBiggerImage from '/public/projects/jellysmack/flame_go-bigger.gif'
 import GoBiggerImage from '/public/projects/jellysmack/go-bigger.gif'
 import WatchImage from '/public/projects/jellysmack/watch-till-the-end.gif'
-import TransitionOneImage from '/public/projects/jellysmack/transition_1.png'
-import TransitionTwoImage from '/public/projects/jellysmack/transition_2.png'
+import TransitionOneImage from '/public/projects/jellysmack/transition_1.webp'
+import TransitionTwoImage from '/public/projects/jellysmack/transition_2.webp'
 import { Sizes } from "../../Assets"
 import { useIsMobileView } from "../../utils/hooks"
 import { LoopingVideo } from "../../Components"

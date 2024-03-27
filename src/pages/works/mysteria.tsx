@@ -2,14 +2,14 @@ import { NextPage } from "next";
 import { Navbar } from "../../Containers";
 import Image from "next/image"
 import styled from "styled-components"
-import MainHeaderImage from "/public/projects/mysteria/Jellysmack_roku_intro.png"
 import { Footer, IntroSection } from "../../Containers"
-import IntroImage from '/public/projects/mysteria/intro_image.png'
-import { Sizes } from "../../Assets"
 import { LoopingVideo } from "../../Components"
+import MainHeaderImage from "/public/projects/mysteria/Jellysmack_roku_intro.webp"
+import CaseUpdateImage from '/public/projects/mysteria/case_update_static.webp'
+import IntroImage from '/public/projects/mysteria/intro_image.webp'
+import { Sizes } from "../../Assets"
 import { Text } from "../../Components/styledComponents"
 import { VideosGallery } from "../../Containers/mysteria"
-import CaseUpdateImage from '/public/projects/mysteria/case_update_static.png'
 
 const Page:NextPage = () => {
   return (

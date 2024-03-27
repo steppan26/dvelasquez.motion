@@ -1,12 +1,11 @@
 import { NextPage } from "next";
-import MainHeaderImage from "/public/projects/girl_called_sara.jpg"
-import ClaraImage from '/public/projects/cpms/clara_profile_illustration.png'
-import MainVideoImage from '/public/projects/cpms/main_video.png'
+import MainHeaderImage from "/public/projects/cpms/girl_called_sara.webp"
+import ClaraImage from '/public/projects/cpms/clara_profile_illustration.webp'
+import MainVideoImage from '/public/projects/cpms/main_video.webp'
 import { Navbar, DataScreenshots, DrawingsSection, Footer, IntroSection } from "../../Containers"
 import { ProjectScreens } from "../../Containers"
 import styled from "styled-components";
 import { Sizes } from "../../Assets";
-import Image from "next/image";
 import { LoopingVideo } from "../../Components";
 
 const Page:NextPage = () => {

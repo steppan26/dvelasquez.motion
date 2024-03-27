@@ -3,7 +3,7 @@ import { Footer, IntroSection, Navbar, PersonalProjectsList, ProjectDrawings } f
 import styled from "styled-components";
 import { Sizes } from "../../Assets";
 import { LoopingVideo } from "../../Components";
-import MainHeaderImage from "/public/projects/follow_me.jpg"
+import MainHeaderImage from "/public/projects/follow_me.webp"
 import IntroImage from '/public/projects/motion_secrets/Blue_dot.gif'
 
 const Page:NextPage = () => {
