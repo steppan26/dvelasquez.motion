@@ -1,89 +1,25 @@
-import Image from "next/image"
 import styled from "styled-components"
 import Screenshot00 from '/public/projects/cpms/data_screen_00.png'
 import Screenshot01 from '/public/projects/cpms/data_screen_01.png'
 import Screenshot02 from '/public/projects/cpms/data_screen_02.png'
 import Screenshot03 from '/public/projects/cpms/data_screen_03.png'
 import { Sizes } from "../../Assets"
+import { LoopingVideo } from "../../Components"
 
 export const DataScreenshots:React.FC = () => {
   return (
     <Container>
       <VideoWrapper data-lazy>
-        <video
-        muted
-        playsInline
-        autoPlay
-        loop
-        controls={false}
-        poster={Screenshot00.src}
-        >
-          <source src="cpms_data-screen00.webm" type="video/webm" />
-          <Image
-            src={Screenshot00}
-            alt="screenshot of data"
-            style={{
-              maxWidth: "100%",
-              height: "auto"
-            }} />
-        </video>
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565081/cpms_data-screen00_owh4qz.webm" backupImage={Screenshot00} />
       </VideoWrapper>
       <VideoWrapper data-lazy>
-        <video
-        muted
-        playsInline
-        autoPlay
-        loop
-        controls={false}
-        poster={Screenshot01.src}
-        >
-          <source src="cpms_data-screen01.webm" type="video/webm" />
-          <Image
-            src={Screenshot01}
-            alt="screenshot of data"
-            style={{
-              maxWidth: "100%",
-              height: "auto"
-            }} />
-        </video>
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565082/cpms_data-screen01_cxsbo2.webm" backupImage={Screenshot01} />
       </VideoWrapper>
       <VideoWrapper data-lazy>
-        <video
-        muted
-        playsInline
-        autoPlay
-        loop
-        controls={false}
-        poster={Screenshot02.src}
-        >
-          <source src="cpms_data-screen02.webm" type="video/webm" />
-          <Image
-            src={Screenshot02}
-            alt="screenshot of data"
-            style={{
-              maxWidth: "100%",
-              height: "auto"
-            }} />
-        </video>
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565082/cpms_data-screen02_jqa1od.webm" backupImage={Screenshot02} />
       </VideoWrapper>
       <VideoWrapper data-lazy>
-        <video
-        muted
-        playsInline
-        autoPlay
-        loop
-        controls={false}
-        poster={Screenshot03.src}
-        >
-          <source src="cpms_data-screen03.webm" type="video/webm" />
-          <Image
-            src={Screenshot03}
-            alt="screenshot of data"
-            style={{
-              maxWidth: "100%",
-              height: "auto"
-            }} />
-        </video>
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565083/cpms_data-screen03_vmuujm.webm" backupImage={Screenshot03} />
       </VideoWrapper>
     </Container>
   );
@@ -107,6 +43,11 @@ const Container = styled.div`
 const VideoWrapper = styled.span`
   overflow: hidden;
   border-radius: var(--border-radius);
+
+  &>div {
+    height: 100%;
+    max-height: 100%;
+  }
 
   img, video {
     width: auto !important;

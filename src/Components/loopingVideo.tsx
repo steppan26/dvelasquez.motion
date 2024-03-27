@@ -13,10 +13,11 @@ interface Props {
   allowControls?: boolean
   dataLazy?: boolean | string
   autoPlay?: boolean
+  priority?: boolean
 }
 
 export const LoopingVideo:React.FC<Props> = (props) => {
-  const { imageAlt="", backupImage, videoPath, videoType="video/webm", soundOption, allowControls, dataLazy=false, autoPlay=true } = props
+  const { imageAlt="", backupImage, videoPath, videoType="video/webm", soundOption, allowControls, dataLazy=false, autoPlay=true, priority } = props
   const stickerRef = useRef<HTMLImageElement>(null)
   const sceneRef = useRef<HTMLImageElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -64,7 +65,7 @@ export const LoopingVideo:React.FC<Props> = (props) => {
         controls={(hasBeenClicked && allowControls)}
         onClick={handleVideoClick}
         controlsList="nodownload noremoteplayback"
-        preload="metadata"
+        preload="auto"
         poster={backupImage?.src}
         >
           <source src={videoPath} type={videoType} />

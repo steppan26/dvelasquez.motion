@@ -5,89 +5,22 @@ import ProjectScreenImage01 from '/public/projects/cpms/project_screen_01.png'
 import ProjectScreenImage02 from '/public/projects/cpms/project_screen_02.png'
 import ProjectScreenImage03 from '/public/projects/cpms/project_screen_03.png'
 import { Sizes } from "../../Assets"
+import { LoopingVideo } from "../../Components"
 
 export const ProjectScreens:React.FC = () => {
   return (
     <Container>
       <ImageWrapper id="videoPink" data-lazy="projectScreens_image">
-        <video
-        muted
-        playsInline
-        autoPlay
-        loop
-        controls={false}
-        poster={ProjectScreenImage00.src}
-        >
-          <source src="cpms_scene00_pink.webm" type="video/webm" />
-          <Image
-            src={ProjectScreenImage00}
-            alt="screenshot"
-            sizes="100vw"
-            style={{
-              width: "100%",
-              height: "auto"
-            }} />
-        </video>
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565083/cpms_scene00_pink_qjvpt4.webm" backupImage={ProjectScreenImage00} />
       </ImageWrapper>
       <ImageWrapper id="videoBlueLight" data-lazy="projectScreens_image" >
-        <video
-        muted
-        playsInline
-        autoPlay
-        loop
-        controls={false}
-        poster={ProjectScreenImage01.src}
-        >
-          <source src="cpms_scene01_light-blue.webm" type="video/webm" />
-          <Image
-            src={ProjectScreenImage01}
-            alt="screenshot"
-            sizes="100vw"
-            style={{
-              width: "100%",
-              height: "auto"
-            }} />
-        </video>
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565086/cpms_scene01_light-blue_lwynvh.webm" backupImage={ProjectScreenImage01} />
       </ImageWrapper>
       <ImageWrapper id="videoGreen" data-lazy="projectScreens_image" >
-        <video
-        muted
-        playsInline
-        autoPlay
-        loop
-        controls={false}
-        poster={ProjectScreenImage02.src}
-        >
-          <source src="cpms_scene02_green.webm" type="video/webm" />
-          <Image
-            src={ProjectScreenImage02}
-            alt="screenshot"
-            sizes="100vw"
-            style={{
-              width: "100%",
-              height: "auto"
-            }} />
-        </video>
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565087/cpms_scene02_green_ucxxn8.webm" backupImage={ProjectScreenImage02} />
       </ImageWrapper>
       <ImageWrapper id="videoBlueDark" data-lazy="projectScreens_image" >
-        <video
-        muted
-        playsInline
-        autoPlay
-        loop
-        controls={false}
-        poster={ProjectScreenImage03.src}
-        >
-          <source src="cpms_scene03_dark-blue.webm" type="video/webm" />
-          <Image
-            src={ProjectScreenImage03}
-            alt="screenshot"
-            sizes="100vw"
-            style={{
-              width: "100%",
-              height: "auto"
-            }} />
-        </video>
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565087/cpms_scene03_dark-blue_sbbcqv.webm" backupImage={ProjectScreenImage03} />
       </ImageWrapper>
     </Container>
   );
@@ -106,6 +39,7 @@ const Container = styled.div`
 `
 
 const ImageWrapper = styled.span`
+  position: relative;
   display: flex;
     justify-content: center;
     align-items: center;
@@ -115,6 +49,13 @@ const ImageWrapper = styled.span`
 
   @media (max-width: ${Sizes.small}) {
     height: 25dvh;
+  }
+
+  &>div {
+    display: flex;
+      justify-content: center;
+    height: 100%;
+    max-height: 100%;
   }
 
   img, video {

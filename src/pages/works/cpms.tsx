@@ -15,7 +15,7 @@ const Page:NextPage = () => {
       <Navbar type="projects" mode="dark" />
       <Container>
       <ImageWrappper className="main-image">
-        <LoopingVideo videoPath="/cpms-main-header.webm" backupImage={MainHeaderImage} />
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565090/cpms-main-header_qjr8vm.webm" backupImage={MainHeaderImage} />
       </ImageWrappper>
       <IntroSection
       image={ClaraImage}
@@ -26,37 +26,12 @@ const Page:NextPage = () => {
       <ProjectScreens />
       <DrawingsSection />
       <DataScreenshots />
-      <VideoWrapper data-lazy>
-        <video
-        autoPlay
-        muted
-        playsInline
-        controls
-        loop
-        poster={MainVideoImage.src}
-        controlsList="nodownload"
-        preload="metadata"
-        >
-          <source src="cpms-main-video.webm" type="video/webm" />
-          <Image
-            src={MainVideoImage}
-            alt="screenshot of the video for the CPMS project"
-            sizes="100vw"
-            style={{
-              width: "100%",
-              height: "auto"
-            }} />
-        </video>
+      <VideoWrapper>
+        <LoopingVideo videoPath="" backupImage={MainVideoImage} />
       </VideoWrapper>
       <Footer
-      leftLink={{
-        text: "Home",
-        href: "/"
-      }}
-      rightLink={{
-        text: "Next",
-        href: "/works/motionSecrets"
-      }}
+      leftLink={{ text: "Home", href: "/" }}
+      rightLink={{ text: "Next", href: "/works/motionSecrets" }}
       />
     </Container>
     </>

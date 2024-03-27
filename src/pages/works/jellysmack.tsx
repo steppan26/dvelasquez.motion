@@ -20,7 +20,7 @@ const Page:NextPage = () => {
       <Navbar type="projects" mode="light" />
       <Container>
       <LandingSection>
-        <LoopingVideo videoPath="/go-bigger_header.webm" backupImage={LandingBackupImage} />
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711564535/go-bigger_header_nvnesk.webm" backupImage={LandingBackupImage} />
       </LandingSection>
       <IntroSection {...introData} />
       <PhoneScreenshots />
