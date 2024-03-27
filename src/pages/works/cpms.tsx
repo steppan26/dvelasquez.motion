@@ -14,7 +14,7 @@ const Page:NextPage = () => {
       <Navbar type="projects" mode="dark" />
       <Container>
       <ImageWrappper className="main-image">
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565090/cpms-main-header_qjr8vm.webm" backupImage={MainHeaderImage} />
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565090/cpms/cpms-main-header_qjr8vm.webm" backupImage={MainHeaderImage} />
       </ImageWrappper>
       <IntroSection
       image={ClaraImage}

@@ -30,14 +30,14 @@ const Page:NextPage = () => {
       howText="Jellysmack and Roku collaborated to hand-select creators and assist them in launching their own shows. Mysteria and Hello Inspo mark just the beginning of many more shows we will be launching.\nWe developed intros and outros for both the main channels and the individual creators to be featured. Our primary objective was to visually translate the personality of each channel."
       />
       <ContentWrapper>
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565999/mysteria_hello_inspo_mzhn52.webm" dataLazy allowControls soundOption />
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565999/mysteria/mysteria_hello_inspo_mzhn52.webm" dataLazy allowControls soundOption />
         <CenteredText>Top creators offer inspiration covering a wide range of topics, from beauty and style to home makeovers, recipes, DIYs, and more.</CenteredText>
         <VideosGallery
         videosList={[
-          'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565991/mysteria_gallery-cooking_ntugo1.webm',
-          'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565995/mysteria_gallery-realness_oz6wnl.webm',
-          'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565996/mysteria_gallery-room-reveal_zclouu.webm',
-          'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565993/mysteria_gallery-doll-house_ku7vhq.webm'
+          'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565991/mysteria/mysteria_gallery-cooking_ntugo1.webm',
+          'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565995/mysteria/mysteria_gallery-realness_oz6wnl.webm',
+          'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565996/mysteria/mysteria_gallery-room-reveal_zclouu.webm',
+          'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565993/mysteria/mysteria_gallery-doll-house_ku7vhq.webm'
         ]}
         />
         <LoopingVideo videoPath="" dataLazy allowControls soundOption backupImage={CaseUpdateImage} />
@@ -46,13 +46,13 @@ const Page:NextPage = () => {
         </CenteredText>
         <VideosGallery
         videosList={[
-          'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565990/mysteria_criminal-psyche_foievu.webm',
-          'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711566000/mysteria_killer-bites_xxgvtc.webm',
-          'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565988/mysteria_cravings_fnaxfv.webm',
-          'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711566002/mysteria_motives_kluk6u.webm'
+          'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565990/mysteria/mysteria_criminal-psyche_foievu.webm',
+          'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711566000/mysteria/mysteria_killer-bites_xxgvtc.webm',
+          'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565988/mysteria/mysteria_cravings_fnaxfv.webm',
+          'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711566002/mysteria/mysteria_motives_kluk6u.webm'
         ]}
         />
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711566008/mysteria_stories_ks55iv.webm" dataLazy allowControls soundOption />
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711566008/mysteria/mysteria_stories_ks55iv.webm" dataLazy allowControls soundOption />
       </ContentWrapper>
       <Footer
       leftLink={{ text: "Home", href: "/" }}

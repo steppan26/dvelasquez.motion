@@ -38,7 +38,7 @@ export const Stickers:React.FC = () => {
             height: "auto"
           }} />
       </InformationWrapper>
-      <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711566006/stickers_ttkpfq.mp4" backupImage={StickersVideoStatic} />
+      <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711566006/jellysmack/stickers_ttkpfq.mp4" backupImage={StickersVideoStatic} />
     </Container>
   );
 }

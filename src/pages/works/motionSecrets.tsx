@@ -12,7 +12,7 @@ const Page:NextPage = () => {
       <Navbar type="projects" mode="dark" />
       <Container>
       <ImageWrappper className="main-image">
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565982/motion-secrets_intro_xotqvo.webm" backupImage={MainHeaderImage} />
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565982/motion%20secrets/motion-secrets_intro_xotqvo.webm" backupImage={MainHeaderImage} />
       </ImageWrappper>
       <IntroSection
       image={IntroImage}

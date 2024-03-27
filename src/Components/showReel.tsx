@@ -6,7 +6,7 @@ import { LoopingVideo } from "."
 
 export const ShowReel:React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null)
-  const sceneRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
     if(typeof window == 'undefined' || !containerRef.current) return
 
@@ -28,7 +28,7 @@ export const ShowReel:React.FC = () => {
       </TextWrapper>
       <VideoWrapper>
         <LoopingVideo
-        videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711566007/showreel_sseix4.webm"
+        videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711566007/Home/showreel_sseix4.webm"
         backupImage={BackupImage}
         imageAlt="Screenshot of the showreel"
         soundOption

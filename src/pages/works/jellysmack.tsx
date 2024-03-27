@@ -20,7 +20,7 @@ const Page:NextPage = () => {
       <Navbar type="projects" mode="light" />
       <Container>
       <LandingSection>
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711564535/go-bigger_header_nvnesk.webm" backupImage={LandingBackupImage} />
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711564535/jellysmack/go-bigger_header_nvnesk.webm" backupImage={LandingBackupImage} />
       </LandingSection>
       <IntroSection {...introData} />
       <PhoneScreenshots />
@@ -28,7 +28,7 @@ const Page:NextPage = () => {
       <SocialMediaAssets />
       <JellyMessage />
       <VideoWrapper  data-lazy>
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565980/jelly_thank_you_for_watching_xy0jzh.webm" backupImage={BannerImage} />
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565980/jellysmack/jelly_thank_you_for_watching_xy0jzh.webm" backupImage={BannerImage} />
       </VideoWrapper>
       <Footer
       leftLink={{ text: "Home", href: "/" }}

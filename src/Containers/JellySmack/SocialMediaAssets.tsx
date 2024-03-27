@@ -68,8 +68,8 @@ export const SocialMediaAssets:React.FC = () => {
           }} />
       </MiddleSection>
       <BottomSection data-lazy>
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565980/jellysmack_transition_1_i7nqbt.mp4" backupImage={TransitionOneImage} />
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565981/jellysmack_transition_2_hljij7.mp4" backupImage={TransitionTwoImage} />
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565980/jellysmack/jellysmack_transition_1_i7nqbt.mp4" backupImage={TransitionOneImage} />
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565981/jellysmack/jellysmack_transition_2_hljij7.mp4" backupImage={TransitionTwoImage} />
       </BottomSection>
     </Container>
   );
