@@ -4,7 +4,7 @@ import Image from "next/image"
 import styled from "styled-components"
 import { Footer, IntroSection } from "../../Containers"
 import { LoopingVideo } from "../../Components"
-import MainHeaderImage from "/public/projects/mysteria/Jellysmack_roku_intro.webp"
+import MainHeaderImage from "/public/projects/mysteria/jellysmack_roku_intro.webp"
 import CaseUpdateImage from '/public/projects/mysteria/case_update_static.webp'
 import IntroImage from '/public/projects/mysteria/intro_image.webp'
 import { Sizes } from "../../Assets"
