@@ -111,10 +111,10 @@ const Container = styled(animated.ul)`
     justify-content: center;
     align-items: flex-start;
 
-  margin-bottom: 3dvh;
+  margin-bottom: 10dvh;
   width: 100dvw;
     max-width: 100%;
-  max-height: 80dvh;
+  /* max-height: 80dvh; */
   padding-inline: 5vw;
   overflow: hidden;
   background-color: inherit;

@@ -73,8 +73,6 @@ const Cutout = styled.div`
   width: 6.25rem;
   height: 6.25rem;
   top: 10dvh;
-  /* transform: rotate(45deg) translate3d(0, 70%, 0); */
-  /* background-color: var(--clr-bg-secondary); */
 
   &::after {
     content: '';
@@ -96,7 +94,7 @@ const MainTitle = styled(TitleSecondary)`
   padding-bottom: 0;
   letter-spacing: -2px;
   font-size: 3.75rem;
-  margin-bottom: 2.8rem;
+  margin-bottom: 0;
 
   @media (max-width: ${Sizes.small}) {
     max-width: 14rem;

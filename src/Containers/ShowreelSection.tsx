@@ -130,9 +130,13 @@ const ProjectsEntice = styled(Link)`
     }
 
     &>div {
+      display: flex;
+        justify-content: center;
+        align-items: center;
       cursor: unset;
       margin: 0;
       width: 4.4vw;
+      height: max-content;
     }
   }
 
