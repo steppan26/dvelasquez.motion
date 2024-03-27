@@ -2,13 +2,14 @@ import type { AppProps } from 'next/app'
 import { Stores } from '../utils/stores'
 import Head from 'next/head'
 import favicon from '../Assets/favicon.png'
-// import TagManager from 'react-gtm-module'
+//@ts-ignore
+import TagManager from 'react-gtm-module'
 
-// const tagManagerArgs = {
-//   gtmId: 'GTM-000000'
-// }
+const tagManagerArgs = {
+  gtmId: 'GTM-P2HPQTBZ'
+}
 
-// TagManager.initialize(tagManagerArgs)
+TagManager.initialize(tagManagerArgs)
 
 export default function MyApp({ Component, pageProps }: AppProps) {
 
