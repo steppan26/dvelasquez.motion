@@ -57,7 +57,7 @@ const BackToTop = styled.div`
     max-width: 120px;
   height: var(--size);
     max-height: 120px;
-  background-image: url('yellow_arrow.png');
+  background-image: url('/yellow_arrow.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

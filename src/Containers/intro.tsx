@@ -17,7 +17,7 @@ export const IntroSection:React.FC<Props> = ({ image, imageAlt, projectText, how
         <Image
           src={image}
           alt={imageAlt}
-          loading="lazy"
+          loading="eager"
           layout="responsive"
           />
       </ImageWrapper>

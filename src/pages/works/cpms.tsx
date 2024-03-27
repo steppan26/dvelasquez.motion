@@ -7,6 +7,7 @@ import { ProjectScreens } from "../../Containers"
 import styled from "styled-components";
 import { Sizes } from "../../Assets";
 import Image from "next/image";
+import { LoopingVideo } from "../../Components";
 
 const Page:NextPage = () => {
   return (
@@ -14,24 +15,7 @@ const Page:NextPage = () => {
       <Navbar type="projects" mode="dark" />
       <Container>
       <ImageWrappper className="main-image">
-        <video
-        autoPlay
-        muted
-        playsInline
-        loop
-        controls={false}
-        poster={MainHeaderImage.src}
-        >
-          <source src="cpms-main-header.webm" type="video/webm" />
-          <Image
-            src={MainHeaderImage}
-            alt="The words 'go bigger' in big, duplicated over itself"
-            sizes="100vw"
-            style={{
-              width: "100%",
-              height: "auto"
-            }} />
-        </video>
+        <LoopingVideo videoPath="cpms-main-header.webm" backupImage={MainHeaderImage} />
       </ImageWrappper>
       <IntroSection
       image={ClaraImage}
@@ -106,6 +90,7 @@ const ImageWrappper = styled.div`
       max-width: 100vw !important;
     height: 100% !important;
       max-height: 100dvh !important;
+    border-radius: unset !important;
 
     @media (max-width: ${Sizes.small}) {
       width: 100% !important;

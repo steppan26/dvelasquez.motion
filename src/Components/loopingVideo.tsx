@@ -60,8 +60,8 @@ export const LoopingVideo:React.FC<Props> = (props) => {
         autoPlay={autoPlay}
         playsInline
         loop
-        muted={!soundOption || !hasBeenClicked}
-        controls={hasBeenClicked && allowControls}
+        muted={(!soundOption || !hasBeenClicked)}
+        controls={(hasBeenClicked && allowControls)}
         onClick={handleVideoClick}
         controlsList="nodownload noremoteplayback"
         preload="metadata"

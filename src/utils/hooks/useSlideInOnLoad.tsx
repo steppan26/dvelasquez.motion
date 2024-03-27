@@ -64,6 +64,8 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
     if(element_id === 'intro'){
       wrapperElement.style.gridArea = originalStyle.gridArea
       wrapperElement.style.alignSelf = originalStyle.alignSelf
+      wrapperElement.style.width = originalStyle.width
+      wrapperElement.style.height = originalStyle.height
     }
 
     if(element_id === 'motion-secrets_drawings_text'){
