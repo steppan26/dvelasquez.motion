@@ -4,14 +4,16 @@ import Head from 'next/head'
 import favicon from '../Assets/favicon.png'
 //@ts-ignore
 import TagManager from 'react-gtm-module'
+import { useEffect } from 'react'
 
 const tagManagerArgs = {
   gtmId: 'GTM-P2HPQTBZ'
 }
 
-TagManager.initialize(tagManagerArgs)
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+
+  useEffect(() => TagManager.initialize(tagManagerArgs), [])
 
   return (
     <>
