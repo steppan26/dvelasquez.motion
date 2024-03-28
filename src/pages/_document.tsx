@@ -2,6 +2,7 @@ import { Html, Head, Main, NextScript } from 'next/document'
 import Script from 'next/script'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
+import Logo from '/public/social_brand_logo.png'
 
 export default function Document() {
   const gtmKey = process.env.NEXT_PUBLIC_GTM_KEY
@@ -10,6 +11,21 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <link rel="stylesheet" href="https://use.typekit.net/ojg6bke.css" />
+
+        <meta name="description" content="Portfolio website of motion design Daniela Velasquez." />
+        <meta name="robots" content="index, follow" />
+        <meta name="keywords" content="motion, design, brand, designer, motion design, brand design" />
+
+        {/* Social Media Tags */}
+        <meta property="og:title" content="D.Velasquez Motion" />
+        <meta property="og:description" content="Daniela Velasquez, motion and brand designer extraordinaire. Let's bring your brand to life together." />
+        <meta property="og:image" content={Logo.src} />
+        <meta property="twitter:title" content="D.Velasquez Motion" />
+        <meta property="twitter:description" content="Daniela Velasquez, motion and brand designer extraordinaire. Let's bring your brand to life together." />
+        <meta property="twitter:image" content={Logo.src} />
+        {/* End of social Media Tags */}
+
+        {/* Google Tag Manager */}
           <Script
           id="googleTagManager"
             dangerouslySetInnerHTML={{
@@ -34,6 +50,7 @@ export default function Document() {
               style={{ display: 'none', visibility: 'hidden' }}
             ></iframe>
           </noscript>
+        {/* END of Google Tag Manager */}
       </Head>
       <body>
         <SpeedInsights />
