@@ -9,7 +9,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <>
     <Head>
         <link rel='icon' href={favicon.src} />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
     <Stores>
       <Component {...pageProps} />

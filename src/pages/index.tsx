@@ -3,21 +3,8 @@ import { Footer, Landing, Navbar, ShowReelSection } from "../Containers"
 import { ScrollingContainer, TitleSecondary } from "../Assets/UIComponents"
 import { Sizes } from "../Assets"
 import Head from "next/head"
-import { useEffect } from "react"
 
 export default function Home() {
-
-  // add intersection observer so when the HorizontalContainer goes out of view, it scrolls back to the left
-  useEffect(() => {
-    if(typeof window == 'undefined') return
-
-    const containers = document.querySelectorAll('.scrolling-container')
-    containers.forEach(container => container.addEventListener('onRouteChangeStart', scrollToTop))
-  }, [])
-
-  const scrollToTop = (e: any) => {
-    console.info('e', e)
-  }
 
   return (
     <>
@@ -81,7 +68,11 @@ const Cutout = styled.div`
   }
 `
 
-const MainTitle = styled(TitleSecondary)`
+const MainTitle = styled.h2`
+  text-align: left;
+  font-style: italic;
+  font-weight: 400;
+
   scroll-snap-stop: start;
   margin-top: 7.042254dvh;
   padding: 0 var(--padding-main);
