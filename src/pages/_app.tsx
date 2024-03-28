@@ -1,19 +1,9 @@
 import type { AppProps } from 'next/app'
 import { Stores } from '../utils/stores'
 import Head from 'next/head'
-import favicon from '../Assets/favicon.png'
-//@ts-ignore
-import TagManager from 'react-gtm-module'
-import { useEffect } from 'react'
-
-const tagManagerArgs = {
-  gtmId: 'GTM-P2HPQTBZ'
-}
-
+import favicon from '/public/favicon.ico'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-
-  useEffect(() => TagManager.initialize(tagManagerArgs), [])
 
   return (
     <>
