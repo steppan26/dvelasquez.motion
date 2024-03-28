@@ -37,7 +37,7 @@ const Container = styled.footer`
   background-color: var(--clr-bg-secondary);
   box-shadow: inset 0px 4px 20px ${p => p.theme.textPrimary}4c;
   font-family: var(--font-family-regular);
-  background-image: url('/footer_bg.svg');
+  background-image: url('/footer_bg.webp');
   background-size: cover;
   background-position: center;
 
