@@ -1,6 +1,7 @@
 import { Html, Head, Main, NextScript } from 'next/document'
 import Script from 'next/script'
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
 
 export default function Document() {
   const gtmKey = process.env.NEXT_PUBLIC_GTM_KEY
@@ -36,6 +37,7 @@ export default function Document() {
       </Head>
       <body>
         <SpeedInsights />
+        <Analytics />
         <Main />
         <NextScript />
       </body>
