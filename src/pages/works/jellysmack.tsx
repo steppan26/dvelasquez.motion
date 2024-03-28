@@ -74,7 +74,7 @@ const LandingSection = styled.div`
   width: 100%;
 
   background-color: black;
-  background-image: url('/projects/jellysmack/landing_banner_static.png');
+  background-image: url('/projects/jellysmack/landing_banner_static.webp');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
