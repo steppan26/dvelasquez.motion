@@ -10,10 +10,14 @@ import IntroImage from '/public/projects/mysteria/intro_image.webp'
 import { Sizes } from "../../Assets"
 import { Text } from "../../Components/styledComponents"
 import { VideosGallery } from "../../Containers/mysteria"
+import Head from "next/head";
 
 const Page:NextPage = () => {
   return (
     <>
+      <Head>
+        <title>D.Velasquez | Mysteria & Roku</title>
+      </Head>
       <Navbar type="projects" mode="light" />
       <Container>
       <ImageWrappper className="main-image">

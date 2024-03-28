@@ -30,13 +30,14 @@ const menuData: MenuItem[] = [
 
 interface Props {
   isOpen: boolean
+  hideEmail?: boolean
 }
 
 const TRAVEL_DISTANCE = '110%'
 
 const easeInOutCubic = (t: any) => (t < 0.5 ? 4 * t ** 3 : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
-export const MenuItems:React.FC<Props> = ({ isOpen }) => {
+export const MenuItems:React.FC<Props> = ({ isOpen, hideEmail }) => {
   const router = useRouter()
 
   const opacityStyle = useSpring({
@@ -63,7 +64,7 @@ export const MenuItems:React.FC<Props> = ({ isOpen }) => {
   return(
     <Wrapper>
       <MenuContainer style={{ ...translateStyle }}>
-        <Email style={opacityStyle}>dvelasquez.motion@gmail.com</Email>
+        {!hideEmail && <Email style={opacityStyle}>dvelasquez.motion@gmail.com</Email> }
         {menuData.map((props, index) => (
           <Menu key={index} className={router.route === props.href ? 'active' : ''}>
             <Link href={props.href}>{props.text}</Link>

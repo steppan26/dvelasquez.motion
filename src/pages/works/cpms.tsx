@@ -7,10 +7,14 @@ import { ProjectScreens } from "../../Containers"
 import styled from "styled-components";
 import { Sizes } from "../../Assets";
 import { LoopingVideo } from "../../Components";
+import Head from "next/head";
 
 const Page:NextPage = () => {
   return (
     <>
+      <Head>
+        <title>D.Velasquez | CPMS portfolio</title>
+      </Head>
       <Navbar type="projects" mode="dark" />
       <Container>
       <ImageWrappper className="main-image">

@@ -5,10 +5,14 @@ import { Sizes } from "../../Assets";
 import { LoopingVideo } from "../../Components";
 import MainHeaderImage from "/public/projects/follow_me.webp"
 import IntroImage from '/public/projects/motion_secrets/Blue_dot.gif'
+import Head from "next/head";
 
 const Page:NextPage = () => {
   return (
     <>
+      <Head>
+        <title>D.Velasquez | Motion Secrets</title>
+      </Head>
       <Navbar type="projects" mode="dark" />
       <Container>
       <ImageWrappper className="main-image">

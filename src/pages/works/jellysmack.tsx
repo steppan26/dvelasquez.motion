@@ -6,6 +6,7 @@ import { LoopingVideo } from "../../Components"
 import JellyBoxImage from '/public/projects/jellysmack/jellybox.gif'
 import BannerImage from '/public/projects/jellysmack/jelly_thank-you.webp'
 import LandingBackupImage from '/public/projects/jellysmack/landing_banner_static.webp'
+import Head from "next/head";
 
 const introData = {
   image: JellyBoxImage,
@@ -17,6 +18,9 @@ const introData = {
 const Page:NextPage = () => {
   return (
     <>
+      <Head>
+        <title>D.Velasquez | Jellysmack portfolio</title>
+      </Head>
       <Navbar type="projects" mode="light" />
       <Container>
       <LandingSection>
