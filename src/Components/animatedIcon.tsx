@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { supportsHEVCAlpha } from "../utils/helpers";
 import { Sizes } from "../Assets";
 import { useIsMobileView } from "../utils/hooks";
+import { LoopingVideo } from ".";
 
 interface Props {
   mode?: 'light' | 'dark'
@@ -44,23 +45,10 @@ export const AnimatedIcon:React.FC<Props> = ({ mode }) => {
   return(
     <Wrapper ref={wrapperRef}>
       {displayVideo
-      ? <video
-          ref={videoRef}
-          id="animationVideo"
-          onMouseEnter={handleVideoHover}
-          onMouseLeave={handleVideoExit}
-          autoPlay
-          muted
-          playsInline
-          disablePictureInPicture
-          preload="auto"
-          style={{ display: 'block', width: '100%' }}
-        >
-          {mode === 'light' || isMobileView
-            ? <source src="/logos/brush_light.webm" type="video/webm" />
-            : <source src="/logos/brush_wine.webm" type="video/webm" />
-          }
-        </video>
+      ? <LoopingVideo videoPath={ mode === 'light' || isMobileView
+        ? "https://res.cloudinary.com/dtlyxry6z/video/upload/v1711650512/logos/brush_wine_oh0w29.webm"
+        : "https://res.cloudinary.com/dtlyxry6z/video/upload/v1711650512/logos/brush_wine_oh0w29.webm"
+      } />
       : <AnimatedGif />
       }
     </Wrapper>
@@ -85,17 +73,17 @@ const Wrapper = styled.div`
 const AnimatedGif = styled.div`
   width: var(--logo-size);
   height: calc(var(--logo-size) * 0.35555556);
-  background-image: url("/logos/brush_wine.gif");
+  background-image: url("https://res.cloudinary.com/dtlyxry6z/image/upload/v1711650511/logos/brush_wine_ke3tio.gif");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   animation-iteration-count: 1;
 
   &[data-colormode="dark"] {
-    background-image: url("/logos/brush_wine.gif");
+    background-image: url("https://res.cloudinary.com/dtlyxry6z/image/upload/v1711650511/logos/brush_wine_ke3tio.gif");
   }
 
   &[data-colormode="dark"] {
-    background-image: url("/logos/brush_light.gif");
+    background-image: url("https://res.cloudinary.com/dtlyxry6z/image/upload/v1711650511/logos/brush_light_o0lwu8.gif");
   }
 `

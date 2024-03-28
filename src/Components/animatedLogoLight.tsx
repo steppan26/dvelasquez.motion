@@ -1,9 +1,9 @@
 import styled from "styled-components"
 import { useEffect, useRef, useState } from "react";
 import { Sizes } from "../Assets";
-// @ts-ignore
 import { supportsHEVCAlpha } from "../utils/helpers";
 import { useRouter } from "next/router";
+import { LoopingVideo } from ".";
 
 export const AnimatedLogoLight:React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -30,18 +30,7 @@ export const AnimatedLogoLight:React.FC = () => {
   return(
     <Wrapper ref={wrapperRef} onClick={loadHomePage}>
       {displayVideo
-      ? <video
-          ref={videoRef}
-          id="animationVideo"
-          autoPlay
-          muted
-          playsInline
-          disablePictureInPicture
-          preload="auto"
-          style={{ display: 'block', width: '100%' }}
-        >
-          <source src="/logos/text_light.webm" type="video/webm" />
-        </video>
+      ? <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711650515/logos/text_light_dng3hq.webm" />
       : <AnimatedGif />
       }
     </Wrapper>
@@ -65,7 +54,7 @@ const Wrapper = styled.div`
 const AnimatedGif = styled.div`
   width: var(--logo-size);
   height: calc(var(--logo-size) * 0.35555556);
-  background-image: url("/logos/text_light.gif");
+  background-image: url("https://res.cloudinary.com/dtlyxry6z/image/upload/v1711650514/logos/text_light_ddcgmp.gif");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
