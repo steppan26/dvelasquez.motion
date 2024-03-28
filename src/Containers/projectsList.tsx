@@ -2,9 +2,6 @@ import styled from "styled-components"
 import { PrimaryTitle } from "../Components/styledComponents"
 import { Sizes } from "../Assets"
 import { animated, useTransition } from "react-spring"
-import goBiggerLogo from '../../public/projects/go_bigger.webp'
-import motionSecretsLogo from '../../public/projects/follow_me.webp'
-import laraLogo from '../../public/projects/girl_called_sara.webp'
 import rokuLogo from '../../public/projects/jelly_Roku.webp'
 import { Footer } from "."
 import { NavMobile } from "./NavBar/mobile"
@@ -17,17 +14,17 @@ const ProjectsListData: ProjectPeakProps[] = [
   {
     id: 'jellysmack',
     text: "Jellysmack",
-    backgroundContent: goBiggerLogo,
+    backgroundContent: "https://res.cloudinary.com/dtlyxry6z/video/upload/v1711564535/jellysmack/go-bigger_header_nvnesk.webm",
   },
   {
     id: 'cpms',
     text: "CPMS",
-    backgroundContent: laraLogo,
+    backgroundContent: "https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565090/cpms/cpms-main-header_qjr8vm.webm",
   },
   {
     id: 'motionSecrets',
     text: "Motion Secrets",
-    backgroundContent: motionSecretsLogo,
+    backgroundContent: "https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565982/motion%20secrets/motion-secrets_intro_xotqvo.webm",
   },
   {
     id: 'mysteria',
