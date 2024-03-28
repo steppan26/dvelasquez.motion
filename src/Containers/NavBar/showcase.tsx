@@ -36,6 +36,7 @@ const Nav = styled.nav<{islanding?: boolean}>`
     justify-content: space-between;
     align-items: center;
   width: 100vw;
+    max-width: 100%;
   height: var(--nav-height);
   background-color: ${p => p.theme.backgroundPrimary + 'f0'};
   padding: 1rem 3vw 0;

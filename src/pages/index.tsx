@@ -30,8 +30,8 @@ export default function Home() {
 
 const Main = styled(ScrollingContainer)`
   --padding-main: 11.5vw;
+
   width: max-content;
-    max-width: 100vw;
 
   @media (max-width: ${Sizes.small}) {
     display: block;

@@ -24,7 +24,7 @@ export const ScrollingContainer = styled.div`
   scroll-snap-type: y mandatory;
   height: 100dvh;
   width: 100vw;
-    max-width: 100vw;
+    max-width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
 

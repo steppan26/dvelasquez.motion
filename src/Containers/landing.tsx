@@ -65,6 +65,7 @@ const Container = styled.article`
     justify-content: center;
     align-items: center;
   width: 100dvw;
+    max-width: 100%;
   height: 100dvh;
   overflow: hidden;
 `

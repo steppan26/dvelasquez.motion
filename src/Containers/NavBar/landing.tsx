@@ -36,6 +36,7 @@ const Nav = styled.nav`
     justify-content: space-between;
     align-items: center;
   width: 100vw;
+  max-width: 100%;
   height: var(--nav-height);
   padding: 1rem 3vw 0;
 `

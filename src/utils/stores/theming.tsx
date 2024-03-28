@@ -96,7 +96,9 @@ const GlobalStyle = createGlobalStyle<{}>`
     overflow-y: auto;
     height: 100dvh;
     min-height: max-content;
-    margin: 0;
+    margin: 0 auto;
+    max-width: 1920px;
+
 
     .slide-wrapper {
       position: relative;
