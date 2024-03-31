@@ -24,11 +24,12 @@ export const FooterContactSection:React.FC = () => {
               <HiddenSection>
                 <p>Experience the thrill of motion as we turn your visions into breathtaking reality!</p>
                 <p>Let&apos;s make magic happen! ✨🔮</p>
+                <EmailLink href="mailto:dvelasquez.motion@gmail.com">dvelasquez.motion@gmail.com</EmailLink>
               </HiddenSection>
             </Switcher>
           </Slider>
           <LinksWrapper>
-          <EmailLink href="mailto:dvelasquez.motion@gmail.com">dvelasquez.motion@gmail.com</EmailLink>
+          {/* <EmailLink href="mailto:dvelasquez.motion@gmail.com">dvelasquez.motion@gmail.com</EmailLink> */}
             <SocialsWrapper>
               <InternalLink href="https://www.instagram.com/dvelasquez-motion" target="_blank">
                 <Image src={InstagramIcon} alt="instagram icon" />
@@ -132,8 +133,9 @@ const HiddenSection = styled.div`
   padding-inline: 5rem;
 
   a {
-    font-size: larger;
-    color: var(--clr-text-main);
+    font-size: large;
+    text-decoration: underline;
+    /* color: var(--clr-text-main); */
   }
 `
 

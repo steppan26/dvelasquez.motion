@@ -28,9 +28,9 @@ const Container = styled.footer`
 
   position: relative;
   display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    gap: 2.5vw;
+    gap: 2rem;
   padding: 10dvh 5.7vw;
   width: 100%;
   max-width: 100vw;
