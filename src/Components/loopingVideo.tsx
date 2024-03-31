@@ -1,4 +1,4 @@
-import { Suspense, useMemo, useRef, useState } from "react"
+import { Suspense, useEffect, useMemo, useRef, useState } from "react"
 import Image, { type StaticImageData } from "next/image"
 import styled from "styled-components"
 import MouseStickerImage from '/public/Assets/better_with_sound.gif'
@@ -23,6 +23,12 @@ export const LoopingVideo:React.FC<Props> = (props) => {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [hasBeenClicked, setHasBeenClicked] = useState(false)
   const [mousePosition, setMousePosition] = useState({x: 0, y: 0})
+
+  useEffect(() => {
+    if (!videoRef.current || !autoPlay) return
+
+    videoRef.current.play()
+  }, [])
 
   const maskPosition = useMemo(() => {
     const element = sceneRef.current
@@ -54,14 +60,14 @@ export const LoopingVideo:React.FC<Props> = (props) => {
   }
 
   return (
-    <VideoWrapper className="looping-video" ref={sceneRef} onMouseEnter={handleMouseMove} onMouseMove={handleMouseMove} data-lazy >
+    <VideoWrapper className="looping-video" ref={sceneRef} onMouseEnter={handleMouseMove} onMouseMove={handleMouseMove} data-lazy={dataLazy} >
       <Suspense fallback={ backupImage ? <Image src={backupImage} alt="static image version of video" /> : <>loading...</> }>
         <video
         ref={videoRef}
         autoPlay={autoPlay}
         playsInline
         loop
-        muted={(!soundOption || !hasBeenClicked)}
+        muted={(!soundOption || !hasBeenClicked).valueOf()}
         controls={(hasBeenClicked && allowControls)}
         onClick={handleVideoClick}
         controlsList="nodownload noremoteplayback"
