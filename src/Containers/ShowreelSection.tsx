@@ -19,7 +19,7 @@ export const ShowReelSection:React.FC = () => {
         <CTAButton />
       </InfoSection>
       <ShowReel />
-      <ProjectsEntice href="/works">
+      {/* <ProjectsEntice href="/works">
         <span>
           <BouncingArrow onClick={handleArrowClick} />
         </span>
@@ -27,7 +27,8 @@ export const ShowReelSection:React.FC = () => {
         <span>
           <BouncingArrow onClick={handleArrowClick} />
         </span>
-      </ProjectsEntice>
+      </ProjectsEntice> */}
+      <Spacer />
     </Container>
   )
 }
@@ -141,11 +142,14 @@ const ProjectsEntice = styled(Link)`
   }
 
   &:hover {
-    /* opacity: 0.8; */
     transform: scale(1.05);
   }
 
   @media (max-width: ${Sizes.small}) {
     display: none;
   }
+`
+
+const Spacer = styled.div`
+  height: 15dvh;
 `
