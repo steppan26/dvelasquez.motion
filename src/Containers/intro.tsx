@@ -13,7 +13,7 @@ export const IntroSection:React.FC<Props> = ({ image, imageAlt, projectText, how
 
   return (
     <Container>
-      <ImageWrapper className="intro-image" data-lazy="intro">
+      <ImageWrapper className="intro-image" data-lazy="intro-image">
         <Image
           src={image}
           alt={imageAlt}
@@ -39,7 +39,7 @@ const Container = styled.div`
     grid-template-rows: 1fr 1fr;
     grid-template-areas: 'image project'
     'image why';
-    grid-gap: 3vw 2.5vw;
+    grid-gap: 3vw 5vw;
     align-items: center;
     justify-items: start;
   padding-inline: var(--container-padding) calc(var(--container-padding) + 5vw);
@@ -114,7 +114,7 @@ const Text = styled.p`
   font-size: 1.125rem;
   margin-block: 1rem;
   line-height: 2.06rem;
-  padding-left: 2rem;
+  padding-left: 1rem;
 
   &:first-of-type {
     margin-top: 0;

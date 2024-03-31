@@ -22,7 +22,7 @@ export const ShowReel:React.FC = () => {
   }
 
   return(
-    <Container ref={containerRef}>
+    <Container ref={containerRef} data-lazy="showreel">
       <TextWrapper>
         <Text>Showreel</Text>
       </TextWrapper>

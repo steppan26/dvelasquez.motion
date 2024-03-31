@@ -55,40 +55,66 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
 
     // TRANSITION ANIMATION
     const originalStyle = window.getComputedStyle(elementToWrap)
+
     // @ts-ignore
     const element_id = elementToWrap.dataset.lazy
     wrapperElement.style.flex = originalStyle.flex
     wrapperElement.style.gridArea = originalStyle.gridArea
     wrapperElement.style.overflow = originalStyle.overflow
 
-    if(element_id === 'intro'){
-      wrapperElement.style.gridArea = originalStyle.gridArea
-      wrapperElement.style.alignSelf = originalStyle.alignSelf
+    switch (element_id) {
+      case 'showreel':
+        wrapperElement.style.display = originalStyle.display
+        wrapperElement.style.justifyContent = originalStyle.justifyContent
+        wrapperElement.style.alignItems = originalStyle.alignItems
+        wrapperElement.style.width = "100%"
+
+        break;
+
+      case 'projectScreens_image':
+        wrapperElement.style.transform = originalStyle.transform
+        break;
+
+      case 'motion-secrets_drawings_text':
+        wrapperElement.style.margin = originalStyle.margin
+        break;
+
+      case 'motion-secrets_drawing':
+        wrapperElement.style.gridArea = originalStyle.gridArea
+        wrapperElement.style.alignSelf = originalStyle.alignSelf
+        wrapperElement.style.justifySelf = originalStyle.justifySelf
+        wrapperElement.style.overflow = 'visible'
+        break;
+
+      case 'phone-screenshots_image':
+        wrapperElement.style.margin = originalStyle.margin
+        wrapperElement.style.width = originalStyle.width
+        wrapperElement.style.height = originalStyle.height
+        break;
+
+      case 'wrapperElement.style.flex = originalStyle.flex':
+        wrapperElement.style.flex = originalStyle.flex
+        break;
+
+      case 'intro-image':
+        wrapperElement.style.display = 'flex'
+        wrapperElement.style.justifyContent = 'center'
+        wrapperElement.style.width = '100%'
+
+      case 'intro':
+        wrapperElement.style.gridArea = originalStyle.gridArea
+        wrapperElement.style.alignSelf = originalStyle.alignSelf
+        wrapperElement.style.height = originalStyle.height
+        wrapperElement.style.justifySelf = originalStyle.justifySelf
+        break;
+
+      default:
+        break;
+    }
+
+    if (element_id === 'intro') {
       wrapperElement.style.width = originalStyle.width
-      wrapperElement.style.height = originalStyle.height
     }
-
-    if(element_id === 'motion-secrets_drawings_text'){
-      wrapperElement.style.margin = originalStyle.margin
-    }
-
-    if(element_id === 'motion-secrets_drawing'){
-      wrapperElement.style.gridArea = originalStyle.gridArea
-      wrapperElement.style.alignSelf = originalStyle.alignSelf
-      wrapperElement.style.justifySelf = originalStyle.justifySelf
-      wrapperElement.style.overflow = 'visible'
-    }
-
-    if(element_id === 'phone-screenshots_image'){
-      wrapperElement.style.margin = originalStyle.margin
-      wrapperElement.style.width = originalStyle.width
-      wrapperElement.style.height = originalStyle.height
-    }
-
-    if(element_id === 'jelly-projectScreens_image'){
-      wrapperElement.style.flex = originalStyle.flex
-    }
-
   }
 
   const _unwrapElement = (wrapperElement: Element) => {

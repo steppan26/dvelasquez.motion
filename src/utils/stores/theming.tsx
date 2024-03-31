@@ -106,6 +106,10 @@ const GlobalStyle = createGlobalStyle<{}>`
       transition: 800ms all cubic-bezier(0.71, 0, 0.18, 0.93);
       transition-duration: 800ms;
       opacity: 0;
+
+      .intro-image {
+        height: 100%;
+      }
     }
   }
 

@@ -11,7 +11,7 @@ export const ProjectDrawings:React.FC = () => {
     <Container>
       <Image
         src={Drawing1}
-        alt=""
+        alt="sketches of ideas during design stages"
         id="drawingOne"
         data-lazy="motion-secrets_drawing"
         style={{
@@ -20,7 +20,7 @@ export const ProjectDrawings:React.FC = () => {
         }} />
       <Image
         src={Drawing2}
-        alt=""
+        alt="sketches of ideas during design stages"
         id="drawingTwo"
         data-lazy="motion-secrets_drawing"
         style={{
@@ -29,7 +29,7 @@ export const ProjectDrawings:React.FC = () => {
         }} />
       <Image
         src={Drawing3}
-        alt=""
+        alt="sketches of ideas during design stages"
         id="drawingThree"
         data-lazy="motion-secrets_drawing"
         style={{
@@ -38,7 +38,7 @@ export const ProjectDrawings:React.FC = () => {
         }} />
       <Image
         src={Drawing4}
-        alt=""
+        alt="sketches of ideas during design stages"
         id="drawingFour"
         data-lazy="motion-secrets_drawing"
         style={{
@@ -65,25 +65,26 @@ const Container = styled.div`
     grid-area: drawing1;
     align-self: start;
     justify-self: center;
-    transform: rotate(25deg);
+    transform: rotate(25deg) translateX(-20%) scale(0.9);
   }
   #drawingTwo {
     grid-area: drawing2;
-    align-self: start;
+    align-self: end;
     justify-self: center;
-    transform: rotate(28deg);
+    transform: rotate(28deg) scale(1.2);
   }
   #drawingThree {
     grid-area: drawing3;
     align-self: start;
     justify-self: start;
-    transform: rotate(-3.5deg);
+    padding-top: 2rem;
+    transform: rotate(-3.5deg) scale(1.2) translateX(50%);
   }
   #drawingFour {
     grid-area: drawing4;
     align-self: start;
-    justify-self: end;
-    transform: rotate(-16deg);
+    justify-self: start;
+    transform: translateX(-35%) rotate(-16deg) scale(1.4);
   }
 
   p {

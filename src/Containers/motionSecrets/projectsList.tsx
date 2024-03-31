@@ -7,15 +7,15 @@ export const PersonalProjectsList:React.FC = () => {
     <Container>
       <ProjectWrapper data-lazy>
         <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565987/motion%20secrets/motion-secrets_who-is-looking_whzdkr.webm" soundOption allowControls />
-        <Text data-lazy>Is There Anybody Out There ?</Text>
+        <Text>Is There Anybody Out There ?</Text>
       </ProjectWrapper>
       <ProjectWrapper data-lazy>
         <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565985/motion%20secrets/motion-secrets_mischievous_blue_dot_rchsmz.webm" soundOption allowControls />
-        <Text data-lazy>Mischievious Blue Dot</Text>
+        <Text>Mischievious Blue Dot</Text>
       </ProjectWrapper>
       <ProjectWrapper data-lazy>
         <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565982/motion%20secrets/motion-secrets_intro_xotqvo.webm" soundOption allowControls />
-        <Text data-lazy>Break On Through To The Other Side</Text>
+        <Text>Break On Through To The Other Side</Text>
       </ProjectWrapper>
     </Container>
   )
