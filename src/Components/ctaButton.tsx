@@ -10,7 +10,7 @@ const GPTButton = styled(Link)`
   display: flex;
     justify-content: center;
   width: 100%;
-  background-color: #7a9b76;
+  background-color: var(--clr-green);
   color: #fff;
   font-family: var(--font-family-title);
     font-size: 2.125rem;

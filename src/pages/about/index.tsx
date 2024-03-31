@@ -17,7 +17,7 @@ const Index:NextPage = () => {
     <>
     <Head>
       <title>D.Velasquez | about</title>
-      <meta name='description' content="" />
+      <meta name='description' content="Who is Daniela Velasquez?" />
     </Head>
     <Main>
       <Navbar type="showcase" mode="dark" />
@@ -27,10 +27,10 @@ const Index:NextPage = () => {
           <Image
             src={PrimaryImage}
             alt="picture of Daniela"
-            style={{
-              maxWidth: "100%",
-              height: "auto"
-            }} />
+            layout="responsive"
+            width={100}
+            height={100}
+             />
         </Picture>
         <MainText>
           <TextBlock>
@@ -53,49 +53,47 @@ const Index:NextPage = () => {
           <Image
             src={GalleryImage00}
             alt="picture of Daniela"
-            style={{
-              maxWidth: "100%",
-              height: "auto"
-            }} />
+            layout="responsive"
+            width={100}
+            height={100}
+
+             />
           <Image
             src={GalleryImage01}
             alt="picture of Daniela"
-            style={{
-              maxWidth: "100%",
-              height: "auto"
-            }} />
+            layout="responsive"
+            width={100}
+            height={100}
+
+             />
           <Image
             src={GalleryImage02}
             alt="picture of Daniela"
-            style={{
-              maxWidth: "100%",
-              height: "auto"
-            }} />
+            layout="responsive"
+            width={100}
+            height={100}
+             />
           <Image
             src={GalleryImage03}
             alt="picture of Daniela"
-            style={{
-              maxWidth: "100%",
-              height: "auto"
-            }} />
+            layout="responsive"
+            width={100}
+            height={100}
+
+             />
           <Image
             src={GalleryImage04}
             alt="picture of Daniela"
-            style={{
-              maxWidth: "100%",
-              height: "auto"
-            }} />
+            layout="responsive"
+            width={100}
+            height={100}
+
+             />
         </Gallery>
       </Wrapper>
       <Footer
-        leftLink={{
-          text: "Works",
-          href: "/works"
-        }}
-        rightLink={{
-          text: "Home",
-          href: "/"
-        }}
+        leftLink={{ text: "Works", href: "/works" }}
+        rightLink={{ text: "Home", href: "/" }}
         />
     </Main>
     </>
@@ -103,7 +101,6 @@ const Index:NextPage = () => {
 }
 
 export default Index
-
 const Main = styled.main`
   position: relative;
 
@@ -135,11 +132,13 @@ const Wrapper = styled.div`
 
 const HeaderText = styled.h2`
   grid-area: header;
-  font-family: var(--font-family-title);
-  font-size: 3.75rem;
-  font-weight: 400;
+  font-family: var(--font-family-wide);
+  font-size: 5rem;
+  font-weight: 100;
   font-style: italic;
+  margin-block: 0;
   margin-left: -2rem;
+  color: var(--clr-green);
 
   @media (max-width: ${Sizes.small}) {
     align-self: center;
@@ -183,8 +182,11 @@ const TextBlock = styled(Text)`
 `
 
 const Gallery = styled.div`
+  position: relative;
   grid-area: gallery;
   padding-right: 5vw;
+  width: 20vw;
+  margin-bottom: 10dvh;
 
   &>img {
     &:nth-child(1) {
@@ -215,6 +217,8 @@ const Gallery = styled.div`
 `
 
 const Picture = styled.div`
+  position: relative;
+  width: 15vw;
   grid-area: picture;
   align-self: start;
   transform-origin: bottom right;
@@ -222,7 +226,7 @@ const Picture = styled.div`
   height: max-content;
 
   @media (max-width: ${Sizes.small}) {
-    flex: 0 0 20%;
+    flex: 0 0 10%;
     max-width: 20vw;
     margin-bottom: -10dvh;
     transform: rotate(-13.61deg) scale(0.85) translate(-50%, -50%);

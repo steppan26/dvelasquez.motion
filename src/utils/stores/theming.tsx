@@ -58,6 +58,7 @@ const GlobalStyle = createGlobalStyle<{}>`
     --clr-bg-main: ${p => (p.theme as ITheme).backgroundPrimary};
     --clr-bg-secondary: ${p => (p.theme as ITheme).backgroundSecondary};
     --clr-bg-projects: #F7F3F0;
+    --clr-green: #7a9b76;
 
     --font-family-regular: 'neusa-next-std', sans-serif;
     --font-family-wide: 'neusa-next-std-wide', sans-serif;
