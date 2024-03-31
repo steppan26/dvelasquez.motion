@@ -60,14 +60,14 @@ const ImageWrapper = styled.span`
 
   img, video {
     height: 100% !important;
-    width: unset !important;
+    width: auto !important;
   }
 
   &#videoPink {
     flex: 0 0 65%;
 
     img, video {
-      transform: translateX(20px);
+      transform: translateX(-30px);
     }
 
     @media (max-width: ${Sizes.small}) {
@@ -88,6 +88,7 @@ const ImageWrapper = styled.span`
     flex: 1 0 20%;
 
     img, video {
+      margin-left: 10%;
       transform: scaleX(-100%);
     }
 
@@ -104,7 +105,11 @@ const ImageWrapper = styled.span`
   }
 
   &#videoGreen {
-    flex: 1 0 30%;
+    flex: 1 0 35%;
+
+    img, video {
+      margin-left: -10%;
+    }
 
     @media (max-width: ${Sizes.small}) {
       order: 1;
@@ -118,7 +123,9 @@ const ImageWrapper = styled.span`
   }
 
   &#videoBlueDark {
-    flex: 0 0 55%;
+    flex: 0 0 50%;
+
+    img, video {}
 
     @media (max-width: ${Sizes.small}) {
       order: 2;
