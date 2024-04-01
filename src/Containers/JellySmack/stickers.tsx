@@ -1,7 +1,4 @@
-import Image from "next/image"
 import styled from "styled-components"
-import RocketShipImage from '/public/projects/jellysmack/rocket.gif'
-import PositiveVibesImage from '/public/projects/jellysmack/positive_vibes.gif'
 import StickersVideoStatic from '/public/projects/jellysmack/stickers_video.webp'
 import { Text } from "../../Components/styledComponents"
 import { Sizes } from "../../Assets"
@@ -13,30 +10,14 @@ export const Stickers:React.FC = () => {
   return (
     <Container>
       <InformationWrapper data-lazy>
-        <Image
-          className="rocketship"
-          src={RocketShipImage}
-          alt="rocketship sticker"
-          sizes="100vw"
-          style={{
-            width: "100%",
-            height: "auto"
-          }} />
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979953/jellysmack/_Rocket_fjoyiv.webm" />
         <Text>
           Through the use of animated assets,
           {!isMobileView && <br />} Jellysmack amplifies digital storytelling,
           {!isMobileView && <br />} enriching the viewer experience and fostering
           {!isMobileView && <br />} meaningful connections with the audience.
         </Text>
-        <Image
-          className="positive-vibes"
-          src={PositiveVibesImage}
-          alt="positive vibes sticker"
-          sizes="100vw"
-          style={{
-            width: "100%",
-            height: "auto"
-          }} />
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979955/jellysmack/_positive_vibes_1_ieysmd.webm" />
       </InformationWrapper>
       <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711566006/jellysmack/stickers_ttkpfq.mp4" backupImage={StickersVideoStatic} />
     </Container>
@@ -58,20 +39,30 @@ const InformationWrapper = styled.div`
     justify-items: center;
   margin: 15dvh 10vw;
 
-  img {
+  &>div {
+    overflow: visible;
+  }
+
+  &>div:first-of-type {
+    justify-self: end;
+
+    video {
+      transform: scale(0.85) translateY(40%) rotate(-19.5deg);
+    }
+  }
+
+  &>div:last-of-type {
+    justify-self: start;
+
+    video {
+      transform: scale(1) translateY(-30%) rotate(-19.5deg);
+    }
+  }
+
+  video {
     max-width: 100%;
     height: auto;
     transform-origin: center;
-
-    &:first-of-type {
-      justify-self: end;
-      transform: scale(1.5) translateY(10%) rotate(-19.5deg);
-    }
-
-    &:last-of-type {
-      justify-self: start;
-      transform: scale(1.2) translateY(-30%) rotate(-45.85deg);
-    }
   }
 
   @media (max-width: ${Sizes.small}) {

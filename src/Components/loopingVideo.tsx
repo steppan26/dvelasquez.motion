@@ -14,10 +14,11 @@ interface Props {
   dataLazy?: boolean | string
   autoPlay?: boolean
   priority?: boolean
+  id?: string
 }
 
 export const LoopingVideo:React.FC<Props> = (props) => {
-  const { imageAlt="", backupImage, videoPath, videoType="video/webm", soundOption, allowControls, dataLazy=false, autoPlay=true, priority } = props
+  const { imageAlt="", backupImage, videoPath, videoType="video/webm", soundOption, allowControls, dataLazy=false, autoPlay=true, priority, id } = props
   const stickerRef = useRef<HTMLImageElement>(null)
   const sceneRef = useRef<HTMLImageElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -60,7 +61,7 @@ export const LoopingVideo:React.FC<Props> = (props) => {
   }
 
   return (
-    <VideoWrapper className="looping-video" ref={sceneRef} onMouseEnter={handleMouseMove} onMouseMove={handleMouseMove} data-lazy={dataLazy} >
+    <VideoWrapper className="looping-video" ref={sceneRef} onMouseEnter={handleMouseMove} onMouseMove={handleMouseMove} data-lazy={dataLazy} id={!!id ? id : undefined} >
       <Suspense fallback={ backupImage ? <Image src={backupImage} alt="static image version of video" /> : <>loading...</> }>
         <video
         ref={videoRef}

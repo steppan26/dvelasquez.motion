@@ -1,25 +1,14 @@
-import Image from "next/image"
 import styled from "styled-components"
-import AnimatedLogo from '/public/projects/jellysmack/jelly_logo.gif'
-import StaticLogo from '/public/projects/jellysmack/jellysmack_logo.png'
 import { Sizes } from "../../Assets"
 import { useIsMobileView } from "../../utils/hooks"
-import { useMemo } from "react"
+import { LoopingVideo } from "../../Components"
 
 export const JellyMessage:React.FC = () => {
   const { isMobileView } = useIsMobileView()
 
-  const activeImage = useMemo(() => isMobileView ? StaticLogo : AnimatedLogo, [isMobileView])
-
   return (
     <Container data-lazy="jelly-message">
-      <Image
-        src={activeImage}
-        alt="Jellysmack logo"
-        style={{
-          maxWidth: "100%",
-          height: "auto"
-        }} />
+      <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979941/jellysmack/_jelly_dega25.webm" />
       <Text>
         Through the use of animated assets,
         {!isMobileView && <br />} Jellysmack amplifies digital storytelling,
@@ -42,9 +31,12 @@ const Container = styled.div`
   margin-inline: auto;
   margin-block: calc(9rem + var(--base-spacing)) var(--base-spacing);
 
-  img {
+  &>div {
+    flex: unset;
     width: 15vw;
     height: auto;
+
+    video { height: 105% !important; }
   }
 
   @media (max-width: ${Sizes.small}) {

@@ -1,12 +1,8 @@
 import Image from "next/image"
 import styled from "styled-components"
 import MockupImage from '/public/projects/jellysmack/mockup-post.webp'
-import PersonalisedCaptionsImage from '/public/projects/jellysmack/personalised_captions.gif'
 import KeywordsImage from '/public/projects/jellysmack/keywords.gif'
 import FlameKeywordsImage from '/public/projects/jellysmack/flame_keywords.gif'
-import FlameGoBiggerImage from '/public/projects/jellysmack/flame_go-bigger.gif'
-import GoBiggerImage from '/public/projects/jellysmack/go-bigger.gif'
-import WatchImage from '/public/projects/jellysmack/watch-till-the-end.gif'
 import TransitionOneImage from '/public/projects/jellysmack/transition_1.webp'
 import TransitionTwoImage from '/public/projects/jellysmack/transition_2.webp'
 import { Sizes } from "../../Assets"
@@ -28,15 +24,7 @@ export const SocialMediaAssets:React.FC = () => {
             width: "100%",
             height: "auto"
           }} />
-        <Image
-          id='personalisedCaptions'
-          src={PersonalisedCaptionsImage}
-          alt="animated sticker of the word 'captions'"
-          sizes="100vw"
-          style={{
-            width: "100%",
-            height: "auto"
-          }} />
+        <LoopingVideo id="personalisedCaptions" videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979939/jellysmack/Personalised_Captions_rw3y4h.webm" />
         <Image
           id='keywords'
           src={isMobileView ? FlameKeywordsImage : KeywordsImage}
@@ -48,24 +36,8 @@ export const SocialMediaAssets:React.FC = () => {
           }} />
       </TopSection>
       <MiddleSection data-lazy>
-        <Image
-          id="flame"
-          src={isMobileView ? GoBiggerImage : FlameGoBiggerImage}
-          alt="animated sticker of a flame in the Jellysmack brand colours"
-          sizes="100vw"
-          style={{
-            width: "100%",
-            height: "auto"
-          }} />
-        <Image
-          id="watch"
-          src={WatchImage}
-          alt="animated sticker inciting to 'watch till the end'"
-          sizes="100vw"
-          style={{
-            width: "100%",
-            height: "auto"
-          }} />
+        <LoopingVideo id="flame" videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979949/jellysmack/Go_Bigger_flame_wz6cbl.webm" />
+        <LoopingVideo id="watch" videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979943/jellysmack/_WatchTillTheEnd_rjtdcy.webm" />
       </MiddleSection>
       <BottomSection data-lazy>
         <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565980/jellysmack/jellysmack_transition_1_i7nqbt.mp4" backupImage={TransitionOneImage} />
