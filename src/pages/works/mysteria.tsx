@@ -11,16 +11,23 @@ import { Sizes } from "../../Assets"
 import { Text } from "../../Components/styledComponents"
 import { VideosGallery } from "../../Containers/mysteria"
 import Head from "next/head";
+import { useEffect, useRef } from "react";
+import { useNavMode } from "../../utils/hooks";
 
 const Page:NextPage = () => {
+  const landingSectionRef = useRef<HTMLDivElement>(null)
+  const { addObserver, navMode } = useNavMode('light')
+
+  useEffect(() => { !!landingSectionRef.current && addObserver(landingSectionRef.current) }, [])
+
   return (
     <>
       <Head>
         <title>D.Velasquez | Mysteria & Roku</title>
       </Head>
-      <Navbar type="projects" mode="light" />
+      <Navbar type="projects" mode={navMode} />
       <Container>
-        <ImageWrappper className="main-image">
+        <ImageWrappper className="main-image" ref={landingSectionRef}>
           <Image
             src={MainHeaderImage}
             alt="The words 'go larger' in big, duplicated over itself"

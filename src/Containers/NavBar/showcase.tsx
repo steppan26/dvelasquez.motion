@@ -5,8 +5,11 @@ import { AnimatedLogoDark } from "../../Components";
 import { MenuItems } from "../MenuSimple/menuItems";
 import { ToggleButton } from "../MenuSimple/toggleButton";
 
+interface Props {
+  mode: 'light' | 'dark'
+}
 
-export const ShowcaseNavbar:React.FC = () => {
+export const ShowcaseNavbar:React.FC<Props> = ({ mode }) => {
   const navRef = useRef<HTMLElement>(null)
   const timeout = useRef<NodeJS.Timeout>()
   const [isOpen, setIsOpen] = useState(false)
@@ -16,7 +19,7 @@ export const ShowcaseNavbar:React.FC = () => {
   }
 
   return(
-    <Nav ref={navRef}>
+    <Nav ref={navRef} data-issticky="true">
       <AnimatedLogoDark />
       <MenuWrapper onMouseLeave={handleMouseLeave} onMouseEnter={() => clearTimeout(timeout.current)}>
         <MenuItems isOpen={isOpen} />
@@ -38,7 +41,7 @@ const Nav = styled.nav<{islanding?: boolean}>`
   width: 100vw;
     max-width: 100%;
   height: var(--nav-height);
-  background-color: ${p => p.theme.backgroundPrimary + 'f0'};
+  background-color: ${p => p.theme.backgroundPrimary};
   padding: 1rem 3vw 0;
 
   @media (max-width: ${Sizes.small}) {

@@ -7,6 +7,8 @@ import JellyBoxImage from '/public/projects/jellysmack/jellybox.gif'
 import BannerImage from '/public/projects/jellysmack/jelly_thank-you.webp'
 import LandingBackupImage from '/public/projects/jellysmack/landing_banner_static.webp'
 import Head from "next/head";
+import { useEffect, useRef } from "react";
+import { useNavMode } from "../../utils/hooks";
 
 const introData = {
   image: JellyBoxImage,
@@ -16,14 +18,19 @@ const introData = {
 }
 
 const Page:NextPage = () => {
+  const landingSectionRef = useRef<HTMLDivElement>(null)
+  const { addObserver, navMode } = useNavMode('light')
+
+  useEffect(() => { !!landingSectionRef.current && addObserver(landingSectionRef.current) }, [])
+
   return (
     <>
       <Head>
         <title>D.Velasquez | Jellysmack portfolio</title>
       </Head>
-      <Navbar type="projects" mode="light" />
+      <Navbar type="projects" mode={navMode} isProjects />
       <Container>
-      <LandingSection>
+      <LandingSection ref={landingSectionRef}>
         <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711564535/jellysmack/go-bigger_header_nvnesk.webm" backupImage={LandingBackupImage} />
       </LandingSection>
       <IntroSection {...introData} />
@@ -48,13 +55,14 @@ export default Page
 
 const Container = styled.div`
   --container-padding: 5.3vw;
+  --clr-bg-main: var(--clr-bg-projects);
 
   max-width: 100vw;
   overflow: hidden;
 
   cursor: default;
   width: 100vw;
-  background-color: var(--clr-bg-main);
+  background-color: var(--clr-bg-projects);
 
   .intro-image {
     width: 75%;

@@ -3,7 +3,7 @@ import { PrimaryTitle } from "../Components/styledComponents"
 import { Sizes } from "../Assets"
 import { animated, useTransition } from "react-spring"
 import rokuLogo from '../../public/projects/jelly_Roku.webp'
-import { Footer } from "."
+import { Footer, Navbar } from "."
 import { NavMobile } from "./NavBar/mobile"
 import { ProjectsNavbar } from "./NavBar/projects"
 import { ProjectPeak, ProjectPeakProps } from "../Components"
@@ -51,10 +51,7 @@ export const ProjectsListContainer:React.FC = () => {
   return(
     <>
       <Wrapper>
-        <NavSelector >
-          <NavMobile mode="light" />
-          <ProjectsNavbar />
-        </NavSelector>
+        <Navbar type="showcase" mode="dark" />
         <Title>Handpicked Projects</Title>
         <Container id="showcaseContainer">
           {transitions((style, item, _, index) => (

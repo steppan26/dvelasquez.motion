@@ -1,40 +1,25 @@
-import styled from "styled-components"
-import { useIsMobileView } from "../../utils/hooks"
+import styled, { CSSProperties } from "styled-components"
 import { LandingNavbar } from "./landing"
 import { NavMobile } from "./mobile"
 import { ProjectsNavbar } from "./projects"
 import { ShowcaseNavbar } from "./showcase"
 import { Sizes } from "../../Assets"
-import { useCallback } from "react"
 
 interface Props {
   type: NavBarType
   mode: 'light' | 'dark'
+  isProjects?: boolean
 }
 
 type NavBarType = 'landing' | 'showcase' | 'projects' | 'mobile'
 
-export const Navbar:React.FC<Props> = ({ type, mode }) => {
-  const Nav:React.FC = useCallback(() => {
-    switch (type) {
-      case 'landing':
-        return <LandingNavbar />
-
-      case 'projects':
-        return <ProjectsNavbar />
-
-      case 'showcase':
-        return <ShowcaseNavbar />
-
-      default:
-        return <></>
-    }
-  }, [type])
-
+export const Navbar:React.FC<Props> = ({ type, mode, isProjects }) => {
   return (
-    <NavSelector >
+    <NavSelector data-isprojects={isProjects} >
       <NavMobile mode={mode} />
-      <Nav />
+      { type === 'landing' && <LandingNavbar /> }
+      { type === 'projects' && <ProjectsNavbar mode={mode} /> }
+      { type === 'showcase' && <ShowcaseNavbar mode={mode} /> }
     </NavSelector>
   )
 }
@@ -42,6 +27,15 @@ export const Navbar:React.FC<Props> = ({ type, mode }) => {
 
 const NavSelector = styled.div`
   z-index: 999;
+
+  &[data-isprojects='true'] {
+    --clr-bg-main: var(--clr-bg-projects);
+  }
+
+  &:has(>*[data-issticky='true']) {
+    position: sticky;
+      top: 0;
+  }
 
   &>* {
     display: flex;

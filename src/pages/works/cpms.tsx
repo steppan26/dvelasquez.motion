@@ -8,16 +8,23 @@ import styled from "styled-components";
 import { Sizes } from "../../Assets";
 import { LoopingVideo } from "../../Components";
 import Head from "next/head";
+import { useEffect, useRef } from "react";
+import { useNavMode } from "../../utils/hooks";
 
 const Page:NextPage = () => {
+  const landingSectionRef = useRef<HTMLDivElement>(null)
+  const { addObserver, navMode } = useNavMode('dark')
+
+  useEffect(() => { !!landingSectionRef.current && addObserver(landingSectionRef.current) }, [])
+
   return (
     <>
       <Head>
         <title>D.Velasquez | CPMS portfolio</title>
       </Head>
-      <Navbar type="projects" mode="dark" />
+      <Navbar type="projects" mode={navMode} />
       <Container>
-      <ImageWrappper className="main-image">
+      <ImageWrappper className="main-image" ref={landingSectionRef}>
         <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565090/cpms/cpms-main-header_qjr8vm.webm" backupImage={MainHeaderImage} />
       </ImageWrappper>
       <IntroSection
