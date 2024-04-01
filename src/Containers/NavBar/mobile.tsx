@@ -4,6 +4,7 @@ import { AnimatedIcon } from "../../Components";
 import { ToggleButton } from "../MenuSimple/toggleButton";
 import { MobileMenu } from "./mobileMenu";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 interface Props {
   mode: 'light' | 'dark'
@@ -29,10 +30,12 @@ export const NavMobile:React.FC<Props> = ({ mode }) => {
 
   return(
     <Nav ref={navRef} className={isOpen ? "open" : ""} id="navbarMobile" data-colormode={mode} >
-      {!isOpen || mode === 'light'
-        ? <AnimatedIcon mode="light" />
-        : <AnimatedIcon />
-      }
+      <Link href="/" >
+        {!isOpen || mode === 'light'
+          ? <AnimatedIcon mode="light" />
+          : <AnimatedIcon />
+        }
+      </Link>
       <MenuWrapper onMouseLeave={handleMouseLeave} onMouseEnter={() => clearTimeout(timeout.current)}>
         <MobileMenu isOpen={isOpen} />
         <ToggleButton isOpen={isOpen} setIsOpen={setIsOpen} />

@@ -19,9 +19,6 @@ export const ProjectsNavbar:React.FC<Props> = ({ mode }) => {
   const { isMobileView } = useIsMobileView()
   const { displayBg, navMode } = useNavMode()
 
-  useEffect(() => console.info('tt', displayBg), [displayBg])
-  useEffect(() => console.info('aa', navMode), [navMode])
-
   const LogoLight = dynamic(() => import('../../Components/animatedLogoLight').then(comp => comp.AnimatedLogoLight), {ssr: false})
   const LogoDark = dynamic(() => import('../../Components/animatedLogoDark').then(comp => comp.AnimatedLogoDark), {ssr: false})
 

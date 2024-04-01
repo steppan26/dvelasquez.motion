@@ -7,7 +7,6 @@ export const useNavMode = (defaultMode: 'light' | 'dark' = 'dark') => {
   const [displayBg, setDisplayBg] = useState(false)
 
   const updateStates = (event: any) => {
-    console.info("received event", event.detail)
     const mode = event.detail.mode
     const bg = event.detail.bg
     setDisplayBg(bg)

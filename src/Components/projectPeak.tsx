@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import { animated, useSpring } from "react-spring"
 import styled from "styled-components"
 import { Sizes } from "../Assets"
@@ -16,6 +16,8 @@ export interface ProjectPeakProps {
 export const ProjectPeak: React.FC<ProjectPeakProps> = ({ backgroundContent, style, id, text}) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const [isHovering, setIsHovering] = useState(false)
+
+  useEffect(() => setIsHovering(false), [])
 
   const BackgroundContent:React.FC = useCallback(() => typeof backgroundContent === 'string'
   ? <LoopingVideo videoPath={backgroundContent} />
@@ -76,11 +78,16 @@ const Overlay = styled(animated.div)`
 
   @media (max-width: ${Sizes.small}) {
     font-size: 2rem;
+    background: unset;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     width: 102%;
     height: 102%;
+
+    p {
+      display: none;
+    }
 
     &:hover, &:active {
       filter: brightness(1.3);
