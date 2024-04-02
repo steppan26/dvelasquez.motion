@@ -3,6 +3,7 @@ import { animated, useSpring } from "react-spring"
 import styled from "styled-components"
 import { Sizes } from "../../Assets"
 import Link from "next/link"
+import { useCursorMessage } from "../../utils/hooks"
 
 interface MenuItem {
   text: string
@@ -39,6 +40,7 @@ const easeInOutCubic = (t: any) => (t < 0.5 ? 4 * t ** 3 : 1 - Math.pow(-2 * t +
 
 export const MenuItems:React.FC<Props> = ({ isOpen, hideEmail }) => {
   const router = useRouter()
+  const { dispatchMessage } = useCursorMessage()
 
   const opacityStyle = useSpring({
     from: { opacity: 1 },
@@ -61,10 +63,15 @@ export const MenuItems:React.FC<Props> = ({ isOpen, hideEmail }) => {
     }
   })
 
+  const handleEmailClick = () => {
+    navigator.clipboard.writeText('dvelasquez.motion@gmail.com')
+    dispatchMessage("copied to clipboard")
+  }
+
   return(
     <Wrapper>
       <MenuContainer style={{ ...translateStyle }}>
-        {!hideEmail && <Email style={opacityStyle}>dvelasquez.motion@gmail.com</Email> }
+        {!hideEmail && <Email onClick={handleEmailClick} style={opacityStyle}>dvelasquez.motion@gmail.com</Email> }
         {menuData.map((props, index) => (
           <Menu key={index} className={router.route === props.href ? 'active' : ''}>
             <Link href={props.href}>{props.text}</Link>
