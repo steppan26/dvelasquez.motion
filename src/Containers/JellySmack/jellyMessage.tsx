@@ -9,12 +9,17 @@ export const JellyMessage:React.FC = () => {
   return (
     <Container data-lazy="jelly-message">
       <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979941/jellysmack/_jelly_dega25.webm" />
-      <Text>
-        Through the use of animated assets,
-        {!isMobileView && <br />} Jellysmack amplifies digital storytelling,
+      <TextWrapper>
+        <Text>
+          The social media stickers accumulated over 30 million views, with a continuously rising engagement rate.
+        </Text>
+        <Text>
+          Additionally, the brand identity created a sense of unity and belonging, resonating both internally and within the online community. Through the use of animated assets,
+        </Text>
+      </TextWrapper>
+        {/* {!isMobileView && <br />} Jellysmack amplifies digital storytelling,
         {!isMobileView && <br />} enriching the viewer experience and fostering
-        {!isMobileView && <br />} meaningful connections with the audience.
-      </Text>
+        {!isMobileView && <br />} meaningful connections with the audience. */}
     </Container>
   );
 }
@@ -31,9 +36,9 @@ const Container = styled.div`
   margin-inline: auto;
   margin-block: calc(9rem + var(--base-spacing)) var(--base-spacing);
 
-  &>div {
+  &>div:first-child {
     flex: unset;
-    width: 15vw;
+    min-width: 15vw;
     height: auto;
 
     video { height: 105% !important; }
@@ -54,13 +59,20 @@ const Container = styled.div`
   }
 `
 
+const TextWrapper = styled.div`
+  display: flex;
+    flex-direction: column;
+    gap: 4dvh;
+`
+
 const Text = styled.p`
   justify-self: start;
   font-family: var(--font-family-wide);
   font-weight: 400;
   font-size: 1.875rem;
   line-height: 2.625rem;
-  padding-block: 4dvh 0;
+  /* padding-block: 4dvh 0; */
+  margin-block: 0;
 
   @media (max-width: ${Sizes.small}) {
     font-size: 1rem;

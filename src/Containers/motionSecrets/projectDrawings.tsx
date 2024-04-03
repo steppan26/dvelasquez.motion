@@ -46,7 +46,7 @@ export const ProjectDrawings:React.FC = () => {
           height: "auto"
         }} />
       <Text data-lazy="motion-secrets_drawing" >
-        There&apos;s always a lot of thinking and planning involved in each of these short exercises, and I believe that the process of getting there is half of the story. Here&apos;s a tiny sneak peek of what my notebook looks like.
+        There&apos;s always a lot of thinking and planning involved in each of these short exercises, and I believe that the process of getting there is half of the story.
       </Text>
     </Container>
   );

@@ -11,6 +11,13 @@ import Head from "next/head";
 import { useEffect, useRef } from "react";
 import { useNavMode } from "../../utils/hooks";
 
+const introData = {
+  image: ClaraImage,
+  imageAlt: "illustration of a portrait of a little girl",
+  projectText: "Develop a video to <b>offer guidance</b> to child protection officers on identifying and <b>safeguarding children from abuse</b> in high-risk environments.",
+  howText: "Child protection officers need training to recognise signs of abuse in children and to follow appropriate procedures. Utilising <b>storytelling allows us to establish an emotional connection</b>, thereby enhancing the effectiveness of learning. <br />Taking into account their branding and previous content, my aim was to create a <b>beautiful yet simple universe</b> that conveys hope and clarity."
+}
+
 const Page:NextPage = () => {
   const landingSectionRef = useRef<HTMLDivElement>(null)
   const { addObserver, navMode } = useNavMode('dark')
@@ -27,12 +34,7 @@ const Page:NextPage = () => {
       <ImageWrappper className="main-image" ref={landingSectionRef}>
         <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565090/cpms/cpms-main-header_qjr8vm.webm" backupImage={MainHeaderImage} />
       </ImageWrappper>
-      <IntroSection
-      image={ClaraImage}
-      imageAlt="illustration of a portrait of a little girl"
-      projectText="Through brand expression and visual storytelling I can help daring organisations, ambitious startups and creative individuals craft their story, communicate their ideas and build their tribe."
-      howText="Through brand expression and visual storytelling I can help daring organisations, ambitious startups and creative individuals craft their story, communicate their ideas and build their tribe."
-      />
+      <IntroSection {...introData} />
       <ProjectScreens />
       <DrawingsSection />
       <DataScreenshots />

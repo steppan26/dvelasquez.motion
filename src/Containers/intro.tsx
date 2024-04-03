@@ -10,6 +10,7 @@ interface Props {
 }
 
 export const IntroSection:React.FC<Props> = ({ image, imageAlt, projectText, howText }) => {
+  console.info(projectText, projectText.split('\n'))
 
   return (
     <Container>
@@ -23,11 +24,11 @@ export const IntroSection:React.FC<Props> = ({ image, imageAlt, projectText, how
       </ImageWrapper>
       <ProjectWrapper data-lazy="intro" >
         <Header>The Project</Header>
-        {projectText.split('\\n').map( text => <Text key={text}>{text}</Text> )}
+        {projectText.split('<br />').map( text => <Text key={text} dangerouslySetInnerHTML={{ __html: text }} /> )}
       </ProjectWrapper>
       <WhyWrapper data-lazy="intro" >
         <Header>The Why and How</Header>
-        {howText.split('\\n').map( text => <Text key={text}>{text}</Text> )}
+        {howText.split('<br />').map( text => <Text key={text} dangerouslySetInnerHTML={{ __html: text }} /> )}
       </WhyWrapper>
     </Container>
   );
@@ -36,7 +37,7 @@ export const IntroSection:React.FC<Props> = ({ image, imageAlt, projectText, how
 const Container = styled.div`
   display: grid;
     grid-template-columns: 4.2fr 7fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto auto;
     grid-template-areas: 'image project'
     'image why';
     grid-gap: 3vw 5vw;

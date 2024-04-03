@@ -19,7 +19,7 @@ export const DrawingsSection:React.FC = () => {
           }} />
       </div>
       <Text>
-        Through brand expression and visual storytelling I can help daring organisations, ambitious startups and creative individuals craft their brand.
+        Infusing the video with a human touch, using elements such as illustrations, real-life footage, and visual infographics, not only enhances retention but also facilitates a stronger emotional connection.
       </Text>
       <div id="drawingTent">
         <Image
