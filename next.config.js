@@ -7,7 +7,7 @@ module.exports = {
     defaultLocale: 'en',
   },
   images: {
-    domains: [ 'cdn.sanity.io', ]
+    domains: [ 'cdn.sanity.io', 'res.cloudinary.com']
   },
   reactStrictMode: false,
   compiler: { styledComponents: {"ssr": true} },

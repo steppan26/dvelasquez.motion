@@ -20,7 +20,14 @@ export const FooterContactSection:React.FC = () => {
         <MiddleSection>
           <Slider>
             <Switcher data-isopen={isOpen}>
-              <Image src={LetsTalkImage} alt="animated text" onClick={() => setIsOpen(true)} />
+              <MainImage>
+                <Image
+                src="https://res.cloudinary.com/dtlyxry6z/image/upload/v1712179358/Home/lets_talk_footer_1_zmv7ep.gif"
+                alt="animated text"
+                layout='fill'
+                onClick={() => setIsOpen(true)}
+                />
+              </MainImage>
               <HiddenSection>
                 <p>Experience the thrill of motion as we turn your visions into breathtaking reality!</p>
                 <p>Let&apos;s make magic happen! ✨🔮</p>
@@ -76,7 +83,7 @@ const Switcher = styled.div`
 
 const SocialsWrapper = styled.div`
   display: flex;
-    gap: 1rem;
+    gap: 1.4rem;
   margin-top: 0.5rem;
 
   &>* {
@@ -85,6 +92,11 @@ const SocialsWrapper = styled.div`
     font-size: unset !important;
     height: max-content;
     transition: ease all 420ms;
+
+    img {
+      width: 2.25rem;
+      height: 2.25rem;
+    }
 
     &::after {
       content: unset !important;
@@ -150,4 +162,10 @@ const EmailLink = styled(InternalLink)`
   &:hover {
     transform: scale(1.03);
   }
+`
+
+const MainImage = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
 `

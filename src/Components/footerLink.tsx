@@ -40,9 +40,8 @@ export const InternalLink = styled(Link)`
   cursor: pointer;
   font-family: var(--font-family-wide);
   font-weight: 100;
-  font-style: italic;
-  font-size: 2.5rem;
-  line-height: 3rem;
+  font-size: 1.875rem;
+  line-height: 2rem;
   color: var(--footer-color);
 
   &::after {
