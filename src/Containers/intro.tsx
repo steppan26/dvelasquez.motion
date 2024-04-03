@@ -1,26 +1,33 @@
 import Image, { StaticImageData } from "next/image"
 import styled from "styled-components"
 import { Sizes } from "../Assets"
+import { useCallback } from "react"
+import { LoopingVideo } from "../Components"
 
 interface Props {
-  image: StaticImageData
+  image: StaticImageData | string
   imageAlt: string
   projectText: string
   howText: string
 }
 
 export const IntroSection:React.FC<Props> = ({ image, imageAlt, projectText, howText }) => {
-  console.info(projectText, projectText.split('\n'))
+  const GraphicElement = useCallback(() => {
+    if(typeof image === 'string'){
+      return <LoopingVideo videoPath={image} />
+    }
+    <Image
+    src={image}
+    alt={imageAlt}
+    loading="eager"
+    layout="responsive"
+    />
+  }, [image, imageAlt])
 
   return (
     <Container>
       <ImageWrapper className="intro-image" data-lazy="intro-image">
-        <Image
-          src={image}
-          alt={imageAlt}
-          loading="eager"
-          layout="responsive"
-          />
+        <GraphicElement />
       </ImageWrapper>
       <ProjectWrapper data-lazy="intro" >
         <Header>The Project</Header>

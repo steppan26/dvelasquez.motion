@@ -12,7 +12,7 @@ import { useEffect, useRef } from "react";
 import { useNavMode } from "../../utils/hooks";
 
 const introData = {
-  image: ClaraImage,
+  image: "https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565088/cpms/cpms-clara-profile_dkml9r.webm",
   imageAlt: "illustration of a portrait of a little girl",
   projectText: "Develop a video to <b>offer guidance</b> to child protection officers on identifying and <b>safeguarding children from abuse</b> in high-risk environments.",
   howText: "Child protection officers need training to recognise signs of abuse in children and to follow appropriate procedures. Utilising <b>storytelling allows us to establish an emotional connection</b>, thereby enhancing the effectiveness of learning. <br />Taking into account their branding and previous content, my aim was to create a <b>beautiful yet simple universe</b> that conveys hope and clarity."
@@ -64,6 +64,21 @@ const Container = styled.div`
   width: 100%;
     max-width: 100vw;
   background-color: var(--clr-bg-main);
+
+  .intro-image {
+    height: 25vw;
+
+    &>div {
+      height: 100%;
+    }
+
+    video {
+      height: 100%;
+      width: auto;
+      transform: scale(1.1) translateX(-12%)
+    }
+  }
+
 `
 
 const ImageWrappper = styled.div`
