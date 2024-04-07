@@ -69,7 +69,7 @@ const Page:NextPage = () => {
         </ContentWrapper>
         <Footer
         leftLink={{ text: "Home", href: "/" }}
-        rightLink={{ text: "Next", href: "/works/jellysmack" }}
+        rightLink={{ text: "Next", href: "/projects/jellysmack" }}
         />
     </Container>
     </>

@@ -16,8 +16,8 @@ const menuData: MenuItem[] = [
     href: "/"
   },
   {
-    text: "Works",
-    href: "/works"
+    text: "Projects",
+    href: "/projects"
   },
   {
     text: "About",

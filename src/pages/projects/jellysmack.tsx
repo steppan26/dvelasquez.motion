@@ -43,7 +43,7 @@ const Page:NextPage = () => {
       </VideoWrapper>
       <Footer
       leftLink={{ text: "Home", href: "/" }}
-      rightLink={{ text: "Next", href: "/works/cpms" }}
+      rightLink={{ text: "Next", href: "/projects/cpms" }}
       />
     </Container>
     </>

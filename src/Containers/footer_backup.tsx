@@ -18,23 +18,23 @@ export const Footer:React.FC = () => {
 
   const nextLink = useMemo((): string => {
     switch (router.asPath) {
-      case "/works":
-        return "/works/jellysmack"
+      case "/projects":
+        return "/projects/jellysmack"
 
-      case "/works/jellysmack":
-        return "/works/cpms"
+      case "/projects/jellysmack":
+        return "/projects/cpms"
 
-      case "/works/cpms":
-        return "/works/motionSecrets"
+      case "/projects/cpms":
+        return "/projects/motionSecrets"
 
-      case "/works/motionSecrets":
-        return "/works/mysteria"
+      case "/projects/motionSecrets":
+        return "/projects/mysteria"
 
-      case "/works/mysteria":
-        return "/works/jellysmack"
+      case "/projects/mysteria":
+        return "/projects/jellysmack"
 
       default:
-        return "/works"
+        return "/projects"
     }
   }, [router])
 
@@ -43,7 +43,7 @@ export const Footer:React.FC = () => {
       <BackToTop onClick={() => scrollToTop()} />
       <LinksWrapper>
         <InternalLink scroll href="/">Home</InternalLink>
-        <InternalLink scroll href="/works">Works</InternalLink>
+        <InternalLink scroll href="/projects">Works</InternalLink>
         <InternalLink scroll href="/about">About</InternalLink>
         <SocialsWrapper>
           <InternalLink href="https://www.instagram.com/dvelasquez-motion" target="_blank">
@@ -56,7 +56,7 @@ export const Footer:React.FC = () => {
       </LinksWrapper>
       <FooterContactSection />
       <NextWrapper href={nextLink}>
-        {nextLink === '/works' ? "View Projects" : "Next Project"}
+        {nextLink === '/projects' ? "View Projects" : "Next Project"}
         <BaseArrow>
           <ArrowLong />
         </BaseArrow>

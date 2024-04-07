@@ -14,7 +14,7 @@ export const JellyMessage:React.FC = () => {
           The social media stickers accumulated over 30 million views, with a continuously rising engagement rate.
         </Text>
         <Text>
-          Additionally, the brand identity created a sense of unity and belonging, resonating both internally and within the online community. Through the use of animated assets,
+          Additionally, the brand identity created a sense of unity and belonging, resonating both internally and within the online community.
         </Text>
       </TextWrapper>
         {/* {!isMobileView && <br />} Jellysmack amplifies digital storytelling,
@@ -32,7 +32,7 @@ const Container = styled.div`
     justify-content: center;
     align-items: flex-start;
     gap: 3vw;
-  width: 70%;
+  width: 75%;
   margin-inline: auto;
   margin-block: calc(9rem + var(--base-spacing)) var(--base-spacing);
 
@@ -71,7 +71,7 @@ const Text = styled.p`
   font-weight: 400;
   font-size: 1.875rem;
   line-height: 2.625rem;
-  /* padding-block: 4dvh 0; */
+  font-style: italic;
   margin-block: 0;
 
   @media (max-width: ${Sizes.small}) {

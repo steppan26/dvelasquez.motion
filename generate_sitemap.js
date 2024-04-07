@@ -3,7 +3,7 @@ const fs = require('fs');
 const urls = [
     'https://dvelasquez.art/',
     'https://dvelasquez.art/about',
-    'https://dvelasquez.art/works',
+    'https://dvelasquez.art/projects',
     // 'https://dvelasquez.art/contact',
 ];
 

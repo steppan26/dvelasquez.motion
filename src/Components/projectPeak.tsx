@@ -42,7 +42,7 @@ export const ProjectPeak: React.FC<ProjectPeakProps> = ({ backgroundContent, sty
     onMouseEnter={() => setIsHovering(true)}
     onMouseLeave={() => setIsHovering(false)}
     >
-      <LinkWrapper href={"/works/" + id}>
+      <LinkWrapper href={"/projects/" + id}>
         <BackgroundContent />
         <Overlay className={`overlay ${id}`} style={overlaySpring} >
           <p>{text}</p>

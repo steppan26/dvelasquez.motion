@@ -19,7 +19,7 @@ export const ShowReelSection:React.FC = () => {
         <CTAButton />
       </InfoSection>
       <ShowReel />
-      {/* <ProjectsEntice href="/works">
+      {/* <ProjectsEntice href="/projects">
         <span>
           <BouncingArrow onClick={handleArrowClick} />
         </span>

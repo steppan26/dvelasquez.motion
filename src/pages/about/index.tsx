@@ -11,6 +11,7 @@ import GalleryImage03 from '/public/about/gallery_4.png'
 import GalleryImage04 from '/public/about/gallery_5.png'
 import { Sizes } from "../../Assets"
 import Head from "next/head"
+import { Calendly } from "../../Components"
 
 const Index:NextPage = () => {
   return (
@@ -91,8 +92,9 @@ const Index:NextPage = () => {
              />
         </Gallery>
       </Wrapper>
+      <Calendly />
       <Footer
-        leftLink={{ text: "Works", href: "/works" }}
+        leftLink={{ text: "Works", href: "/projects" }}
         rightLink={{ text: "Home", href: "/" }}
         />
     </Main>

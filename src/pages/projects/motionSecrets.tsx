@@ -37,7 +37,7 @@ const Page:NextPage = () => {
         <ProjectDrawings />
         <Footer
         leftLink={{ text: "Home", href: "/" }}
-        rightLink={{ text: "Next", href: "/works/mysteria" }}
+        rightLink={{ text: "Next", href: "/projects/mysteria" }}
         />
       </Container>
     </>

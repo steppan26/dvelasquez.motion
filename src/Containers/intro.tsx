@@ -16,12 +16,15 @@ export const IntroSection:React.FC<Props> = ({ image, imageAlt, projectText, how
     if(typeof image === 'string'){
       return <LoopingVideo videoPath={image} />
     }
-    <Image
-    src={image}
-    alt={imageAlt}
-    loading="eager"
-    layout="responsive"
-    />
+
+    return (
+      <Image
+      src={image}
+      alt={imageAlt}
+      loading="eager"
+      layout="responsive"
+      />
+    )
   }, [image, imageAlt])
 
   return (
@@ -38,7 +41,7 @@ export const IntroSection:React.FC<Props> = ({ image, imageAlt, projectText, how
         {howText.split('<br />').map( text => <Text key={text} dangerouslySetInnerHTML={{ __html: text }} /> )}
       </WhyWrapper>
     </Container>
-  );
+  )
 }
 
 const Container = styled.div`
@@ -118,11 +121,12 @@ const Header = styled.h4`
 
 const Text = styled.p`
   font-family: var(--font-family-wide);
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1.125rem;
+  font-style: italic;
   margin-block: 1rem;
-  line-height: 2.06rem;
-  padding-left: 1rem;
+  line-height: 1.875rem;
+  padding-left: 2rem;
 
   &:first-of-type {
     margin-top: 0;

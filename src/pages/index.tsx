@@ -21,7 +21,7 @@ export default function Home() {
       </Container>
       <Footer
       leftLink={{ text: "About", href: "/about" }}
-      rightLink={{ text: "Works", href: "/works" }}
+      rightLink={{ text: "Works", href: "/projects" }}
       />
     </Main>
     </>

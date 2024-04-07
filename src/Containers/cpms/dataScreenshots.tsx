@@ -31,7 +31,7 @@ const Container = styled.div`
     grid-template-rows: 28vw 28vw;
     grid-gap: 1rem;
   margin-inline: var(--container-padding);
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 
   @media (max-width: ${Sizes.small}) {
     grid-template-columns: 1fr;

@@ -12,8 +12,9 @@ export const PrimaryTitle = styled.h1`
 export const Text = styled.p`
   font-family: "neusa-next-std-wide";
   font-weight: 400;
+  font-style: italic;
   font-size: 1.875rem;
-  line-height: 2.625rem;
+  line-height: 2.5rem;
   text-align: center;
 
   @media (max-width: ${Sizes.small}) {

@@ -38,12 +38,9 @@ const Page:NextPage = () => {
       <ProjectScreens />
       <DrawingsSection />
       <DataScreenshots />
-      <VideoWrapper>
-        <LoopingVideo videoPath="" backupImage={MainVideoImage} />
-      </VideoWrapper>
       <Footer
       leftLink={{ text: "Home", href: "/" }}
-      rightLink={{ text: "Next", href: "/works/motionSecrets" }}
+      rightLink={{ text: "Next", href: "/projects/motionSecrets" }}
       />
     </Container>
     </>
