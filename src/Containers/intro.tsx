@@ -50,7 +50,7 @@ const Container = styled.div`
     grid-template-rows: auto auto;
     grid-template-areas: 'image project'
     'image why';
-    grid-gap: 3vw 5vw;
+    grid-gap: 1.5vw 3.5vw;
     align-items: center;
     justify-items: start;
   padding-inline: var(--container-padding) calc(var(--container-padding) + 5vw);
@@ -106,12 +106,12 @@ const WhyWrapper = styled.div`
 `
 
 const Header = styled.h4`
-  font-size: 2.5rem;
+  font-size: 2.1875rem;
   font-style: italic;
   font-weight: 400;
   letter-spacing: -1px;
   color: var(--clr-text-main);
-  margin-block: 0 1.25rem;
+  margin-block: 0 0.5rem;
 
   @media (max-width: ${Sizes.small}) {
     font-size: 1.875rem;

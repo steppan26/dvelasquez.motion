@@ -14,7 +14,7 @@ export const Text = styled.p`
   font-weight: 400;
   font-style: italic;
   font-size: 1.875rem;
-  line-height: 2.5rem;
+  line-height: 2.625rem;
   text-align: center;
 
   @media (max-width: ${Sizes.small}) {

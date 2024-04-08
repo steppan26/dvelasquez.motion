@@ -69,7 +69,7 @@ const Page:NextPage = () => {
         </ContentWrapper>
         <Footer
         leftLink={{ text: "Home", href: "/" }}
-        rightLink={{ text: "Next", href: "/projects/jellysmack" }}
+        rightLink={{ text: "About", href: "/about" }}
         />
     </Container>
     </>
@@ -92,7 +92,7 @@ const Container = styled.div`
   max-height: 100%;
 
   & .intro-image {
-    height: 60%;
+    height: 100%;
     overflow: hidden;
 
     img {

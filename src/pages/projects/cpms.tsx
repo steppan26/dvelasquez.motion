@@ -63,7 +63,8 @@ const Container = styled.div`
   background-color: var(--clr-bg-main);
 
   .intro-image {
-    height: 25vw;
+    height: 30vw;
+    border-radius: 5px;
 
     &>div {
       height: 100%;
@@ -72,7 +73,7 @@ const Container = styled.div`
     video {
       height: 100%;
       width: auto;
-      transform: scale(1.1) translateX(-12%)
+      transform: scale(1.1) translateX(-20%)
     }
   }
 

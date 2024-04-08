@@ -71,8 +71,11 @@ const Overlay = styled(animated.div)`
   color: var(--clr-bg-main) !important;
   opacity: 1;
   overflow: hidden;
-  font-family: var(--font-family-wide);
-    font-size: 3rem;
+  font-family: var(--font-family-title);
+    font-weight: 500;
+    font-size: 3.125rem;
+    font-style: italic;
+    letter-spacing: -2px;
     text-align: center;
   transform-origin: bottom;
 

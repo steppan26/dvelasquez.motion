@@ -144,11 +144,6 @@ const GlobalStyle = createGlobalStyle<{}>`
     }
   }
 
-  p {
-    font-family: var(--font-family);
-    font-weight: var(--font-text-font-weight);
-  }
-
   h1,
   h2,
   h3,

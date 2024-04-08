@@ -53,9 +53,9 @@ const Container = styled.div`
   cursor: default;
 
   .intro-image {
-    padding-top: 10vh;
 
     img {
+      margin-bottom: 2.5rem;
       width: 120% !important;
     }
 

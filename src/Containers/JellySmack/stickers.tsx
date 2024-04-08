@@ -11,12 +11,12 @@ export const Stickers:React.FC = () => {
     <Container>
       <InformationWrapper data-lazy>
         <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979953/jellysmack/_Rocket_fjoyiv.webm" />
-        <Text>
+        <CustomText>
           Through the use of animated assets,
           {!isMobileView && <br />} Jellysmack amplifies digital storytelling,
           {!isMobileView && <br />} enriching the viewer experience and fostering
           {!isMobileView && <br />} meaningful connections with the audience.
-        </Text>
+        </CustomText>
         <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979955/jellysmack/_positive_vibes_1_ieysmd.webm" />
       </InformationWrapper>
       <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711566006/jellysmack/stickers_ttkpfq.mp4" backupImage={StickersVideoStatic} />
@@ -35,9 +35,9 @@ const Container = styled.div`
 
 const InformationWrapper = styled.div`
   display: grid;
-    grid-template-columns: 1fr 3.5fr 1fr;
+    grid-template-columns: 1fr 3fr 1fr;
     justify-items: center;
-  margin: 15dvh 10vw;
+  margin: 25dvh 10vw;
 
   &>div {
     overflow: visible;
@@ -47,7 +47,8 @@ const InformationWrapper = styled.div`
     justify-self: end;
 
     video {
-      transform: scale(0.85) translateY(40%) rotate(-19.5deg);
+      z-index: -5;
+      transform: translate(-3rem, 40%) rotate(-19.5deg) scale(1.25);
     }
   }
 
@@ -55,7 +56,7 @@ const InformationWrapper = styled.div`
     justify-self: start;
 
     video {
-      transform: scale(1) translateY(-30%) rotate(-19.5deg);
+      transform: scale(1.2) translate(2rem, -30%) rotate(-19.5deg);
     }
   }
 
@@ -93,3 +94,5 @@ const InformationWrapper = styled.div`
     }
   }
 `
+
+const CustomText = styled(Text)``

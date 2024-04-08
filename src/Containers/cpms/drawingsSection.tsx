@@ -37,7 +37,7 @@ export const DrawingsSection:React.FC = () => {
 
 const Container = styled.div`
   display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 2.5fr 1fr;
   margin-block: 14.5dvh;
 
   p {

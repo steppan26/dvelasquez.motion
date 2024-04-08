@@ -111,8 +111,8 @@ const Index:NextPage = () => {
         <Calendly />
       </div>
       <Footer
-        leftLink={{ text: "Works", href: "/projects" }}
-        rightLink={{ text: "Home", href: "/" }}
+        leftLink={{ text: "Home", href: "/" }}
+        rightLink={{ text: "Projects", href: "/projects" }}
         />
     </Main>
     </>

@@ -103,7 +103,7 @@ const Menu = styled(animated.div)`
   &:after {
     content: '';
     position: absolute;
-    bottom: -0.3rem;
+    bottom: 0.3rem;
     left: 0;
     width: 0;
     height: 2px;
