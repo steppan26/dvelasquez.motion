@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { BouncingArrow, MouseMask } from "../Components"
+import { BouncingArrow, MouseMask, ScrollDown } from "../Components"
 import { PrimaryTitle } from "../Components/styledComponents"
 import { Sizes } from "../Assets"
 import { LandingMobile, Navbar } from "."
@@ -9,8 +9,8 @@ export const Landing:React.FC = () => {
   const selectorRef = useRef<HTMLDivElement>(null)
 
   const handleArrowClick: MouseEventHandler = (e) => {
-    const el = selectorRef.current?.nextSibling as HTMLElement
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    const el = document.querySelector('#showreelContainer')
+    el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     window.dispatchEvent(new CustomEvent('resetMask'))
   }
 
@@ -28,7 +28,7 @@ export const Landing:React.FC = () => {
               <span>Brand Design</span>
               <span>Motion Design</span>
             </TextWrapper>
-            <BouncingArrow onClick={handleArrowClick} />
+            <ScrollDown scrollToSelector="#showreelContainer" />
           </Wrapper>
         </MouseMask>
       </Container>

@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { Footer, Landing, Navbar, ShowReelSection } from "../Containers"
-import { ScrollingContainer, TitleSecondary } from "../Assets/UIComponents"
+import { ScrollingContainer } from "../Assets/UIComponents"
 import { Sizes } from "../Assets"
 import Head from "next/head"
 
@@ -13,7 +13,7 @@ export default function Home() {
     </Head>
     <Main id='mainContainer' className='scrolling-container'>
       <Landing />
-      <Container>
+      <Container id="showreelContainer">
         <Cutout data-lazy />
         <Navbar type="showcase" mode="dark" />
         <MainTitle data-lazy>Unique Design for Unique Ideas</MainTitle>

@@ -2,7 +2,7 @@ import styled from "styled-components"
 import Link from "next/link"
 
 export const CTAButton:React.FC = () => (
-  <GPTButton href="/about" >find out more</GPTButton>
+  <GPTButton href="/about" >Book a Call</GPTButton>
 )
 
 const GPTButton = styled(Link)`
@@ -12,11 +12,13 @@ const GPTButton = styled(Link)`
   width: 100%;
   background-color: var(--clr-green);
   color: #fff;
-  font-family: var(--font-family-title);
-    font-size: 2.125rem;
+  font-family: var(--font-family-wide);
+    font-size: 2.375rem;
     text-align: center;
+    font-weight: 400;
     font-style: italic;
-  border-radius: 5px;
+    letter-spacing: -3%;
+  border-radius: var(--border-radius);
   margin-right: -5%;
   padding: 0.5rem;
   box-shadow: 5px 5px #526950;

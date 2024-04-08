@@ -19,15 +19,6 @@ export const ShowReelSection:React.FC = () => {
         <CTAButton />
       </InfoSection>
       <ShowReel />
-      {/* <ProjectsEntice href="/projects">
-        <span>
-          <BouncingArrow onClick={handleArrowClick} />
-        </span>
-        <ProjectsText onClick={handleArrowClick}>Handpicked projects</ProjectsText>
-        <span>
-          <BouncingArrow onClick={handleArrowClick} />
-        </span>
-      </ProjectsEntice> */}
       <Spacer />
     </Container>
   )
@@ -87,8 +78,8 @@ const Text = styled.p`
 
   span {
     font-family: "neusa-next-std-wide";
-    font-weight: 400;
-    color: ${p => p.theme.textSecondary};
+    font-weight: 600;
+    /* color: ${p => p.theme.textSecondary}; */
   }
 
   @media (max-width: ${Sizes.small}) {
@@ -96,57 +87,6 @@ const Text = styled.p`
     line-height: 1.5625rem;
     text-align: center;
     margin-bottom: 2.5rem;
-  }
-`
-
-const ProjectsText = styled(TitleSecondary)`
-  font-family: var(--font-family-wide);
-  font-size: 1.25rem;
-  font-weight: 200;
-  font-style: unset;
-  margin-block: 0;
-`
-
-const ProjectsEntice = styled(Link)`
-  cursor: pointer;
-  position: relative;
-  display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2.2vw;
-  margin-block: 3.5dvh;
-  width: 100%;
-  transition: ease 200ms all;
-
-  .bouncing-arrow {
-    cursor: inherit;
-  }
-
-  &>span {
-    transform-origin: center;
-    transform: rotate(90deg) scale(0.5);
-
-    &:first-of-type {
-      transform: rotate(-90deg) scale(0.5);
-    }
-
-    &>div {
-      display: flex;
-        justify-content: center;
-        align-items: center;
-      cursor: unset;
-      margin: 0;
-      width: 4.4vw;
-      height: max-content;
-    }
-  }
-
-  &:hover {
-    transform: scale(1.05);
-  }
-
-  @media (max-width: ${Sizes.small}) {
-    display: none;
   }
 `
 
