@@ -24,8 +24,8 @@ const menuData: MenuItem[] = [
     href: "/about"
   },
   {
-    text: "Contact",
-    href: "/#"
+    text: "Book a call",
+    href: "/about#book"
   },
 ]
 
@@ -88,10 +88,11 @@ const Menu = styled(animated.div)`
   font-size: 1.25rem;
   line-height: 2.4375rem;
 
-  font-weight: 300;
   margin-block: 0;
   color: var(--nav-main-color);
-  font-family: var(--font-family-regular);
+  font-family: var(--font-family-wide);
+  font-style: italic;
+  font-weight: 500;
   text-decoration: unset;
   transition: cubic-bezier(0.18, 0.89, 0.32, 1.28) 800ms transform;
 
@@ -102,7 +103,7 @@ const Menu = styled(animated.div)`
   &:after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -0.3rem;
     left: 0;
     width: 0;
     height: 2px;

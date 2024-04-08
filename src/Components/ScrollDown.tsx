@@ -52,6 +52,7 @@ const ArrowWrapper = styled(animated.p)`
   font-family: var(--font-family-wide);
   font-style: italic;
   font-size: 1rem;
+  font-weight: 400;
 
   &::after {
     content: '';

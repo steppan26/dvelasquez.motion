@@ -6,8 +6,14 @@ import InstagramIcon from '/public/icons/instagram.png'
 import LinkedInIcon from '/public/icons/linkedin.png'
 import GlobeIcon from '/public/icons/globe.png'
 import YoutubeIcon from '/public/icons/youtube.png'
-import LetsTalkImage from '/public/lets_talk_anim.png'
 import { InternalLink } from "./footerLink"
+
+const SocialLinks = {
+  instagram: 'https://www.instagram.com/dvelasquez_art/',
+  dribble: 'https://dribbble.com/dvelasquez16',
+  youtube: 'https://www.youtube.com/@dvelasquez.motion',
+  linkedin: 'https://www.linkedin.com/in/velazquezdaniela/'
+}
 
 
 export const FooterContactSection:React.FC = () => {
@@ -22,7 +28,7 @@ export const FooterContactSection:React.FC = () => {
             <Switcher data-isopen={isOpen}>
               <MainImage>
                 <Image
-                src="https://res.cloudinary.com/dtlyxry6z/image/upload/v1712179358/Home/lets_talk_footer_1_zmv7ep.gif"
+                src="https://res.cloudinary.com/dtlyxry6z/image/upload/v1712605428/Home/Let_s_talk_n1lwj2.gif"
                 alt="animated text"
                 layout='fill'
                 onClick={() => setIsOpen(true)}
@@ -36,19 +42,18 @@ export const FooterContactSection:React.FC = () => {
             </Switcher>
           </Slider>
           <LinksWrapper>
-          {/* <EmailLink href="mailto:dvelasquez.motion@gmail.com">dvelasquez.motion@gmail.com</EmailLink> */}
             <SocialsWrapper>
-              <InternalLink href="https://www.instagram.com/dvelasquez-motion" target="_blank">
-                <Image src={InstagramIcon} alt="instagram icon" />
+              <InternalLink href={SocialLinks.instagram} target="_blank" >
+                <Image src={InstagramIcon} alt="instagram icon" className="intagram" />
               </InternalLink>
-              <InternalLink href="#" target="_blank" >
-                <Image src={GlobeIcon} alt="globe icon" />
+              <InternalLink href={SocialLinks.dribble} target="_blank"  >
+                <Image src={GlobeIcon} alt="dribble icon" className="dribble" />
               </InternalLink>
-              <InternalLink href="https://www.youtube.com/@dvelasquez.motion/featured" target="_blank" >
-                <Image src={YoutubeIcon} alt="youtube icon" />
+              <InternalLink href={SocialLinks.youtube} target="_blank" >
+                <Image src={YoutubeIcon} alt="youtube icon" className="youtube" />
               </InternalLink>
-              <InternalLink href="https://www.linkedin.com/in/velazquezdaniela/" target="_blank" >
-                <Image src={LinkedInIcon} alt="linkedin icon" />
+              <InternalLink href={SocialLinks.linkedin} target="_blank" >
+                <Image src={LinkedInIcon} alt="linkedin icon" className="linkedin" />
               </InternalLink>
             </SocialsWrapper>
           </LinksWrapper>
@@ -82,20 +87,24 @@ const Switcher = styled.div`
 `
 
 const SocialsWrapper = styled.div`
+  box-sizing: content-box;
   display: flex;
     gap: 1.4rem;
   margin-top: 0.5rem;
+  height: 38px;
+  padding-block: 0.5rem;
 
   &>* {
     margin-block: 0;
     line-height: unset;
     font-size: unset !important;
-    height: max-content;
+    height: 100%;
+    overflow: visible;
     transition: ease all 420ms;
 
     img {
-      width: 2.25rem;
-      height: 2.25rem;
+      width: auto;
+      height: 100%;
     }
 
     &::after {

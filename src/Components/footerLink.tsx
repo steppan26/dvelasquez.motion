@@ -28,7 +28,7 @@ export const FooterLink:React.FC<FooterLinkProps> = ({ text, href, direction }) 
 
 const ArrowWrapper = styled.div`
   position: absolute;
-  top: 2rem; left: -1rem; right: -3rem;
+  top: 1.5rem; left: -1rem; right: -3rem;
   overflow: hidden;
 
   img {
@@ -39,9 +39,10 @@ const ArrowWrapper = styled.div`
 export const InternalLink = styled(Link)`
   cursor: pointer;
   font-family: var(--font-family-wide);
-  font-weight: 100;
+  font-weight: 400;
   font-size: 1.875rem;
   line-height: 2rem;
+  font-style: italic;
   color: var(--footer-color);
 
   &::after {
@@ -69,7 +70,7 @@ export const InternalLink = styled(Link)`
 
 const BaseArrow = styled.div`
   position: absolute;
-  top: 2rem; left: -1rem; right: -3rem;
+  top: 1.5rem; left: -1rem; right: -3rem;
   opacity: 1;
   z-index: 5;
 

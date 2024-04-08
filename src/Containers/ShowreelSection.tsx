@@ -69,17 +69,17 @@ const InfoSection = styled.div`
 `
 
 const Text = styled.p`
-  font-size: 1.35rem;
-  line-height: 2rem;
+  font-size: 1.5rem;
+  line-height: 2.4375rem;
   flex: 0 1 100%;
   margin-block: 0;
-  font-family: "neusa-next-std-wide";
+  font-family: var(--font-family-wide);
   font-weight: 400;
+  font-style: italic;
+  color: var(--clr-text-main);
 
   span {
-    font-family: "neusa-next-std-wide";
     font-weight: 600;
-    /* color: ${p => p.theme.textSecondary}; */
   }
 
   @media (max-width: ${Sizes.small}) {

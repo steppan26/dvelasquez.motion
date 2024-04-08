@@ -15,9 +15,10 @@ export const Footer:React.FC<Props> = ({ leftLink, rightLink }) => {
 
   return(
     <Container>
+      <Background />
       <BackToTop onClick={() => scrollToTop()} />
       <FooterLink href={leftLink.href} text={leftLink.text} direction="left" />
-        <FooterContactSection />
+      <FooterContactSection />
       <FooterLink href={rightLink.href} text={rightLink.text} direction="right" />
     </Container>
   )
@@ -37,9 +38,6 @@ const Container = styled.footer`
   background-color: var(--clr-bg-secondary);
   box-shadow: inset 0px 4px 20px ${p => p.theme.textPrimary}4c;
   font-family: var(--font-family-regular);
-  background-image: url('/footer_bg.webp');
-  background-size: cover;
-  background-position: center;
 
   @media (max-width: ${Sizes.small}) {
     flex-direction: column-reverse;
@@ -47,12 +45,21 @@ const Container = styled.footer`
   }
 `
 
+const Background = styled.div`
+  position: absolute;
+  inset: 0;
+  background-image: url('/footer_bg.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.25;
+`
+
 const BackToTop = styled.div`
-  --size: clamp(55px, 4.8vw, 90px);
+  --size: clamp(75px, 6.5vw, 150px);
 
   cursor: pointer;
   position: absolute;
-  top: 0; right: 11.5vw;
+  top: 0; right: 7vw;
   width: var(--size);
     max-width: 120px;
   height: var(--size);

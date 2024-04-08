@@ -12,8 +12,23 @@ import GalleryImage04 from '/public/about/gallery_5.png'
 import { Sizes } from "../../Assets"
 import Head from "next/head"
 import { Calendly } from "../../Components"
+import { useEffect, useRef } from "react"
+import { useRouter } from "next/router"
 
 const Index:NextPage = () => {
+  const calendarWrapperRef = useRef<HTMLDivElement>(null)
+  const router = useRouter()
+
+  useEffect(() => {
+    if(!calendarWrapperRef.current) return
+
+    console.info(router.asPath, router.asPath.includes('#book'))
+    if(router.asPath.includes('#book')) {
+      console.info('scrolling to')
+      calendarWrapperRef.current.scrollTo({ behavior: 'instant' })
+    }
+  }, [])
+
   return (
     <>
     <Head>
@@ -92,7 +107,9 @@ const Index:NextPage = () => {
              />
         </Gallery>
       </Wrapper>
-      <Calendly />
+      <div ref={calendarWrapperRef}>
+        <Calendly />
+      </div>
       <Footer
         leftLink={{ text: "Works", href: "/projects" }}
         rightLink={{ text: "Home", href: "/" }}
@@ -147,7 +164,6 @@ const HeaderText = styled.h2`
     margin-left: 2rem;
     flex: 0 0 30%;
   }
-
 `
 
 const MainText = styled.article`

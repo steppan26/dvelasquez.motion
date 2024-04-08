@@ -21,7 +21,7 @@ export default function Home() {
       </Container>
       <Footer
       leftLink={{ text: "About", href: "/about" }}
-      rightLink={{ text: "Works", href: "/projects" }}
+      rightLink={{ text: "Projects", href: "/projects" }}
       />
     </Main>
     </>
@@ -60,7 +60,7 @@ const Cutout = styled.div`
     position: absolute;
     inset: 0;
     background-color: var(--clr-bg-secondary);
-    transform: rotate(45deg) translate3d(0, 70%, 0);
+    transform: translate3d(-67%, 23%, 0) rotate(45deg);
   }
 
   @media (max-width: ${Sizes.small}) {
@@ -77,8 +77,9 @@ const MainTitle = styled.h2`
   margin-top: 7.042254dvh;
   padding: 0 var(--padding-main);
   padding-bottom: 0;
-  letter-spacing: -2px;
-  font-size: 3.75rem;
+  letter-spacing: -5px;
+  color: var(--clr-text-main);
+  font-size: 4.3125rem;
   margin-bottom: 0;
 
   @media (max-width: ${Sizes.small}) {

@@ -6,7 +6,7 @@ export const CTAButton:React.FC = () => (
 )
 
 const GPTButton = styled(Link)`
-  flex: 1 0 30%;
+  flex: 1 0 26%;
   display: flex;
     justify-content: center;
   width: 100%;
