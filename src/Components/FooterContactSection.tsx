@@ -22,53 +22,62 @@ export const FooterContactSection:React.FC = () => {
   useEffect(() => setIsOpen(false), [])
 
   return(
-    <Container>
-        <MiddleSection>
-          <Slider>
-            <Switcher data-isopen={isOpen}>
-              <MainImage>
-                <Image
-                src="https://res.cloudinary.com/dtlyxry6z/image/upload/v1712605428/Home/Let_s_talk_n1lwj2.gif"
-                alt="animated text"
-                layout='fill'
-                onClick={() => setIsOpen(true)}
-                />
-              </MainImage>
-              <HiddenSection>
-                <p>Experience the thrill of motion as we turn your visions into breathtaking reality!</p>
-                <p>Let&apos;s make magic happen! ✨🔮</p>
-                <EmailLink href="mailto:dvelasquez.motion@gmail.com">dvelasquez.motion@gmail.com</EmailLink>
-              </HiddenSection>
-            </Switcher>
-          </Slider>
-          <LinksWrapper>
-            <SocialsWrapper>
-              <InternalLink href={SocialLinks.instagram} target="_blank" >
-                <Image src={InstagramIcon} alt="instagram icon" className="intagram" />
-              </InternalLink>
-              <InternalLink href={SocialLinks.dribble} target="_blank"  >
-                <Image src={GlobeIcon} alt="dribble icon" className="dribble" />
-              </InternalLink>
-              <InternalLink href={SocialLinks.youtube} target="_blank" >
-                <Image src={YoutubeIcon} alt="youtube icon" className="youtube" />
-              </InternalLink>
-              <InternalLink href={SocialLinks.linkedin} target="_blank" >
-                <Image src={LinkedInIcon} alt="linkedin icon" className="linkedin" />
-              </InternalLink>
-            </SocialsWrapper>
-          </LinksWrapper>
-        </MiddleSection>
-    </Container>
+    <>
+      <Container>
+          <MiddleSection>
+            <Slider>
+              <Switcher data-isopen={isOpen} onClick={() => setIsOpen(v => !v)}>
+                <MainImage>
+                  <Image
+                  src="https://res.cloudinary.com/dtlyxry6z/image/upload/v1712605428/Home/Let_s_talk_n1lwj2.gif"
+                  alt="animated text"
+                  width={832}
+                  height={207}
+                  layout='responsive'
+                  // onClick={() => setIsOpen(true)}
+                  />
+                </MainImage>
+                <HiddenSection>
+                  <p>Experience the thrill of motion as we turn your visions into breathtaking reality!</p>
+                  <p>Let&apos;s make magic happen! ✨🔮</p>
+                  <EmailLink href="mailto:dvelasquez.motion@gmail.com">dvelasquez.motion@gmail.com</EmailLink>
+                </HiddenSection>
+              </Switcher>
+            </Slider>
+          </MiddleSection>
+      </Container>
+      <LinksWrapper>
+        <SocialsWrapper>
+          <InternalLink href={SocialLinks.instagram} target="_blank" >
+            <Image src={InstagramIcon} alt="instagram icon" className="intagram" />
+          </InternalLink>
+          <InternalLink href={SocialLinks.dribble} target="_blank"  >
+            <Image src={GlobeIcon} alt="dribble icon" className="dribble" />
+          </InternalLink>
+          <InternalLink href={SocialLinks.youtube} target="_blank" >
+            <Image src={YoutubeIcon} alt="youtube icon" className="youtube" />
+          </InternalLink>
+          <InternalLink href={SocialLinks.linkedin} target="_blank" >
+            <Image src={LinkedInIcon} alt="linkedin icon" className="linkedin" />
+          </InternalLink>
+        </SocialsWrapper>
+      </LinksWrapper>
+    </>
   )
 }
 
 const Container = styled.div`
   overflow: hidden;
+  grid-area: image;
 `
 
 const Slider = styled.div`
   height: 27dvh;
   overflow: hidden;
+
+  @media (max-width: ${Sizes.small}) {
+    height: auto;
+  }
 `
 
 const Switcher = styled.div`
@@ -83,6 +92,11 @@ const Switcher = styled.div`
 
   &[data-isopen='true'] {
     transform: translateY(-50%);
+  }
+
+  @media (max-width: ${Sizes.small}) {
+    grid-template-rows: auto auto;
+    transform: unset !important;
   }
 `
 
@@ -116,6 +130,11 @@ const SocialsWrapper = styled.div`
       transform: scale(1.15);
     }
   }
+
+  @media (max-width: ${Sizes.small}) {
+    height: 15px;
+    gap: 1rem;
+  }
 `
 
 const MiddleSection = styled.div`
@@ -128,6 +147,10 @@ const MiddleSection = styled.div`
   &>img {
     max-width: 100%;
   }
+
+  @media (max-width: ${Sizes.small}) {
+
+  }
 `
 
 const LinksWrapper = styled.div`
@@ -136,10 +159,7 @@ const LinksWrapper = styled.div`
     justify-content: flex-start;
     align-items: center;
     gap: 1rem;
-
-  @media (max-width: ${Sizes.small}) {
-    display: none;
-  }
+  grid-area: socials;
 `
 
 const HiddenSection = styled.div`
@@ -156,7 +176,10 @@ const HiddenSection = styled.div`
   a {
     font-size: large;
     text-decoration: underline;
-    /* color: var(--clr-text-main); */
+  }
+
+  @media (max-width: ${Sizes.small}) {
+    display: none;
   }
 `
 
@@ -174,7 +197,21 @@ const EmailLink = styled(InternalLink)`
 `
 
 const MainImage = styled.div`
+  --base-size: 58vw;
+
   position: relative;
-  width: 100%;
-  height: 100%;
+  display: flex;
+    justify-content: center;
+  width: var(--base-size);
+  height: calc(0.25 * var(--base-size));
+
+  img {
+    flex: 0 1 100%;
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  @media (max-width: ${Sizes.small}) {
+    --base-size: 81vw;
+  }
 `

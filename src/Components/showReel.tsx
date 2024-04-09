@@ -51,7 +51,7 @@ const Container = styled.div`
   @media (max-width: ${Sizes.small}) {
     align-self: center;
     width: 100vw;
-    margin-top: 2dvh;
+    margin-top: 5dvh;
   }
 `
 

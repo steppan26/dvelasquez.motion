@@ -1,9 +1,7 @@
 import styled from "styled-components"
-import { TitleSecondary } from "../Assets/UIComponents"
-import { BouncingArrow, CTAButton, ShowReel } from "../Components"
+import { CTAButton, ShowReel } from "../Components"
 import { Sizes } from "../Assets"
 import { MouseEventHandler } from "react"
-import Link from "next/link"
 
 export const ShowReelSection:React.FC = () => {
   const handleArrowClick: MouseEventHandler = (e) => {
@@ -92,4 +90,8 @@ const Text = styled.p`
 
 const Spacer = styled.div`
   height: 15dvh;
+
+  @media (max-width: ${Sizes.small}) {
+    height: 2dvh;
+  }
 `

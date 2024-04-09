@@ -26,12 +26,16 @@ export const Footer:React.FC<Props> = ({ leftLink, rightLink }) => {
 
 const Container = styled.footer`
   --footer-color: #F3E4D9;
+  --padding-size: 9vw;
 
   position: relative;
-  display: flex;
-    justify-content: center;
+  display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: auto auto;
+      grid-template-areas: 'left image right'
+      'left socials right';
     align-items: center;
-    gap: 2rem;
+    justify-items: center;
   padding: 10dvh 5.7vw;
   width: 100%;
   max-width: 100vw;
@@ -40,8 +44,12 @@ const Container = styled.footer`
   font-family: var(--font-family-regular);
 
   @media (max-width: ${Sizes.small}) {
-    flex-direction: column-reverse;
-    gap: 10dvh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+      grid-template-areas: 'image image image'
+      'left socials right';
+    padding: var(--padding-size);
   }
 `
 
@@ -75,5 +83,9 @@ const BackToTop = styled.div`
 
   &:hover {
     box-shadow: 0 4px 14px 6px rgba(0, 0, 0, 0.15);
+  }
+
+  @media (max-width: ${Sizes.small}) {
+    --size: clamp(38px, 11.2vw, 50px);
   }
 `

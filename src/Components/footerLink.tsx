@@ -34,6 +34,10 @@ const ArrowWrapper = styled.div`
   img {
     transition: ease all 600ms;
   }
+
+  @media (max-width: ${Sizes.small}) {
+    display: none;
+  }
 `
 
 export const InternalLink = styled(Link)`
@@ -70,12 +74,15 @@ export const InternalLink = styled(Link)`
 
 const BaseArrow = styled.div`
   position: absolute;
-  top: 1.5rem; left: -1rem; right: -3rem;
+  top: 0.65rem; left: 0;
+  width: 15vw;
   opacity: 1;
   z-index: 5;
 
   @media (min-width: ${Sizes.small}) {
     opacity: 0.3;
+    top: 1.5rem; left: -1rem; right: -3rem;
+    width: unset;
     z-index: unset;
   }
 `
@@ -83,6 +90,7 @@ const BaseArrow = styled.div`
 
 const NextWrapper = styled(InternalLink)`
   position: relative;
+  grid-area: right;
   display: flex;
     flex-direction: column;
     align-items: center;
@@ -97,14 +105,20 @@ const NextWrapper = styled(InternalLink)`
   }
 
   &[data-direction='left'] {
+    grid-area: left !important;
     display: flex;
       flex-direction: column;
       align-items: center;
 
     ${BaseArrow}, ${ArrowWrapper} {
       align-self: flex-end;
-      left: -3rem; right: -1rem;
+      right: 0;
+      left: unset;
       transform: rotateY(180deg);
+
+      @media (max-width: ${Sizes.small}) {
+        left: -1.5rem; right: 0rem;
+      }
     }
 }
 
@@ -121,4 +135,7 @@ const NextWrapper = styled(InternalLink)`
     }
   }
 
+  @media (max-width: ${Sizes.small}) {
+    font-size: 0.75rem;
+  }
 `

@@ -83,11 +83,11 @@ const MainTitle = styled.h2`
   margin-bottom: 0;
 
   @media (max-width: ${Sizes.small}) {
-    max-width: 14rem;
     text-align: center;
     font-size: 2rem;
+    letter-spacing: -2px;
     line-height: 2.8rem;
-    padding-inline: 0;
+    padding-inline: 2rem;
     margin-inline: auto;
     margin-top: 5dvh;
   }
