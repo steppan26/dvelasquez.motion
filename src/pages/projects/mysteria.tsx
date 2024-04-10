@@ -43,7 +43,7 @@ const Page:NextPage = () => {
         </ImageWrappper>
         <IntroSection {...introData} />
         <ContentWrapper>
-          <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565999/mysteria/mysteria_hello_inspo_mzhn52.webm" dataLazy allowControls soundOption />
+          <LoopingVideo id="helloInspoVideo" videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565999/mysteria/mysteria_hello_inspo_mzhn52.webm" dataLazy allowControls soundOption />
           <CenteredText>Top creators offer inspiration covering a wide range of topics, from beauty and style to home makeovers, recipes, DIYs, and more.</CenteredText>
           <VideosGallery
           videosList={[
@@ -101,12 +101,14 @@ const Container = styled.div`
       height: 100% !important;
       transform: translateX(-3rem);
 
-      @media (max-width: ${Sizes.small}) {
-        img {
-          height: auto !important;
-          width: 100% !important;
-          transform: unset;
-        }
+    }
+
+    @media (max-width: ${Sizes.small}) {
+      height: 53vw !important;
+      width: 56vw !important;
+
+      img {
+        transform: unset;
       }
     }
   }
@@ -132,7 +134,24 @@ const ContentWrapper = styled.div`
   }
 
   @media (max-width: ${Sizes.small}) {
+    --container-padding: 5vw;
+
     margin-bottom: 5dvh;
+
+    &>div:first-child, &>div:nth-child(4) {
+      width: 100vw;
+      max-width: unset;
+      margin-left: calc(var(--container-padding) * -1);
+      border: unset;
+    }
+
+    &>div:last-child {
+      display: none;
+    }
+
+    #helloInspoVideo {
+      height: 100%;
+    }
   }
 `
 

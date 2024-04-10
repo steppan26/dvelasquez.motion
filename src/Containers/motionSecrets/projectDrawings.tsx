@@ -5,6 +5,7 @@ import Drawing1 from '/public/projects/motion_secrets/drawing_1.webp'
 import Drawing2 from '/public/projects/motion_secrets/drawing_2.webp'
 import Drawing3 from '/public/projects/motion_secrets/drawing_3.webp'
 import Drawing4 from '/public/projects/motion_secrets/drawing_4.webp'
+import { Sizes } from "../../Assets"
 
 export const ProjectDrawings:React.FC = () => {
   return (
@@ -92,5 +93,9 @@ const Container = styled.div`
     align-self: start;
     justify-self: center;
     margin-bottom: 10dvh;
+  }
+
+  @media (max-width: ${Sizes.small}) {
+    display: none;
   }
 `

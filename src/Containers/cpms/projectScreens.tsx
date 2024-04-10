@@ -135,9 +135,8 @@ const ImageWrapper = styled.span`
       img, video {
         height: auto !important;
         width: 100% !important;
-        margin-top: 1.5rem;
         transform-origin: center top;
-        transform: scale(1.1);
+        transform: scale(1.2);
       }
     }
   }

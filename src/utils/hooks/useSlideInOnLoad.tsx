@@ -73,6 +73,7 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
 
       case 'projectScreens_image':
         wrapperElement.style.transform = originalStyle.transform
+        wrapperElement.style.order = originalStyle.order
         break;
 
       case 'motion-secrets_drawings_text':

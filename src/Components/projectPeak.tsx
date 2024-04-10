@@ -5,6 +5,7 @@ import { Sizes } from "../Assets"
 import Link from "next/link"
 import Image, { StaticImageData } from "next/image"
 import { LoopingVideo } from "."
+import { useIsMobileView } from "../utils/hooks"
 
 export interface ProjectPeakProps {
   backgroundContent: string | StaticImageData
@@ -16,6 +17,7 @@ export interface ProjectPeakProps {
 export const ProjectPeak: React.FC<ProjectPeakProps> = ({ backgroundContent, style, id, text}) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const [isHovering, setIsHovering] = useState(false)
+  const { isMobileView } = useIsMobileView()
 
   useEffect(() => setIsHovering(false), [])
 
@@ -26,7 +28,7 @@ export const ProjectPeak: React.FC<ProjectPeakProps> = ({ backgroundContent, sty
 
   const overlaySpring = useSpring({
     from: { y: '0%' },
-    to: { y: isHovering ? '100%' : '0%' },
+    to: { y: isHovering && !isMobileView ? '100%' : '0%' },
     config: {
       mass: 1.3,
       friction: 60,

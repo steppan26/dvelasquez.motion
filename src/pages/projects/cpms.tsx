@@ -1,7 +1,5 @@
 import { NextPage } from "next";
 import MainHeaderImage from "/public/projects/cpms/girl_called_sara.webp"
-import ClaraImage from '/public/projects/cpms/clara_profile_illustration.webp'
-import MainVideoImage from '/public/projects/cpms/main_video.webp'
 import { Navbar, DataScreenshots, DrawingsSection, Footer, IntroSection } from "../../Containers"
 import { ProjectScreens } from "../../Containers"
 import styled from "styled-components";
@@ -53,10 +51,6 @@ export default Page
 const Container = styled.div`
   --container-padding: 3.5vw;
 
-  @media (max-width: ${Sizes.small}) {
-    --container-padding: 11.8vw;
-  }
-
   cursor: default;
   width: 100%;
     max-width: 100vw;
@@ -73,7 +67,20 @@ const Container = styled.div`
     video {
       height: 100%;
       width: auto;
-      transform: scale(1.1) translateX(-20%)
+      transform: scale(1.1) translateX(-20%);
+    }
+  }
+
+  @media (max-width: ${Sizes.small}) {
+    --container-padding: 11.8vw;
+
+    .intro-image {
+      width: 69vw;
+      height: 58.2vw;
+
+      video {
+        transform: scale(1.1) translateX(-15%)
+      }
     }
   }
 

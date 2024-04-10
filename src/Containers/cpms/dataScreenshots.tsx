@@ -35,6 +35,8 @@ const Container = styled.div`
 
   @media (max-width: ${Sizes.small}) {
     grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-gap: 0.25rem;
     margin-inline: 0;
     margin-bottom: 1rem;
   }
@@ -57,6 +59,7 @@ const VideoWrapper = styled.span`
 
   @media (max-width: ${Sizes.small}) {
     border-radius: 0;
+    height: max-content;
 
     img, video {
       height: auto !important;

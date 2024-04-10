@@ -126,7 +126,7 @@ const VideoWrapper = styled.div`
   overflow: hidden;
   background-color: transparent;
 
-  img, video {
+  video {
     position: relative;
 
     &:first-child {

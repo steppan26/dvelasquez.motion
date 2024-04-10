@@ -41,7 +41,7 @@ const Container = styled.div`
     gap: 1dvh;
 
     &>* {
-      width: clamp(375px, 98vw, 1440px);
+      width: clamp(375px, 90vw, 1440px) !important;
     }
   }
 `
@@ -49,6 +49,10 @@ const Container = styled.div`
 const ProjectWrapper = styled.div`
   width: 100%;
   height: auto;
+
+  @media (max-width: ${Sizes.small}) {
+    padding: 2px;
+  }
 `
 
 const Text = styled.div`
@@ -58,4 +62,8 @@ const Text = styled.div`
   line-height: 2.25rem;
   font-style: italic;
   text-transform: capitalize;
+
+  @media (max-width: ${Sizes.small}) {
+    display: none;
+  }
 `

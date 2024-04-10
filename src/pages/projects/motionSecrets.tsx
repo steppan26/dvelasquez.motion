@@ -60,9 +60,13 @@ const Container = styled.div`
     }
 
     @media (max-width: ${Sizes.small}) {
-      margin-top: -5vh;
-      width: 100%;
+      margin-top: -5dvh;
       padding: unset;
+
+      img {
+        margin-bottom: unset;
+        max-width: 80%;
+      }
     }
   }
 `
