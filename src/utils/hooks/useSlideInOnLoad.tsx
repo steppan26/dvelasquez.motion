@@ -1,8 +1,10 @@
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
+import { useIsMobileView } from "./useIsMobileView";
 
 export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
   const [observers, setObservers] = useState<IntersectionObserver[]>([])
+  const { isMobileView } = useIsMobileView()
   const router = useRouter()
 
   const _attachObserver = useCallback((target: Element) => {
@@ -67,7 +69,7 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
         wrapperElement.style.display = originalStyle.display
         wrapperElement.style.justifyContent = originalStyle.justifyContent
         wrapperElement.style.alignItems = originalStyle.alignItems
-        wrapperElement.style.width = "100%"
+        wrapperElement.style.alignSelf = originalStyle.alignSelf
 
         break;
 
