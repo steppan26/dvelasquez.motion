@@ -174,11 +174,11 @@ const BottomSection = styled.div`
 
     display: block;
 
-    &>span {
+    &>* {
       height: 100vw;
     }
 
-    &>span:last-of-type {
+    &>*:last-of-type {
       display: none;
     }
   }

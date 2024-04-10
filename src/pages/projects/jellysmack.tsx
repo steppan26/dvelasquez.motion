@@ -90,6 +90,12 @@ const LandingSection = styled.div`
   video {
     width: 110%;
   }
+
+  @media (max-width: ${Sizes.small}) {
+    &>* {
+      transform: scale(1.18);
+    }
+  }
 `
 
 const VideoWrapper = styled.div`

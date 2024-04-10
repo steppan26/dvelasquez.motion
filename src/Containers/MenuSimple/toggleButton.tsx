@@ -70,6 +70,7 @@ const DiamondsWrapper = styled.div`
 
   @media (max-width: ${Sizes.small}) {
     gap: 8px;
+    padding-block: 1rem;
   }
 `
 

@@ -55,6 +55,12 @@ export const ProjectPeak: React.FC<ProjectPeakProps> = ({ backgroundContent, sty
 const LinkWrapper = styled(Link)`
   height: 100%;
   width: 100%;
+
+  @media (max-width: ${Sizes.small}) {
+    &>*:first-child {
+      display: none;
+    }
+  }
 `
 
 
@@ -81,32 +87,11 @@ const Overlay = styled(animated.div)`
 
   @media (max-width: ${Sizes.small}) {
     font-size: 2rem;
-    background: unset;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 102%;
-    height: 102%;
-
-    p {
-      display: none;
-    }
+    width: 100%;
+    height: 100%;
 
     &:hover, &:active {
       filter: brightness(1.3);
-    }
-
-    &.jellysmack {
-      background-image: url('projects/mobile_backgrounds/jellysmack.webp');
-    }
-    &.cpms {
-      background-image: url('projects/mobile_backgrounds/cpms.webp');
-    }
-    &.motionSecrets {
-      background-image: url('projects/mobile_backgrounds/motion_secrets.webp');
-    }
-    &.mysteria {
-      background-image: url('projects/mobile_backgrounds/mysteria.webp');
     }
   }
 `

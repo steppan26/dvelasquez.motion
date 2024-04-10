@@ -8,7 +8,7 @@ import { Sizes } from "../../Assets"
 
 export const PhoneScreenshots:React.FC = () => {
   return (
-    <Container >
+    <Container>
       <Image
         data-lazy="phone-screenshots_image"
         id="screenOne"
@@ -75,7 +75,6 @@ const Container = styled.div`
     grid-template-columns: 1fr 1fr;
       grid-gap: 0 1rem;
     padding-inline: 1rem;
-    overflow-x: auto;
 
     img#screenThree {
       order: 4;

@@ -127,6 +127,7 @@ const VideoWrapper = styled.div`
   background-color: transparent;
 
   img, video {
+    position: relative;
 
     &:first-child {
       height: auto;

@@ -4,8 +4,6 @@ import { Sizes } from "../Assets"
 import { animated, useTransition } from "react-spring"
 import rokuLogo from '../../public/projects/jelly_Roku.webp'
 import { Footer, Navbar } from "."
-import { NavMobile } from "./NavBar/mobile"
-import { ProjectsNavbar } from "./NavBar/projects"
 import { ProjectPeak, ProjectPeakProps } from "../Components"
 import React from "react"
 
@@ -76,27 +74,6 @@ export const ProjectsListContainer:React.FC = () => {
 }
 
 
-const NavSelector = styled.div`
-  z-index: 999;
-
-  #navbarProjects{
-    position: absolute;
-    display: flex;
-
-    @media (max-width: ${Sizes.small}) {
-      display: none;
-    }
-  }
-
-  #navbarMobile{
-    display: none;
-
-    @media (max-width: ${Sizes.small}) {
-      display: flex;
-    }
-  }
-`
-
 const Container = styled(animated.ul)`
   position: relative;
   display: flex;
@@ -108,7 +85,6 @@ const Container = styled(animated.ul)`
   margin-bottom: 10dvh;
   width: 100dvw;
     max-width: 100%;
-  /* max-height: 80dvh; */
   padding-inline: 5vw;
   overflow: hidden;
   background-color: inherit;
@@ -179,16 +155,13 @@ const Title = styled(PrimaryTitle)`
   color: ${p => p.theme.btnPrimaryBg};
   max-width: 100%;
 
-  &[data-isfullscreen='true']{
-    display: none;
-  }
-
   @media (max-width: ${Sizes.small}) {
-    display: none;
-    font-size: 3.5rem;
+    font-size: 1.8125rem;
     line-height: calc(3.5rem * 1.2);
     margin-block: 0;
-
+    margin: 0;
+    padding-bottom: 4dvh;
+    text-align: center;
     white-space: inherit;
   }
 `
@@ -198,7 +171,7 @@ const Wrapper = styled.div`
   margin-bottom: 3dvh;
 
   @media (max-width: ${Sizes.small}) {
-    margin-bottom: 0;
+    margin-bottom: 1rem;
 
     --nav-main-color: var(--clr-bg-main);
   }

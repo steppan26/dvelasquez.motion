@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import Link from "next/link"
+import { Sizes } from "../Assets"
 
 export const CTAButton:React.FC = () => (
   <GPTButton href="/about" >Book a Call</GPTButton>
@@ -32,5 +33,12 @@ const GPTButton = styled(Link)`
   &:active {
     box-shadow: 1px 1px #526950;
     transform: translate(4px, 4px);
+  }
+
+  @media (max-width: ${Sizes.small}) {
+    margin-right: unset;
+    font-size: 2rem;
+    padding-inline: 2rem;
+    width: auto;
   }
 `

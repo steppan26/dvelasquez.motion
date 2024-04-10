@@ -8,7 +8,7 @@ export const JellyMessage:React.FC = () => {
 
   return (
     <Container data-lazy="jelly-message">
-      <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979941/jellysmack/_jelly_dega25.webm" />
+      <LoopingVideo id="animatedJellyLogo" videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979941/jellysmack/_jelly_dega25.webm" />
       <TextWrapper>
         <Text>
           The social media stickers accumulated over 30 million views, with a continuously rising engagement rate.
@@ -49,12 +49,17 @@ const Container = styled.div`
       grid-template-columns: 1fr;
       grid-template-rows: auto;
       justify-items: center;
-    margin-block: 10vh 8vh;
+    margin-block: 8vh;
     width: 70vw;
 
-    img {
-      max-width: 15vw;
-      height: auto;
+    #animatedJellyLogo {
+      max-height: 35vw;
+      overflow: hidden;
+
+      img, video {
+        max-width: 25vw;
+        height: auto;
+      }
     }
   }
 `
@@ -63,6 +68,12 @@ const TextWrapper = styled.div`
   display: flex;
     flex-direction: column;
     gap: 4dvh;
+
+  @media (max-width: ${Sizes.small}) {
+    z-index: 10;
+    gap: 2dvh;
+    background-color: var(--clr-bg-projects);
+  }
 `
 
 const Text = styled.p`
@@ -78,6 +89,6 @@ const Text = styled.p`
     font-size: 1rem;
     line-height: 1.56rem;
     text-align: center;
-    padding-top: 2dvh;
+    padding-top: 0;
   }
 `

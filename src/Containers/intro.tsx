@@ -136,5 +136,9 @@ const Text = styled.p`
     font-size: 1rem;
     line-height: 1.56rem;
     padding-left: 0;
+
+    b {
+      font-weight: 400;
+    }
   }
 `

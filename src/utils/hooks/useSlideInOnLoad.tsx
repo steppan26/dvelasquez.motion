@@ -90,6 +90,7 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
         wrapperElement.style.margin = originalStyle.margin
         wrapperElement.style.width = originalStyle.width
         wrapperElement.style.height = originalStyle.height
+        wrapperElement.style.order = originalStyle.order
         break;
 
       case 'wrapperElement.style.flex = originalStyle.flex':
@@ -106,6 +107,7 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
         wrapperElement.style.alignSelf = originalStyle.alignSelf
         wrapperElement.style.height = originalStyle.height
         wrapperElement.style.justifySelf = originalStyle.justifySelf
+        wrapperElement.style.order = originalStyle.order
         break;
 
       default:

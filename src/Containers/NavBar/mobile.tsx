@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import styled from "styled-components"
 import { AnimatedIcon } from "../../Components";
 import { ToggleButton } from "../MenuSimple/toggleButton";
 import { MobileMenu } from "./mobileMenu";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useNavMode } from "../../utils/hooks";
 
 interface Props {
   mode: 'light' | 'dark'
@@ -15,6 +16,9 @@ export const NavMobile:React.FC<Props> = ({ mode }) => {
   const [isOpen, setIsOpen] = useState(false)
   const timeout = useRef<NodeJS.Timeout>()
   const router = useRouter()
+  const { displayBg, navMode } = useNavMode()
+
+  const displayLightNavbar = useMemo(() => mode === 'light', [mode])
 
   useEffect(() => {
     router.events.on('routeChangeStart', closeMenu)
@@ -29,12 +33,9 @@ export const NavMobile:React.FC<Props> = ({ mode }) => {
   }
 
   return(
-    <Nav ref={navRef} className={isOpen ? "open" : ""} id="navbarMobile" data-colormode={mode} >
+    <Nav ref={navRef}  data-display-bg={displayBg} data-islight={displayLightNavbar} className={isOpen ? "open" : ""} id="navbarMobile" data-colormode={mode} >
       <Link href="/" >
-        {!isOpen || mode === 'light'
-          ? <AnimatedIcon mode="light" />
-          : <AnimatedIcon />
-        }
+        <AnimatedIcon mode={!isOpen || mode === 'light' ? 'light' : 'dark'} />
       </Link>
       <MenuWrapper onMouseLeave={handleMouseLeave} onMouseEnter={() => clearTimeout(timeout.current)}>
         <MobileMenu isOpen={isOpen} />
@@ -46,6 +47,7 @@ export const NavMobile:React.FC<Props> = ({ mode }) => {
 
 const Nav = styled.nav`
   --nav-main-color: var(--clr-text-main);
+  --nav-main-bg-color: var(--clr-bg-main);
 
   &[data-colormode="light"] {
     --nav-main-color: var(--clr-bg-main);
@@ -53,6 +55,10 @@ const Nav = styled.nav`
 
   &[data-colormode="dark"] {
     --nav-main-color: var(--clr-text-main);
+  }
+
+  &[data-display-bg='false'] {
+    --nav-main-bg-color: transparent;
   }
 
   &.open {
@@ -67,6 +73,11 @@ const Nav = styled.nav`
     align-items: center;
   width: 100vw;
   padding: 0 3vw;
+  background-color: var(--nav-main-bg-color);
+
+  &[data-display-bg='true'] {
+    box-shadow: 0 2px 8px rgba(10, 10, 10, 0.1);
+  }
 `
 
 const MenuWrapper = styled.div`

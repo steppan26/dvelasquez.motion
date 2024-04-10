@@ -10,16 +10,16 @@ export const Stickers:React.FC = () => {
   return (
     <Container>
       <InformationWrapper data-lazy>
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979953/jellysmack/_Rocket_fjoyiv.webm" />
+        <LoopingVideo id="rocketShip" videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979953/jellysmack/_Rocket_fjoyiv.webm" />
         <CustomText>
           Through the use of animated assets,
           {!isMobileView && <br />} Jellysmack amplifies digital storytelling,
           {!isMobileView && <br />} enriching the viewer experience and fostering
           {!isMobileView && <br />} meaningful connections with the audience.
         </CustomText>
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979955/jellysmack/_positive_vibes_1_ieysmd.webm" />
+        <LoopingVideo id="spinningFace" videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979955/jellysmack/_positive_vibes_1_ieysmd.webm" />
       </InformationWrapper>
-      <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711566006/jellysmack/stickers_ttkpfq.mp4" backupImage={StickersVideoStatic} />
+      <LoopingVideo id="stickers" videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711566006/jellysmack/stickers_ttkpfq.mp4" backupImage={StickersVideoStatic} />
     </Container>
   );
 }
@@ -31,6 +31,15 @@ const Container = styled.div`
     justify-content: center;
   max-width: 100vw;
   overflow: hidden;
+
+  @media (max-width: ${Sizes.small}) {
+    margin-block: 2.5rem 5rem;
+
+    #stickers video {
+      transform-origin: center;
+      transform: scale(1.15);
+    }
+  }
 `
 
 const InformationWrapper = styled.div`
@@ -47,7 +56,6 @@ const InformationWrapper = styled.div`
     justify-self: end;
 
     video {
-      z-index: -5;
       transform: translate(-3rem, 40%) rotate(-19.5deg) scale(1.25);
     }
   }
@@ -74,18 +82,18 @@ const InformationWrapper = styled.div`
     gap: 1rem;
     margin-block: 7dvh;
 
-    img {
+    #rocketShip video {
       transform-origin: center;
       width: 30vw;
       height: calc(30vw * 0.9);
+      transform: rotate(-19.5deg);
+    }
 
-      &:first-of-type {
-        transform: rotate(-19.5deg);
-      }
-
-      &:last-of-type {
-        transform: rotate(45.85deg);
-      }
+    #spinningFace video {
+      transform-origin: center;
+      width: 30vw;
+      height: calc(30vw * 0.9);
+      transform: rotate(15.85deg);
     }
 
     p {
@@ -95,4 +103,6 @@ const InformationWrapper = styled.div`
   }
 `
 
-const CustomText = styled(Text)``
+const CustomText = styled(Text)`
+  z-index: 10;
+`
