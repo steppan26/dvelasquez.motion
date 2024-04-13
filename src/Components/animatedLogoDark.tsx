@@ -31,7 +31,19 @@ export const AnimatedLogoDark:React.FC = () => {
   return(
     <Wrapper ref={wrapperRef} onClick={loadHomePage}>
       {displayVideo
-      ? <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711650516/logos/text_wine_djaujr.webm" />
+      ? <video
+        ref={videoRef}
+        autoPlay
+        playsInline
+        loop
+        muted
+        controls={false}
+        controlsList="nodownload noremoteplayback"
+        preload="auto"
+        poster={"https://res.cloudinary.com/dtlyxry6z/image/upload/v1711650516/logos/text_wine_wyshmp.gif"}
+        >
+          <source src="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711650516/logos/text_wine_djaujr.webm" type="video/webm" />
+        </video>
       : <AnimatedGif />
       }
     </Wrapper>
