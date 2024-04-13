@@ -54,7 +54,7 @@ export const MobileAboutText = styled.p`
 `
 
 
-export const TextGroup = styled.div`
+export const TextGroupMobile = styled.div`
   display: flex;
     flex-direction: column;
     gap: var(--gap-size);

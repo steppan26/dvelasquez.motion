@@ -1,6 +1,6 @@
 import Image from "next/image"
 import styled from "styled-components"
-import { MobileAboutText, MobileHeaderText, TextGroup } from "."
+import { MobileAboutText, MobileHeaderText, TextGroupMobile } from "."
 import DaniImageLeft from '/public/about/dani_main.webp'
 import DaniFamily from '/public/about/gallery_2.webp'
 import DaniSisDad from '/public/about/gallery_3.webp'
@@ -39,10 +39,10 @@ export const AboutSection:React.FC = () => {
         <DaniImageMainWrapper>
           <Image src={DaniImageLeft} alt="portrait image of Daniela" layout="responsive" />
         </DaniImageMainWrapper>
-        <TextGroup>
+        <TextGroupMobile>
           <MobileAboutText>I could lose myself for hours playing on my mom’s computer drawing on Paint and PowerPoint. I remember how fun it was creating slides, adding transitions, and animating the text.</MobileAboutText>
           <MobileAboutText>Little did I know that my curiosity and passion in visual storytelling would only grow and become my north star.</MobileAboutText>
-        </TextGroup>
+        </TextGroupMobile>
         <MobileAboutText>Now, with an ocean and a decade in between, I find myself with a Pinot Noir in my hand and the Eiffel Tower as my company, surrounded by art, fashion, and beauty. So much has changed that I feel I’m just now catching my breath.</MobileAboutText>
         <DaniDadImageWrapper>
           <Image src={DaniSisDad} alt="Image of a young Daniela with her mum, dad and sister" layout="responsive" />
@@ -52,13 +52,13 @@ export const AboutSection:React.FC = () => {
         <PetsImageWrapper>
           <Image src={PetsImage} alt="Image of Daniela's dog and cat" layout="responsive" />
         </PetsImageWrapper>
-        <TextGroup>
+        <TextGroupMobile>
           <MobileAboutText><b>I would love to help you tell your story, bring your ideas to life, and together build a universe as unique as you are.</b></MobileAboutText>
           <MobileAboutText><b>Don’t be a stranger, let’s talk :)</b></MobileAboutText>
           <LogoWrapper>
             <Image src={BrushLogo} alt="animated gif of dvelasquez logo" layout="responsive" />
           </LogoWrapper>
-        </TextGroup>
+        </TextGroupMobile>
       </TextGrid>
     </Container>
   )
