@@ -1,12 +1,16 @@
 import Image from "next/image"
 import styled from "styled-components"
 import BrushLogo from '/public/logos/brush_wine.gif'
+import DaniImageLeft from '/public/about/dani_main.webp'
+import DaniDamily from '/public/about/gallery_2.webp'
+import DaniSisDad from '/public/about/gallery_3.webp'
 import { AboutText, GutterImagesWrapper, HeaderText, TextGroup, Wrapper } from "./desktop"
 
 export const AboutSection:React.FC = () => {
   return(
-    <Wrapper>
+    <Wrapper style={{ marginTop: '12dvh'}}>
         <GutterImagesWrapper>
+          <Image src={DaniImageLeft} alt="portrait image of Daniela" id="daniMain" />
         </GutterImagesWrapper>
         <TextGrid>
           <div>
@@ -33,6 +37,8 @@ export const AboutSection:React.FC = () => {
           </div>
         </TextGrid>
         <GutterImagesWrapper>
+          <Image src={DaniDamily} alt="Image of a young Daniela with her mum, dad and sister" id='daniFamily' />
+          <Image src={DaniSisDad} alt="Image of a young Daniela with her sister and dad" id="daniSisDad" />
         </GutterImagesWrapper>
       </Wrapper>
   )

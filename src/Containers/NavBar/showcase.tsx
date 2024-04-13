@@ -12,7 +12,7 @@ interface Props {
 export const ShowcaseNavbar:React.FC<Props> = ({ mode }) => {
   const navRef = useRef<HTMLElement>(null)
   const timeout = useRef<NodeJS.Timeout>()
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
 
   const handleMouseLeave = () => {
     timeout.current = setTimeout(() => setIsOpen(false), 600)

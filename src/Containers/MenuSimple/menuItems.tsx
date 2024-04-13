@@ -130,11 +130,12 @@ const Menu = styled(animated.div)`
   }
 
   &.highlight-active.active {
-    color: var(--clr-bg-secondary);
+    --nav-main-color: var(--clr-bg-secondary);
+  }
 
-    &::after {
-      background-color: var(--clr-bg-secondary);
-    }
+  &:last-child {
+    --nav-main-color:  var(--clr-green);
+    font-weight: 600;
   }
 `
 

@@ -1,26 +1,14 @@
-import Image from "next/image"
 import styled from "styled-components"
-import { Sizes } from "../../Assets"
-import BrushLogo from '/public/logos/brush_wine.gif'
-import PrimaryImage from '/public/about/dani_main.png'
-import GalleryImage00 from '/public/about/gallery_1.png'
-import GalleryImage01 from '/public/about/gallery_2.png'
-import GalleryImage02 from '/public/about/gallery_3.png'
-import GalleryImage03 from '/public/about/gallery_4.png'
-import GalleryImage04 from '/public/about/gallery_5.png'
 import { Navbar } from "../NavBar"
-import { Calendly } from "../../Components"
 import { useRef } from "react"
 import { useRouter } from "next/router"
 import { Footer } from "../footer"
-import { Text } from "../../Components/styledComponents"
 import { AboutSection } from "./aboutSection"
 import { BioSection } from "./bioSection"
 import dynamic from "next/dynamic"
 
 export const AboutDesktop:React.FC = () => {
   const calendarWrapperRef = useRef<HTMLDivElement>(null)
-  const router = useRouter()
 
   const CalendlyWidget = dynamic(() => import('../../Components/calendly').then(module => module.Calendly), { ssr: false })
 
@@ -29,14 +17,14 @@ export const AboutDesktop:React.FC = () => {
       <Navbar type="showcase" mode="dark" />
       <AboutSection />
       <BioSection />
-      <Wrapper ref={calendarWrapperRef} style={{gridTemplateColumns: 'calc(20vw - (var(--gap) / 2)) 1fr calc(20vw - (var(--gap) / 2))'}}>
+      <Wrapper ref={calendarWrapperRef} data-lazy>
         <span />
         <div>
           <HeaderText>Book a call</HeaderText>
-          <CalendlyWidget />
         </div>
         <span />
       </Wrapper>
+      <CalendlyWidget />
       <Footer
         leftLink={{ text: "Home", href: "/" }}
         rightLink={{ text: "Projects", href: "/projects" }}
@@ -57,6 +45,7 @@ export const HeaderText = styled.h2`
   font-weight: 100;
   font-style: italic;
   margin-block: 0;
+  min-width: max-content;
   color: var(--clr-green);
 
   &::after {
@@ -76,13 +65,14 @@ export const HeaderText = styled.h2`
 export const Wrapper = styled.div`
   --text-padding: 3.3rem;
   --gap: 3rem;
+  --gutter-base-size: 20vw;
 
   position: relative;
   display: grid;
-    grid-template-columns: calc(20vw - (var(--gap) / 2)) calc(60vw - var(--gap) -  var(--text-padding)) calc(20vw - (var(--gap) / 2));
+    grid-template-columns: calc(var(--gutter-base-size) - (var(--gap) / 2)) calc(calc(100vw - (2 * var(--gutter-base-size))) - var(--gap) -  var(--text-padding)) calc(var(--gutter-base-size) - (var(--gap) / 2));
     grid-gap: var(--gap);
   width: 100%;
-  padding-top: 12dvh;
+  margin-top: 15dvh;
 `
 
 export const AboutText = styled.p`
@@ -95,7 +85,23 @@ export const AboutText = styled.p`
 `
 
 
-export const GutterImagesWrapper = styled.div``
+export const GutterImagesWrapper = styled.div`
+  #daniMain {
+    transform: translateY(50%) rotate(-13.5deg);
+  }
+  #daniFamily {
+    transform: rotate(14.28deg);
+  }
+  #daniSisDad {
+    transform: translateY(20px) rotate(-10.6deg);
+  }
+  #daniPortrait {
+    transform: scale(0.8) translate(25%, 3.5rem);
+  }
+  #pets {
+    transform: translate(20%, -50%) rotate(-30deg);
+  }
+`
 
 export const TextGroup = styled.div`
   display: flex;

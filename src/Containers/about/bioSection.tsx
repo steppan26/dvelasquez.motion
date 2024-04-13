@@ -1,11 +1,16 @@
 import styled from "styled-components"
 import { AboutText, GutterImagesWrapper, HeaderText, TextGroup, Wrapper } from "./desktop"
+import DaniPortrait from '/public/about/gallery_4.webp'
+import PetsImage from '/public/about/gallery_5.webp'
+import Image from "next/image"
 
 export const BioSection:React.FC = () => {
   return(
-    <Wrapper style={{ paddingTop: 0, marginTop: '15dvh'}}>
-      <GutterImagesWrapper></GutterImagesWrapper>
-      <MainContent>
+    <Wrapper>
+      <GutterImagesWrapper data-lazy>
+        <Image src={DaniPortrait} alt="Portrait image of Daniela in Greece" id="daniPortrait" />
+      </GutterImagesWrapper>
+      <MainContent data-lazy>
         <HeaderText>Bio</HeaderText>
         <TextGroup>
           <AboutText><b>Art Director and Motion Designer</b>, fluent in <b>English, French, and Spanish,</b> holding a <b>master&apos;s degree</b> from e-artsup school in Paris.</AboutText>
@@ -13,10 +18,38 @@ export const BioSection:React.FC = () => {
           <AboutText>Thriving in diverse and stimulating projects, I demonstrate solid leadership skills and exceptional adaptability. With excellent interdisciplinary communication skills and a deep understanding of social media dynamics. </AboutText>
           <AboutText>Outside of work, I am passionate about travel, music, animals and hiking.</AboutText>
         </TextGroup>
+        <KeywordsWrapper>
+          <RedDiamond /> Art Direction <RedDiamond /> Motion Design <RedDiamond /> Brand Design <RedDiamond />
+        </KeywordsWrapper>
       </MainContent>
-      <GutterImagesWrapper></GutterImagesWrapper>
+      <GutterImagesWrapper data-lazy>
+        <Image src={PetsImage} alt="Image of Daniela's dog and cat" id="pets" />
+      </GutterImagesWrapper>
     </Wrapper>
   )
 }
 
 const MainContent = styled.div``
+
+const KeywordsWrapper = styled.div`
+  display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+  margin-top: 3rem;
+  padding-left: var(--text-padding);
+  font-family: var(--font-family-wide);
+  font-style: italic;
+  font-size: 1.5625rem;
+  line-height: 1.7rem;
+  font-weight: 600;
+`
+
+const RedDiamond = styled.span`
+  --size: 6px;
+
+  width: var(--size);
+  height: var(--size);
+  transform: rotate(45deg);
+  background-color: var(--clr-bg-secondary);
+`
