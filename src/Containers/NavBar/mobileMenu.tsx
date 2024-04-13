@@ -28,9 +28,9 @@ export const MobileMenu:React.FC<Props> = ({ isOpen }) => {
       <MenuButton data-area="works" href="/projects">Works</MenuButton>
       <Line data-position="left" />
       <Line data-position="right" />
-      <MenuButton data-area="about" href="/">About</MenuButton>
+      <MenuButton data-area="about" href="/about">About</MenuButton>
       <Line data-position="bottom" />
-      <MenuButton data-area="contact" href="/">Contact</MenuButton>
+      <MenuButton data-area="contact" href="/about#book">Book</MenuButton>
     </Container>
   )
 }

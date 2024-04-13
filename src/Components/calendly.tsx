@@ -1,5 +1,6 @@
 import Script from "next/script"
 import styled from "styled-components"
+import { Sizes } from "../Assets"
 
 export const Calendly:React.FC = () => {
   return(
@@ -21,5 +22,9 @@ const Wrapper = styled.div`
 
   &>div {
     flex: 1 0 320px;
+  }
+
+  @media (max-width: ${Sizes.small}) {
+    margin-top: unset;
   }
 `

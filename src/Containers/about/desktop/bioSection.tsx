@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { AboutText, GutterImagesWrapper, HeaderText, TextGroup, Wrapper } from "./desktop"
+import { AboutText, GutterImagesWrapper, HeaderText, TextGroup, Wrapper } from "../desktop"
 import DaniPortrait from '/public/about/gallery_4.webp'
 import PetsImage from '/public/about/gallery_5.webp'
 import Image from "next/image"

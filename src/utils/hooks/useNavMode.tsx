@@ -49,5 +49,9 @@ export const useNavMode = (defaultMode: 'light' | 'dark' = 'dark') => {
     observers.forEach(observer => !!observer && observer.disconnect())
   }
 
-  return { addObserver, navMode, displayBg }
+  const updateBg = (value: boolean) => {
+    window.dispatchEvent(new CustomEvent('setNavMode', {detail: {mode: navMode, bg: value}}))
+  }
+
+  return { addObserver, navMode, displayBg, setDisplayBg: updateBg }
 }
