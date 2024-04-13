@@ -4,6 +4,7 @@ import styled from "styled-components"
 import { Sizes } from "../../Assets"
 import Link from "next/link"
 import { useCursorMessage } from "../../utils/hooks"
+import { useCallback } from "react"
 
 interface MenuItem {
   text: string
@@ -32,13 +33,12 @@ const menuData: MenuItem[] = [
 interface Props {
   isOpen: boolean
   hideEmail?: boolean
+  isLandingNav?: boolean
 }
 
 const TRAVEL_DISTANCE = '110%'
 
-const easeInOutCubic = (t: any) => (t < 0.5 ? 4 * t ** 3 : 1 - Math.pow(-2 * t + 2, 3) / 2);
-
-export const MenuItems:React.FC<Props> = ({ isOpen, hideEmail }) => {
+export const MenuItems:React.FC<Props> = ({ isOpen, hideEmail, isLandingNav }) => {
   const router = useRouter()
   const { dispatchMessage } = useCursorMessage()
 
@@ -68,12 +68,23 @@ export const MenuItems:React.FC<Props> = ({ isOpen, hideEmail }) => {
     dispatchMessage("copied to clipboard")
   }
 
+  const menuClassName = useCallback((props: MenuItem) => {
+    let activeClasses = []
+    if(router.route === props.href){
+      activeClasses.push('active')
+    }
+    if(!isLandingNav) {
+      activeClasses.push('highlight-active')
+    }
+    return activeClasses.join(' ')
+  }, [isLandingNav, router.route])
+
   return(
     <Wrapper>
       <MenuContainer style={{ ...translateStyle }}>
         {!hideEmail && <Email onClick={handleEmailClick} style={opacityStyle}>dvelasquez.motion@gmail.com</Email> }
         {menuData.map((props, index) => (
-          <Menu key={index} className={router.route === props.href ? 'active' : ''}>
+          <Menu key={index} className={menuClassName(props)} data-islanding={isLandingNav} >
             <Link href={props.href}>{props.text}</Link>
           </Menu>
         ))}
@@ -117,9 +128,13 @@ const Menu = styled(animated.div)`
       width: 100%;
     }
   }
-  .active {
-    transform: scale(1.07);
-    font-weight: 400;
+
+  &.highlight-active.active {
+    color: var(--clr-bg-secondary);
+
+    &::after {
+      background-color: var(--clr-bg-secondary);
+    }
   }
 `
 
