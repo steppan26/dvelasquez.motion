@@ -15,16 +15,21 @@ export const SocialMediaAssets:React.FC = () => {
   return (
     <Container>
       <TopSection data-lazy>
-        <Image
-          id='mockup'
-          src={MockupImage}
-          alt="social media post mockup"
-          sizes="100vw"
-          style={{
-            width: "100%",
-            height: "auto"
-          }} />
-        <LoopingVideo id="personalisedCaptions" videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979939/jellysmack/Personalised_Captions_rw3y4h.webm" />
+        {isMobileView
+        ? <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1713037222/jellysmack/Post_personalised_captions_wxis6z.webm" />
+        : <>
+          <Image
+            id='mockup'
+            src={MockupImage}
+            alt="social media post mockup"
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto"
+            }} />
+            <LoopingVideo id="personalisedCaptions" videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979939/jellysmack/Personalised_Captions_rw3y4h.webm" />
+        </>
+        }
         <Image
           id='keywords'
           src={isMobileView ? FlameKeywordsImage : KeywordsImage}
@@ -36,7 +41,10 @@ export const SocialMediaAssets:React.FC = () => {
           }} />
       </TopSection>
       <MiddleSection data-lazy>
-        <LoopingVideo id="flame" videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979949/jellysmack/Go_Bigger_flame_wz6cbl.webm" />
+        <LoopingVideo id="flame" videoPath={isMobileView
+        ? "https://res.cloudinary.com/dtlyxry6z/video/upload/v1713037216/jellysmack/gobigger_stamp_jh2vax.webm"
+        : "https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979949/jellysmack/Go_Bigger_flame_wz6cbl.webm"
+        } />
         <LoopingVideo id="watch" videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979943/jellysmack/_WatchTillTheEnd_rjtdcy.webm" />
       </MiddleSection>
       <BottomSection data-lazy>
@@ -70,6 +78,7 @@ const TopSection = styled.div`
     grid-gap: 2vw;
 
   #mockup {
+    z-index: 5;
     grid-area: mockup;
     justify-self: end;
     transform-origin: center;
@@ -78,6 +87,7 @@ const TopSection = styled.div`
   }
 
   #personalisedCaptions {
+    z-index: 4;
     align-self: end;
     grid-area: personalised;
     transform: translateX(-20%);
