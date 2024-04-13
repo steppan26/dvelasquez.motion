@@ -1,4 +1,3 @@
-import EventEmitter from "events"
 import { useEffect, useState } from "react"
 
 export const useNavMode = (defaultMode: 'light' | 'dark' = 'dark') => {

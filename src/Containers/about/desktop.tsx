@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { Navbar } from "../NavBar"
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 import { useRouter } from "next/router"
 import { Footer } from "../footer"
 import { AboutSection } from "./aboutSection"
@@ -9,6 +9,15 @@ import dynamic from "next/dynamic"
 
 export const AboutDesktop:React.FC = () => {
   const calendarWrapperRef = useRef<HTMLDivElement>(null)
+  const router = useRouter()
+
+  useEffect(() => {
+    if(router.asPath.includes('#book') && !!calendarWrapperRef.current){
+      const top = calendarWrapperRef.current.getBoundingClientRect().top - 80
+      const body = document.querySelector('body')
+      setTimeout(() => body?.scrollTo({ top, behavior: 'instant' }), 0)
+    }
+  }, [router])
 
   const CalendlyWidget = dynamic(() => import('../../Components/calendly').then(module => module.Calendly), { ssr: false })
 
@@ -17,10 +26,10 @@ export const AboutDesktop:React.FC = () => {
       <Navbar type="showcase" mode="dark" />
       <AboutSection />
       <BioSection />
-      <Wrapper ref={calendarWrapperRef} data-lazy>
+      <Wrapper data-lazy>
         <span />
         <div>
-          <HeaderText>Book a call</HeaderText>
+          <HeaderText ref={calendarWrapperRef}>Book a call</HeaderText>
         </div>
         <span />
       </Wrapper>
