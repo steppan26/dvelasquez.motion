@@ -1,8 +1,7 @@
 import styled from "styled-components"
-import { useEffect, useMemo, useRef } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import { animated, useSpring } from "@react-spring/web"
 import { Sizes } from "../Assets"
-// @ts-ignore
 import { useMousePosition } from "../utils/hooks"
 
 interface Props {
@@ -17,11 +16,18 @@ export const MouseMask:React.FC<Props> = ({ children }) => {
     x: 0,
     y: 0,
     config: {
-      damping: 10,
-      mass: 1.5,
+      // damping: 10,
+      // mass: 1.5,
+      // velocity: 20,
+
+      mass: 2,
+      damping: 15,
+      tension: 300,
+      friction: 40,
       velocity: 20,
     }
   }))
+  const [currentShape, setCurrentShape] = useState("diamond")
 
   useEffect(() => {
     if(typeof window == 'undefined') return
@@ -59,11 +65,12 @@ export const MouseMask:React.FC<Props> = ({ children }) => {
   return(
     <Scene ref={sceneRef}>
       <Mask
-      className="diamond shape"
+      className={currentShape + " shape"}
       ref={maskRef}
       style={style}
       />
       {children}
+      {/* <Toggle className={currentShape} onClick={handleClick} /> */}
     </Scene>
   )
 }
@@ -99,7 +106,7 @@ const Mask = styled(animated.div)`
     }
   }
 
-  &.circle {
+  &.circle, .circle {
     height: 110dvh;
     width: 110dvh;
 
@@ -120,7 +127,7 @@ const Mask = styled(animated.div)`
     }
   }
 
-  &.diamond {
+  &.diamond, .diamond {
     width: 50vw;
     height: 50vw;
 
@@ -163,4 +170,13 @@ const Scene = styled.div`
       align-items: center;
     padding-top: 3rem;
   }
+`
+
+const Toggle = styled.div`
+  position: absolute;
+  right: 5vw;
+  bottom: 5vw;
+  width: 20px;
+  height: 20px;
+  background-color: var(--clr-bg-main);
 `

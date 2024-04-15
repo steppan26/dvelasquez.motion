@@ -4,14 +4,17 @@ import Image from "next/image"
 
 export const Arrow:React.FC = () => {
 
-  return(
+  return (
     <Image
-    src={ArrowGif.src}
-    alt="animated bouncing arrow"
-    width={ArrowGif.width}
-    height={ArrowGif.height}
-    />
-  )
+      src={ArrowGif.src}
+      alt="animated bouncing arrow"
+      width={ArrowGif.width}
+      height={ArrowGif.height}
+      style={{
+        maxWidth: "100%",
+        height: "auto"
+      }} />
+  );
 
   return(
     <Container></Container>

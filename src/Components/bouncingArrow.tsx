@@ -1,8 +1,7 @@
-import { MouseEventHandler, useEffect } from "react";
-import { animated, useSpring } from "react-spring";
+import { MouseEventHandler } from "react";
+import { animated } from "react-spring";
 import styled from "styled-components";
 import { Sizes } from "../Assets";
-import { useIsMobileView } from "../utils/hooks";
 import ArrowGif from '/public/Assets/arrow.gif'
 import Image from "next/image";
 
@@ -11,17 +10,11 @@ interface Props {
 }
 
 export const BouncingArrow:React.FC<Props> = ({ onClick }) => {
-  return(
-    <ArrowWrapper onClick={onClick}>
-      <Image
-      src={ArrowGif.src}
-      alt="animated bouncing arrow"
-      width={ArrowGif.width}
-      height={ArrowGif.height}
-      layout="responsive"
-      />
+  return (
+    <ArrowWrapper onClick={onClick} className="bouncing-arrow">
+      <Image src={ArrowGif} alt="animated bouncing arrow" />
     </ArrowWrapper>
-  )
+  );
 }
 
 const ArrowWrapper = styled(animated.div)`
@@ -29,9 +22,10 @@ const ArrowWrapper = styled(animated.div)`
   cursor: s-resize;
   z-index: 10;
   align-self: end;
-  margin-bottom: 15.555556dvh;
+  margin-bottom: 3rem;
   padding-inline: 1.5rem;
-  width: 4.6vw;
+  max-height: clamp(50px, 5.9vw, 85px);
+  width: 4.14rem;
 
   @media (max-width: ${Sizes.small}) {
     align-self: unset;

@@ -1,45 +1,58 @@
 import Image from "next/image"
 import styled from "styled-components"
-import Screen1 from '/public/projects/jellysmack/phone_screen_0.png'
-import Screen2 from '/public/projects/jellysmack/phone_screen_1.png'
-import Screen3 from '/public/projects/jellysmack/phone_screen_2.png'
+import Screen1 from '/public/projects/jellysmack/phone_screen_0.gif'
+import Screen2 from '/public/projects/jellysmack/phone_screen_1.gif'
+import Screen3 from '/public/projects/jellysmack/phone_screen_2.gif'
+import Screen4 from '/public/projects/jellysmack/phone_screen_3.gif'
 import { Sizes } from "../../Assets"
 
 export const PhoneScreenshots:React.FC = () => {
-  return(
+  return (
     <Container>
       <Image
-      src={Screen1.src}
-      alt="Screenshot of 'New Jellys on the block'"
-      width={274}
-      height={563}
-      layout="responsive"
-      />
+        data-lazy="phone-screenshots_image"
+        id="screenOne"
+        src={Screen1}
+        alt="Screenshot of 'New Jellys on the block'"
+        sizes="100vw"
+        style={{
+          width: "100%",
+          height: "auto"
+        }} />
       <Image
-      src={Screen2.src}
-      alt="Screenshot of This week's Creators"
-      width={274}
-      height={563}
-      layout="responsive"
-      className='shift-up'
-      />
+        data-lazy="phone-screenshots_image"
+        id="screenTwo"
+        src={Screen2}
+        alt="Screenshot of This week's Creators"
+        className='shift-up'
+        sizes="100vw"
+        style={{
+          width: "100%",
+          height: "auto"
+        }} />
       <Image
-      src={Screen3.src}
-      alt="Screenshot of 'Were thrilled to have you'"
-      width={274}
-      height={563}
-      layout="responsive"
-      />
+        data-lazy="phone-screenshots_image"
+        id="screenThree"
+        src={Screen3}
+        alt="Screenshot of 'Were thrilled to have you'"
+        sizes="100vw"
+        style={{
+          width: "100%",
+          height: "auto"
+        }} />
       <Image
-      src={Screen2.src}
-      alt="Screenshot of This week's Creators"
-      width={274}
-      height={563}
-      layout="responsive"
-      className='shift-up'
-      />
+        data-lazy="phone-screenshots_image"
+        id="screenFour"
+        src={Screen4}
+        alt="Screenshot of This week's Creators"
+        className='shift-up'
+        sizes="100vw"
+        style={{
+          width: "100%",
+          height: "auto"
+        }} />
     </Container>
-  )
+  );
 }
 
 const Container = styled.div`
@@ -48,7 +61,6 @@ const Container = styled.div`
     justify-items: center;
     gap: 4rem;
   margin-inline: auto;
-  overflow-x: auto;
   width: clamp(375px, 90vw, 1440px);
 
   &>img {
@@ -56,6 +68,21 @@ const Container = styled.div`
 
     &.shift-up {
       margin-top: 8dvh;
+    }
+  }
+
+  @media (max-width: ${Sizes.small}) {
+    grid-template-columns: 1fr 1fr;
+      grid-gap: 0 1rem;
+    padding-inline: 1rem;
+
+    img#screenThree {
+      order: 4;
+      margin-top: 8dvh;
+    }
+    img#screenFour {
+      order: 3;
+      margin-top: 0;
     }
   }
 `

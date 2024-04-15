@@ -1,48 +1,28 @@
-import Image from "next/image"
 import styled from "styled-components"
-import Screenshot00 from '/public/projects/cpms/data_screen_00.png'
-import Screenshot01 from '/public/projects/cpms/data_screen_01.png'
-import Screenshot02 from '/public/projects/cpms/data_screen_02.png'
-import Screenshot03 from '/public/projects/cpms/data_screen_03.png'
+import Screenshot00 from '/public/projects/cpms/data_screen_00.webp'
+import Screenshot01 from '/public/projects/cpms/data_screen_01.webp'
+import Screenshot02 from '/public/projects/cpms/data_screen_02.webp'
+import Screenshot03 from '/public/projects/cpms/data_screen_03.webp'
 import { Sizes } from "../../Assets"
+import { LoopingVideo } from "../../Components"
 
 export const DataScreenshots:React.FC = () => {
-  return(
+  return (
     <Container>
-      <VideoWrapper>
-        <Image
-        src={Screenshot00.src}
-        alt="screenshot of data"
-        width={Screenshot00.width}
-        height={Screenshot00.height}
-        />
+      <VideoWrapper data-lazy>
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565081/cpms/cpms_data-screen00_owh4qz.webm" backupImage={Screenshot00} />
       </VideoWrapper>
-      <VideoWrapper>
-        <Image
-        src={Screenshot01.src}
-        alt="screenshot of data"
-        width={Screenshot01.width}
-        height={Screenshot01.height}
-        />
+      <VideoWrapper data-lazy>
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565082/cpms/cpms_data-screen01_cxsbo2.webm" backupImage={Screenshot01} />
       </VideoWrapper>
-      <VideoWrapper>
-        <Image
-        src={Screenshot02.src}
-        alt="screenshot of data"
-        width={Screenshot02.width}
-        height={Screenshot02.height}
-        />
+      <VideoWrapper data-lazy>
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565082/cpms/cpms_data-screen02_jqa1od.webm" backupImage={Screenshot02} />
       </VideoWrapper>
-      <VideoWrapper>
-        <Image
-        src={Screenshot03.src}
-        alt="screenshot of data"
-        width={Screenshot03.width}
-        height={Screenshot03.height}
-        />
+      <VideoWrapper data-lazy>
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565083/cpms/cpms_data-screen03_vmuujm.webm" backupImage={Screenshot03} />
       </VideoWrapper>
     </Container>
-  )
+  );
 }
 
 const Container = styled.div`
@@ -51,10 +31,12 @@ const Container = styled.div`
     grid-template-rows: 28vw 28vw;
     grid-gap: 1rem;
   margin-inline: var(--container-padding);
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 
   @media (max-width: ${Sizes.small}) {
     grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-gap: 0.25rem;
     margin-inline: 0;
     margin-bottom: 1rem;
   }
@@ -64,7 +46,12 @@ const VideoWrapper = styled.span`
   overflow: hidden;
   border-radius: var(--border-radius);
 
-  img {
+  &>div {
+    height: 100%;
+    max-height: 100%;
+  }
+
+  img, video {
     width: auto !important;
     height: 100% !important;
     transform: scale(1.05);
@@ -72,8 +59,9 @@ const VideoWrapper = styled.span`
 
   @media (max-width: ${Sizes.small}) {
     border-radius: 0;
+    height: max-content;
 
-    img {
+    img, video {
       height: auto !important;
       width: 100% !important;
       transform: unset;

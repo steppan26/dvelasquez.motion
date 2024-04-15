@@ -1,9 +1,10 @@
+import { useRouter } from "next/router"
 import { animated, useSpring } from "react-spring"
 import styled from "styled-components"
 import { Sizes } from "../../Assets"
 import Link from "next/link"
-import { useRouter } from "next/router"
-import { useEffect } from "react"
+import { useCursorMessage } from "../../utils/hooks"
+import { useCallback } from "react"
 
 interface MenuItem {
   text: string
@@ -16,52 +17,75 @@ const menuData: MenuItem[] = [
     href: "/"
   },
   {
-    text: "Works",
-    href: "/"
+    text: "Projects",
+    href: "/projects"
   },
   {
     text: "About",
-    href: "/"
+    href: "/about"
   },
   {
-    text: "Contact",
-    href: "/"
+    text: "Book a call",
+    href: "/about#book"
   },
 ]
 
 interface Props {
   isOpen: boolean
+  hideEmail?: boolean
+  isLandingNav?: boolean
 }
 
-const TRAVEL_DISTANCE = 250
+const TRAVEL_DISTANCE = '110%'
 
-const easeInOutCubic = (t: any) => (t < 0.5 ? 4 * t ** 3 : 1 - Math.pow(-2 * t + 2, 3) / 2);
-
-export const MenuItems:React.FC<Props> = ({ isOpen }) => {
+export const MenuItems:React.FC<Props> = ({ isOpen, hideEmail, isLandingNav }) => {
   const router = useRouter()
+  const { dispatchMessage } = useCursorMessage()
 
-  const translateStyle = useSpring({
-    from: { x: TRAVEL_DISTANCE, opacity: 0 },
-    to: { x: isOpen ? 0 : TRAVEL_DISTANCE, opacity: isOpen ? 1 : 0 },
+  const opacityStyle = useSpring({
+    from: { opacity: 1 },
+    to: { opacity: isOpen ? 0 : 1 },
     config: {
-      mass: 1.4,
-      tension: isOpen ? 250 : 150,
-      friction: isOpen ? 23.5 : 8,
-      precision: 0.2,
-      restVelocity: 0.3,
-      velocity: isOpen ? 0 : 0.1,
+      duration: 200,
+      velocity: 1
     }
   })
+
+  const translateStyle = useSpring({
+    from: { x: TRAVEL_DISTANCE},
+    to: { x: isOpen ? '0%' : TRAVEL_DISTANCE },
+    config: {
+      mass: 1.4,
+      tension: 250,
+      friction: 43.5,
+      precision: 0.2,
+      restVelocity: 0.3,
+    }
+  })
+
+  const handleEmailClick = () => {
+    navigator.clipboard.writeText('dvelasquez.motion@gmail.com')
+    dispatchMessage("copied to clipboard")
+  }
+
+  const menuClassName = useCallback((props: MenuItem) => {
+    let activeClasses = []
+    if(router.route === props.href){
+      activeClasses.push('active')
+    }
+    if(!isLandingNav) {
+      activeClasses.push('highlight-active')
+    }
+    return activeClasses.join(' ')
+  }, [isLandingNav, router.route])
 
   return(
     <Wrapper>
       <MenuContainer style={{ ...translateStyle }}>
+        {!hideEmail && <Email onClick={handleEmailClick} style={opacityStyle}>dvelasquez.motion@gmail.com</Email> }
         {menuData.map((props, index) => (
-          <Menu key={index} className={router.route === props.href ? 'active' : ''}>
-            { router.route === '/works' && props.href === '/works'
-              ? <Button onClick={() => router.push('/works')}>{props.text}</Button>
-              : <Link href={props.href} scroll prefetch>{props.text}</Link>
-            }
+          <Menu key={index} className={menuClassName(props)} data-islanding={isLandingNav} >
+            <Link href={props.href}>{props.text}</Link>
           </Menu>
         ))}
       </MenuContainer>
@@ -70,47 +94,56 @@ export const MenuItems:React.FC<Props> = ({ isOpen }) => {
 }
 
 const Menu = styled(animated.div)`
+  position: relative;
+  z-index: 20;
   font-size: 1.25rem;
   line-height: 2.4375rem;
 
-  font-weight: 300;
   margin-block: 0;
   color: var(--nav-main-color);
-  font-family: var(--font-family-regular);
+  font-family: var(--font-family-wide);
+  font-style: italic;
+  font-weight: 500;
+  text-decoration: unset;
   transition: cubic-bezier(0.18, 0.89, 0.32, 1.28) 800ms transform;
 
   & * {
     color: inherit;
   }
 
-  &.active {
-    /* text-decoration: underline; */
-    font-weight: 400;
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0.3rem;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--nav-main-color);
+    transition: ease-out width 300ms;
+  }
 
-    &>button {
-      /* text-decoration: underline; */
-      font-weight: 400;
+  &:hover,
+  &.active {
+    &:after {
+      width: 100%;
     }
   }
 
-  &:hover {
-    transform: scale(1.07);
+  &.highlight-active.active {
+    --nav-main-color: var(--clr-bg-secondary);
+  }
+
+  &:last-child {
+    --nav-main-color:  var(--clr-green);
+    font-weight: 600;
   }
 `
-
-const Button = styled.button`
-  appearance: none;
-  border: none;
-  background-color: inherit;
-  color: inherit;
-`
-
 
 const MenuContainer = styled(animated.div)`
   display: flex;
     justify-content: flex-end;
+    align-items: center;
     gap: 1.75rem;
-  overflow: hidden;
   width: max-content;
   margin-right: 2.5rem;
   padding-inline: 2rem 0.5rem;
@@ -122,6 +155,21 @@ const MenuContainer = styled(animated.div)`
 `
 
 const Wrapper = styled.div`
+  position: relative;
   width: max-content;
   overflow: hidden;
+`
+
+const Email = styled(animated.p)`
+  z-index: 10;
+  cursor: text;
+  position: absolute;
+  font-family: var(--font-family-wide);
+  color: var(--nav-main-color);
+  font-size: 1.15rem;
+  width: max-content;
+  font-weight: 200;
+  right: 100%;
+  margin-block: 0;
+  padding-right: 2rem;
 `

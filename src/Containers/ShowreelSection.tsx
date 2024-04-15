@@ -1,37 +1,23 @@
 import styled from "styled-components"
-import { TitleSecondary } from "../Assets/UIComponents"
-import { BouncingArrow, CTAButton, ShowReel } from "../Components"
+import { CTAButton, ShowReel } from "../Components"
 import { Sizes } from "../Assets"
 import { MouseEventHandler } from "react"
-import Link from "next/link"
 
 export const ShowReelSection:React.FC = () => {
-
-  const tempArrowClick: MouseEventHandler = (e) => {
-    alert("Coming soon: \n\nThis website is currently under construction, please contact me for more information at d.velasquezmotion@gmail.com")
-  }
-
   const handleArrowClick: MouseEventHandler = (e) => {
-    const container = document.querySelector('#showcaseContainer') as HTMLElement
-    container.scrollBy({ left: window.innerWidth, behavior: 'smooth' })
     window.dispatchEvent(new CustomEvent('resetMask'))
   }
 
   return (
     <Container id="showReelSection">
-      <InfoSection>
+      <InfoSection data-lazy>
         <Text>
           Through <span>brand expression</span> and <span>visual storytelling</span> I can help daring <span>organisations</span>, ambitious <span>startups</span> and <span>creative individuals</span> craft their story, communicate their ideas and build their tribe.
         </Text>
         <CTAButton />
       </InfoSection>
       <ShowReel />
-      <ProjectsEntice href="/" scroll prefetch>
-        <ProjectsText onClick={tempArrowClick}>Handpicked projects</ProjectsText>
-        <span>
-          <BouncingArrow onClick={tempArrowClick} />
-        </span>
-      </ProjectsEntice>
+      <Spacer />
     </Container>
   )
 }
@@ -81,17 +67,17 @@ const InfoSection = styled.div`
 `
 
 const Text = styled.p`
-  font-size: 1.35rem;
-  line-height: 2rem;
+  font-size: 1.5rem;
+  line-height: 2.4375rem;
   flex: 0 1 100%;
   margin-block: 0;
-  font-family: "neusa-next-std-wide";
+  font-family: var(--font-family-wide);
   font-weight: 400;
+  font-style: italic;
+  color: var(--clr-text-main);
 
   span {
-    font-family: "neusa-next-std-wide";
-    font-weight: 400;
-    color: ${p => p.theme.textSecondary};
+    font-weight: 600;
   }
 
   @media (max-width: ${Sizes.small}) {
@@ -102,34 +88,10 @@ const Text = styled.p`
   }
 `
 
-const ProjectsText = styled(TitleSecondary)`
-  cursor: e-resize;
-  font-size: 1.25rem;
-  margin-block: 0;
-`
-
-const ProjectsEntice = styled(Link)`
-  cursor: default;
-  position: relative;
-  display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  margin-block: 6.8dvh;
-
-  &>span {
-    position: absolute;
-    right: calc(4vw - var(--padding-main));
-    transform-origin: center center;
-    transform: rotate(-90deg);
-
-    &>div {
-      cursor: e-resize;
-      margin: 0;
-      width: 4.4vw;
-    }
-  }
+const Spacer = styled.div`
+  height: 15dvh;
 
   @media (max-width: ${Sizes.small}) {
-    display: none;
+    height: 2dvh;
   }
 `

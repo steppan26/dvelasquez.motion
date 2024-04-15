@@ -1,63 +1,35 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import styled from "styled-components"
 import { Sizes } from "../../Assets";
-import { AnimatedLogoDark, AnimatedLogoLight } from "../../Components";
 import { MenuItems } from "../MenuSimple/menuItems";
 import { ToggleButton } from "../MenuSimple/toggleButton";
-import { animated, useSpring } from "react-spring";
-import { useRouter } from "next/router";
-import { ProjectData } from "../projectsShowcase";
+import { animated } from "react-spring";
 import dynamic from "next/dynamic";
+import { useIsMobileView, useNavMode } from "../../utils/hooks";
+import { useRouter } from "next/router";
 
 interface Props {
-  navData: ProjectData[]
+  mode: 'light' | 'dark'
 }
 
-export const ProjectsNavbar:React.FC<Props> = ({ navData }) => {
+export const ProjectsNavbar:React.FC<Props> = ({ mode }) => {
   const navRef = useRef<HTMLElement>(null)
   const [isOpen, setIsOpen] = useState(false)
   const timeout = useRef<NodeJS.Timeout>()
-  const [isVisible, setIsVisible] = useState(false)
-  const router = useRouter()
+  const { isMobileView } = useIsMobileView()
+  const { displayBg, navMode } = useNavMode()
 
   const LogoLight = dynamic(() => import('../../Components/animatedLogoLight').then(comp => comp.AnimatedLogoLight), {ssr: false})
   const LogoDark = dynamic(() => import('../../Components/animatedLogoDark').then(comp => comp.AnimatedLogoDark), {ssr: false})
 
-  const displayLightNavbar = useMemo(() => (
-    navData?.filter(d => d.isLightNavBar).some(p => router.asPath.includes(p.id)) ?? false
-  ), [router, navData])
-
-  const heightSpring = useSpring({
-    from: { opacity: 1 },
-    to: { opacity: isVisible ? 1 : 0 },
-    config: {
-      mass: 1.4,
-      friction: 25,
-      tension: 250
-    }
-  })
-
-  useEffect(() => {
-    if(typeof window == 'undefined') return
-
-    window.addEventListener('shouldDisplayNavBar', handleEvent)
-
-    return () => window.removeEventListener('shouldDisplayNavBar', handleEvent)
-  }, [])
-
-  const handleEvent = (e: any) => {
-    const { displayNavBar } = e.detail
-    setIsVisible(displayNavBar)
-  }
+  const displayLightNavbar = useMemo(() => isMobileView || mode === 'light', [isMobileView, mode])
 
   const handleMouseLeave = () => {
     timeout.current = setTimeout(() => setIsOpen(false), 600)
   }
 
-  useEffect(() => console.info("ttt",displayLightNavbar), [displayLightNavbar])
-
   return(
-    <Nav ref={navRef} style={heightSpring} data-islight={displayLightNavbar}>
+    <Nav ref={navRef} data-display-bg={displayBg} data-islight={displayLightNavbar} id="navbarProjects" data-issticky="true">
       {displayLightNavbar
       ? <LogoLight />
       : <LogoDark />
@@ -72,25 +44,38 @@ export const ProjectsNavbar:React.FC<Props> = ({ navData }) => {
 
 const Nav = styled(animated.nav)`
   --nav-main-color: var(--clr-text-main);
+  --nav-main-bg-color: var(--clr-bg-main);
 
-  &[data-islight = 'true'] {
+  &[data-islight='true'] {
     --nav-main-color: var(--clr-bg-main);
+    --nav-main-bg-color: var(--clr-bg-main);
+  }
+
+  &[data-display-bg='false'] {
+    --nav-main-bg-color: transparent;
   }
 
   z-index: 999;
-  position: absolute;
+  position: fixed;
     top: 0;
   display: flex;
     justify-content: space-between;
     align-items: center;
   width: 100vw;
+    max-width: 100%;
   height: var(--nav-height);
   padding: 1rem 3vw 0;
   overflow: hidden;
+  background-color: var(--nav-main-bg-color);
+
+  transition: ease-out all 120ms;
+
+  @media (max-width: ${Sizes.small}) {
+    display: none;
+  }
 `
 
 const MenuWrapper = styled.div`
-  cursor: pointer;
   display: flex;
     justify-content: center;
     align-items: center;

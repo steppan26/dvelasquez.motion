@@ -1,32 +1,40 @@
 import styled from "styled-components"
 import { Footer, Landing, Navbar, ShowReelSection } from "../Containers"
-import { ScrollingContainer, TitleSecondary } from "../Assets/UIComponents"
+import { ScrollingContainer } from "../Assets/UIComponents"
 import { Sizes } from "../Assets"
+import Head from "next/head"
 
 export default function Home() {
 
-  // add intersection observer so when the HorizontalContainer goes out of view, it scrolls back to the left
-
   return (
-    <Main id='mainContainer'>
+    <>
+    <Head>
+      <title>D.Velasquez</title>
+    </Head>
+    <Main id='mainContainer' className='scrolling-container'>
       <Landing />
-      <Container>
-        <Cutout />
-        <Navbar type='showcase' />
-        <MainTitle>Unique Design for Unique Ideas</MainTitle>
+      <Container id="showreelContainer">
+        <Cutout data-lazy />
+        <Navbar type="showcase" mode="dark" />
+        <MainTitle data-lazy>Unique Design for Unique Ideas</MainTitle>
+        <ShowReelSection />
       </Container>
-      <ShowReelSection />
-      <Footer />
+      <Footer
+      leftLink={{ text: "About", href: "/about" }}
+      rightLink={{ text: "Projects", href: "/projects" }}
+      />
     </Main>
+    </>
   )
 }
 
 const Main = styled(ScrollingContainer)`
   --padding-main: 11.5vw;
 
+  width: max-content;
+
   @media (max-width: ${Sizes.small}) {
     display: block;
-    max-width: 100dvw;
     height: max-content;
     overflow: hidden;
   }
@@ -46,28 +54,40 @@ const Cutout = styled.div`
   width: 6.25rem;
   height: 6.25rem;
   top: 10dvh;
-  transform: rotate(45deg) translate3d(0, 70%, 0);
-  background-color: var(--clr-bg-secondary);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--clr-bg-secondary);
+    transform: translate3d(-67%, 23%, 0) rotate(45deg);
+  }
 
   @media (max-width: ${Sizes.small}) {
     display: none;
   }
 `
 
-const MainTitle = styled(TitleSecondary)`
+const MainTitle = styled.h2`
+  text-align: left;
+  font-style: italic;
+  font-weight: 400;
+
   scroll-snap-stop: start;
   margin-top: 7.042254dvh;
   padding: 0 var(--padding-main);
   padding-bottom: 0;
-  letter-spacing: -2px;
-  font-size: 3.75rem;
+  letter-spacing: -5px;
+  color: var(--clr-text-main);
+  font-size: 4.3125rem;
+  margin-bottom: 0;
 
   @media (max-width: ${Sizes.small}) {
-    max-width: 14rem;
     text-align: center;
     font-size: 2rem;
+    letter-spacing: -2px;
     line-height: 2.8rem;
-    padding-inline: 0;
+    padding-inline: 2rem;
     margin-inline: auto;
     margin-top: 5dvh;
   }

@@ -1,52 +1,29 @@
 import Image from "next/image"
 import styled from "styled-components"
-import ProjectScreenImage00 from '/public/projects/cpms/project_screen_00.png'
-import ProjectScreenImage01 from '/public/projects/cpms/project_screen_01.png'
-import ProjectScreenImage02 from '/public/projects/cpms/project_screen_02.png'
-import ProjectScreenImage03 from '/public/projects/cpms/project_screen_03.png'
+import ProjectScreenImage00 from '/public/projects/cpms/project_screen_00.webp'
+import ProjectScreenImage01 from '/public/projects/cpms/project_screen_01.webp'
+import ProjectScreenImage02 from '/public/projects/cpms/project_screen_02.webp'
+import ProjectScreenImage03 from '/public/projects/cpms/project_screen_03.webp'
 import { Sizes } from "../../Assets"
+import { LoopingVideo } from "../../Components"
 
 export const ProjectScreens:React.FC = () => {
-  return(
+  return (
     <Container>
-      <ImageWrapper id="videoPink">
-        <Image
-        src={ProjectScreenImage00.src}
-        alt=""
-        width={ProjectScreenImage00.width}
-        height={ProjectScreenImage00.height}
-        layout="responsive"
-        />
+      <ImageWrapper id="videoPink" data-lazy="projectScreens_image">
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565083/cpms/cpms_scene00_pink_qjvpt4.webm" backupImage={ProjectScreenImage00} />
       </ImageWrapper>
-      <ImageWrapper id="videoBlueLight">
-        <Image
-        src={ProjectScreenImage01.src}
-        alt=""
-        width={ProjectScreenImage01.width}
-        height={ProjectScreenImage01.height}
-        layout="responsive"
-        />
+      <ImageWrapper id="videoBlueLight" data-lazy="projectScreens_image" >
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565086/cpms/cpms_scene01_light-blue_lwynvh.webm" backupImage={ProjectScreenImage01} />
       </ImageWrapper>
-      <ImageWrapper id="videoGreen">
-        <Image
-        src={ProjectScreenImage02.src}
-        alt=""
-        width={ProjectScreenImage02.width}
-        height={ProjectScreenImage02.height}
-        layout="responsive"
-        />
+      <ImageWrapper id="videoGreen" data-lazy="projectScreens_image" >
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565087/cpms/cpms_scene02_green_ucxxn8.webm" backupImage={ProjectScreenImage02} />
       </ImageWrapper>
-      <ImageWrapper id="videoBlueDark">
-        <Image
-        src={ProjectScreenImage03.src}
-        alt=""
-        width={ProjectScreenImage03.width}
-        height={ProjectScreenImage03.height}
-        layout="responsive"
-        />
+      <ImageWrapper id="videoBlueDark" data-lazy="projectScreens_image" >
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565087/cpms/cpms_scene03_dark-blue_sbbcqv.webm" backupImage={ProjectScreenImage03} />
       </ImageWrapper>
     </Container>
-  )
+  );
 }
 
 const Container = styled.div`
@@ -62,6 +39,7 @@ const Container = styled.div`
 `
 
 const ImageWrapper = styled.span`
+  position: relative;
   display: flex;
     justify-content: center;
     align-items: center;
@@ -73,16 +51,23 @@ const ImageWrapper = styled.span`
     height: 25dvh;
   }
 
-  img {
+  &>div {
+    display: flex;
+      justify-content: center;
+    height: 100%;
+    max-height: 100%;
+  }
+
+  img, video {
     height: 100% !important;
-    width: unset !important;
+    width: auto !important;
   }
 
   &#videoPink {
     flex: 0 0 65%;
 
-    img {
-      transform: translateX(20px);
+    img, video {
+      transform: translateX(-30px);
     }
 
     @media (max-width: ${Sizes.small}) {
@@ -90,7 +75,7 @@ const ImageWrapper = styled.span`
       flex-basis: 100%;
       border-radius: 0;
 
-      img {
+      img, video {
         height: auto !important;
         width: 100% !important;
         transform-origin: center top;
@@ -102,8 +87,9 @@ const ImageWrapper = styled.span`
   &#videoBlueLight {
     flex: 1 0 20%;
 
-    img {
-      transform: translateX(-110px);
+    img, video {
+      margin-left: 10%;
+      transform: scaleX(-100%);
     }
 
     @media (max-width: ${Sizes.small}) {
@@ -111,7 +97,7 @@ const ImageWrapper = styled.span`
       flex-basis: 40%;
       border-radius: var(--border-radius) 0 0 var(--border-radius);
 
-      img {
+      img, video {
         transform: unset;
         margin-right: 5rem;
       }
@@ -119,33 +105,38 @@ const ImageWrapper = styled.span`
   }
 
   &#videoGreen {
-    flex: 1 0 30%;
+    flex: 1 0 35%;
+
+    img, video {
+      margin-left: -10%;
+    }
 
     @media (max-width: ${Sizes.small}) {
       order: 1;
       flex-basis: 50%;
       border-radius: 0 var(--border-radius) var(--border-radius) 0;
 
-      img {
+      img, video {
         margin-left: 2.5rem;
       }
     }
   }
 
   &#videoBlueDark {
-    flex: 0 0 55%;
+    flex: 0 0 50%;
+
+    img, video {}
 
     @media (max-width: ${Sizes.small}) {
       order: 2;
       flex-basis: 100%;
       border-radius: 0;
 
-      img {
+      img, video {
         height: auto !important;
         width: 100% !important;
-        margin-top: 1.5rem;
         transform-origin: center top;
-        transform: scale(1.1);
+        transform: scale(1.2);
       }
     }
   }

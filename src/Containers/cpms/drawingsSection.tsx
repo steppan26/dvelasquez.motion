@@ -1,41 +1,43 @@
 import Image from "next/image"
 import styled from "styled-components"
-import Drawing00 from '/public/projects/cpms/drawing_00.png'
-import Drawing01 from '/public/projects/cpms/drawing_01.png'
+import Drawing00 from '/public/projects/cpms/drawing_00.webp'
+import Drawing01 from '/public/projects/cpms/drawing_01.webp'
 import { Text } from "../../Components/styledComponents"
 import { Sizes } from "../../Assets"
 
 export const DrawingsSection:React.FC = () => {
-  return(
-    <Container>
+  return (
+    <Container data-lazy>
       <div id="drawingGirl">
         <Image
-        src={Drawing01.src}
-        alt="hand drawing of a little girl"
-        width={Drawing01.width}
-        height={Drawing01.height}
-        layout="responsive"
-        />
+          src={Drawing01}
+          alt="hand drawing of a little girl"
+          sizes="100vw"
+          style={{
+            width: "100%",
+            height: "auto"
+          }} />
       </div>
       <Text>
-        Through brand expression and visual storytelling I can help daring organisations, ambitious startups and creative individuals craft their brand.
+        Infusing the video with a human touch, using elements such as illustrations, real-life footage, and visual infographics, not only enhances retention but also facilitates a stronger emotional connection.
       </Text>
       <div id="drawingTent">
         <Image
-        src={Drawing00.src}
-        alt="hand drawing of a refuge tent"
-        width={Drawing00.width}
-        height={Drawing00.height}
-        layout="responsive"
-        />
+          src={Drawing00}
+          alt="hand drawing of a refuge tent"
+          sizes="100vw"
+          style={{
+            width: "100%",
+            height: "auto"
+          }} />
       </div>
     </Container>
-  )
+  );
 }
 
 const Container = styled.div`
   display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 2.5fr 1fr;
   margin-block: 14.5dvh;
 
   p {

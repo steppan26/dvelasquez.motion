@@ -8,8 +8,6 @@ export const useIsMobileView = () => {
   }
 
   useEffect(() => {
-    if(typeof window == 'undefined') return
-
     handleWindowResize()
     window.addEventListener("resize", handleWindowResize)
 

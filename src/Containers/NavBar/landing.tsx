@@ -19,8 +19,8 @@ export const LandingNavbar:React.FC = () => {
     <Nav ref={navRef}>
       <AnimatedIcon />
       <MenuWrapper onMouseLeave={handleMouseLeave} onMouseEnter={() => clearTimeout(timeout.current)}>
-        <MenuItems isOpen={isOpen} />
         <ToggleButton isOpen={isOpen} setIsOpen={setIsOpen} />
+        <MenuItems isOpen={isOpen} hideEmail isLandingNav />
       </MenuWrapper>
     </Nav>
   )
@@ -36,13 +36,14 @@ const Nav = styled.nav`
     justify-content: space-between;
     align-items: center;
   width: 100vw;
+  max-width: 100%;
   height: var(--nav-height);
   padding: 1rem 3vw 0;
 `
 
 const MenuWrapper = styled.div`
-  cursor: pointer;
   display: flex;
+    flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
   padding: 1rem;

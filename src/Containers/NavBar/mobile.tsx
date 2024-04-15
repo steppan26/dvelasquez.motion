@@ -1,18 +1,24 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import styled from "styled-components"
-import { Sizes } from "../../Assets";
 import { AnimatedIcon } from "../../Components";
-import { MenuItems } from "../MenuSimple/menuItems";
 import { ToggleButton } from "../MenuSimple/toggleButton";
 import { MobileMenu } from "./mobileMenu";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import { useNavMode } from "../../utils/hooks";
 
+interface Props {
+  mode: 'light' | 'dark'
+}
 
-export const NavMobile:React.FC = () => {
+export const NavMobile:React.FC<Props> = ({ mode }) => {
   const navRef = useRef<HTMLElement>(null)
   const [isOpen, setIsOpen] = useState(false)
   const timeout = useRef<NodeJS.Timeout>()
   const router = useRouter()
+  const { displayBg, navMode } = useNavMode()
+
+  const displayLightNavbar = useMemo(() => mode === 'light', [mode])
 
   useEffect(() => {
     router.events.on('routeChangeStart', closeMenu)
@@ -27,8 +33,10 @@ export const NavMobile:React.FC = () => {
   }
 
   return(
-    <Nav ref={navRef}>
-      <AnimatedIcon />
+    <Nav ref={navRef}  data-display-bg={displayBg} data-islight={displayLightNavbar} className={isOpen ? "open" : ""} id="navbarMobile" data-colormode={mode} >
+      <Link href="/" >
+        <AnimatedIcon mode={!isOpen || mode === 'light' ? 'light' : 'dark'} />
+      </Link>
       <MenuWrapper onMouseLeave={handleMouseLeave} onMouseEnter={() => clearTimeout(timeout.current)}>
         <MobileMenu isOpen={isOpen} />
         <ToggleButton isOpen={isOpen} setIsOpen={setIsOpen} />
@@ -39,16 +47,37 @@ export const NavMobile:React.FC = () => {
 
 const Nav = styled.nav`
   --nav-main-color: var(--clr-text-main);
+  --nav-main-bg-color: var(--clr-bg-main);
+
+  &[data-colormode="light"] {
+    --nav-main-color: var(--clr-bg-main);
+  }
+
+  &[data-colormode="dark"] {
+    --nav-main-color: var(--clr-text-main);
+  }
+
+  &[data-display-bg='false'] {
+    --nav-main-bg-color: transparent;
+  }
+
+  &.open {
+    --nav-main-color: var(--clr-text-main);
+  }
 
   z-index: 999;
-  position: absolute;
+  position: fixed;
     top: 0;
   display: flex;
     justify-content: space-between;
     align-items: center;
   width: 100vw;
-  /* height: var(--nav-height); */
   padding: 0 3vw;
+  background-color: var(--nav-main-bg-color);
+
+  &[data-display-bg='true'] {
+    box-shadow: 0 2px 8px rgba(10, 10, 10, 0.1);
+  }
 `
 
 const MenuWrapper = styled.div`
@@ -57,9 +86,5 @@ const MenuWrapper = styled.div`
     justify-content: center;
     align-items: center;
   padding: 1rem;
-  gap: 3px;
-
-  @media (max-width: ${Sizes.small}) {
-    gap: 5px;
-  }
+  gap: 5px;
 `

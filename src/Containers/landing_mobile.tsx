@@ -6,7 +6,6 @@ import { Navbar } from "."
 export const LandingMobile:React.FC = () => {
   return(
     <>
-    <Navbar type='mobile' />
     <Container>
       <ContentWrapper>
         <TextWrapper>
@@ -44,8 +43,9 @@ const TextWrapper = styled(PrimaryTitle)`
     justify-content: center;
     align-items: center;
   font-family: var(--font-family-wide);
-  font-size: 32px;
+  font-size: 1.8125rem;
   line-height: 52px;
+  font-weight: 200;
   width: 100%;
 `
 
@@ -59,6 +59,12 @@ const ContentWrapper = styled.div`
   width: 90dvw;
   height: 90dvw;
   padding: 0 40px;
-  border-radius: 50%;
-  background-color: ${p => p.theme.backgroundSecondary};
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: ${p => p.theme.backgroundSecondary};
+    transform: scale(0.7) rotate(45deg);
+  }
 `

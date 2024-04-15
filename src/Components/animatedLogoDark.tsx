@@ -1,9 +1,9 @@
 import styled from "styled-components"
 import { useEffect, useRef, useState } from "react";
 import { Sizes } from "../Assets";
-// @ts-ignore
 import { supportsHEVCAlpha } from "../utils/helpers";
 import { useRouter } from "next/router";
+import { LoopingVideo } from ".";
 
 
 export const AnimatedLogoDark:React.FC = () => {
@@ -32,16 +32,17 @@ export const AnimatedLogoDark:React.FC = () => {
     <Wrapper ref={wrapperRef} onClick={loadHomePage}>
       {displayVideo
       ? <video
-          ref={videoRef}
-          id="animationVideo"
-          autoPlay
-          muted
-          playsInline
-          disablePictureInPicture
-          preload="auto"
-          style={{ display: 'block', width: '100%' }}
+        ref={videoRef}
+        autoPlay
+        playsInline
+        loop
+        muted
+        controls={false}
+        controlsList="nodownload noremoteplayback"
+        preload="auto"
+        poster={"https://res.cloudinary.com/dtlyxry6z/image/upload/v1711650516/logos/text_wine_wyshmp.gif"}
         >
-          <source src="/logos/text_wine.webm" type="video/webm" />
+          <source src="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711650516/logos/text_wine_djaujr.webm" type="video/webm" />
         </video>
       : <AnimatedGif />
       }
@@ -66,7 +67,7 @@ const Wrapper = styled.div`
 const AnimatedGif = styled.div<{ isLight?: boolean }>`
   width: var(--logo-size);
   height: calc(var(--logo-size) * 0.35555556);
-  background-image: url("/logos/text_wine.gif");
+  background-image: url("https://res.cloudinary.com/dtlyxry6z/image/upload/v1711650516/logos/text_wine_wyshmp.gif");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;

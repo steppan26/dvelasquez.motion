@@ -21,14 +21,12 @@ export const TitleSecondary = styled.h4`
 
 export const ScrollingContainer = styled.div`
   position: relative;
-  display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
   scroll-snap-type: y mandatory;
   height: 100dvh;
-  width: 100%;
-  overflow: auto;
-  transition: scroll-behavior 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  width: 100vw;
+    max-width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
 
   &>* {
     scroll-snap-align: start;
