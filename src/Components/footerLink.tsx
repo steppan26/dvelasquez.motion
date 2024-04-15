@@ -1,8 +1,6 @@
 import Link from "next/link"
 import styled from "styled-components"
 import { Sizes, ArrowLong } from "../Assets"
-import { useState } from "react"
-import { useToggle } from "../utils/hooks"
 
 export interface FooterLinkProps {
   text: string
@@ -28,7 +26,9 @@ export const FooterLink:React.FC<FooterLinkProps> = ({ text, href, direction }) 
 
 const ArrowWrapper = styled.div`
   position: absolute;
-  top: 1.5rem; left: -1rem; right: -3rem;
+  top: 1.5rem;
+  left: -1rem;
+  width: 10rem;
   overflow: hidden;
 
   img {
@@ -81,8 +81,9 @@ const BaseArrow = styled.div`
 
   @media (min-width: ${Sizes.small}) {
     opacity: 0.3;
-    top: 1.5rem; left: -1rem; right: -3rem;
-    width: unset;
+    top: 1.5rem;
+    left: -1rem;
+    width: 10rem;
     z-index: unset;
   }
 `
@@ -112,7 +113,7 @@ const NextWrapper = styled(InternalLink)`
 
     ${BaseArrow}, ${ArrowWrapper} {
       align-self: flex-end;
-      right: 0;
+      right: -1rem;
       left: unset;
       transform: rotateY(180deg);
 
