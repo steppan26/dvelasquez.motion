@@ -1,4 +1,4 @@
-import { MouseEventHandler } from "react";
+import { MouseEventHandler, useEffect, useRef } from "react";
 import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
 import { Sizes } from "../Assets";
@@ -8,6 +8,16 @@ interface Props {
 }
 
 export const ScrollDown:React.FC<Props> = ({ scrollToSelector }) => {
+  const arrowRef = useRef<HTMLParagraphElement>(null)
+
+  useEffect(() => {
+    if(!arrowRef.current) return
+
+    setTimeout(() => {
+      if(arrowRef.current)
+        arrowRef.current.style.display = 'block'
+    }, 2800)
+  }, [])
 
   const bounceSpring = useSpring({
     from: { translateY: 0 },
@@ -33,13 +43,14 @@ export const ScrollDown:React.FC<Props> = ({ scrollToSelector }) => {
   }
 
   return (
-    <ArrowWrapper style={bounceSpring} onClick={onClick} className="bouncing-arrow">
+    <ArrowWrapper ref={arrowRef} style={bounceSpring} onClick={onClick} className="bouncing-arrow">
       Scroll Down
     </ArrowWrapper>
   );
 }
 
 const ArrowWrapper = styled(animated.p)`
+  display: none;
   position: relative;
   cursor: s-resize;
   z-index: 10;
