@@ -59,6 +59,10 @@ const Wrapper = styled.div`
   width: max-content;
   width: var(--logo-size);
 
+  video {
+    max-width: 100%;
+  }
+
   @media (max-width: ${Sizes.small}){
     --logo-size: 12vw;
   }
