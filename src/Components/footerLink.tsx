@@ -26,7 +26,9 @@ export const FooterLink:React.FC<FooterLinkProps> = ({ text, href, direction }) 
 
 const ArrowWrapper = styled.div`
   position: absolute;
-  top: 1.5rem; left: -1rem; right: -3rem;
+  top: 1.5rem;
+  left: -1rem;
+  width: 10rem;
   overflow: hidden;
 
   img {
