@@ -32,6 +32,7 @@ export const ShowReel:React.FC = () => {
         backupImage={BackupImage}
         imageAlt="Screenshot of the showreel"
         soundOption
+        allowControls
         />
       </VideoWrapper>
     </Container>
