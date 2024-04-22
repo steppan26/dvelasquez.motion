@@ -47,7 +47,7 @@ export const LoopingVideo:React.FC<Props> = (props) => {
   const handleVideoClick = () => {
     if(!videoRef.current || !soundOption) return
 
-    if(!hasBeenClicked && videoRef.current) {
+    if(!hasBeenClicked) {
       videoRef.current.currentTime = 0
       videoRef.current?.play()
       setTimeout(() => setHasBeenClicked(true), 100)
@@ -69,7 +69,7 @@ export const LoopingVideo:React.FC<Props> = (props) => {
         playsInline
         loop
         muted={(!soundOption || !hasBeenClicked).valueOf()}
-        controls={(hasBeenClicked && allowControls)}
+        controls={hasBeenClicked && allowControls}
         onClick={handleVideoClick}
         controlsList="nodownload noremoteplayback"
         preload="auto"
