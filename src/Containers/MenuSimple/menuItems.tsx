@@ -24,10 +24,10 @@ const menuData: MenuItem[] = [
     text: "About",
     href: "/about"
   },
-  {
-    text: "Book a call",
-    href: "/about#book"
-  },
+  // {
+  //   text: "Book a call",
+  //   href: "/about#book"
+  // },
 ]
 
 interface Props {
