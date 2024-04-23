@@ -2,6 +2,11 @@ import { Html, Head, Main, NextScript } from 'next/document'
 import Script from 'next/script'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
+import { useEffect } from 'react';
+
+declare global {
+  interface Window { Calendly: any; }
+}
 
 export default function Document() {
   const gtmKey = process.env.NEXT_PUBLIC_GTM_KEY
@@ -49,7 +54,12 @@ export default function Document() {
               style={{ display: 'none', visibility: 'hidden' }}
             ></iframe>
           </noscript>
-        {/* END of Google Tag Manager */}
+        {/* End of Google Tag Manager */}
+
+        {/* <!-- Calendly --> */}
+          <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+          <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+        {/* <!-- End of Calendly --> */}
       </Head>
       <body>
         <SpeedInsights />

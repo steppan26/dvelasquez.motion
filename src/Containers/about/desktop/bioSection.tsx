@@ -11,7 +11,7 @@ export const BioSection:React.FC = () => {
         <Image src={DaniPortrait} alt="Portrait image of Daniela in Greece" id="daniPortrait" />
       </GutterImagesWrapper>
       <MainContent data-lazy>
-        <HeaderText>Bio</HeaderText>
+        <HeaderText style={{paddingBottom: '1rem'}}>Bio</HeaderText>
         <TextGroup>
           <AboutText><b>Art Director and Motion Designer</b>, fluent in <b>English, French, and Spanish,</b> holding a <b>master&apos;s degree</b> from e-artsup school in Paris.</AboutText>
           <AboutText>I&apos;ve had the opportunity to work in various environments, from established design agencies like <b>TBWA</b> to radio stations such as <b>RFM</b>, and most recently, at <b>Jellysmack</b>—a startup that has expanded into a multinational corporation, collaborating with some of the most influential <b>content creators</b> and <b>brands</b>.</AboutText>
@@ -29,7 +29,8 @@ export const BioSection:React.FC = () => {
   )
 }
 
-const MainContent = styled.div``
+const MainContent = styled.div`
+`
 
 const KeywordsWrapper = styled.div`
   display: flex;

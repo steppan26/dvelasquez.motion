@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import Link from "next/link"
 import { ArrowShort, PhoneIcon, Sizes } from "../Assets"
 import { animated, useSpring } from "react-spring"
 import { useState } from "react"
@@ -28,9 +27,14 @@ export const CTAButtonRounded:React.FC = () => {
     }
   })
 
+  const handleClick = () => {
+    const button = document.querySelector('.calendly-badge-content') as HTMLDivElement
+    button.click()
+  }
+
   return (
     <GPTButton
-    href="/about"
+    onClick={handleClick}
     onMouseEnter={() => setIsHovering(true)}
     onMouseLeave={() => setIsHovering(false)}
     >
@@ -45,13 +49,15 @@ export const CTAButtonRounded:React.FC = () => {
   )
 }
 
-const GPTButton = styled(Link)`
+const GPTButton = styled.div`
+  cursor: pointer;
   flex: 1 0 26%;
   position: relative;
   display: flex;
     justify-content: center;
   width: 100%;
   color: #fff;
+  margin-block: 0;
   font-family: var(--font-family-wide);
     font-size: 2rem;
     text-align: center;

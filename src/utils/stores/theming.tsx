@@ -155,4 +155,20 @@ const GlobalStyle = createGlobalStyle<{}>`
     background-color: transparent;
   }
 
+  .calendly-badge-widget {
+    left: 20px;
+    right: unset;
+
+    .calendly-badge-content{
+      font-family: var(--font-family-wide);
+        font-style: italic;
+        font-size: 1rem;
+        font-weight: 400;
+
+      span {
+        display: none !important;
+      }
+    }
+
+  }
 `
