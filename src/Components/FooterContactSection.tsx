@@ -57,18 +57,18 @@ const Container = styled.div`
 const SocialsWrapper = styled.div`
   box-sizing: content-box;
   display: flex;
-    gap: 0.8rem;
   margin-top: 0.5rem;
   height: 24px;
   padding-block: 0.5rem;
 
   &>* {
     margin-block: 0;
+    padding-inline: 0.4rem;
     line-height: unset;
     font-size: unset !important;
     height: 100%;
     overflow: visible;
-    transition: ease all 420ms;
+    transition: cubic-bezier(0.01, 0.38, 0.48, 1.02) all 620ms;
 
     svg {
       width: auto;
