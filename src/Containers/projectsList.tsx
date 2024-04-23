@@ -78,14 +78,14 @@ const Container = styled(animated.ul)`
   position: relative;
   display: flex;
     flex-flow: wrap row;
-    gap: 3vw;
+    gap: 2vw;
     justify-content: center;
     align-items: flex-start;
 
   margin-bottom: 10dvh;
   width: 100dvw;
     max-width: 100%;
-  padding-inline: 5vw;
+  padding-inline: 8vw;
   overflow: hidden;
   background-color: inherit;
 
@@ -145,7 +145,7 @@ const Container = styled(animated.ul)`
 const Title = styled(PrimaryTitle)`
   padding-block: var(--nav-height) 2dvh;
   margin-block: 0;
-  margin-left: 10vw;
+  margin-left: 8vw;
   grid-area: header;
   font-family: var(--font-family-wide);
     font-size: 5rem;

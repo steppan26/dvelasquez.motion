@@ -132,11 +132,6 @@ const Menu = styled(animated.div)`
   &.highlight-active.active {
     --nav-main-color: var(--clr-bg-secondary);
   }
-
-  &:last-child {
-    --nav-main-color:  var(--clr-green);
-    font-weight: 600;
-  }
 `
 
 const MenuContainer = styled(animated.div)`
