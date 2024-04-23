@@ -1,12 +1,29 @@
 import styled from "styled-components"
 import { Sizes, VerticalArrow } from "../../Assets"
 import { useScrollToTop } from "../../utils/hooks"
+import { useState } from "react"
+import { animated, useSpring } from "react-spring"
 
 export const BackToTop:React.FC = () => {
   const { scrollToTop } = useScrollToTop()
+  const [isHovering, setIsHovering] = useState(false)
+
+  const { x } = useSpring({
+    from: { x: 0 },
+    x: isHovering ? 1 : 0,
+    config: { tension: 100, friction: 10 },
+    reset: true
+  });
 
   return(
-    <Container onClick={_ => scrollToTop()}>
+    <Container
+    onClick={_ => scrollToTop()}
+    onMouseEnter={() => setIsHovering(true)}
+    onMouseLeave={() => setIsHovering(false)}
+    style={{
+      transform: x.interpolate(x => `rotate(${10 * Math.sin(x * Math.PI)}deg)`),
+    }}
+    >
       <Background />
       <VerticalArrow />
     </Container>
@@ -14,7 +31,7 @@ export const BackToTop:React.FC = () => {
 }
 
 
-const Container = styled.div`
+const Container = styled(animated.div)`
   --size: clamp(75px, 6.5vw, 150px);
 
   cursor: pointer;
@@ -51,6 +68,6 @@ const Background = styled.div`
   transition: ease all 260ms;
 
 &:hover {
-    box-shadow: 7px 2px 5px 2px rgba(0, 0, 0, 0.17);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.17);
   }
 `
