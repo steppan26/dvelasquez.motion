@@ -12,13 +12,16 @@ interface Props {
 
 export const Footer:React.FC<Props> = ({ leftLink, rightLink }) => {
   return(
-    <Container>
-      <Background />
-      <BackToTop />
-      <FooterLink href={leftLink.href} text={leftLink.text} direction="left" />
-      <FooterContactSection />
-      <FooterLink href={rightLink.href} text={rightLink.text} direction="right" />
-    </Container>
+    <>
+      <Container>
+        <Background />
+        <BackToTop />
+        <FooterLink href={leftLink.href} text={leftLink.text} direction="left" />
+        <FooterContactSection />
+        <FooterLink href={rightLink.href} text={rightLink.text} direction="right" />
+      </Container>
+      <Legal>© dvelasquez {new Date().getFullYear()}</Legal>
+    </>
   )
 }
 
@@ -58,4 +61,13 @@ const Background = styled.div`
   background-size: cover;
   background-position: center;
   opacity: 0.25;
+`
+
+const Legal = styled.div`
+  font-family: var(--font-family-wide);
+    font-style: italic;
+    font-weight: 100;
+    font-size: 1rem;
+    text-align: right;
+  padding: 1.35rem 2rem;
 `
