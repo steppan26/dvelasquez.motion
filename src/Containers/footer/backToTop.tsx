@@ -49,10 +49,13 @@ const Container = styled(animated.div)`
     z-index: 2;
     transform-origin: center top;
     transform: scale(0.85);
+    max-height: 65%;
+    max-width: 41%;
   }
 
   @media (max-width: ${Sizes.small}) {
-    --size: clamp(38px, 11.2vw, 50px);
+    --size: clamp(38px, 15vw, 60px);
+    top: -25px;
   }
 `
 
