@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { AboutSection } from "./aboutSection"
 import { BioSection } from "./bioSection"
 import { Navbar } from "../../NavBar"
-import { Footer } from "../../footer"
+import { Footer } from "../../footer/footer"
 import { BookSection } from "./bookSection"
 
 export const AboutMobile:React.FC = () => {

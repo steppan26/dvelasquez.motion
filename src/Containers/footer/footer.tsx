@@ -1,8 +1,8 @@
 import styled from "styled-components"
-import { Sizes } from "../Assets"
-import { useScrollToTop } from "../utils/hooks"
-import { FooterLink, FooterLinkProps } from "../Components/footerLink"
-import { FooterContactSection } from "../Components"
+import { Sizes } from "../../Assets"
+import { FooterLink, FooterLinkProps } from "../../Components/footerLink"
+import { FooterContactSection } from "../../Components"
+import { BackToTop } from "./backToTop"
 
 
 interface Props {
@@ -11,12 +11,10 @@ interface Props {
 }
 
 export const Footer:React.FC<Props> = ({ leftLink, rightLink }) => {
-  const { scrollToTop } = useScrollToTop()
-
   return(
     <Container>
       <Background />
-      <BackToTop onClick={() => scrollToTop()} />
+      <BackToTop />
       <FooterLink href={leftLink.href} text={leftLink.text} direction="left" />
       <FooterContactSection />
       <FooterLink href={rightLink.href} text={rightLink.text} direction="right" />
@@ -36,7 +34,7 @@ const Container = styled.footer`
       'left socials right';
     align-items: center;
     justify-items: center;
-  padding: 10dvh 5.7vw;
+  padding: 5dvh 5.7vw;
   width: 100%;
   max-width: 100vw;
   background-color: var(--clr-bg-secondary);
@@ -60,32 +58,4 @@ const Background = styled.div`
   background-size: cover;
   background-position: center;
   opacity: 0.25;
-`
-
-const BackToTop = styled.div`
-  --size: clamp(75px, 6.5vw, 150px);
-
-  cursor: pointer;
-  position: absolute;
-  top: 0; right: 7vw;
-  width: var(--size);
-    max-width: 120px;
-  height: var(--size);
-    max-height: 120px;
-  background-image: url('/yellow_arrow.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  transform: translateY(-50%) rotate(45deg);
-  box-shadow: 0 4px 14px 4px rgba(0, 0, 0, 0.1);
-
-  transition: ease all 260ms;
-
-  &:hover {
-    box-shadow: 0 4px 14px 6px rgba(0, 0, 0, 0.15);
-  }
-
-  @media (max-width: ${Sizes.small}) {
-    --size: clamp(38px, 11.2vw, 50px);
-  }
 `
