@@ -47,6 +47,8 @@ const VideoWrapper = styled.span`
   border-radius: var(--border-radius);
 
   &>div {
+    display: flex;
+    justify-content: center;
     height: 100%;
     max-height: 100%;
   }
@@ -54,6 +56,7 @@ const VideoWrapper = styled.span`
   img, video {
     width: auto !important;
     height: 100% !important;
+    transform-origin: center;
     transform: scale(1.05);
   }
 

@@ -72,7 +72,7 @@ const Text = styled.p`
   flex: 0 1 100%;
   margin-block: 0;
   font-family: var(--font-family-wide);
-  font-weight: 400;
+  font-weight: 200;
   font-style: italic;
   color: var(--clr-text-main);
 
