@@ -37,7 +37,7 @@ const Container = styled.footer`
       'left socials right';
     align-items: center;
     justify-items: center;
-  padding: 5dvh 5.7vw;
+  padding: 10dvh 5.7vw;
   width: 100%;
   max-width: 100vw;
   background-color: var(--clr-bg-secondary);
