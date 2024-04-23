@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import Link from "next/link"
 import { ArrowShort, PhoneIcon, Sizes } from "../Assets"
-import { SpringConfig, animated, useSpring } from "react-spring"
+import { animated, useSpring } from "react-spring"
 import { useState } from "react"
 
 export const CTAButtonRounded:React.FC = () => {
@@ -84,6 +84,8 @@ const GPTButton = styled(Link)`
   }
 
   &:hover {
+    transform: scale(1.02);
+
     &::after {
       opacity: 1;
     }
@@ -121,9 +123,13 @@ const ContentSlider = styled(animated.div)`
       width: 50px;
       opacity: 0;
       transition: ease-out opacity 220ms;
+
+      svg {
+        margin-left: auto;
+      }
     }
     &:nth-of-type(2) {
-      padding-inline: 1rem;
+      padding-inline: 0.8rem 1rem;
     }
   }
 `
