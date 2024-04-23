@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { CTAButton, ShowReel } from "../Components"
+import { CTAButtonRounded, ShowReel } from "../Components"
 import { Sizes } from "../Assets"
 import { MouseEventHandler } from "react"
 
@@ -14,7 +14,7 @@ export const ShowReelSection:React.FC = () => {
         <Text>
           Through <span>brand expression</span> and <span>visual storytelling</span> I can help daring <span>organisations</span>, ambitious <span>startups</span> and <span>creative individuals</span> craft their story, communicate their ideas and build their tribe.
         </Text>
-        <CTAButton />
+        <CTAButtonRounded />
       </InfoSection>
       <ShowReel />
       <Spacer />

@@ -69,5 +69,5 @@ const Legal = styled.div`
     font-weight: 100;
     font-size: 1rem;
     text-align: right;
-  padding: 1.35rem 2rem;
+  padding: 0.5rem 2rem;
 `
