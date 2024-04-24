@@ -1,8 +1,8 @@
 import styled from "styled-components"
-import { Sizes } from "../Assets"
-import { useScrollToTop } from "../utils/hooks"
-import { FooterLink, FooterLinkProps } from "../Components/footerLink"
-import { FooterContactSection } from "../Components"
+import { Sizes } from "../../Assets"
+import { FooterLink, FooterLinkProps } from "../../Components/footerLink"
+import { FooterContactSection } from "../../Components"
+import { BackToTop } from "./backToTop"
 
 
 interface Props {
@@ -11,16 +11,17 @@ interface Props {
 }
 
 export const Footer:React.FC<Props> = ({ leftLink, rightLink }) => {
-  const { scrollToTop } = useScrollToTop()
-
   return(
-    <Container>
-      <Background />
-      <BackToTop onClick={() => scrollToTop()} />
-      <FooterLink href={leftLink.href} text={leftLink.text} direction="left" />
-      <FooterContactSection />
-      <FooterLink href={rightLink.href} text={rightLink.text} direction="right" />
-    </Container>
+    <>
+      <Container>
+        <Background />
+        <BackToTop />
+        <FooterLink href={leftLink.href} text={leftLink.text} direction="left" />
+        <FooterContactSection />
+        <FooterLink href={rightLink.href} text={rightLink.text} direction="right" />
+      </Container>
+      <Legal>© dvelasquez {new Date().getFullYear()}</Legal>
+    </>
   )
 }
 
@@ -62,30 +63,11 @@ const Background = styled.div`
   opacity: 0.25;
 `
 
-const BackToTop = styled.div`
-  --size: clamp(75px, 6.5vw, 150px);
-
-  cursor: pointer;
-  position: absolute;
-  top: 0; right: 7vw;
-  width: var(--size);
-    max-width: 120px;
-  height: var(--size);
-    max-height: 120px;
-  background-image: url('/yellow_arrow.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  transform: translateY(-50%) rotate(45deg);
-  box-shadow: 0 4px 14px 4px rgba(0, 0, 0, 0.1);
-
-  transition: ease all 260ms;
-
-  &:hover {
-    box-shadow: 0 4px 14px 6px rgba(0, 0, 0, 0.15);
-  }
-
-  @media (max-width: ${Sizes.small}) {
-    --size: clamp(38px, 11.2vw, 50px);
-  }
+const Legal = styled.div`
+  font-family: var(--font-family-wide);
+    font-style: italic;
+    font-weight: 100;
+    font-size: 1rem;
+    text-align: right;
+  padding: 0.5rem 2rem;
 `

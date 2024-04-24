@@ -2,8 +2,8 @@ import styled from "styled-components"
 import { AboutSection } from "./aboutSection"
 import { BioSection } from "./bioSection"
 import { Navbar } from "../../NavBar"
-import { Footer } from "../../footer"
-import { BookSection } from "./bookSection"
+import { Footer } from "../../footer/footer"
+import { CTAButtonRounded } from "../../../Components"
 
 export const AboutMobile:React.FC = () => {
 
@@ -12,7 +12,9 @@ export const AboutMobile:React.FC = () => {
       <Navbar type="mobile" mode="dark" />
       <AboutSection />
       <BioSection />
-      <BookSection />
+      <ButtonWrapper>
+        <CTAButtonRounded />
+      </ButtonWrapper>
       <Footer
       leftLink={{ text: "Home", href: "/" }}
       rightLink={{ text: "Projects", href: "/projects" }}
@@ -58,4 +60,14 @@ export const TextGroupMobile = styled.div`
   display: flex;
     flex-direction: column;
     gap: var(--gap-size);
+`
+
+const ButtonWrapper = styled.div`
+  display: grid;
+  place-items: center;
+  margin-block: 5rem;
+
+  &>* {
+    max-width: 300px;
+  }
 `

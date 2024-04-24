@@ -24,10 +24,10 @@ const menuData: MenuItem[] = [
     text: "About",
     href: "/about"
   },
-  {
-    text: "Book a call",
-    href: "/about#book"
-  },
+  // {
+  //   text: "Book a call",
+  //   href: "/about#book"
+  // },
 ]
 
 interface Props {
@@ -131,11 +131,6 @@ const Menu = styled(animated.div)`
 
   &.highlight-active.active {
     --nav-main-color: var(--clr-bg-secondary);
-  }
-
-  &:last-child {
-    --nav-main-color:  var(--clr-green);
-    font-weight: 600;
   }
 `
 

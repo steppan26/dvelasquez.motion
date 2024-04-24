@@ -121,7 +121,7 @@ const Header = styled.h4`
 
 const Text = styled.p`
   font-family: var(--font-family-wide);
-  font-weight: 400;
+  font-weight: 200;
   font-size: 1.125rem;
   font-style: italic;
   margin-block: 1rem;

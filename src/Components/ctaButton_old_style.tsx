@@ -2,7 +2,7 @@ import styled from "styled-components"
 import Link from "next/link"
 import { Sizes } from "../Assets"
 
-export const CTAButton:React.FC = () => (
+export const CTAButtonOld:React.FC = () => (
   <GPTButton href="/about" >Book a Call</GPTButton>
 )
 

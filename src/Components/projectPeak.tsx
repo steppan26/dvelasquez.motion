@@ -99,15 +99,14 @@ const Overlay = styled(animated.div)`
 `
 
 const Container = styled(animated.div)`
-  --width: 40vw;
+  --width: 41vw;
 
   cursor: pointer;
   position: relative;
   flex: 0 0 var(--width);
   width: var(--width);
-    max-width: 100vw;
+    max-width: calc(55% - (8vw / 2));
   height: calc(var(--width) * 0.54);
-    max-height: 100dvh;
   overflow: hidden;
 
   a, img, video {
@@ -119,6 +118,7 @@ const Container = styled(animated.div)`
   @media (max-width: ${Sizes.small}) {
     --width: 100%;
     height: 25dvh;
+    max-width: 100%;
     background: none;
   }
 `

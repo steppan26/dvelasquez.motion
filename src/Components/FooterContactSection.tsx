@@ -1,11 +1,6 @@
-import { useEffect, useState } from "react"
 import Image from "next/image"
 import styled from "styled-components"
-import { Sizes } from "../Assets"
-import InstagramIcon from '/public/icons/instagram.png'
-import LinkedInIcon from '/public/icons/linkedin.png'
-import GlobeIcon from '/public/icons/globe.png'
-import YoutubeIcon from '/public/icons/youtube.png'
+import { Sizes, socialsIcons } from "../Assets"
 import { InternalLink } from "./footerLink"
 
 const SocialLinks = {
@@ -17,48 +12,36 @@ const SocialLinks = {
 
 
 export const FooterContactSection:React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false)
-
-  useEffect(() => setIsOpen(false), [])
+  const { Instagram, Dribbble, Linkedin, Youtube } = socialsIcons
 
   return(
     <>
       <Container>
           <MiddleSection>
-            <Slider>
-              <Switcher data-isopen={isOpen} onClick={() => setIsOpen(v => !v)}>
-                <MainImage>
-                  <Image
-                  src="https://res.cloudinary.com/dtlyxry6z/image/upload/v1712605428/Home/Let_s_talk_n1lwj2.gif"
-                  alt="animated text"
-                  width={832}
-                  height={207}
-                  layout='responsive'
-                  // onClick={() => setIsOpen(true)}
-                  />
-                </MainImage>
-                <HiddenSection>
-                  <p>Experience the thrill of motion as we turn your visions into breathtaking reality!</p>
-                  <p>Let&apos;s make magic happen! ✨🔮</p>
-                  <EmailLink href="mailto:dvelasquez.motion@gmail.com">dvelasquez.motion@gmail.com</EmailLink>
-                </HiddenSection>
-              </Switcher>
-            </Slider>
+            <MainImage>
+              <Image
+              src="https://res.cloudinary.com/dtlyxry6z/image/upload/v1712605428/Home/Let_s_talk_n1lwj2.gif"
+              alt="animated text"
+              width={832}
+              height={207}
+              layout='responsive'
+              />
+            </MainImage>
           </MiddleSection>
       </Container>
       <LinksWrapper>
         <SocialsWrapper>
           <InternalLink href={SocialLinks.instagram} target="_blank" >
-            <Image src={InstagramIcon} alt="instagram icon" className="intagram" />
+            <Instagram />
           </InternalLink>
           <InternalLink href={SocialLinks.dribble} target="_blank"  >
-            <Image src={GlobeIcon} alt="dribble icon" className="dribble" />
+            <Dribbble />
           </InternalLink>
           <InternalLink href={SocialLinks.youtube} target="_blank" >
-            <Image src={YoutubeIcon} alt="youtube icon" className="youtube" />
+            <Youtube />
           </InternalLink>
           <InternalLink href={SocialLinks.linkedin} target="_blank" >
-            <Image src={LinkedInIcon} alt="linkedin icon" className="linkedin" />
+            <Linkedin />
           </InternalLink>
         </SocialsWrapper>
       </LinksWrapper>
@@ -71,53 +54,25 @@ const Container = styled.div`
   grid-area: image;
 `
 
-const Slider = styled.div`
-  height: 27dvh;
-  overflow: hidden;
-
-  @media (max-width: ${Sizes.small}) {
-    height: auto;
-  }
-`
-
-const Switcher = styled.div`
-  display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 27dvh 27dvh;
-    align-items: center;
-    justify-items: center;
-
-  transform: translateY(0);
-  transition: ease transform 300ms;
-
-  &[data-isopen='true'] {
-    transform: translateY(-50%);
-  }
-
-  @media (max-width: ${Sizes.small}) {
-    grid-template-rows: auto auto;
-    transform: unset !important;
-  }
-`
-
 const SocialsWrapper = styled.div`
   box-sizing: content-box;
   display: flex;
-    gap: 1.4rem;
   margin-top: 0.5rem;
-  height: 38px;
+  height: 24px;
   padding-block: 0.5rem;
 
   &>* {
     margin-block: 0;
+    padding-inline: 0.4rem;
     line-height: unset;
     font-size: unset !important;
     height: 100%;
     overflow: visible;
-    transition: ease all 420ms;
+    transition: cubic-bezier(0.01, 0.38, 0.48, 1.02) all 620ms;
 
-    img {
+    svg {
       width: auto;
+      max-width: 100%;
       height: 100%;
     }
 
@@ -128,6 +83,9 @@ const SocialsWrapper = styled.div`
     &:hover {
       cursor: pointer;
       transform: scale(1.15);
+      svg *{
+        fill: #FFD340;
+      }
     }
   }
 
@@ -162,42 +120,8 @@ const LinksWrapper = styled.div`
   grid-area: socials;
 `
 
-const HiddenSection = styled.div`
-  height: 50%;
-  width: 100%;
-  font-size: 1.25rem;
-  text-align: center;
-  font-family: var(--font-family-wide);
-  font-style: italic;
-  font-weight: 300;
-  color: var(--clr-bg-main);
-  padding-inline: 5rem;
-
-  a {
-    font-size: large;
-    text-decoration: underline;
-  }
-
-  @media (max-width: ${Sizes.small}) {
-    display: none;
-  }
-`
-
-const EmailLink = styled(InternalLink)`
-  font-size: 1.65rem;
-  transition: ease-out 420ms all;
-
-  &::after {
-    content: unset;
-  }
-
-  &:hover {
-    transform: scale(1.03);
-  }
-`
-
 const MainImage = styled.div`
-  --base-size: 58vw;
+  --base-size: 45vw;
 
   position: relative;
   display: flex;

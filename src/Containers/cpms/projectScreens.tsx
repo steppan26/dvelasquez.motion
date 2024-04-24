@@ -20,7 +20,7 @@ export const ProjectScreens:React.FC = () => {
         <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565087/cpms/cpms_scene02_green_ucxxn8.webm" backupImage={ProjectScreenImage02} />
       </ImageWrapper>
       <ImageWrapper id="videoBlueDark" data-lazy="projectScreens_image" >
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565087/cpms/cpms_scene03_dark-blue_sbbcqv.webm" backupImage={ProjectScreenImage03} />
+        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1713887980/cpms/cpms_scene03_dark-blue.webm" backupImage={ProjectScreenImage03} />
       </ImageWrapper>
     </Container>
   );

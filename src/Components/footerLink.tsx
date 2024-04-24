@@ -31,7 +31,7 @@ const ArrowWrapper = styled.div`
   width: 10rem;
   overflow: hidden;
 
-  img {
+  svg {
     transition: ease all 600ms;
   }
 
@@ -43,11 +43,15 @@ const ArrowWrapper = styled.div`
 export const InternalLink = styled(Link)`
   cursor: pointer;
   font-family: var(--font-family-wide);
-  font-weight: 400;
-  font-size: 1.875rem;
+  font-weight: 200;
+  font-size: 1.6rem;
   line-height: 2rem;
   font-style: italic;
   color: var(--footer-color);
+
+  &, * {
+    transition: ease-out 350ms all ;
+  }
 
   &::after {
     content: '';
@@ -62,12 +66,17 @@ export const InternalLink = styled(Link)`
   }
 
   &:hover {
-    ${ArrowWrapper} img {
+    ${ArrowWrapper} svg {
       transform: translateX(0);
     }
 
     &::after {
       width: 100%;
+    }
+
+    &, * {
+      fill: #FFD340;
+      color: #FFD340;
     }
   }
 `
@@ -123,7 +132,7 @@ const NextWrapper = styled(InternalLink)`
     }
 }
 
-  ${ArrowWrapper} img {
+  ${ArrowWrapper} svg {
     transform: translateX(-110%);
     animation-name: fadeIn;
     animation-duration: 100ms;

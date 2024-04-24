@@ -1,12 +1,10 @@
 import styled from "styled-components"
 import { Navbar } from "../../NavBar"
-import { useEffect, useRef } from "react"
-import { useRouter } from "next/router"
-import { Footer } from "../../footer"
+import { Footer } from "../../footer/footer"
 import { AboutSection } from "./aboutSection"
 import { BioSection } from "./bioSection"
-import dynamic from "next/dynamic"
 import { BookSection } from "./bookSection"
+import { CTAButtonRounded } from "../../../Components"
 
 export const AboutDesktop:React.FC = () => {
   return(
@@ -14,7 +12,9 @@ export const AboutDesktop:React.FC = () => {
       <Navbar type="showcase" mode="dark" />
       <AboutSection />
       <BioSection />
-      <BookSection />
+      <ButtonWrapper>
+        <CTAButtonRounded />
+      </ButtonWrapper>
       <Footer
         leftLink={{ text: "Home", href: "/" }}
         rightLink={{ text: "Projects", href: "/projects" }}
@@ -38,7 +38,7 @@ export const HeaderText = styled.h2`
   min-width: max-content;
   color: var(--clr-green);
 
-  &::after {
+  /* &::after {
     --size: 0.85rem;
 
     content: '';
@@ -49,7 +49,7 @@ export const HeaderText = styled.h2`
     height: var(--size);
     background-color: var(--clr-bg-secondary);
     transform: rotate(45deg);
-  }
+  } */
 `
 
 export const Wrapper = styled.div`
@@ -86,7 +86,7 @@ export const GutterImagesWrapper = styled.div`
     transform: translateY(20px) rotate(-10.6deg);
   }
   #daniPortrait {
-    transform: scale(0.8) translate(25%, 3.5rem);
+    transform: scale(0.8) translate(25%, 4.5rem);
   }
   #pets {
     transform: translate(20%, -50%) rotate(-30deg);
@@ -98,4 +98,14 @@ export const TextGroup = styled.div`
     flex-direction: column;
     gap: 0.81rem;
   margin-left: var(--text-padding);
+`
+
+const ButtonWrapper = styled.div`
+  display: grid;
+  place-items: center;
+  margin-block: 10rem;
+
+  &>* {
+    max-width: 300px;
+  }
 `
