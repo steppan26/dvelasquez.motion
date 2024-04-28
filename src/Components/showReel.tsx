@@ -28,7 +28,7 @@ export const ShowReel:React.FC = () => {
       </TextWrapper>
       <VideoWrapper>
         <LoopingVideo
-        videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711566007/Home/showreel_sseix4.webm"
+        videoPath="showreel_2024.webm"
         backupImage={BackupImage}
         imageAlt="Screenshot of the showreel"
         soundOption

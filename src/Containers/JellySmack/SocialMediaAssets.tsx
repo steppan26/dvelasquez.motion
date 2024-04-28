@@ -16,7 +16,7 @@ export const SocialMediaAssets:React.FC = () => {
     <Container>
       <TopSection data-lazy>
         {isMobileView
-        ? <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1713037222/jellysmack/Post_personalised_captions_wxis6z.webm" />
+        ? <LoopingVideo videoPath="jellysmack/personalised_captions.webm" />
         : <>
           <Image
             id='mockup'
@@ -27,7 +27,7 @@ export const SocialMediaAssets:React.FC = () => {
               width: "100%",
               height: "auto"
             }} />
-            <LoopingVideo id="personalisedCaptions" videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979939/jellysmack/Personalised_Captions_rw3y4h.webm" />
+            <LoopingVideo id="personalisedCaptions" videoPath="jellysmack/personalised_captions.webm" />
         </>
         }
         <Image
@@ -42,14 +42,14 @@ export const SocialMediaAssets:React.FC = () => {
       </TopSection>
       <MiddleSection data-lazy>
         <LoopingVideo id="flame" videoPath={isMobileView
-        ? "https://res.cloudinary.com/dtlyxry6z/video/upload/v1713037216/jellysmack/gobigger_stamp_jh2vax.webm"
-        : "https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979949/jellysmack/Go_Bigger_flame_wz6cbl.webm"
+        ? "jellysmack/gobigger_stamp.webm"
+        : "jellysmack/go_bigger_flame.webm"
         } />
-        <LoopingVideo id="watch" videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979943/jellysmack/_WatchTillTheEnd_rjtdcy.webm" />
+        <LoopingVideo id="watch" videoPath="jellysmack/watch_till_the_end.webm" />
       </MiddleSection>
       <BottomSection data-lazy>
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565980/jellysmack/jellysmack_transition_1_i7nqbt.mp4" backupImage={TransitionOneImage} />
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565981/jellysmack/jellysmack_transition_2_hljij7.mp4" backupImage={TransitionTwoImage} />
+        <LoopingVideo videoPath="jellysmack/jellysmack_transition_1.mp4" videoType="video/mp4" backupImage={TransitionOneImage} />
+        <LoopingVideo videoPath="jellysmack/jellysmack_transition_2.mp4" videoType="video/mp4" backupImage={TransitionTwoImage} />
       </BottomSection>
     </Container>
   );

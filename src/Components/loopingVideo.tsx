@@ -60,6 +60,12 @@ export const LoopingVideo:React.FC<Props> = (props) => {
     setMousePosition({x: e.clientX, y: e.clientY})
   }
 
+  const url = useMemo(() => {
+    if(videoPath.startsWith('http')) return videoPath
+
+    return 'https://d2gs8n06l6vuqg.cloudfront.net/' + videoPath
+  }, [videoPath])
+
   return (
     <VideoWrapper className="looping-video" ref={sceneRef} onMouseEnter={handleMouseMove} onMouseMove={handleMouseMove} data-lazy={dataLazy} id={!!id ? id : undefined} >
       <Suspense fallback={ backupImage ? <Image src={backupImage} alt="static image version of video" /> : <>loading...</> }>
@@ -75,7 +81,7 @@ export const LoopingVideo:React.FC<Props> = (props) => {
         preload="auto"
         poster={backupImage?.src}
         >
-          <source src={videoPath} type={videoType} />
+          <source src={url} type={videoType} />
         </video>
         { soundOption &&
           <MouseSticker

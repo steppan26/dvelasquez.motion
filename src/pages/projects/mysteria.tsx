@@ -43,29 +43,29 @@ const Page:NextPage = () => {
         </ImageWrappper>
         <IntroSection {...introData} />
         <ContentWrapper>
-          <LoopingVideo id="helloInspoVideo" videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565999/mysteria/mysteria_hello_inspo_mzhn52.webm" dataLazy allowControls soundOption />
+          <LoopingVideo id="helloInspoVideo" videoPath="mysteria/mysteria_hello_inspo.webm" dataLazy allowControls soundOption />
           <CenteredText>Top creators offer inspiration covering a wide range of topics, from beauty and style to home makeovers, recipes, DIYs, and more.</CenteredText>
           <VideosGallery
           videosList={[
-            'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565991/mysteria/mysteria_gallery-cooking_ntugo1.webm',
-            'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565995/mysteria/mysteria_gallery-realness_oz6wnl.webm',
-            'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565996/mysteria/mysteria_gallery-room-reveal_zclouu.webm',
-            'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565993/mysteria/mysteria_gallery-doll-house_ku7vhq.webm'
+            'mysteria/mysteria_gallery-cooking.webm',
+            'mysteria/mysteria_gallery-realness.webm',
+            'mysteria/mysteria_gallery-room-reveal.webm',
+            'mysteria/mysteria_gallery-doll-house.webm'
           ]}
           />
-          <LoopingVideo videoPath="" dataLazy allowControls soundOption backupImage={CaseUpdateImage} />
+          <LoopingVideo videoPath="mysteria/mysteria.webm" dataLazy allowControls soundOption backupImage={CaseUpdateImage} />
           <CenteredText data-lazy>
             Mysteria shines a spotlight on the experiences of the victims. With its unique storytelling methods, this channel serves as the ultimate destination for true crime enthusiasts.
           </CenteredText>
           <VideosGallery
           videosList={[
-            'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565990/mysteria/mysteria_criminal-psyche_foievu.webm',
-            'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711566000/mysteria/mysteria_killer-bites_xxgvtc.webm',
-            'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565988/mysteria/mysteria_cravings_fnaxfv.webm',
-            'https://res.cloudinary.com/dtlyxry6z/video/upload/v1711566002/mysteria/mysteria_motives_kluk6u.webm'
+            'mysteria/mysteria_criminal-psyche.webm',
+            'mysteria/mysteria_killer-bites.webm',
+            'mysteria/mysteria_cravings.webm',
+            'mysteria/mysteria_motives.webm'
           ]}
           />
-          <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711566008/mysteria/mysteria_stories_ks55iv.webm" dataLazy allowControls soundOption />
+          <LoopingVideo videoPath="mysteria/mysteria_stories.webm" dataLazy allowControls soundOption />
         </ContentWrapper>
         <Footer
         leftLink={{ text: "Home", href: "/" }}

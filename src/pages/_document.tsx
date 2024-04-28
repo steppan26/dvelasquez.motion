@@ -2,7 +2,6 @@ import { Html, Head, Main, NextScript } from 'next/document'
 import Script from 'next/script'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
-import { useEffect } from 'react';
 
 declare global {
   interface Window { Calendly: any; }

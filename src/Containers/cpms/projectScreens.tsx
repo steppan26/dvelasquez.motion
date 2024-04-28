@@ -1,4 +1,3 @@
-import Image from "next/image"
 import styled from "styled-components"
 import ProjectScreenImage00 from '/public/projects/cpms/project_screen_00.webp'
 import ProjectScreenImage01 from '/public/projects/cpms/project_screen_01.webp'
@@ -11,16 +10,16 @@ export const ProjectScreens:React.FC = () => {
   return (
     <Container>
       <ImageWrapper id="videoPink" data-lazy="projectScreens_image">
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565083/cpms/cpms_scene00_pink_qjvpt4.webm" backupImage={ProjectScreenImage00} />
+        <LoopingVideo videoPath="cpms/project_screen_00.webm" backupImage={ProjectScreenImage00} />
       </ImageWrapper>
       <ImageWrapper id="videoBlueLight" data-lazy="projectScreens_image" >
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565086/cpms/cpms_scene01_light-blue_lwynvh.webm" backupImage={ProjectScreenImage01} />
+        <LoopingVideo videoPath="cpms/project_screen_01.webm" backupImage={ProjectScreenImage01} />
       </ImageWrapper>
       <ImageWrapper id="videoGreen" data-lazy="projectScreens_image" >
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565087/cpms/cpms_scene02_green_ucxxn8.webm" backupImage={ProjectScreenImage02} />
+        <LoopingVideo videoPath="cpms/project_screen_02.webm" backupImage={ProjectScreenImage02} />
       </ImageWrapper>
       <ImageWrapper id="videoBlueDark" data-lazy="projectScreens_image" >
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1713887980/cpms/cpms_scene03_dark-blue.webm" backupImage={ProjectScreenImage03} />
+        <LoopingVideo videoPath="cpms/project_screen_03.webm" backupImage={ProjectScreenImage03} />
       </ImageWrapper>
     </Container>
   );

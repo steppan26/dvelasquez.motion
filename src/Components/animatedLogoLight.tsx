@@ -30,7 +30,7 @@ export const AnimatedLogoLight:React.FC = () => {
   return(
     <Wrapper ref={wrapperRef} onClick={loadHomePage}>
       {displayVideo
-      ? <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711650515/logos/text_light_dng3hq.webm" />
+      ? <LoopingVideo videoPath="logos/logo_text_white_1.webm" />
       : <AnimatedGif />
       }
     </Wrapper>
