@@ -30,7 +30,7 @@ const Page:NextPage = () => {
       <Navbar type="projects" mode={navMode} />
       <Container >
         <ImageWrappper className="main-image" ref={landingSectionRef}>
-          <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565982/motion%20secrets/motion-secrets_intro_xotqvo.webm" backupImage={MainHeaderImage} />
+          <LoopingVideo videoPath="motion_secrets/motion-secrets_intro.webm" backupImage={MainHeaderImage} />
         </ImageWrappper>
         <IntroSection {...introData} />
         <PersonalProjectsList />

@@ -10,7 +10,7 @@ import { useEffect, useRef } from "react";
 import { useNavMode } from "../../utils/hooks";
 
 const introData = {
-  image: "https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565088/cpms/cpms-clara-profile_dkml9r.webm",
+  image: "cpms/cpms-clara-profile.webm",
   imageAlt: "illustration of a portrait of a little girl",
   projectText: "Develop a video to <b>offer guidance</b> to child protection officers on identifying and <b>safeguarding children from abuse</b> in high-risk environments.",
   howText: "Child protection officers need training to recognise signs of abuse in children and to follow appropriate procedures. Utilising <b>storytelling allows us to establish an emotional connection</b>, thereby enhancing the effectiveness of learning. <br />Taking into account their branding and previous content, my aim was to create a <b>beautiful yet simple universe</b> that conveys hope and clarity."
@@ -30,7 +30,7 @@ const Page:NextPage = () => {
       <Navbar type="projects" mode={navMode} />
       <Container>
       <ImageWrappper className="main-image" ref={landingSectionRef}>
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565090/cpms/cpms-main-header_qjr8vm.webm" backupImage={MainHeaderImage} />
+        <LoopingVideo videoPath="cpms/cpms-main-header.webm" backupImage={MainHeaderImage} />
       </ImageWrappper>
       <IntroSection {...introData} />
       <ProjectScreens />

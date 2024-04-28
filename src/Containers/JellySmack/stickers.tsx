@@ -10,16 +10,16 @@ export const Stickers:React.FC = () => {
   return (
     <Container>
       <InformationWrapper data-lazy>
-        <LoopingVideo id="rocketShip" videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979953/jellysmack/_Rocket_fjoyiv.webm" />
+        <LoopingVideo id="rocketShip" videoPath="jellysmack/rocket.webm" />
         <CustomText>
           Through the use of animated assets,
           {!isMobileView && <br />} Jellysmack amplifies digital storytelling,
           {!isMobileView && <br />} enriching the viewer experience and fostering
           {!isMobileView && <br />} meaningful connections with the audience.
         </CustomText>
-        <LoopingVideo id="spinningFace" videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979955/jellysmack/_positive_vibes_1_ieysmd.webm" />
+        <LoopingVideo id="spinningFace" videoPath="jellysmack/positive_vibes.webm" />
       </InformationWrapper>
-      <LoopingVideo id="stickers" videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711566006/jellysmack/stickers_ttkpfq.mp4" backupImage={StickersVideoStatic} />
+      <LoopingVideo id="stickers" videoPath="jellysmack/stickers.mp4" videoType="video/mp4" backupImage={StickersVideoStatic} />
     </Container>
   );
 }

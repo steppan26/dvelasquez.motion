@@ -6,15 +6,15 @@ export const PersonalProjectsList:React.FC = () => {
   return(
     <Container>
       <ProjectWrapper data-lazy>
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565987/motion%20secrets/motion-secrets_who-is-looking_whzdkr.webm" soundOption allowControls />
+        <LoopingVideo videoPath="motion_secrets/motion-secrets_who-is-looking.webm" soundOption allowControls />
         <Text>Is There Anybody Out There ?</Text>
       </ProjectWrapper>
       <ProjectWrapper data-lazy>
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565985/motion%20secrets/motion-secrets_mischievous_blue_dot_rchsmz.webm" soundOption allowControls />
+        <LoopingVideo videoPath="motion_secrets/motion-secrets_mischievous_blue_dot.webm" soundOption allowControls />
         <Text>Mischievious Blue Dot</Text>
       </ProjectWrapper>
       <ProjectWrapper data-lazy>
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565982/motion%20secrets/motion-secrets_intro_xotqvo.webm" soundOption allowControls />
+        <LoopingVideo videoPath="motion_secrets/motion-secrets_intro.webm" soundOption allowControls />
         <Text>Break On Through To The Other Side</Text>
       </ProjectWrapper>
     </Container>

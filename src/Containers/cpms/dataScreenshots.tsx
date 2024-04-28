@@ -10,16 +10,16 @@ export const DataScreenshots:React.FC = () => {
   return (
     <Container>
       <VideoWrapper data-lazy>
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565081/cpms/cpms_data-screen00_owh4qz.webm" backupImage={Screenshot00} />
+        <LoopingVideo videoPath="cpms/cpms_data-screen00.webm" backupImage={Screenshot00} />
       </VideoWrapper>
       <VideoWrapper data-lazy>
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565082/cpms/cpms_data-screen01_cxsbo2.webm" backupImage={Screenshot01} />
+        <LoopingVideo videoPath="cpms/cpms_data-screen01.webm" backupImage={Screenshot01} />
       </VideoWrapper>
       <VideoWrapper data-lazy>
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565082/cpms/cpms_data-screen02_jqa1od.webm" backupImage={Screenshot02} />
+        <LoopingVideo videoPath="cpms/cpms_data-screen02.webm" backupImage={Screenshot02} />
       </VideoWrapper>
       <VideoWrapper data-lazy>
-        <LoopingVideo videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711565083/cpms/cpms_data-screen03_vmuujm.webm" backupImage={Screenshot03} />
+        <LoopingVideo videoPath="cpms/cpms_data-screen03.webm" backupImage={Screenshot03} />
       </VideoWrapper>
     </Container>
   );

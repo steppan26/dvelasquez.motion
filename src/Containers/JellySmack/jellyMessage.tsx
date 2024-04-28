@@ -8,7 +8,7 @@ export const JellyMessage:React.FC = () => {
 
   return (
     <Container data-lazy="jelly-message">
-      <LoopingVideo id="animatedJellyLogo" videoPath="https://res.cloudinary.com/dtlyxry6z/video/upload/v1711979941/jellysmack/_jelly_dega25.webm" />
+      <LoopingVideo id="animatedJellyLogo" videoPath="jellysmack/jelly.webm" />
       <TextWrapper>
         <Text>
           The social media stickers accumulated over 30 million views, with a continuously rising engagement rate.

@@ -1,56 +1,14 @@
-import Image from "next/image"
 import styled from "styled-components"
-import Screen1 from '/public/projects/jellysmack/phone_screen_0.gif'
-import Screen2 from '/public/projects/jellysmack/phone_screen_1.gif'
-import Screen3 from '/public/projects/jellysmack/phone_screen_2.gif'
-import Screen4 from '/public/projects/jellysmack/phone_screen_3.gif'
 import { Sizes } from "../../Assets"
+import { LoopingVideo } from "../../Components"
 
 export const PhoneScreenshots:React.FC = () => {
   return (
     <Container>
-      <Image
-        data-lazy="phone-screenshots_image"
-        id="screenOne"
-        src={Screen1}
-        alt="Screenshot of 'New Jellys on the block'"
-        sizes="100vw"
-        style={{
-          width: "100%",
-          height: "auto"
-        }} />
-      <Image
-        data-lazy="phone-screenshots_image"
-        id="screenTwo"
-        src={Screen2}
-        alt="Screenshot of This week's Creators"
-        className='shift-up'
-        sizes="100vw"
-        style={{
-          width: "100%",
-          height: "auto"
-        }} />
-      <Image
-        data-lazy="phone-screenshots_image"
-        id="screenThree"
-        src={Screen3}
-        alt="Screenshot of 'Were thrilled to have you'"
-        sizes="100vw"
-        style={{
-          width: "100%",
-          height: "auto"
-        }} />
-      <Image
-        data-lazy="phone-screenshots_image"
-        id="screenFour"
-        src={Screen4}
-        alt="Screenshot of This week's Creators"
-        className='shift-up'
-        sizes="100vw"
-        style={{
-          width: "100%",
-          height: "auto"
-        }} />
+      <LoopingVideo dataLazy videoPath="Instagram_story_1.webm" />
+      <LoopingVideo dataLazy videoPath="Instagram_story_2.webm" />
+      <LoopingVideo dataLazy videoPath="Instagram_story_3.webm" />
+      <LoopingVideo dataLazy videoPath="Instagram_story_4.webm" />
     </Container>
   );
 }
@@ -63,10 +21,9 @@ const Container = styled.div`
   margin-inline: auto;
   width: clamp(375px, 90vw, 1440px);
 
-  &>img {
-    filter: drop-shadow(8px 8px 20px rgba(0, 0, 0, 0.10));
-
-    &.shift-up {
+  &>* {
+    &:nth-child(2),
+    &:nth-child(4) {
       margin-top: 8dvh;
     }
   }

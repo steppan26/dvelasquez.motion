@@ -46,8 +46,8 @@ export const AnimatedIcon:React.FC<Props> = ({ mode }) => {
     <Wrapper ref={wrapperRef}>
       {displayVideo
       ? <LoopingVideo videoPath={ mode === 'light' || isMobileView
-        ? "https://res.cloudinary.com/dtlyxry6z/video/upload/v1711650512/logos/brush_wine_oh0w29.webm"
-        : "https://res.cloudinary.com/dtlyxry6z/video/upload/v1711650512/logos/brush_wine_oh0w29.webm"
+        ? "logos/logo_brush_white.webm"
+        : "logos/logo_brush_wine.webm"
       } />
       : <AnimatedGif />
       }
