@@ -13,13 +13,14 @@ export const AnimatedLogoDark:React.FC = () => {
   const router = useRouter()
 
   useEffect(() => {
-    if(typeof window == 'undefined' || !wrapperRef.current || !videoRef.current) return
+    if(typeof window == 'undefined' || !wrapperRef.current) return
 
+    console.info("supportsHEVCAlpha()", supportsHEVCAlpha())
     if(supportsHEVCAlpha()) {
       setDisplayVideo(false)
     }
 
-    const video = videoRef.current
+    const video = wrapperRef.current.querySelector('video') as HTMLVideoElement
     video.addEventListener('ended', () => {
       video.pause()
       video.currentTime = video.duration

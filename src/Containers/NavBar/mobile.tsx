@@ -16,7 +16,7 @@ export const NavMobile:React.FC<Props> = ({ mode }) => {
   const [isOpen, setIsOpen] = useState(false)
   const timeout = useRef<NodeJS.Timeout>()
   const router = useRouter()
-  const { displayBg, navMode } = useNavMode()
+  const { displayBg } = useNavMode()
 
   const displayLightNavbar = useMemo(() => mode === 'light', [mode])
 
@@ -35,7 +35,7 @@ export const NavMobile:React.FC<Props> = ({ mode }) => {
   return(
     <Nav ref={navRef}  data-display-bg={displayBg} data-islight={displayLightNavbar} className={isOpen ? "open" : ""} id="navbarMobile" data-colormode={mode} >
       <Link href="/" >
-        <AnimatedIcon mode={!isOpen || mode === 'light' ? 'light' : 'dark'} />
+        <AnimatedIcon mode={!isOpen && mode === 'light' ? 'light' : 'dark'} />
       </Link>
       <MenuWrapper onMouseLeave={handleMouseLeave} onMouseEnter={() => clearTimeout(timeout.current)}>
         <MobileMenu isOpen={isOpen} />
