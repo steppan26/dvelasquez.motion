@@ -1,13 +1,15 @@
+import { useRouter } from "next/router";
 import { useCallback, useEffect } from "react";
 
 export const useToggleCalendlyVisibility = () => {
+  const router = useRouter()
 
   useEffect(() => {
     if(typeof window == 'undefined') return
 
     const landingContainer = document.getElementById('landingContainer')as HTMLDivElement
-    _attachObserver(landingContainer)
-  }, [])
+    !!landingContainer && _attachObserver(landingContainer)
+  }, [router.pathname])
 
   const _attachObserver = useCallback((target: Element) => {
     const observer = new IntersectionObserver(entries => {
