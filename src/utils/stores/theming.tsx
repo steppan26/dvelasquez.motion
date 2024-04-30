@@ -157,7 +157,17 @@ const GlobalStyle = createGlobalStyle<{}>`
 
   .calendly-badge-widget {
     left: 20px;
+    bottom: -50px;
     right: unset;
+    transition: 800ms all cubic-bezier(0.71, 0, 0.18, 0.93);
+
+    &.show {
+      bottom: 15px;
+    }
+
+    &:hover {
+      transform: scale(1.03);
+    }
 
     .calendly-badge-content{
       font-family: var(--font-family-wide);
