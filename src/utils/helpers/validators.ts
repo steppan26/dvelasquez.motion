@@ -1,4 +1,4 @@
-export const supportsHEVCAlpha = ():boolean => {
+export const isSafari = ():boolean => {
   const navigator = window.navigator;
   const ua = navigator.userAgent.toLowerCase()
   const hasMediaCapabilities = !!(navigator.mediaCapabilities && navigator.mediaCapabilities.decodingInfo)

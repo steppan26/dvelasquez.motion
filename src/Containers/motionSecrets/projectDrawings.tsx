@@ -60,13 +60,13 @@ const Container = styled.div`
     grid-template-areas: 'drawing1 . drawing2'
     '. text .'
     'drawing3 . drawing4';
-  margin-top: 20dvh;
+  margin-bottom: 15dvh;
 
   #drawingOne {
     grid-area: drawing1;
     align-self: start;
     justify-self: center;
-    transform: rotate(25deg) translateX(-20%) scale(0.9);
+    transform:  translate(15%, 32%) rotate(25deg) scale(0.9);
   }
   #drawingTwo {
     grid-area: drawing2;
@@ -79,7 +79,7 @@ const Container = styled.div`
     align-self: start;
     justify-self: start;
     padding-top: 2rem;
-    transform: rotate(-3.5deg) scale(1.2) translateX(50%);
+    transform: translateX(50%) rotate(-3.5deg) scale(1.2);
   }
   #drawingFour {
     grid-area: drawing4;

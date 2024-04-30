@@ -10,7 +10,7 @@ export const AboutSection:React.FC = () => {
   return(
     <Wrapper style={{ marginTop: '12dvh'}}>
         <GutterImagesWrapper>
-          <Image src={DaniImageLeft} alt="portrait image of Daniela" id="daniMain" />
+          <Image src={DaniImageLeft} alt="portrait image of Daniela" id="daniMain" layout="responsive" />
         </GutterImagesWrapper>
         <TextGrid>
           <div>
@@ -36,8 +36,8 @@ export const AboutSection:React.FC = () => {
           </div>
         </TextGrid>
         <GutterImagesWrapper>
-          <Image src={DaniFamily} alt="Image of a young Daniela with her mum, dad and sister" id='daniFamily' />
-          <Image src={DaniSisDad} alt="Image of a young Daniela with her sister and dad" id="daniSisDad" />
+          <Image src={DaniFamily} alt="Image of a young Daniela with her mum, dad and sister" id='daniFamily' layout="responsive" />
+          <Image src={DaniSisDad} alt="Image of a young Daniela with her sister and dad" id="daniSisDad" layout="responsive" />
         </GutterImagesWrapper>
       </Wrapper>
   )

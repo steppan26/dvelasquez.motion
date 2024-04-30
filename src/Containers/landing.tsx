@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { BouncingArrow, MouseMask, ScrollDown } from "../Components"
+import { MouseMask, ScrollDown } from "../Components"
 import { PrimaryTitle } from "../Components/styledComponents"
 import { Sizes } from "../Assets"
 import { LandingMobile, Navbar } from "."
@@ -19,7 +19,7 @@ export const Landing:React.FC = () => {
       <span>
         <LandingMobile />
       </span>
-      <Container data-desktop >
+      <Container data-desktop id="landingContainer" >
         <Navbar type="landing" mode="dark" />
         <MouseMask>
             <Wrapper>

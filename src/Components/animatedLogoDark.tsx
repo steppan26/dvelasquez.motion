@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { useEffect, useRef, useState } from "react";
 import { Sizes } from "../Assets";
-import { supportsHEVCAlpha } from "../utils/helpers";
+import { isSafari } from "../utils/helpers";
 import { useRouter } from "next/router";
 import { LoopingVideo } from ".";
 
@@ -13,13 +13,14 @@ export const AnimatedLogoDark:React.FC = () => {
   const router = useRouter()
 
   useEffect(() => {
-    if(typeof window == 'undefined' || !wrapperRef.current || !videoRef.current) return
+    if(typeof window == 'undefined' || !wrapperRef.current) return
 
-    if(supportsHEVCAlpha()) {
+    console.info("supportsHEVCAlpha()", isSafari())
+    if(isSafari()) {
       setDisplayVideo(false)
     }
 
-    const video = videoRef.current
+    const video = wrapperRef.current.querySelector('video') as HTMLVideoElement
     video.addEventListener('ended', () => {
       video.pause()
       video.currentTime = video.duration
