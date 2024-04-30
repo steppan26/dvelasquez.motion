@@ -20,6 +20,7 @@ export const Theming:React.FC<any> = ({ children }) => {
   useEffect(() => {
     if(typeof window == 'undefined') return
 
+    calculateFontSize()
     window.addEventListener('resize', calculateFontSize)
 
     return () => window.removeEventListener('resize', calculateFontSize)
