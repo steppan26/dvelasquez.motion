@@ -61,7 +61,7 @@ const Container = styled.div`
   overflow: hidden;
 
   cursor: default;
-  width: 100vw;
+  width: 100%;
   background-color: var(--clr-bg-projects);
 
   .intro-image {
