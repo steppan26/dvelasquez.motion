@@ -37,19 +37,6 @@ export const HeaderText = styled.h2`
   margin-block: 0;
   min-width: max-content;
   color: var(--clr-green);
-
-  /* &::after {
-    --size: 0.85rem;
-
-    content: '';
-    position: absolute;
-    top: calc(50% - var(--size));
-    left: calc(-2rem - var(--size));
-    width: var(--size);
-    height: var(--size);
-    background-color: var(--clr-bg-secondary);
-    transform: rotate(45deg);
-  } */
 `
 
 export const Wrapper = styled.div`
@@ -106,6 +93,6 @@ const ButtonWrapper = styled.div`
   margin-block: 10rem;
 
   &>* {
-    max-width: 300px;
+    width: max-content;
   }
 `

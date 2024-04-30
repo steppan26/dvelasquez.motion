@@ -8,7 +8,7 @@ export const BioSection:React.FC = () => {
   return(
     <Wrapper>
       <GutterImagesWrapper data-lazy>
-        <Image src={DaniPortrait} alt="Portrait image of Daniela in Greece" id="daniPortrait" />
+        <Image src={DaniPortrait} alt="Portrait image of Daniela in Greece" id="daniPortrait" layout="responsive" />
       </GutterImagesWrapper>
       <MainContent data-lazy>
         <HeaderText style={{paddingBottom: '1rem'}}>Bio</HeaderText>
@@ -23,7 +23,7 @@ export const BioSection:React.FC = () => {
         </KeywordsWrapper>
       </MainContent>
       <GutterImagesWrapper data-lazy>
-        <Image src={PetsImage} alt="Image of Daniela's dog and cat" id="pets" />
+        <Image src={PetsImage} alt="Image of Daniela's dog and cat" id="pets" layout="responsive" />
       </GutterImagesWrapper>
     </Wrapper>
   )
