@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { useEffect, useRef, useState } from "react";
-import { supportsHEVCAlpha } from "../utils/helpers";
+import { isSafari } from "../utils/helpers";
 import { Sizes } from "../Assets";
 import { useIsMobileView } from "../utils/hooks";
 import { LoopingVideo } from ".";
@@ -17,10 +17,9 @@ export const AnimatedIcon:React.FC<Props> = ({ mode }) => {
 
 
   useEffect(() => {
-    console.info('mode', mode)
     if(typeof window == 'undefined' || !wrapperRef.current) return
 
-    if(supportsHEVCAlpha()) {
+    if(isSafari()) {
       setDisplayVideo(false)
     }
   }, [])

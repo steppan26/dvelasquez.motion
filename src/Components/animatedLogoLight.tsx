@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { useEffect, useRef, useState } from "react";
 import { Sizes } from "../Assets";
-import { supportsHEVCAlpha } from "../utils/helpers";
+import { isSafari } from "../utils/helpers";
 import { useRouter } from "next/router";
 import { LoopingVideo } from ".";
 
@@ -14,7 +14,7 @@ export const AnimatedLogoLight:React.FC = () => {
   useEffect(() => {
     if(typeof window == 'undefined' || !wrapperRef.current || !videoRef.current) return
 
-    if(supportsHEVCAlpha()) {
+    if(isSafari()) {
       setDisplayVideo(false)
     }
 
