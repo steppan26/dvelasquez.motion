@@ -12,13 +12,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     if(typeof window == 'undefined') return
 
-    window?.Calendly?.initBadgeWidget({
+    setTimeout(() => window?.Calendly?.initBadgeWidget({
       url: 'https://calendly.com/d-velasquezart',
       text: 'Schedule time with me',
       color: '#7a9b76',
       textColor: '#ffffff',
       branding: true
-    })
+    }), 1000)
   }, [])
 
   return (
