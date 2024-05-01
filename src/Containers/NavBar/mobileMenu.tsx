@@ -25,7 +25,7 @@ export const MobileMenu:React.FC<Props> = ({ isOpen }) => {
     <Container style={{...opacitySpring, display: isVisible ? 'grid' : 'none'}} id="mobileMenuBlock">
       <MenuButton data-area="home" href="/">Home</MenuButton>
       <Line data-position="top" />
-      <MenuButton data-area="works" href="/projects">Works</MenuButton>
+      <MenuButton data-area="projects" href="/projects">Projects</MenuButton>
       <Line data-position="left" />
       <Line data-position="right" />
       <MenuButton data-area="about" href="/about">About</MenuButton>
@@ -41,7 +41,7 @@ const Container = styled(animated.div)`
   display: grid;
     grid-template-columns: 1fr 2px 1fr;
     grid-template-rows: 1fr 2px 1fr;
-    grid-template-areas: 'home line-top works'
+    grid-template-areas: 'home line-top projects'
     'line-left . line-right'
     'about line-bottom contact';
     align-items: center;
@@ -59,8 +59,8 @@ const MenuButton = styled(Link)`
   &[data-area = 'home'] {
     grid-area: home;
   }
-  &[data-area = 'works'] {
-    grid-area: works;
+  &[data-area = 'projects'] {
+    grid-area: projects;
   }
   &[data-area = 'about'] {
     grid-area: about;
