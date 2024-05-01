@@ -9,15 +9,13 @@ import { Sizes } from "../../Assets"
 import { isSafari } from "../../utils/helpers"
 
 export const ProjectDrawings:React.FC = () => {
-
   return (
-    <Container data-issafari={isSafari()}>
+    <Container>
       <Image
         src={Drawing1}
         alt="sketches of ideas during design stages"
         id="drawingOne"
         data-lazy="motion-secrets_drawing"
-        data-issafari={isSafari()}
         style={{
           maxWidth: "100%",
           height: "auto"
@@ -74,9 +72,6 @@ const Container = styled.div`
     -o-transform: translateX(15%) translateY(32%) rotate(25deg) scale(0.9);
     transform: translateX(15%) translateY(32%) rotate(25deg) scale(0.9);
     transform: translateX(0) translateY(-4rem) rotate(25deg) scale(0.9);
-
-    /* &[data-issafari='true'] {
-    } */
   }
   #drawingTwo {
     grid-area: drawing2;
