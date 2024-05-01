@@ -19,7 +19,7 @@ export const LandingNavbar:React.FC = () => {
     <Nav ref={navRef}>
       <AnimatedIcon mode="dark" />
       <MenuWrapper onMouseLeave={handleMouseLeave} onMouseEnter={() => clearTimeout(timeout.current)}>
-        <ToggleButton isOpen={isOpen} setIsOpen={setIsOpen} />
+        <ToggleButton isOpen={isOpen} setIsOpen={setIsOpen} isLanding />
         <MenuItems isOpen={isOpen} hideEmail isLandingNav />
       </MenuWrapper>
     </Nav>
