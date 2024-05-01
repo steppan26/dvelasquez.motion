@@ -61,8 +61,6 @@ export default function Document() {
         {/* <!-- End of Calendly --> */}
       </Head>
       <body>
-        <SpeedInsights />
-        <Analytics />
         <Main />
         <NextScript />
       </body>

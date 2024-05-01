@@ -6,11 +6,12 @@ import { Sizes } from "../../Assets"
 interface Props {
   isOpen: boolean
   setIsOpen: (v: boolean) => void
+  isLanding?: boolean
 }
 
 const NUM_OF_DIAMONDS = 3
 
-export const ToggleButton:React.FC<Props> = ({ isOpen, setIsOpen }) => {
+export const ToggleButton:React.FC<Props> = ({ isOpen, setIsOpen, isLanding }) => {
   const [isHovering, setIsHovering] = useState(false)
   const springConfig: UseTrailProps['config'] = {
     mass: 2,
@@ -49,7 +50,7 @@ export const ToggleButton:React.FC<Props> = ({ isOpen, setIsOpen }) => {
       onMouseLeave={() => setIsHovering(false)}
       onTouchStart={singleAnimation}
       >
-        {/* <HoverArea onMouseEnter={handleActivateAnimation} /> */}
+        { isLanding && <HoverArea onMouseEnter={handleActivateAnimation} /> }
         <MouseInteractionArea onClick={handleOnClick} />
         {diamonds.map((props, index) => (
           <Diamond key={index} style={props} />
