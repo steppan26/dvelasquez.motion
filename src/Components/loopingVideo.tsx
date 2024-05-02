@@ -24,6 +24,7 @@ export const LoopingVideo:React.FC<Props> = (props) => {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [hasBeenClicked, setHasBeenClicked] = useState(false)
   const [mousePosition, setMousePosition] = useState({x: 0, y: 0})
+  const timeout = useRef(null)
 
   useEffect(() => {
     if (!videoRef.current || !autoPlay) return
@@ -68,7 +69,7 @@ export const LoopingVideo:React.FC<Props> = (props) => {
 
   return (
     <VideoWrapper className="looping-video" ref={sceneRef} onMouseEnter={handleMouseMove} onMouseMove={handleMouseMove} data-lazy={dataLazy} id={!!id ? id : undefined} >
-      <Suspense fallback={ backupImage ? <Image src={backupImage} alt="static image version of video" /> : <>loading...</> }>
+      {/* <Suspense fallback={ backupImage ? <Image src={backupImage} alt="static image version of video" /> : <>loading...</> }> */}
         <video
         ref={videoRef}
         autoPlay={autoPlay}
@@ -92,7 +93,7 @@ export const LoopingVideo:React.FC<Props> = (props) => {
             style={{...maskPosition}}
           />
         }
-      </Suspense>
+      {/* </Suspense> */}
     </VideoWrapper>
   );
 }
