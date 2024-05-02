@@ -3,6 +3,8 @@ import Image, { type StaticImageData } from "next/image"
 import styled from "styled-components"
 import MouseStickerImage from '/public/Assets/better_with_sound.gif'
 import { Sizes } from "../Assets"
+import VideoJS from "./videoJS"
+import Player from "video.js/dist/types/player"
 
 interface Props {
   backupImage?: StaticImageData
@@ -24,6 +26,8 @@ export const LoopingVideo:React.FC<Props> = (props) => {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [hasBeenClicked, setHasBeenClicked] = useState(false)
   const [mousePosition, setMousePosition] = useState({x: 0, y: 0})
+
+  // const DynamicVideo = dynamic(() => import('./SSRVideo').then(module => module.SSRVideo), { ssr: false })
 
   const maskPosition = useMemo(() => {
     const element = sceneRef.current
@@ -60,10 +64,25 @@ export const LoopingVideo:React.FC<Props> = (props) => {
     return 'https://d2gs8n06l6vuqg.cloudfront.net/' + videoPath
   }, [videoPath])
 
+  const onReady = (player: Player) => {
+    console.info("ppp", player)
+  }
+
   return (
     <VideoWrapper className="looping-video" ref={sceneRef} onMouseEnter={handleMouseMove} onMouseMove={handleMouseMove} data-lazy={dataLazy} id={!!id ? id : undefined} >
       <Suspense fallback={ backupImage ? <Image src={backupImage} alt="static image version of video" /> : <>loading...</> }>
-        <video
+        <VideoJS
+        onReady={onReady}
+        options={{
+          autoplay: autoPlay,
+          controls: hasBeenClicked && allowControls,
+          sources: [{
+            src: url,
+            type: videoType
+          }]
+        }}
+        />
+        {/* <video
         ref={videoRef}
         autoPlay={autoPlay}
         playsInline
@@ -74,9 +93,13 @@ export const LoopingVideo:React.FC<Props> = (props) => {
         controlsList="nodownload noremoteplayback"
         preload="auto"
         poster={backupImage?.src}
+        className="video-js"
         >
           <source src={url} type={videoType} />
-        </video>
+          <p className="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+          </p>
+        </video> */}
         { soundOption &&
           <MouseSticker
             ref={stickerRef}
@@ -124,6 +147,12 @@ const VideoWrapper = styled.div`
   border-radius: var(--border-radius);
   overflow: hidden;
   background-color: transparent;
+
+  video-js {
+    background: unset;
+    width: 100%;
+    max-width: 100%;
+  }
 
   video {
     position: relative;
