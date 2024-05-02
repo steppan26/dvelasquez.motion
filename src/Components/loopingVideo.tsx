@@ -3,6 +3,7 @@ import Image, { type StaticImageData } from "next/image"
 import styled from "styled-components"
 import MouseStickerImage from '/public/Assets/better_with_sound.gif'
 import { Sizes } from "../Assets"
+import { useVideoObservers } from "../utils/hooks/useVideoObservers"
 
 interface Props {
   backupImage?: StaticImageData
@@ -24,8 +25,7 @@ export const LoopingVideo:React.FC<Props> = (props) => {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [hasBeenClicked, setHasBeenClicked] = useState(false)
   const [mousePosition, setMousePosition] = useState({x: 0, y: 0})
-
-  // const DynamicVideo = dynamic(() => import('./SSRVideo').then(module => module.SSRVideo), { ssr: false })
+  useVideoObservers(videoRef)
 
   const maskPosition = useMemo(() => {
     const element = sceneRef.current
@@ -65,7 +65,7 @@ export const LoopingVideo:React.FC<Props> = (props) => {
   return (
     <VideoWrapper onClick={handleVideoClick} className="looping-video" ref={sceneRef} onMouseEnter={handleMouseMove} onMouseMove={handleMouseMove} data-lazy={dataLazy} id={!!id ? id : undefined} >
       <Suspense fallback={ backupImage ? <Image src={backupImage} alt="static image version of video" /> : <>loading...</> }>
-        {/* <video
+        <video
         ref={videoRef}
         autoPlay={autoPlay}
         playsInline
@@ -76,13 +76,12 @@ export const LoopingVideo:React.FC<Props> = (props) => {
         controlsList="nodownload noremoteplayback"
         preload="auto"
         poster={backupImage?.src}
-        className="video-js"
         >
           <source src={url} type={videoType} />
-          <p className="vjs-no-js">
-            To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+          <p>
+            To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
           </p>
-        </video> */}
+        </video>
         { soundOption &&
           <MouseSticker
             ref={stickerRef}

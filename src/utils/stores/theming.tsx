@@ -180,6 +180,9 @@ const GlobalStyle = createGlobalStyle<{}>`
         display: none !important;
       }
     }
+  }
 
+  .hidden {
+    display: none;
   }
 `
