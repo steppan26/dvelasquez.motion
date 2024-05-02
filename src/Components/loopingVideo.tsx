@@ -26,11 +26,11 @@ export const LoopingVideo:React.FC<Props> = (props) => {
   const [mousePosition, setMousePosition] = useState({x: 0, y: 0})
   const timeout = useRef(null)
 
-  useEffect(() => {
-    if (!videoRef.current || !autoPlay) return
+  // useEffect(() => {
+  //   if (!videoRef.current || !autoPlay) return
 
-    videoRef.current.play()
-  }, [])
+  //   // videoRef.current.play()
+  // }, [])
 
   const maskPosition = useMemo(() => {
     const element = sceneRef.current
