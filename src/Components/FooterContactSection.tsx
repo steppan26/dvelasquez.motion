@@ -72,7 +72,6 @@ const SocialsWrapper = styled.div`
 
     svg {
       width: auto;
-      max-width: 100%;
       height: 100%;
     }
 

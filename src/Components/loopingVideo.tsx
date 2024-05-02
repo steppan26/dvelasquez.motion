@@ -3,6 +3,7 @@ import Image, { type StaticImageData } from "next/image"
 import styled from "styled-components"
 import MouseStickerImage from '/public/Assets/better_with_sound.gif'
 import { Sizes } from "../Assets"
+import { useVideoObservers } from "../utils/hooks/useVideoObservers"
 
 interface Props {
   backupImage?: StaticImageData
@@ -18,18 +19,13 @@ interface Props {
 }
 
 export const LoopingVideo:React.FC<Props> = (props) => {
-  const { imageAlt="", backupImage, videoPath, videoType="video/webm", soundOption, allowControls, dataLazy=false, autoPlay=true, priority, id } = props
+  const { imageAlt="", backupImage, videoPath, videoType="video/webm", soundOption, allowControls, dataLazy=false, autoPlay=true, id } = props
   const stickerRef = useRef<HTMLImageElement>(null)
-  const sceneRef = useRef<HTMLImageElement>(null)
+  const sceneRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const [hasBeenClicked, setHasBeenClicked] = useState(false)
   const [mousePosition, setMousePosition] = useState({x: 0, y: 0})
-
-  useEffect(() => {
-    if (!videoRef.current || !autoPlay) return
-
-    videoRef.current.play()
-  }, [])
+  const { isVisible } = useVideoObservers(sceneRef)
 
   const maskPosition = useMemo(() => {
     const element = sceneRef.current
@@ -67,7 +63,7 @@ export const LoopingVideo:React.FC<Props> = (props) => {
   }, [videoPath])
 
   return (
-    <VideoWrapper className="looping-video" ref={sceneRef} onMouseEnter={handleMouseMove} onMouseMove={handleMouseMove} data-lazy={dataLazy} id={!!id ? id : undefined} >
+    <VideoWrapper onClick={handleVideoClick} className="looping-video" ref={sceneRef} onMouseEnter={handleMouseMove} onMouseMove={handleMouseMove} data-lazy={dataLazy} id={!!id ? id : undefined} >
       <Suspense fallback={ backupImage ? <Image src={backupImage} alt="static image version of video" /> : <>loading...</> }>
         <video
         ref={videoRef}
@@ -81,7 +77,10 @@ export const LoopingVideo:React.FC<Props> = (props) => {
         preload="auto"
         poster={backupImage?.src}
         >
-          <source src={url} type={videoType} />
+          { isVisible && <source src={url} type={videoType} /> }
+          <p>
+            To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
+          </p>
         </video>
         { soundOption &&
           <MouseSticker
@@ -122,7 +121,6 @@ const MouseSticker = styled(Image)`
   }
 `
 
-
 const VideoWrapper = styled.div`
   position: relative;
   flex: 1 1 100%;
@@ -131,6 +129,12 @@ const VideoWrapper = styled.div`
   border-radius: var(--border-radius);
   overflow: hidden;
   background-color: transparent;
+
+  video-js {
+    background: unset;
+    width: 100%;
+    max-width: 100%;
+  }
 
   video {
     position: relative;

@@ -1,6 +1,4 @@
-import dynamic from 'next/dynamic'
-import { useRouter } from 'next/router'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { Wrapper } from '../desktop'
 import { MobileHeaderText } from '.'
 import styled from 'styled-components'
@@ -8,29 +6,16 @@ import { Sizes } from '../../../Assets'
 
 export const BookSection:React.FC = () => {
     const calendarWrapperRef = useRef<HTMLDivElement>(null)
-  const router = useRouter()
-
-  useEffect(() => {
-    if(router.asPath.includes('#book') && !!calendarWrapperRef.current){
-      const top = calendarWrapperRef.current.getBoundingClientRect().top - 80
-      const body = document.querySelector('body')
-      setTimeout(() => body?.scrollTo({ top, behavior: 'instant' }), 0)
-    }
-  }, [router])
-
-  const CalendlyWidget = dynamic(() => import('../../../Components/calendly').then(module => module.Calendly), { ssr: false })
 
   return(
     <>
       <CustomWrapper data-lazy>
         <LargeDiamond />
-
         <div>
           <MobileHeaderText ref={calendarWrapperRef}>Book a call</MobileHeaderText>
         </div>
         <span />
       </CustomWrapper>
-      <CalendlyWidget />
     </>
   )
 }

@@ -4,28 +4,34 @@ import { Sizes } from "../Assets";
 import { isSafari } from "../utils/helpers";
 import { useRouter } from "next/router";
 import { LoopingVideo } from ".";
+import { useIsMobileView } from "../utils/hooks";
 
 
 export const AnimatedLogoDark:React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
   const [displayVideo, setDisplayVideo] = useState(true)
+  const { isMobileView } = useIsMobileView()
   const router = useRouter()
 
   useEffect(() => {
     if(typeof window == 'undefined' || !wrapperRef.current) return
 
-    console.info("supportsHEVCAlpha()", isSafari())
-    if(isSafari()) {
+    if(isSafari() || isMobileView) {
       setDisplayVideo(false)
     }
 
     const video = wrapperRef.current.querySelector('video') as HTMLVideoElement
-    video.addEventListener('ended', () => {
-      video.pause()
-      video.currentTime = video.duration
-    })
+    video?.addEventListener('ended', pauseVideoAtEnd)
+
+    return () => video?.removeEventListener('ended', pauseVideoAtEnd)
   }, [])
+
+  const pauseVideoAtEnd = (e:any) => {
+    const video = e.target
+    video.pause()
+    video.currentTime = video.duration
+  }
 
   const loadHomePage = () => router.push('/', '/', { scroll: true })
 

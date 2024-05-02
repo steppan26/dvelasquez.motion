@@ -59,6 +59,9 @@ export default function Document() {
           <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
           <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
         {/* <!-- End of Calendly --> */}
+
+        <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+        <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js" defer />
       </Head>
       <body>
         <Main />
