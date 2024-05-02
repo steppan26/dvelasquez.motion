@@ -3,8 +3,6 @@ import Image, { type StaticImageData } from "next/image"
 import styled from "styled-components"
 import MouseStickerImage from '/public/Assets/better_with_sound.gif'
 import { Sizes } from "../Assets"
-import VideoJS from "./videoJS"
-import Player from "video.js/dist/types/player"
 
 interface Props {
   backupImage?: StaticImageData
@@ -64,24 +62,9 @@ export const LoopingVideo:React.FC<Props> = (props) => {
     return 'https://d2gs8n06l6vuqg.cloudfront.net/' + videoPath
   }, [videoPath])
 
-  const onReady = (player: Player) => {
-    console.info("ppp", player)
-  }
-
   return (
-    <VideoWrapper className="looping-video" ref={sceneRef} onMouseEnter={handleMouseMove} onMouseMove={handleMouseMove} data-lazy={dataLazy} id={!!id ? id : undefined} >
+    <VideoWrapper onClick={handleVideoClick} className="looping-video" ref={sceneRef} onMouseEnter={handleMouseMove} onMouseMove={handleMouseMove} data-lazy={dataLazy} id={!!id ? id : undefined} >
       <Suspense fallback={ backupImage ? <Image src={backupImage} alt="static image version of video" /> : <>loading...</> }>
-        <VideoJS
-        onReady={onReady}
-        options={{
-          autoplay: autoPlay,
-          controls: hasBeenClicked && allowControls,
-          sources: [{
-            src: url,
-            type: videoType
-          }]
-        }}
-        />
         {/* <video
         ref={videoRef}
         autoPlay={autoPlay}
