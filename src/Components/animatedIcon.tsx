@@ -23,7 +23,7 @@ export const AnimatedIcon:React.FC<Props> = ({ mode }) => {
     if(isSafari() || isMobileView) {
       setDisplayVideo(false)
     }
-  }, [])
+  }, [isMobileView])
 
   return(
     <Wrapper ref={wrapperRef}>
