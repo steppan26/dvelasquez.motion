@@ -1,4 +1,4 @@
-import { Suspense, useMemo, useRef, useState } from "react"
+import { Suspense, useEffect, useMemo, useRef, useState } from "react"
 import Image, { type StaticImageData } from "next/image"
 import styled from "styled-components"
 import MouseStickerImage from '/public/Assets/better_with_sound.gif'
@@ -21,11 +21,11 @@ interface Props {
 export const LoopingVideo:React.FC<Props> = (props) => {
   const { imageAlt="", backupImage, videoPath, videoType="video/webm", soundOption, allowControls, dataLazy=false, autoPlay=true, id } = props
   const stickerRef = useRef<HTMLImageElement>(null)
-  const sceneRef = useRef<HTMLImageElement>(null)
+  const sceneRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const [hasBeenClicked, setHasBeenClicked] = useState(false)
   const [mousePosition, setMousePosition] = useState({x: 0, y: 0})
-  useVideoObservers(videoRef)
+  const { isVisible } = useVideoObservers(sceneRef)
 
   const maskPosition = useMemo(() => {
     const element = sceneRef.current
@@ -77,7 +77,7 @@ export const LoopingVideo:React.FC<Props> = (props) => {
         preload="auto"
         poster={backupImage?.src}
         >
-          {/* <source src={url} type={videoType} /> */}
+          { isVisible && <source src={url} type={videoType} /> }
           <p>
             To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
           </p>

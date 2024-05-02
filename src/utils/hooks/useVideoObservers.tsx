@@ -1,17 +1,15 @@
-import { RefObject, useCallback, useEffect } from "react"
+import { RefObject, useCallback, useEffect, useState } from "react"
+import { isElementInViewport } from "../helpers"
 
-export const useVideoObservers = (videoRef: RefObject<HTMLVideoElement>) => {
+export const useVideoObservers = (videoRef: RefObject<HTMLDivElement>) => {
+  const [isVisible, setIsVisible] = useState(false)
 
-  const attachObserver = useCallback((target: HTMLVideoElement) => {
+  const attachObserver = useCallback((target: HTMLDivElement) => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if(entry.isIntersecting){
-          target.play()
-        } else {
-          target.pause()
-        }
+        setIsVisible(entry.isIntersecting)
       })
-    }, { threshold: 0.15, root: null })
+    }, { threshold: 0.05, root: null })
     observer.observe(target)
     return observer
   }, [])
@@ -23,4 +21,6 @@ export const useVideoObservers = (videoRef: RefObject<HTMLVideoElement>) => {
 
     return () => observer.disconnect()
   }, [videoRef, attachObserver])
+
+  return { isVisible }
 }
