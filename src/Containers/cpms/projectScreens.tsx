@@ -32,7 +32,7 @@ const Container = styled.div`
   margin-inline: var(--container-padding);
 
   @media (max-width: ${Sizes.small}) {
-    gap: 0.35rem;
+    gap: 0;
     margin-inline: 0;
   }
 `
@@ -72,6 +72,7 @@ const ImageWrapper = styled.span`
     @media (max-width: ${Sizes.small}) {
       order: 0;
       flex-basis: 100%;
+      height: max-content;
       border-radius: 0;
 
       img, video {
@@ -98,7 +99,7 @@ const ImageWrapper = styled.span`
 
       img, video {
         transform: unset;
-        margin-right: 5rem;
+        margin-right: 2rem;
       }
     }
   }
@@ -116,7 +117,7 @@ const ImageWrapper = styled.span`
       border-radius: 0 var(--border-radius) var(--border-radius) 0;
 
       img, video {
-        margin-left: 2.5rem;
+        margin-left: 1.5rem;
       }
     }
   }
@@ -129,6 +130,7 @@ const ImageWrapper = styled.span`
     @media (max-width: ${Sizes.small}) {
       order: 2;
       flex-basis: 100%;
+      height: max-content;
       border-radius: 0;
 
       img, video {
