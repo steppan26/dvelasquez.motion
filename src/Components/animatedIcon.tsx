@@ -14,12 +14,13 @@ interface Props {
 export const AnimatedIcon:React.FC<Props> = ({ mode }) => {
   const wrapperRef = useRef<HTMLDivElement>(null)
   const [displayVideo, setDisplayVideo] = useState(true)
+  const { isMobileView } = useIsMobileView()
 
 
   useEffect(() => {
     if(typeof window == 'undefined' || !wrapperRef.current) return
 
-    if(isSafari()) {
+    if(isSafari() || isMobileView) {
       setDisplayVideo(false)
     }
   }, [])
