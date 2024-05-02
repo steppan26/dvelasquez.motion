@@ -21,7 +21,7 @@ export const AnimatedLogoDark:React.FC = () => {
     }
 
     const video = wrapperRef.current.querySelector('video') as HTMLVideoElement
-    video.addEventListener('ended', () => {
+    video?.addEventListener('ended', () => {
       video.pause()
       video.currentTime = video.duration
     })
