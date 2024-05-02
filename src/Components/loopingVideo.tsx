@@ -77,7 +77,7 @@ export const LoopingVideo:React.FC<Props> = (props) => {
         preload="auto"
         poster={backupImage?.src}
         >
-          <source src={url} type={videoType} />
+          {/* <source src={url} type={videoType} /> */}
           <p>
             To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
           </p>
