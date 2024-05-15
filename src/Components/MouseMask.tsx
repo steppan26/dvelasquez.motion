@@ -2,24 +2,23 @@ import styled from "styled-components"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { animated, useSpring } from "@react-spring/web"
 import { Sizes } from "../Assets"
-import { useMousePosition } from "../utils/hooks"
+import { useCookies, useMousePosition } from "../utils/hooks"
 
 interface Props {
   children?: React.ReactNode
 }
 
+type MaskShape = 'circle' | 'diamond'
+
 export const MouseMask:React.FC<Props> = ({ children }) => {
   const maskRef = useRef<HTMLDivElement>(null)
   const sceneRef = useRef<HTMLDivElement>(null)
   const mousePosition = useMousePosition(sceneRef.current)
+  const cookies = useCookies()
   const [style, set] = useSpring(() => ({
     x: 0,
     y: 0,
     config: {
-      // damping: 10,
-      // mass: 1.5,
-      // velocity: 20,
-
       mass: 2,
       damping: 15,
       tension: 300,
@@ -27,12 +26,22 @@ export const MouseMask:React.FC<Props> = ({ children }) => {
       velocity: 20,
     }
   }))
-  const [currentShape, setCurrentShape] = useState("diamond")
+  const _getCurrentShapeFromStorage = (): MaskShape => {
+    if(typeof document == 'undefined') return 'diamond'
+
+    const storedShape = cookies.get('currentShape')
+    const shape = storedShape === 'diamond' ? 'circle' : 'diamond'
+    cookies.set('currentShape', shape)
+    return shape
+  }
+
+  const [currentShape, setCurrentShape] = useState<MaskShape>('diamond')
 
   useEffect(() => {
     if(typeof window == 'undefined') return
 
     window.addEventListener('resetMask', resetMaskPosition)
+    setCurrentShape(_getCurrentShapeFromStorage())
 
     return () => window.removeEventListener('resetMask', resetMaskPosition)
   }, [])
@@ -70,7 +79,6 @@ export const MouseMask:React.FC<Props> = ({ children }) => {
       style={style}
       />
       {children}
-      {/* <Toggle className={currentShape} onClick={handleClick} /> */}
     </Scene>
   )
 }
@@ -107,8 +115,8 @@ const Mask = styled(animated.div)`
   }
 
   &.circle, .circle {
-    height: 110dvh;
-    width: 110dvh;
+    height: 92dvh;
+    width: 92dvh;
 
     &::after {
       left: 50%;
@@ -170,13 +178,4 @@ const Scene = styled.div`
       align-items: center;
     padding-top: 3rem;
   }
-`
-
-const Toggle = styled.div`
-  position: absolute;
-  right: 5vw;
-  bottom: 5vw;
-  width: 20px;
-  height: 20px;
-  background-color: var(--clr-bg-main);
 `
