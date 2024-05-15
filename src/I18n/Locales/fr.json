@@ -1,1 +1,117 @@
-{}
+{
+  "home": {
+    "landing": {
+      "line1": "Direction artistique",
+      "line2": "Conception de marque",
+      "line3": "Design d'animation",
+      "scrollDown": "Faire défiler"
+    },
+    "showReel": {
+      "header": "Des designs uniques pour des idées uniques",
+      "text": "À travers <span>l'expression de marque</span> et <span>la narration visuelle</span>, je peux aider des <span>organisations audacieuses</span>, des <span>startups ambitieuses</span> et des <span>individus créatifs</span> à raconter leur histoire, à communiquer leurs idées et à construire leur communauté.",
+      "showreel": "Showreel"
+    }
+  },
+  "projects": {
+    "handpicked": "Projets sélectionnés",
+    "jellysmack": {
+      "intro": {
+        "imageAlt": "Icône animée du logo Jellysmack sautant hors d'une boîte ouverte",
+        "projectText": "Améliorer la marque Jellysmack pour une utilisation <b>externe et interne</b>. Créer une variété d'éléments graphiques qui <b>transmettent authentiquement les valeurs de Jellysmack : créativité, positivité et innovation technologique.</b>",
+        "howText": "Notre objectif était de créer un message de marque durable résonnant tant avec les équipes internes qu'avec les communautés en ligne grâce à des couleurs vibrantes et des animations dynamiques. <br />En s'appuyant sur le branding de Red Antler de 2021, l'équipe de design interne a développé des lignes directrices complètes détaillant la stratégie de communication de Jellysmack. En tant que motion designer, <b>j'ai donné vie à ces éléments, assurant leur facilité et efficacité d'utilisation.</b> Cela impliquait la création d'une gamme variée d'éléments, y compris des titres animés, des histoires Instagram, des légendes personnalisées, des stickers pour les réseaux sociaux, et plus encore. \n À travers ces éléments, nous avons cherché à incarner l'énergie vibrante et la positivité de Jellysmack, en cultivant une culture de <b>créativité et d'optimisme</b> à travers les canaux de communication."
+      },
+      "stickers": {
+        "line1": "Grâce à l'utilisation d'éléments animés,",
+        "line2": "Jellysmack amplifie la narration digitale,",
+        "line3": "enrichissant l'expérience des spectateurs et favorisant",
+        "line4": "des connexions significatives avec le public."
+      },
+      "jellyMessage": {
+        "text1": "Les stickers pour les réseaux sociaux ont accumulé plus de 30 millions de vues, avec un taux d'engagement en constante augmentation.",
+        "text2": "De plus, l'identité de marque a créé un sentiment d'unité et d'appartenance, résonnant tant en interne qu'au sein de la communauté en ligne."
+      }
+    },
+    "motionSecrets": {
+      "intro": {
+        "imageAlt": "Animation affichant des transitions d'animation de formes",
+        "projectText": "Pour améliorer mes compétences en tant que motion designer, je me suis inscrit au cours en ligne d'Emmanuele Colombo, Motion Secrets. <br />Voici les trois premiers projets personnels que j'ai réalisés dans le cadre de ce cours.",
+        "howText": "J'ai saisi cette opportunité pour explorer les histoires que je voulais raconter dans chaque exercice. Mon objectif était de dépasser la simple technique et d'imaginer un monde pleinement réalisé dans chaque projet. <br />Incorporer la musique et construire un univers autour de chaque projet pour leur donner vie s'est avéré être une expérience profondément personnelle et significative. Je suis impatient de voir quelles histoires je peux créer dans les prochaines leçons."
+      },
+      "captions": {
+        "whoIsLooking": "Y a-t-il quelqu'un là dehors ?",
+        "blueDot": "Point bleu espiègle",
+        "intro": "Break On Through To The Other Side"
+      },
+      "drawingsText": "Il y a toujours beaucoup de réflexion et de planification dans chacun de ces exercices courts, et je crois que le processus pour y parvenir fait la moitié de l'histoire."
+    },
+    "mysteria": {
+      "intro": {
+        "imageAlt": "Image montrant plusieurs projets",
+        "projectText": "Permettre aux créateurs numériques d'étendre leur portée et de monétiser leur contenu sur les télévisions en streaming. <br />Jellysmack s'est associé au géant du streaming Roku pour introduire des chaînes FAST révolutionnaires dirigées par des créateurs.",
+        "howText": "Jellysmack et Roku ont collaboré pour sélectionner des créateurs et les aider à lancer leurs propres émissions. Mysteria et Hello Inspo ne sont que le début de nombreuses autres émissions que nous lancerons. <br />Nous avons développé des intros et outros pour les chaînes principales et les créateurs individuels à présenter. Notre objectif principal était de traduire visuellement la personnalité de chaque chaîne."
+      },
+      "text1": "Les meilleurs créateurs offrent de l'inspiration couvrant un large éventail de sujets, de la beauté et du style aux rénovations de maisons, recettes, bricolages, et plus encore.",
+      "text2": "Mysteria met en lumière les expériences des victimes. Avec ses méthodes de narration uniques, cette chaîne est la destination ultime pour les amateurs de crime véritable."
+    },
+    "cpms": {
+      "intro": {
+        "imageAlt": "Illustration d'un portrait d'une petite fille",
+        "projectText": "Développer une vidéo pour <b>offrir des conseils</b> aux agents de protection de l'enfance sur l'identification et la <b>protection des enfants contre les abus</b> dans des environnements à haut risque.",
+        "howText": "Les agents de protection de l'enfance ont besoin de formation pour reconnaître les signes d'abus chez les enfants et suivre les procédures appropriées. Utiliser <b>la narration permet d'établir une connexion émotionnelle</b>, améliorant ainsi l'efficacité de l'apprentissage. <br />En tenant compte de leur branding et de leur contenu précédent, mon objectif était de créer un <b>univers beau mais simple</b> qui transmet l'espoir et la clarté."
+      },
+      "drawingsText": "En infusant la vidéo d'une touche humaine, en utilisant des éléments tels que des illustrations, des séquences réelles et des infographies visuelles, non seulement cela améliore la rétention, mais cela facilite également une connexion émotionnelle plus forte."
+    }
+  },
+  "about": {
+    "mobile": {
+      "about": {
+        "header":"À propos",
+        "block1": "Ah. L'éternel voyage de la découverte de soi. C'est comme un labyrinthe enchanté. Juste au moment où je trouve les réponses, la vie change les questions.",
+        "block2": "Je suis né en Colombie en 1993. Élevé par une mère forte et passionnée, et un père créatif et dilué. C'était un monde régi par des contrastes extrêmes de vertu et de vice, de péché et de rédemption.",
+        "block3": "J'ai grandi seul, entouré de liberté, d'art, de politique, d'incertitude et de religion. Enfant, mon endroit heureux était un film Disney, un livre d'énigmes, du maquillage et des vêtements.",
+        "block4": "Je pouvais me perdre pendant des heures à jouer sur l'ordinateur de ma mère à dessiner sur Paint et PowerPoint. Je me souviens à quel point c'était amusant de créer des diapositives, d'ajouter des transitions et d'animer le texte.",
+        "block5": "Je ne savais pas que ma curiosité et ma passion pour la narration visuelle ne feraient que grandir et devenir mon étoile polaire.",
+        "block6": "Maintenant, avec un océan et une décennie entre les deux, je me retrouve avec un Pinot Noir à la main et la Tour Eiffel comme compagnie, entouré d'art, de mode et de beauté. Tant de choses ont changé que j'ai l'impression de reprendre mon souffle.",
+        "block7": "J'ai toujours eu ce feu et cette curiosité de comprendre comment les humains communiquent et racontent leurs histoires en utilisant les éléments les plus simples mais les plus puissants tels que les couleurs, les formes et les textures.",
+        "block8": "Avec un master en design et communication et dix ans d'expérience professionnelle, après avoir exploré d'innombrables livres, films et œuvres d'art, je me spécialise en stratégie de marque, direction artistique et animation.",
+        "block9": "<b>J'aimerais vous aider à raconter votre histoire, à donner vie à vos idées et à construire ensemble un univers aussi unique que vous.</b>",
+        "block10": "<b>Ne soyez pas un étranger, parlons :)</b>"
+      },
+      "bio": {
+        "header": "Bio",
+        "block1": "<b>Directeur artistique et motion designer</b>, parlant couramment <b>anglais, français et espagnol</b>, titulaire d'un <b>master</b> de l'école e-artsup à Paris.",
+        "block2": "J'ai eu l'opportunité de travailler dans divers environnements, des agences de design établies comme <b>TBWA</b> aux stations de radio comme <b>RFM</b>, et plus récemment, chez <b>Jellysmack</b>—une startup qui s'est transformée en une multinationale, collaborant avec certains des <b>créateurs de contenu</b> et <b>marques</b> les plus influents.",
+        "block3": "Épanouie dans des projets divers et stimulants, je fais preuve de solides compétences en leadership et d'une adaptabilité exceptionnelle. Avec d'excellentes compétences en communication interdisciplinaire et une compréhension approfondie des dynamiques des médias sociaux.",
+        "block4": "En dehors du travail, je suis passionné par les voyages, la musique, les animaux et la randonnée."
+      }
+    },
+    "desktop": {
+      "about": {
+        "header": "À propos",
+        "block1": "Je suis Daniela, une conteuse visuelle, et je crois fermement que <b>la communication efficace est le catalyseur pour réaliser l'extraordinaire.</b>/n/Avec un master et dix ans d'expérience professionnelle, je me spécialise en stratégie de marque, direction artistique et animation./n/J'ai toujours eu ce feu pour comprendre comment les humains communiquent et racontent leurs histoires. J'adore quand toute une histoire remplie d'émotions peut être racontée en utilisant les éléments les plus simples mais les plus puissants tels que les couleurs, les formes et les textures./n/Je suis né en Colombie en 1993. Élevé par une mère forte et passionnée, et un père créatif mais absent. C'était un monde régi par des contrastes extrêmes de vertu et de vice, de péché et de rédemption. J'ai grandi seul, entouré de liberté, d'art, de politique, d'incertitude et de religion.",
+        "block2": "Quand j'était petite, mon 'happy place' était un film Disney, un livre d'énigmes, du maquillage et des vêtements. Je pouvais me perdre pendant des heures à jouer sur l'ordinateur de ma mère à dessiner sur Paint et PowerPoint. Je me souviens à quel point c'était amusant de créer des diapositives, d'ajouter des transitions et d'animer le texte. Je ne savais pas que ma curiosité et ma passion pour la narration visuelle ne feraient que grandir et devenir mon étoile polaire./n/Maintenant, avec un océan et une décennie entre les deux, je me retrouve avec un Pinot Noir à la main et la Tour Eiffel comme compagnie, entouré d'art, de mode et de beauté. Tant de choses ont changé que j'ai l'impression de reprendre mon souffle. L'éternel voyage de la découverte de soi. C'est comme un labyrinthe magique. Juste au moment où je trouve les réponses, la vie change les questions./n/<b>J'aimerais vous aider à raconter votre histoire, à donner vie à vos idées et à construire ensemble un univers aussi unique que vous.<br />/n/Ne soyez pas un étranger, /n/parlons :)"
+      },
+      "bio": {
+        "header": "Bio",
+        "text": "<b>Directeur artistique et motion designer</b>, parlant couramment <b>anglais, français et espagnol</b>, titulaire d'un <b>master</b> de l'école e-artsup à Paris./n/J'ai eu l'opportunité de travailler dans divers environnements, des agences de design établies comme <b>TBWA</b> aux stations de radio comme <b>RFM</b>, et plus récemment, chez <b>Jellysmack</b>—une startup qui s'est transformée en une multinationale, collaborant avec certains des <b>créateurs de contenu</b> et <b>marques</b> les plus influents./n/Épanouie dans des projets divers et stimulants, je fais preuve de solides compétences en leadership et d'une adaptabilité exceptionnelle. Avec d'excellentes compétences en communication interdisciplinaire et une compréhension approfondie des dynamiques des médias sociaux./n/En dehors du travail, je suis passionné par les voyages, la musique, les animaux et la randonnée.",
+        "keyword1": "Direction artistique",
+        "keyword2": "Design d'animation",
+        "keyword3": "Conception de marque"
+      }
+    }
+  },
+  "links": {
+    "home": "Accueil",
+    "about": "À propos",
+    "projects": "Projets",
+    "next": "Suivant"
+  },
+  "generic": {
+    "project": "Le projet",
+    "whyHow": "Le pourquoi et comment"
+  },
+  "buttons": {
+    "book": "Réserver un appel",
+    "schedule": "Planifier un appel"
+  }
+}

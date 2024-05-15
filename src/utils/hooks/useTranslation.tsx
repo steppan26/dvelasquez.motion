@@ -16,7 +16,7 @@ interface Config {
 export const useTranslation = (props?: Config) => {
   const { useNavigatorLanguage= false } = props ?? {}
 
-  const [locale, setLocale] = useState('FR')
+  const [locale, setLocale] = useState('en')
   const router = useRouter()
 
   useEffect(() => {
