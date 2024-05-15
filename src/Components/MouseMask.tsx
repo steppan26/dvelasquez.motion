@@ -159,7 +159,6 @@ const Mask = styled(animated.div)`
 
 const Scene = styled.div`
   --clr-background: ${p => p.theme.backgroundPrimary};
-  --clr-shape: ${p => p.theme.backgroundSecondary};
 
   position: relative;
   transform: translate3d(0px, 0px, 0px) rotate(0.0001deg);
