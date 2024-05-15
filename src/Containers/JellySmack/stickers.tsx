@@ -2,20 +2,24 @@ import styled from "styled-components"
 import StickersVideoStatic from '/public/projects/jellysmack/stickers_video.webp'
 import { Text } from "../../Components/styledComponents"
 import { Sizes } from "../../Assets"
-import { useIsMobileView } from "../../utils/hooks"
+import { useIsMobileView, useTranslation } from "../../utils/hooks"
 import { LoopingVideo } from "../../Components"
+
+const TKEY = 'projects.jellysmack.stickers.'
 
 export const Stickers:React.FC = () => {
   const { isMobileView } = useIsMobileView()
+  const { t } = useTranslation()
+
   return (
     <Container>
       <InformationWrapper data-lazy>
         <LoopingVideo id="rocketShip" videoPath="jellysmack/rocket.webm" />
         <CustomText>
-          Through the use of animated assets,
-          {!isMobileView && <br />} Jellysmack amplifies digital storytelling,
-          {!isMobileView && <br />} enriching the viewer experience and fostering
-          {!isMobileView && <br />} meaningful connections with the audience.
+          {t(TKEY+'line1')}
+          {!isMobileView && <br />} {t(TKEY+'line2')}
+          {!isMobileView && <br />} {t(TKEY+'line3')}
+          {!isMobileView && <br />} {t(TKEY+'line4')}
         </CustomText>
         <LoopingVideo id="spinningFace" videoPath="jellysmack/positive_vibes.webm" />
       </InformationWrapper>

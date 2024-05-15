@@ -9,13 +9,6 @@ import Head from "next/head";
 import { useEffect, useRef } from "react";
 import { useNavMode } from "../../utils/hooks";
 
-const introData = {
-  image: IntroImage,
-  imageAlt: "Animation displaying shape animation transitions",
-  projectText: "In my search to improve my skills as a motion designer, I enrolled in Emmanuele Colombo's online course, Motion Secrets. <br />Presented here are the first three personal projects I completed as part of this course.",
-  howText: "I seized this opportunity to explore the stories I wanted to convey in each exercise. My goal was to move beyond mere technique and imagine a fully realised world within each project. <br />Incorporating music and building a universe around them to bring them to life proved to be a deeply personal and meaningful experience. I'm excited to see what stories I can create in the following lessons."
-}
-
 const Page:NextPage = () => {
   const landingSectionRef = useRef<HTMLDivElement>(null)
   const { addObserver, navMode } = useNavMode('dark')
@@ -32,12 +25,12 @@ const Page:NextPage = () => {
         <ImageWrappper className="main-image" ref={landingSectionRef}>
           <LoopingVideo videoPath="motion_secrets/motion-secrets_intro.webm" backupImage={MainHeaderImage} />
         </ImageWrappper>
-        <IntroSection {...introData} />
+        <IntroSection image={IntroImage} project="motionSecrets" />
         <PersonalProjectsList />
         <ProjectDrawings />
         <Footer
-        leftLink={{ text: "Home", href: "/" }}
-        rightLink={{ text: "Next", href: "/projects/mysteria" }}
+        leftLink={{ text: "home", href: "/" }}
+        rightLink={{ text: "next", href: "/projects/mysteria" }}
         />
       </Container>
     </>

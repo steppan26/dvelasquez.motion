@@ -1,19 +1,15 @@
 import styled from "styled-components"
 import { CTAButtonRounded, ShowReel } from "../Components"
 import { Sizes } from "../Assets"
-import { MouseEventHandler } from "react"
+import { useTranslation } from "../utils/hooks"
 
 export const ShowReelSection:React.FC = () => {
-  const handleArrowClick: MouseEventHandler = (e) => {
-    window.dispatchEvent(new CustomEvent('resetMask'))
-  }
+  const { t } = useTranslation()
 
   return (
     <Container id="showReelSection">
       <InfoSection data-lazy>
-        <Text>
-          Through <span>brand expression</span> and <span>visual storytelling</span> I can help daring <span>organisations</span>, ambitious <span>startups</span> and <span>creative individuals</span> craft their story, communicate their ideas and build their tribe.
-        </Text>
+        <Text dangerouslySetInnerHTML={{'__html': t('home.showReel.text')}} />
         <CTAButtonRounded />
       </InfoSection>
       <ShowReel />

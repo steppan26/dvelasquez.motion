@@ -12,16 +12,10 @@ import { Text } from "../../Components/styledComponents"
 import { VideosGallery } from "../../Containers/mysteria"
 import Head from "next/head";
 import { useEffect, useRef } from "react";
-import { useNavMode } from "../../utils/hooks";
-
-const introData = {
-  image: IntroImage,
-  imageAlt: "image displaying multiple projects",
-  projectText: "Empower digital creators to expand their audience reach and monetize their content on streaming television. <br />Jellysmack partnered with the streaming giant Roku to introduce groundbreaking creator-led FAST channels.",
-  howText: "Jellysmack and Roku collaborated to hand-select creators and assist them in launching their own shows. Mysteria and Hello Inspo mark just the beginning of many more shows we will be launching. <br />We developed intros and outros for both the main channels and the individual creators to be featured. Our primary objective was to visually translate the personality of each channel."
-}
+import { useNavMode, useTranslation } from "../../utils/hooks";
 
 const Page:NextPage = () => {
+  const { t } = useTranslation()
   const landingSectionRef = useRef<HTMLDivElement>(null)
   const { addObserver, navMode } = useNavMode('light')
 
@@ -41,10 +35,10 @@ const Page:NextPage = () => {
             layout="responsive"
             />
         </ImageWrappper>
-        <IntroSection {...introData} />
+        <IntroSection image={IntroImage} project="mysteria" />
         <ContentWrapper>
           <LoopingVideo id="helloInspoVideo" videoPath="mysteria/mysteria_hello_inspo.webm" dataLazy allowControls soundOption />
-          <CenteredText>Top creators offer inspiration covering a wide range of topics, from beauty and style to home makeovers, recipes, DIYs, and more.</CenteredText>
+          <CenteredText>{t('projects.mysteria.text1')}</CenteredText>
           <VideosGallery
           videosList={[
             'mysteria/mysteria_gallery-cooking.webm',
@@ -54,9 +48,7 @@ const Page:NextPage = () => {
           ]}
           />
           <LoopingVideo videoPath="mysteria/mysteria.webm" dataLazy allowControls soundOption backupImage={CaseUpdateImage} />
-          <CenteredText data-lazy>
-            Mysteria shines a spotlight on the experiences of the victims. With its unique storytelling methods, this channel serves as the ultimate destination for true crime enthusiasts.
-          </CenteredText>
+          <CenteredText data-lazy>{t('projects.mysteria.text2')}</CenteredText>
           <VideosGallery
           videosList={[
             'mysteria/mysteria_criminal-psyche.webm',
@@ -68,8 +60,8 @@ const Page:NextPage = () => {
           <LoopingVideo videoPath="mysteria/mysteria_stories.webm" dataLazy allowControls soundOption />
         </ContentWrapper>
         <Footer
-        leftLink={{ text: "Home", href: "/" }}
-        rightLink={{ text: "About", href: "/about" }}
+        leftLink={{ text: "home", href: "/" }}
+        rightLink={{ text: "about", href: "/about" }}
         />
     </Container>
     </>

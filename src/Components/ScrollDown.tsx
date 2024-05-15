@@ -2,6 +2,7 @@ import { MouseEventHandler, useEffect, useRef } from "react";
 import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
 import { Sizes } from "../Assets";
+import { useTranslation } from "../utils/hooks";
 
 interface Props {
   scrollToSelector: string
@@ -9,6 +10,7 @@ interface Props {
 
 export const ScrollDown:React.FC<Props> = ({ scrollToSelector }) => {
   const arrowRef = useRef<HTMLParagraphElement>(null)
+  const { t } = useTranslation()
 
   useEffect(() => {
     if(!arrowRef.current) return
@@ -44,7 +46,7 @@ export const ScrollDown:React.FC<Props> = ({ scrollToSelector }) => {
 
   return (
     <ArrowWrapper ref={arrowRef} style={bounceSpring} onClick={onClick} className="bouncing-arrow">
-      Scroll Down
+      {t('home.landing.scrollDown')}
     </ArrowWrapper>
   );
 }

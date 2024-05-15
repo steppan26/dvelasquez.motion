@@ -4,8 +4,10 @@ import Drawing00 from '/public/projects/cpms/drawing_00.webp'
 import Drawing01 from '/public/projects/cpms/drawing_01.webp'
 import { Text } from "../../Components/styledComponents"
 import { Sizes } from "../../Assets"
+import { useTranslation } from "../../utils/hooks"
 
 export const DrawingsSection:React.FC = () => {
+  const { t } = useTranslation()
   return (
     <Container data-lazy>
       <div id="drawingGirl">
@@ -19,7 +21,7 @@ export const DrawingsSection:React.FC = () => {
           }} />
       </div>
       <Text>
-        Infusing the video with a human touch, using elements such as illustrations, real-life footage, and visual infographics, not only enhances retention but also facilitates a stronger emotional connection.
+        {t('projects.cpms.drawingsText')}
       </Text>
       <div id="drawingTent">
         <Image

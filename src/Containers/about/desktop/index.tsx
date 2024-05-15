@@ -3,12 +3,11 @@ import { Navbar } from "../../NavBar"
 import { Footer } from "../../footer/footer"
 import { AboutSection } from "./aboutSection"
 import { BioSection } from "./bioSection"
-import { BookSection } from "./bookSection"
 import { CTAButtonRounded } from "../../../Components"
 
 export const AboutDesktop:React.FC = () => {
   return(
-    <Container>
+    <div>
       <Navbar type="showcase" mode="dark" />
       <AboutSection />
       <BioSection />
@@ -16,16 +15,12 @@ export const AboutDesktop:React.FC = () => {
         <CTAButtonRounded />
       </ButtonWrapper>
       <Footer
-        leftLink={{ text: "Home", href: "/" }}
-        rightLink={{ text: "Projects", href: "/projects" }}
+        leftLink={{ text: "home", href: "/" }}
+        rightLink={{ text: "projects", href: "/projects" }}
         />
-    </Container>
+    </div>
   )
 }
-
-const Container = styled.div`
-`
-
 
 export const HeaderText = styled.h2`
   position: relative;

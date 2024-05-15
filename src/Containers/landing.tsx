@@ -4,7 +4,7 @@ import { PrimaryTitle } from "../Components/styledComponents"
 import { Sizes } from "../Assets"
 import { LandingMobile, Navbar } from "."
 import { MouseEventHandler, useEffect, useRef, useState } from "react"
-import { useCookies } from "../utils/hooks"
+import { useCookies, useTranslation } from "../utils/hooks"
 
 type LandingTheme = 'olive' | 'yellow' | 'pink' | 'wine' | 'default'
 
@@ -27,8 +27,9 @@ class ThemeIterator {
 
 export const Landing:React.FC = () => {
   const selectorRef = useRef<HTMLDivElement>(null)
-  const [currentTheme, setCurrentTheme] = useState<LandingTheme>('pink')
   const cookies = useCookies()
+  const { t } = useTranslation()
+  const [currentTheme, setCurrentTheme] = useState<LandingTheme>('pink')
 
   useEffect(() => {
     if(typeof window == 'undefined') return
@@ -55,9 +56,9 @@ export const Landing:React.FC = () => {
         <MouseMask>
             <Wrapper>
             <TextWrapper onClick={handleArrowClick}>
-              <span>Art Direction</span>
-              <span>Brand Design</span>
-              <span>Motion Design</span>
+              <span>{t('home.landing.line1')}</span>
+              <span>{t('home.landing.line2')}</span>
+              <span>{t('home.landing.line3')}</span>
             </TextWrapper>
             <ScrollDown scrollToSelector="#showreelContainer" />
           </Wrapper>

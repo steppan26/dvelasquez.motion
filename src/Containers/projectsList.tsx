@@ -6,6 +6,7 @@ import rokuLogo from '../../public/projects/jelly_Roku.webp'
 import { Footer, Navbar } from "."
 import { ProjectPeak, ProjectPeakProps } from "../Components"
 import React from "react"
+import { useTranslation } from "../utils/hooks"
 
 
 const ProjectsListData: ProjectPeakProps[] = [
@@ -32,7 +33,7 @@ const ProjectsListData: ProjectPeakProps[] = [
 ]
 
 export const ProjectsListContainer:React.FC = () => {
-
+  const { t } = useTranslation()
 
   const transitions = useTransition(ProjectsListData, {
     from: { y:  200, opacity: 0 },
@@ -50,7 +51,7 @@ export const ProjectsListContainer:React.FC = () => {
     <>
       <Wrapper>
         <Navbar type="showcase" mode="dark" />
-        <Title>Handpicked Projects</Title>
+        <Title>{t('projects.handpicked')}</Title>
         <Container id="showcaseContainer">
           {transitions((style, item, _, index) => (
             <React.Fragment key={index}>
@@ -59,16 +60,7 @@ export const ProjectsListContainer:React.FC = () => {
           ))}
         </Container>
       </Wrapper>
-      <Footer
-      leftLink={{
-        text: "Home",
-        href: "/"
-      }}
-      rightLink={{
-        text: "About",
-        href: "/about"
-      }}
-      />
+      <Footer leftLink={{ text: 'home', href: "/" }} rightLink={{ text: 'about', href: "/about" }} />
     </>
   )
 }

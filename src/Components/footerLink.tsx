@@ -1,18 +1,22 @@
 import Link from "next/link"
 import styled from "styled-components"
 import { Sizes, ArrowLong } from "../Assets"
+import { useTranslation } from "../utils/hooks"
+
+type FooterLinkLocation = "home" | "about" | "projects" | "next"
 
 export interface FooterLinkProps {
-  text: string
+  text: FooterLinkLocation
   href: string
   direction?: "left" | "right"
 }
 
 
 export const FooterLink:React.FC<FooterLinkProps> = ({ text, href, direction }) => {
+  const { t } = useTranslation()
   return(
     <NextWrapper href={href} data-direction={direction} >
-      {text}
+      {t('links.'+text)}
       <BaseArrow>
         <ArrowLong />
       </BaseArrow>

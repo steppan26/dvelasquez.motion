@@ -3,29 +3,54 @@ import styled from "styled-components"
 import { Sizes } from "../Assets"
 import { useCallback } from "react"
 import { LoopingVideo } from "../Components"
+import { useTranslation } from "../utils/hooks"
+
+type ProjectType = "jellysmack" | "motionSecrets" | "cpms" | "mysteria"
 
 interface Props {
   image: StaticImageData | string
-  imageAlt: string
-  projectText: string
-  howText: string
+  project: ProjectType
 }
 
-export const IntroSection:React.FC<Props> = ({ image, imageAlt, projectText, howText }) => {
+export const IntroSection:React.FC<Props> = ({ image, project }) => {
+  const { t } = useTranslation()
+  const getText = useCallback((key: string): string => {
+    return t('projects.'+project+'.intro.'+key)as string
+  }, [t, project])
+
   const GraphicElement = useCallback(() => {
     if(typeof image === 'string'){
       return <LoopingVideo videoPath={image} />
     }
-
     return (
       <Image
       src={image}
-      alt={imageAlt}
+      alt={getText('imageAlt')}
       loading="eager"
       layout="responsive"
       />
     )
-  }, [image, imageAlt])
+  }, [image, getText])
+
+  const FormattedProjectText: React.FC = useCallback(() => (
+    <>
+    {getText('projectText')
+      .split('<br />')
+      .map(text =>
+        <Text key={text} dangerouslySetInnerHTML={{ __html: text }} />
+      )}
+    </>
+  ), [getText])
+
+  const FormattedHowText: React.FC = useCallback(() => (
+      <>
+      {getText('howText')
+        .split('<br />')
+        .map(text =>
+          <Text key={text} dangerouslySetInnerHTML={{ __html: text }} />
+        )}
+      </>
+    ), [getText])
 
   return (
     <Container>
@@ -33,12 +58,12 @@ export const IntroSection:React.FC<Props> = ({ image, imageAlt, projectText, how
         <GraphicElement />
       </ImageWrapper>
       <ProjectWrapper data-lazy="intro" >
-        <Header>The Project</Header>
-        {projectText.split('<br />').map( text => <Text key={text} dangerouslySetInnerHTML={{ __html: text }} /> )}
+        <Header>{t('generic.project')}</Header>
+        <FormattedProjectText />
       </ProjectWrapper>
       <WhyWrapper data-lazy="intro" >
-        <Header>The Why and How</Header>
-        {howText.split('<br />').map( text => <Text key={text} dangerouslySetInnerHTML={{ __html: text }} /> )}
+        <Header>{t('generic.whyHow')}</Header>
+        <FormattedHowText />
       </WhyWrapper>
     </Container>
   )
@@ -84,6 +109,7 @@ const ImageWrapper = styled.div`
 const ProjectWrapper = styled.div`
   grid-area: project;
   align-self: end;
+  min-width: 100%;
 
   @media (max-width: ${Sizes.small}) {
     order: 0;
@@ -96,6 +122,7 @@ const ProjectWrapper = styled.div`
 const WhyWrapper = styled.div`
   grid-area: why;
   align-self: start;
+  min-width: 100%;
 
   @media (max-width: ${Sizes.small}) {
     order: 2;

@@ -2,21 +2,24 @@ import Image from "next/image"
 import styled from "styled-components"
 import { MobileAboutText, MobileHeaderText, TextGroupMobile } from "."
 import DaniPortraitImage from '/public/about/gallery_4.webp'
+import { useTranslation } from "../../../utils/hooks"
 
 export const BioSection:React.FC = () => {
+  const { t } = useTranslation()
+
   return(
     <Wrapper>
       <LargeDiamond />
-      <MobileHeaderText>Bio</MobileHeaderText>
-      <MobileAboutText><b>Art Director and Motion Designer</b>, fluent in <b>English, French, and Spanish</b>, holding a <b>master&apos;s degree</b> from e-artsup school in Paris.</MobileAboutText>
+      <MobileHeaderText>{t('about.mobile.bio.header')}</MobileHeaderText>
+      <MobileAboutText dangerouslySetInnerHTML={{'__html': t('about.mobile.bio.block1')}} />
       <ContentWrapper>
         <ImageWrapper>
           <Image src={DaniPortraitImage} alt="Full portrait image of Daniela in Greece" layout="responsive" />
         </ImageWrapper>
         <TextGroupMobile className='textGroup'>
-          <MobileAboutText>I&apos;ve had the opportunity to work in various environments, from established design agencies like <b>TBWA</b> to radio stations such as <b>RFM</b>, and most recently, at <b>Jellysmack</b>—a startup that has expanded into a multinational corporation, collaborating with some of the most influential <b>content creators</b> and <b>brands</b>.</MobileAboutText>
-          <MobileAboutText>Thriving in diverse and stimulating projects, I demonstrate solid leadership skills and exceptional adaptability. With excellent interdisciplinary communication skills and a deep understanding of social media dynamics.</MobileAboutText>
-          <MobileAboutText>Outside of work, I am passionate about travel, music, animals and hiking.</MobileAboutText>
+          <MobileAboutText dangerouslySetInnerHTML={{'__html': t('about.mobile.bio.block2')}} />
+          <MobileAboutText dangerouslySetInnerHTML={{'__html': t('about.mobile.bio.block3')}} />
+          <MobileAboutText dangerouslySetInnerHTML={{'__html': t('about.mobile.bio.block4')}} />
         </TextGroupMobile>
       </ContentWrapper>
     </Wrapper>

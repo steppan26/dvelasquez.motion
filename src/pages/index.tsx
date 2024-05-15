@@ -3,8 +3,10 @@ import { Footer, Landing, Navbar, ShowReelSection } from "../Containers"
 import { ScrollingContainer } from "../Assets/UIComponents"
 import { Sizes } from "../Assets"
 import Head from "next/head"
+import { useTranslation } from "../utils/hooks"
 
 export default function Home() {
+  const { t } = useTranslation()
 
   return (
     <>
@@ -16,13 +18,10 @@ export default function Home() {
       <Container id="showreelContainer">
         <Cutout data-lazy />
         <Navbar type="showcase" mode="dark" />
-        <MainTitle data-lazy>Unique Design for Unique Ideas</MainTitle>
+        <MainTitle data-lazy>{t('home.showReel.header')}</MainTitle>
         <ShowReelSection />
       </Container>
-      <Footer
-      leftLink={{ text: "About", href: "/about" }}
-      rightLink={{ text: "Projects", href: "/projects" }}
-      />
+      <Footer leftLink={{ text: 'about', href: "/about" }} rightLink={{ text: 'projects', href: "/projects" }} />
     </Main>
     </>
   )

@@ -3,23 +3,25 @@ import { AboutText, GutterImagesWrapper, HeaderText, TextGroup, Wrapper } from "
 import DaniPortrait from '/public/about/gallery_4.webp'
 import PetsImage from '/public/about/gallery_5.webp'
 import Image from "next/image"
+import { useTranslation } from "../../../utils/hooks"
 
 export const BioSection:React.FC = () => {
+  const { t } = useTranslation()
+
   return(
     <Wrapper>
       <GutterImagesWrapper data-lazy>
         <Image src={DaniPortrait} alt="Portrait image of Daniela in Greece" id="daniPortrait" layout="responsive" />
       </GutterImagesWrapper>
       <MainContent data-lazy>
-        <HeaderText style={{paddingBottom: '1rem'}}>Bio</HeaderText>
+        <HeaderText style={{paddingBottom: '1rem'}}>{t('about.desktop.bio.header')}</HeaderText>
         <TextGroup>
-          <AboutText><b>Art Director and Motion Designer</b>, fluent in <b>English, French, and Spanish,</b> holding a <b>master&apos;s degree</b> from e-artsup school in Paris.</AboutText>
-          <AboutText>I&apos;ve had the opportunity to work in various environments, from established design agencies like <b>TBWA</b> to radio stations such as <b>RFM</b>, and most recently, at <b>Jellysmack</b>—a startup that has expanded into a multinational corporation, collaborating with some of the most influential <b>content creators</b> and <b>brands</b>.</AboutText>
-          <AboutText>Thriving in diverse and stimulating projects, I demonstrate solid leadership skills and exceptional adaptability. With excellent interdisciplinary communication skills and a deep understanding of social media dynamics. </AboutText>
-          <AboutText>Outside of work, I am passionate about travel, music, animals and hiking.</AboutText>
+          {(t('about.desktop.bio.text')as string)
+            .split('/n/')
+            .map((text, index) => <AboutText key={index} dangerouslySetInnerHTML={{ "__html": text }} />)}
         </TextGroup>
         <KeywordsWrapper>
-          <RedDiamond /> Art Direction <RedDiamond /> Motion Design <RedDiamond /> Brand Design <RedDiamond />
+          <RedDiamond /> {t('about.desktop.bio.keyword1')} <RedDiamond /> {t('about.desktop.bio.keyword2')} <RedDiamond /> {t('about.desktop.bio.keyword3')} <RedDiamond />
         </KeywordsWrapper>
       </MainContent>
       <GutterImagesWrapper data-lazy>

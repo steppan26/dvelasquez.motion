@@ -1,0 +1,117 @@
+{
+  "home": {
+    "landing": {
+      "line1": "Art Direction",
+      "line2": "Brand Design",
+      "line3": "Motion Design",
+      "scrollDown": "Scroll Down"
+    },
+    "showReel": {
+      "header": "Unique Design for Unique Ideas",
+      "text": "Through <span>brand expression</span> and <span>visual storytelling</span> I can help daring <span>organisations</span>, ambitious <span>startups</span> and <span>creative individuals</span> craft their story, communicate their ideas and build their tribe.",
+      "showreel": "Showreel"
+    }
+  },
+  "projects": {
+    "handpicked": "Handpicked Projects",
+    "jellysmack": {
+      "intro": {
+        "imageAlt": "Animated icon of the jellysmack logo jumping out of an open box",
+        "projectText": "Enhance the Jellysmack brand both for <b>external and internal use.</b> Creating a diverse array of graphic elements that <b>authentically convey Jellysmack's values: creativity, positivity, and tech innovation.</b>",
+        "howText": "Our goal was to create a lasting brand message resonating with both internal teams and online communities through vibrant colours and dynamic animation. <br />Expanding on Red Antler's 2021 branding, the internal design team developed comprehensive guidelines detailing Jellysmack's communication strategy. As a motion designer, <b>I brought these elements to life, ensuring their ease and efficiency of use.</b> This involved creating a diverse range of assets, including animated titles, Instagram stories, personalised captions, social media stickers, and more. \n Through these elements, we aimed to embody Jellysmack's vibrant energy and positivity, nurturing a culture of <b>creativity and optimism</b> across communication channels."
+      },
+      "stickers": {
+        "line1": "Through the use of animated assets,",
+        "line2": "Jellysmack amplifies digital storytelling,",
+        "line3": "enriching the viewer experience and fostering",
+        "line4": "meaningful connections with the audience."
+      },
+      "jellyMessage": {
+        "text1": "The social media stickers accumulated over 30 million views, with a continuously rising engagement rate.",
+        "text2": "Additionally, the brand identity created a sense of unity and belonging, resonating both internally and within the online community."
+      }
+    },
+    "motionSecrets": {
+      "intro": {
+        "imageAlt": "Animation displaying shape animation transitions",
+        "projectText": "In my search to improve my skills as a motion designer, I enrolled in Emmanuele Colombo's online course, Motion Secrets. <br />Presented here are the first three personal projects I completed as part of this course.",
+        "howText": "I seized this opportunity to explore the stories I wanted to convey in each exercise. My goal was to move beyond mere technique and imagine a fully realised world within each project. <br />Incorporating music and building a universe around them to bring them to life proved to be a deeply personal and meaningful experience. I'm excited to see what stories I can create in the following lessons."
+      },
+      "captions": {
+        "whoIsLooking": "Is There Anybody Out There ?",
+        "blueDot": "Mischievious Blue dot",
+        "intro": "Break On Through To The Other Side"
+      },
+      "drawingsText": "There&apos;s always a lot of thinking and planning involved in each of these short exercises, and I believe that the process of getting there is half of the story."
+    },
+    "mysteria": {
+      "intro": {
+        "imageAlt": "image displaying multiple projects",
+        "projectText": "Empower digital creators to expand their audience reach and monetize their content on streaming television. <br />Jellysmack partnered with the streaming giant Roku to introduce groundbreaking creator-led FAST channels.",
+        "howText": "Jellysmack and Roku collaborated to hand-select creators and assist them in launching their own shows. Mysteria and Hello Inspo mark just the beginning of many more shows we will be launching. <br />We developed intros and outros for both the main channels and the individual creators to be featured. Our primary objective was to visually translate the personality of each channel."
+      },
+      "text1": "Top creators offer inspiration covering a wide range of topics, from beauty and style to home makeovers, recipes, DIYs, and more.",
+      "text2": "Mysteria shines a spotlight on the experiences of the victims. With its unique storytelling methods, this channel serves as the ultimate destination for true crime enthusiasts."
+    },
+    "cpms": {
+      "intro": {
+        "imageAlt": "illustration of a portrait of a little girl",
+        "projectText": "Develop a video to <b>offer guidance</b> to child protection officers on identifying and <b>safeguarding children from abuse</b> in high-risk environments.",
+        "howText": "Child protection officers need training to recognise signs of abuse in children and to follow appropriate procedures. Utilising <b>storytelling allows us to establish an emotional connection</b>, thereby enhancing the effectiveness of learning. <br />Taking into account their branding and previous content, my aim was to create a <b>beautiful yet simple universe</b> that conveys hope and clarity."
+      },
+      "drawingsText": "Infusing the video with a human touch, using elements such as illustrations, real-life footage, and visual infographics, not only enhances retention but also facilitates a stronger emotional connection."
+    }
+  },
+  "about": {
+    "mobile": {
+      "about": {
+        "header":"About me",
+        "block1": "Ah. The eternal journey of self-discovery. It feels like an enchanted maze. Right when I find the answers, life changes the questions.",
+        "block2": "I was born in Colombia in 1993. Raised by a strong, passionate mother, and a creative and diluted father. It was a world ruled by extreme contrasts of virtue and vice, sin and redemption.",
+        "block3": "I grew up alone, surrounded by freedom, art, politics, uncertainty, and religion. As a child, my happy place was a Disney movie, a riddles book, makeup, and clothes. ",
+        "block4": "I could lose myself for hours playing on my mom’s computer drawing on Paint and PowerPoint. I remember how fun it was creating slides, adding transitions, and animating the text.",
+        "block5": "Little did I know that my curiosity and passion in visual storytelling would only grow and become my north star.",
+        "block6": "Now, with an ocean and a decade in between, I find myself with a Pinot Noir in my hand and the Eiffel Tower as my company, surrounded by art, fashion, and beauty. So much has changed that I feel I’m just now catching my breath.",
+        "block7": "I’ve always had that fire and curiosity to understand how humans communicate and tell their stories using the most basic but powerful elements such as colors, shapes, and textures.",
+        "block8": "With a master&apos;s degree in design & communication and ten years of professional experience, after exploring countless books, movies, and works of art, I specialize in brand strategy, art direction, and animation.",
+        "block9": "<b>I would love to help you tell your story, bring your ideas to life, and together build a universe as unique as you are.</b>",
+        "block10": "<b>Don’t be a stranger, let’s talk :)</b>"
+      },
+      "bio": {
+        "header": "Bio",
+        "block1": "<b>Art Director and Motion Designer</b>, fluent in <b>English, French, and Spanish</b>, holding a <b>master&apos;s degree</b> from e-artsup school in Paris.",
+        "block2": "I&apos;ve had the opportunity to work in various environments, from established design agencies like <b>TBWA</b> to radio stations such as <b>RFM</b>, and most recently, at <b>Jellysmack</b>—a startup that has expanded into a multinational corporation, collaborating with some of the most influential <b>content creators</b> and <b>brands</b>.",
+        "block3": "Thriving in diverse and stimulating projects, I demonstrate solid leadership skills and exceptional adaptability. With excellent interdisciplinary communication skills and a deep understanding of social media dynamics.",
+        "block4": "Outside of work, I am passionate about travel, music, animals and hiking."
+      }
+    },
+    "desktop": {
+      "about": {
+        "header": "About me",
+        "block1": "I’m Daniela, a visual storyteller, and I firmly believe that <b>effective communication is the catalyst for realising the extraordinary.</b>/n/With a master’s degree and ten years of professional experience, I specialise in brand strategy, art direction, and animation./n/I’ve always had that fire to understand how humans communicate and tell their stories. I love when a whole story filled with emotions can be told by using the most basic but powerful elements such as colours, shapes, and textures./n/I was born in Colombia in 1993. Raised by a strong, passionate mother, and a creative but absent father. It was a world ruled by extreme contrasts of virtue and vice, sin and redemption. I grew up alone, surrounded by freedom, art, politics, uncertainty, and religion.",
+        "block2": "As a child, my happy place was a Disney movie, a riddles book, makeup, and clothes. I could lose myself for hours playing on my mom’s computer drawing on Paint and PowerPoint. I remember how fun it was creating slides, adding transitions, and animating the text. Little did I know that my curiosity and passion in visual storytelling would only grow and become my north star./n/Now, with an ocean and a decade in between, I find myself with a Pinot Noir in my hand and the Eiffel Tower as my company, surrounded by art, fashion, and beauty. So much has changed that I feel I’m just now catching my breath. The eternal journey of self-discovery. It feels like a magic maze. Right when I find the answers, life changes the questions./n/<b>I would love to help you tell your story, bring your ideas to life, and together build a universe as unique as you are.<br />/n/Don’t be a stranger, /n/let’s talk :)"
+      },
+      "bio": {
+        "header": "Bio",
+        "text": "b>Art Director and Motion Designer</b>, fluent in <b>English, French, and Spanish,</b> holding a <b>master&apos;s degree</b> from e-artsup school in Paris./n/I&apos;ve had the opportunity to work in various environments, from established design agencies like <b>TBWA</b> to radio stations such as <b>RFM</b>, and most recently, at <b>Jellysmack</b>—a startup that has expanded into a multinational corporation, collaborating with some of the most influential <b>content creators</b> and <b>brands</b>./n/Thriving in diverse and stimulating projects, I demonstrate solid leadership skills and exceptional adaptability. With excellent interdisciplinary communication skills and a deep understanding of social media dynamics./n/Outside of work, I am passionate about travel, music, animals and hiking.",
+        "keyword1": "Art Direction",
+        "keyword2": "Motion Design",
+        "keyword3": "Brand Design"
+      }
+    }
+  },
+  "links": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "next": "Next"
+  },
+  "generic": {
+    "project": "The Project",
+    "whyHow": "The Why and How"
+  },
+  "buttons": {
+    "book": "Book a Call",
+    "schedule": "Schedule a call"
+  }
+}
