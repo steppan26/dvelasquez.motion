@@ -28,33 +28,6 @@ export default function Document() {
         <meta property="twitter:image" content="https://res.cloudinary.com/dtlyxry6z/image/upload/v1711648224/Home/social_brand_logo_p7e9dw.png" />
         {/* End of social Media Tags */}
 
-        {/* Google Tag Manager */}
-          <Script
-          id="googleTagManager"
-            dangerouslySetInnerHTML={{
-              __html: `
-                (function(w,d,s,l,i){
-                  w[l]=w[l]||[];
-                  w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-                  var f=d.getElementsByTagName(s)[0],
-                  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-                  j.async=true;
-                  j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-                  f.parentNode.insertBefore(j,f);
-                })(window,document,'script','dataLayer','${gtmKey}');
-              `,
-            }}
-          />
-          <noscript>
-            <iframe
-              src={"https://www.googletagmanager.com/ns.html?id=" + gtmKey}
-              height="0"
-              width="0"
-              style={{ display: 'none', visibility: 'hidden' }}
-            ></iframe>
-          </noscript>
-        {/* End of Google Tag Manager */}
-
         {/* <!-- Calendly --> */}
           <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
           <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
