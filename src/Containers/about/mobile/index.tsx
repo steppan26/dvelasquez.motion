@@ -16,8 +16,8 @@ export const AboutMobile:React.FC = () => {
         <CTAButtonRounded />
       </ButtonWrapper>
       <Footer
-      leftLink={{ text: "Home", href: "/" }}
-      rightLink={{ text: "Projects", href: "/projects" }}
+      leftLink={{ text: "home", href: "/" }}
+      rightLink={{ text: "projects", href: "/projects" }}
       />
     </Container>
   )

@@ -3,7 +3,7 @@ module.exports = {
       buildActivity: false
     },
   i18n: {
-    locales: ['fr', 'en'],
+    locales: ['fr', 'en', 'es'],
     defaultLocale: 'en',
   },
   images: {

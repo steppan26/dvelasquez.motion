@@ -9,13 +9,6 @@ import Head from "next/head";
 import { useEffect, useRef } from "react";
 import { useNavMode } from "../../utils/hooks";
 
-const introData = {
-  image: "cpms/cpms-clara-profile.webm",
-  imageAlt: "illustration of a portrait of a little girl",
-  projectText: "Develop a video to <b>offer guidance</b> to child protection officers on identifying and <b>safeguarding children from abuse</b> in high-risk environments.",
-  howText: "Child protection officers need training to recognise signs of abuse in children and to follow appropriate procedures. Utilising <b>storytelling allows us to establish an emotional connection</b>, thereby enhancing the effectiveness of learning. <br />Taking into account their branding and previous content, my aim was to create a <b>beautiful yet simple universe</b> that conveys hope and clarity."
-}
-
 const Page:NextPage = () => {
   const landingSectionRef = useRef<HTMLDivElement>(null)
   const { addObserver, navMode } = useNavMode('dark')
@@ -32,13 +25,11 @@ const Page:NextPage = () => {
       <ImageWrappper className="main-image" ref={landingSectionRef}>
         <LoopingVideo videoPath="cpms/cpms-main-header.webm" backupImage={MainHeaderImage} />
       </ImageWrappper>
-      <IntroSection {...introData} />
+      <IntroSection image="cpms/cpms-clara-profile.webm" project="cpms" />
       <ProjectScreens />
       <DrawingsSection />
       <DataScreenshots />
-      <Footer
-      leftLink={{ text: "Home", href: "/" }}
-      rightLink={{ text: "Next", href: "/projects/motionSecrets" }}
+      <Footer leftLink={{ text: "home", href: "/" }} rightLink={{ text: "next", href: "/projects/motionSecrets" }}
       />
     </Container>
     </>

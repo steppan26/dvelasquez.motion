@@ -5,6 +5,7 @@ import favicon from '/public/favicon.ico'
 import { CursorMessage } from '../Components'
 import { useEffect } from 'react'
 import { useToggleCalendlyVisibility } from '../utils/hooks'
+import { GoogleTagManager } from '@next/third-parties/google'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   useToggleCalendlyVisibility()
@@ -28,6 +29,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
     <Stores>
+      <GoogleTagManager gtmId='GTM-P2HPQTBZ' />
       <CursorMessage />
       <Component {...pageProps} />
     </Stores>

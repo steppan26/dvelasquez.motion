@@ -6,9 +6,11 @@ import Drawing2 from '/public/projects/motion_secrets/drawing_2.webp'
 import Drawing3 from '/public/projects/motion_secrets/drawing_3.webp'
 import Drawing4 from '/public/projects/motion_secrets/drawing_4.webp'
 import { Sizes } from "../../Assets"
-import { isSafari } from "../../utils/helpers"
+import { useTranslation } from "../../utils/hooks"
 
 export const ProjectDrawings:React.FC = () => {
+  const { t } = useTranslation()
+
   return (
     <Container>
       <Image
@@ -47,9 +49,10 @@ export const ProjectDrawings:React.FC = () => {
           maxWidth: "100%",
           height: "auto"
         }} />
-      <Text data-lazy="motion-secrets_drawing" >
-        There&apos;s always a lot of thinking and planning involved in each of these short exercises, and I believe that the process of getting there is half of the story.
-      </Text>
+      <Text
+      data-lazy="motion-secrets_drawing"
+      dangerouslySetInnerHTML={{"__html": t('projects.motionSecrets.drawingsText')as string
+      }} />
     </Container>
   );
 }

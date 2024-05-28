@@ -2,8 +2,10 @@ import styled from "styled-components"
 import { ArrowShort, PhoneIcon, Sizes } from "../Assets"
 import { animated, useSpring } from "react-spring"
 import { useState } from "react"
+import { useTranslation } from "../utils/hooks"
 
 export const CTAButtonRounded:React.FC = () => {
+  const { t } = useTranslation()
   const [isHovering, setIsHovering] = useState(false)
 
   const arrowSpring = useSpring({
@@ -40,7 +42,7 @@ export const CTAButtonRounded:React.FC = () => {
     >
       <ContentSlider style={slideSpring}>
         <span><PhoneIcon /></span>
-        <span>Book a Call</span>
+        <span>{t('buttons.book')}</span>
         <animated.span style={arrowSpring}>
           <ArrowShort />
           </animated.span>

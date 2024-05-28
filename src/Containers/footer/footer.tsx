@@ -4,7 +4,6 @@ import { FooterLink, FooterLinkProps } from "../../Components/footerLink"
 import { FooterContactSection } from "../../Components"
 import { BackToTop } from "./backToTop"
 
-
 interface Props {
   leftLink: FooterLinkProps
   rightLink: FooterLinkProps

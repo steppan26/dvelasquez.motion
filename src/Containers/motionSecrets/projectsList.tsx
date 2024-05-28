@@ -1,21 +1,26 @@
 import styled from "styled-components"
 import { LoopingVideo } from "../../Components"
 import { Sizes } from "../../Assets"
+import { useTranslation } from "../../utils/hooks"
+
+const TKEY = 'projects.motionSecrets.captions.'
 
 export const PersonalProjectsList:React.FC = () => {
+  const { t } = useTranslation()
+
   return(
     <Container>
       <ProjectWrapper data-lazy>
         <LoopingVideo videoPath="motion_secrets/motion-secrets_who-is-looking.webm" soundOption allowControls />
-        <Text>Is There Anybody Out There ?</Text>
+        <Text>{t(TKEY+"whoIsLooking")}</Text>
       </ProjectWrapper>
       <ProjectWrapper data-lazy>
         <LoopingVideo videoPath="motion_secrets/motion-secrets_mischievous_blue_dot.webm" soundOption allowControls />
-        <Text>Mischievious Blue Dot</Text>
+        <Text>{t(TKEY+"blueDot")}</Text>
       </ProjectWrapper>
       <ProjectWrapper data-lazy>
         <LoopingVideo videoPath="motion_secrets/motion-secrets_intro.webm" soundOption allowControls />
-        <Text>Break On Through To The Other Side</Text>
+        <Text>{t(TKEY+"intro")}</Text>
       </ProjectWrapper>
     </Container>
   )

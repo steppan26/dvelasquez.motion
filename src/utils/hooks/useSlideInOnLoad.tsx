@@ -1,11 +1,13 @@
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import { useIsMobileView } from "./useIsMobileView";
+import { useTranslation } from "./useTranslation";
 
 export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
   const [observers, setObservers] = useState<IntersectionObserver[]>([])
   const { isMobileView } = useIsMobileView()
   const router = useRouter()
+  const { t } = useTranslation()
 
   const _attachObserver = useCallback((target: Element) => {
     const observer = new IntersectionObserver(entries => {
@@ -142,5 +144,5 @@ export const useSlideInOnLoad = (querySelector='[data-lazy]') => {
     addObservers()
 
     return cleanUp
-  }, [router.asPath])
+  }, [router.asPath, t])
 }

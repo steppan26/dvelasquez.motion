@@ -1,9 +1,12 @@
 import styled from "styled-components"
 import { Sizes } from "../../Assets"
-import { useIsMobileView } from "../../utils/hooks"
+import { useIsMobileView, useTranslation } from "../../utils/hooks"
 import { LoopingVideo } from "../../Components"
 
+const TKEY = 'projects.jellysmack.jellyMessage.'
+
 export const JellyMessage:React.FC = () => {
+  const { t } = useTranslation()
   const { isMobileView } = useIsMobileView()
 
   return (
@@ -11,15 +14,12 @@ export const JellyMessage:React.FC = () => {
       <LoopingVideo id="animatedJellyLogo" videoPath="jellysmack/jelly.webm" />
       <TextWrapper>
         <Text>
-          The social media stickers accumulated over 30 million views, with a continuously rising engagement rate.
+          {t(TKEY+'text1')}
         </Text>
         <Text>
-          Additionally, the brand identity created a sense of unity and belonging, resonating both internally and within the online community.
+          {t(TKEY+'text2')}
         </Text>
       </TextWrapper>
-        {/* {!isMobileView && <br />} Jellysmack amplifies digital storytelling,
-        {!isMobileView && <br />} enriching the viewer experience and fostering
-        {!isMobileView && <br />} meaningful connections with the audience. */}
     </Container>
   );
 }

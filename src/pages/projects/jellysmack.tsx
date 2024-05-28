@@ -10,13 +10,6 @@ import Head from "next/head";
 import { useEffect, useRef } from "react";
 import { useNavMode } from "../../utils/hooks";
 
-const introData = {
-  image: JellyBoxImage,
-  imageAlt: "Animated icon of the jellysmack logo jumping out of an open box",
-  projectText: "Enhance the Jellysmack brand both for <b>external and internal use.</b> Creating a diverse array of graphic elements that <b>authentically convey Jellysmack's values: creativity, positivity, and tech innovation.</b>",
-  howText: "Our goal was to create a lasting brand message resonating with both internal teams and online communities through vibrant colours and dynamic animation. <br />Expanding on Red Antler's 2021 branding, the internal design team developed comprehensive guidelines detailing Jellysmack's communication strategy. As a motion designer, <b>I brought these elements to life, ensuring their ease and efficiency of use.</b> This involved creating a diverse range of assets, including animated titles, Instagram stories, personalised captions, social media stickers, and more. \n Through these elements, we aimed to embody Jellysmack's vibrant energy and positivity, nurturing a culture of <b>creativity and optimism</b> across communication channels."
-}
-
 const Page:NextPage = () => {
   const landingSectionRef = useRef<HTMLDivElement>(null)
   const { addObserver, navMode } = useNavMode('light')
@@ -33,18 +26,15 @@ const Page:NextPage = () => {
       <LandingSection ref={landingSectionRef}>
         <LoopingVideo videoPath="jellysmack/go-bigger_header.webm" backupImage={LandingBackupImage} />
       </LandingSection>
-      <IntroSection {...introData} />
+      <IntroSection image={JellyBoxImage} project="jellysmack" />
       <PhoneScreenshots />
       <Stickers />
       <SocialMediaAssets />
       <JellyMessage />
-      <VideoWrapper  data-lazy>
+      <VideoWrapper data-lazy>
         <LoopingVideo videoPath="jellysmack/jelly_thank_you_for_watching.webm" backupImage={BannerImage} />
       </VideoWrapper>
-      <Footer
-      leftLink={{ text: "Home", href: "/" }}
-      rightLink={{ text: "Next", href: "/projects/cpms" }}
-      />
+      <Footer leftLink={{ text: 'home', href: "/" }} rightLink={{ text: 'next', href: "/projects/cpms" }} />
     </Container>
     </>
   )

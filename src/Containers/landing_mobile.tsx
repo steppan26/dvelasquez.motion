@@ -1,17 +1,18 @@
 import styled from "styled-components"
 import { PrimaryTitle } from "../Components/styledComponents"
 import { Sizes } from "../Assets"
-import { Navbar } from "."
+import { useTranslation } from "../utils/hooks"
 
 export const LandingMobile:React.FC = () => {
+  const { t } = useTranslation()
   return(
     <>
     <Container>
       <ContentWrapper>
         <TextWrapper>
-          <span>Art Direction</span>
-          <span>Brand Design</span>
-          <span>Motion Design</span>
+          <span>{t('home.landing.line1')}</span>
+          <span>{t('home.landing.line2')}</span>
+          <span>{t('home.landing.line3')}</span>
         </TextWrapper>
       </ContentWrapper>
     </Container>
