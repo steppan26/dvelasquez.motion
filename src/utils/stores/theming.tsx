@@ -185,4 +185,13 @@ const GlobalStyle = createGlobalStyle<{}>`
   .hidden {
     display: none;
   }
+
+  #axeptio_main_button {
+    left: unset;
+    right: 18px;
+
+    svg path {
+      fill: var(--clr-bg-secondary);
+    }
+  }
 `
