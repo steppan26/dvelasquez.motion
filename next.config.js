@@ -3,11 +3,11 @@ module.exports = {
       buildActivity: false
     },
   i18n: {
-    locales: ['fr', 'en', 'es'],
+    locales: ['en'],
     defaultLocale: 'en',
   },
   images: {
-    domains: [ 'cdn.sanity.io', 'res.cloudinary.com']
+    domains: ['res.cloudinary.com']
   },
   reactStrictMode: false,
   compiler: { styledComponents: {"ssr": true} },
