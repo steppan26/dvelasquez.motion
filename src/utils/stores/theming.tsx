@@ -82,7 +82,7 @@ const GlobalStyle = createGlobalStyle<{}>`
   }
 
   html {
-    overflow: hidden;
+    /* overflow: hidden; */
   }
 
   * {
